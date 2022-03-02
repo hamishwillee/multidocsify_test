@@ -67,6 +67,10 @@
             //fixcontent = fixcontent.replace(/..\/..\/assets/g, "https://raw.githubusercontent.com/hamishwillee/qgroundcontrol/master/docs/qgc-user-guide/assets");
 			//This works because all relative links in lib are relative and so going back one level takes you to base. So I'm just replacing a the base
 			// A more corect fix would get the url of page then pop it back by one, then append the extra bits.
+			//fixcontent = content.replace(/\!\[(.*?)\]\((..\/..\/assets.*?)\)/g, '<img src="$2" alt="$1" title="$1" />');
+			
+			//fixcontent = content.replace(/\!\[(.*?)\]\((.*?)\)/g, '<img src="$2" title="$1" />'); // make all image links into to base
+			fixcontent = content.replace(/\!\[(.*?)\]\((.*?assets\/)(.*?)\)/g, '<img src="/assets/$3" title="$1" />'); // force assets to root
             fixcontent = fixcontent.replace(/\]\(..\//g, `](${ current_path_back_one }/`);
 			fixcontent = fixcontent.replace(/\]\(..\/..\//g, `](${ current_path_back_two }/`);
             return fixcontent
