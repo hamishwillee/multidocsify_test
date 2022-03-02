@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+
+      name: '<a id="home-link" class="app-name-link" data-nosearch href="/">Home</a>' +
+        '<select id="lang-selector" name="lang">' +
+          '<option value="en">English</value>' +
+          '<option value="zh">中文</value>' +
+          '<option value="ko">Korean</value>' +
+        '</select>' +
+        '<select id="ver-selector" name="version">' +
+          '<option value="master">Master</value>' +
+          '<option value="v1.12">v1.12</value>' +
+        '</select>',
+      nameLink: false, // disable automatic linking to avoid navigating when clicking on select
+      // name: '',
+      repo: '',
+      loadSidebar: 'SUMMARY.md',
+      loadNavbar: true,
+	  /* relativePath: true, */
+      fallbackLanguages: ['zh', 'ko'],
+      namespaces: [
+        {
+          id: "version",
+          values: ["master", "v1.12"],
+          default: "master",
+          optional: false,
+          selector: "#ver-selector",
+        },
+        {
+          // uniq namespace identifier (no used internally yet but maybe in the future)
+          id: "lang",
+          // recognizable values
+          values: ["en", "zh", "ko"],
+          default: "en",
+          // whether this namespace must be present in the path or not
+          optional: false,
+          selector: "#lang-selector",
+        }
+      ],
+	  
+      alias: {
+        "/master/(.*)": "https://raw.githubusercontent.com/PX4/PX4-user_guide/master/$1",
+        "/v1.12/(.*)": "https://raw.githubusercontent.com/PX4/PX4-user_guide/v1.12/$1",
+		"/assets/(.*)": "https://raw.githubusercontent.com/PX4/PX4-user_guide/master/assets",
+      },
+
+      plugins: [
+        function(hook) {
+          let translation="";
+          let current_pagename="";
+          let current_path="/";
+          let current_path_back_one="/";
+          let current_path_back_two="/";
+		  let current_path_page = location.href.split('/#/')?.[1]; //The string for translation - e.n
+		  let current_path_page_array = current_path_page?.split('/');
+          if (current_path_page_array) {
+		  
+		    let current_pagename=`${current_path_page_array.pop()}.md`;
+		    let current_path = `/${current_path_page_array.join("/")}`;
+		    let current_path_back_one = `/${current_path_page_array.slice(0,-1).join("/")}`;
+		    let current_path_back_two = `/${current_path_page_array.slice(0,-2).join("/")}`;
+		  //let path_back_two = current_path_page_array.pop()//.join('/');
+		    let translation = current_path_page_array[0]; //The string for translation - e.g.:en
+          }
+		  
+          let footer = [
+            '<hr/>',
+            '<footer>',
+            '<span><a href="Z">?</a> &copy;?.</span>',
+			'<span>X',
+			translation,
+			'pagename:',
+			current_pagename,
+			'PATHNAME:',
+            current_path,
+			'PATHBACK1:',
+            current_path_back_one,
+			'PATHBACK2:',
+            current_path_back_two,
+			'HREF:',
+			location.href,
+			'Z</span>',
+            '<span>Proudly published with <a href="X" target="_blank">docsify</a>.</span>',
+            '</footer>'
+          ].join('');
+		
+		
+          //Fixup images. There's bug that means it can't find them in the tree, but we can get them from github.
+          hook.beforeEach(function(content) {
+		    let fixcontent;
+		    //Fix links to point to static assets on github.
+            fixcontent = content.replace(/..\/..\/assets/g, "https://raw.githubusercontent.com/PX4/PX4-user_guide/master/assets");
+			// fixcontent = content.replace(/..\/..\/assets/g, "/assets");
+			//fixcontent = content.replace(/\!\[(.*?)\]\((..\/..\/assets.*?)\)/g, '<img src="$2" alt="$1" title="$1" />');
+			// fixcontent = content.replace(/\!\[(.*?)\]\((..\/..\/assets.*?)\)/g, '<img src="$2" data-origin="$2" title="$1">'); //replaces but doesn't link
+			// fixcontent = content.replace(/\!\[(.*?)\]\((..\/..\/assets.*?)\)/g, '<img src="$2" alt="$1" title="$1" />');
+			//This works because all relative links in lib are relative and so going back one level takes you to base. So I'm just replacing a the base
+			// A more corect fix would get the url of page then pop it back by one, then append the extra bits.
+            fixcontent = fixcontent.replace(/\]\(..\//g, `](${ current_path_back_one }/`);
+			fixcontent = fixcontent.replace(/\]\(..\/..\//g, `](${ current_path_back_two }/`);
+            return fixcontent
+          });
+		  
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+		  
+        }
+      ],
+
+	  
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Support for multiple languages/versions:
+   https://github.com/palkan/docsify-namespaced 
+   https://evilmartians.com/chronicles/easy-multi-language-multi-version-documentation-with-docsify-git-and-github-actions
+  -->
+  <script src="https://unpkg.com/docsify-namespaced"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+</body>
+</html>
