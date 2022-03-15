@@ -442,7 +442,6 @@ The toolbar only displays valid tool options for the current vehicle state (inva
 | ![](images/image36.png)  | Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc. |
 | ![](images/image45.png)  | [Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission. |
 
-‌
 
 All operations must be confirmed using a slider before they will be executed.
 Confirmation prompts are displayed in the bottom center of the map (if an altitude can be set for an operation, a vertical slider will be displayed at the same time).
