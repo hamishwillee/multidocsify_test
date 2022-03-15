@@ -437,21 +437,12 @@ It provides <sup><a href="#cmnt2" id="cmnt_ref2">[b]</a><a href="#cmnt3" id="cmn
 
 The strip will additionally include the *ground station location* (“person” icon) **if** the ground station has a GPS module.  
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> The MGRS coordinate system divides the world up into 100000m2 submaps, and then defines positions within each map in terms of northing and easting values.
-The resolution of the northing/easting values is determined by the number of digits provided: 5 digits gives 1m resolution, 4 digits gives 10m resolution, while 1 digit gives just 10km resolution.<br />
-<br />
-So for example, 32TMT 49 18 is a position in the 32TMT square with 1000 meter resolution, while  32TMT 49000 18000 is the same coordinate with 1m resolution.</p>
-<p><br />
-For more information see <a href="https://en.wikipedia.org/wiki/Military_Grid_Reference_System">MGRS coordinates</a> (Wikipedia)</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** The MGRS coordinate system divides the world up into 100000m2 submaps, and then defines positions within each map in terms of northing and easting values.
+> The resolution of the northing/easting values is determined by the number of digits provided: 5 digits gives 1m resolution, 4 digits gives 10m resolution, while 1 digit gives just 10km resolution.
+>
+> So for example, 32TMT 49 18 is a position in the 32TMT square with 1000 meter resolution, while 32TMT 49000 18000 is the same coordinate with 1m resolution.
+>
+> For more information see [MGRS coordinates](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) (Wikipedia).
 
 The MGRS grid overlay and information strip are enabled by selecting the checkbox: **Application Settings \> General \> Miscellaneous \> Display MGRS coordinates**.
 
@@ -761,8 +752,7 @@ All other modes are automatically selected when you perform an associated operat
 
 The most important PX4 flight modes and tasks are covered at high level below.
 
-> **Note: **
-> Flight Mode behaviour depends on vehicle type and configuration.
+> **Note:** Flight Mode behaviour depends on vehicle type and configuration.
 > The information here covers _default behaviour_ at high level.
 > More detailed information can be found in the PX4 user guide:
 > - [Basic Concepts > Flight Modes](https://docs.px4.io/master/en/getting_started/flight_modes.html)
@@ -1195,17 +1185,9 @@ In addition, the **Plan Tools \> Center** tool can be used to control how the ma
 </tbody>
 </table>
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> Additional, for <em>mission editing</em> (only) the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.<br />
-<img src="images/image122.png" /></p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** Additional, for _mission editing_ (only) the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.
+> ![](images/image122.png)
+
 
 ### Map Grid
 
@@ -2603,19 +2585,8 @@ The main sections are:
   
 ![](images/image115.png)  
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> <br />
-There is also an advanced mode that provides additional vehicle setup
-options (used for configuring new vehicles). Advanced mode setup is not
-covered by this guide.</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** There is also an advanced mode that provides additional vehicle setup options (used for configuring new vehicles).
+> Advanced mode setup is not covered by this guide.
 
 ## Sensors Setup
 
@@ -2770,32 +2741,12 @@ actions.
 | Flight termination | Turns off all controllers and sets all PWM outputs to their failsafe values. The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. |
 | Lockdown | Kills the motors (sets them to disarmed). This is the same as using the kill switch. |
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> <br />
-It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
-For example, in the case where RC Loss failsafe causes the vehicle to enter Return mode, if RC is recovered you can change to Position mode and continue flying.</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
+> For example, in the case where RC Loss failsafe causes the vehicle to enter Return mode, if RC is recovered you can change to Position mode and continue flying.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> <br />
-If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored.
-Instead the action is determined by separate system level and vehicle specific code.
-This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored.
+> Instead the action is determined by separate system level and vehicle specific code.
+> This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
 
 ### Low Battery
 
@@ -3008,20 +2959,11 @@ Select the **Repeat** checkbox if the button is to be used in this way (this can
 
 The **Add Custom Action** button allows you to define that an action occurs on a button long press, double press, or combination of two other buttons being pressed together:
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> A button can be assigned a single-press and at most one other operation (e.g. a long press or a double press).
-Some operations are invalid (e.g. long press and repeat).<br />
-<br />
-It is possible to define a custom action that makes another button action invalid.
-Check that all button colors are green to confirm they are valid (red indicates an invalid assignment).</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** A button can be assigned a single-press and at most one other operation (e.g. a long press or a double press).
+> Some operations are invalid (e.g. long press and repeat).
+>
+> It is possible to define a custom action that makes another button action invalid.
+>Check that all button colors are green to confirm they are valid (red indicates an invalid assignment).
 
 1. Press the button to create a *custom action i*tem.
 
@@ -3116,17 +3058,8 @@ The exponential value makes the joystick less responsive in the middle of the ra
 
 The *Application Settings* view is used to configure the settings that aren't specific to a particular vehicle: e.g. display language and units, comms links, console output.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> Pilots should generally not need to use the <em>Application Settings</em>, as QGC should be supplied on pre-configured hardware.</p>
-<p>Only a few select settings are covered by this guide.</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** Pilots should generally not need to use the _Application Settings_, as QGC should be supplied on pre-configured hardware.
+> Only a few select settings are covered by this guide.
 
 ![](images/image215.png)
 
