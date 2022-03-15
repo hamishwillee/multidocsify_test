@@ -1041,9 +1041,9 @@ The *Upload Button* sends the current mission, geofence and rally point plans t
 
 The button has two states.
 
-|                          |                 |                                                                           |
-|--------------------------|-----------------|---------------------------------------------------------------------------|
-| ![](images/image125.png) | Upload Required | Plan has changed since last upload.                                       |
+| Appearance | State | Description |
+| --- | --- | --- |
+| ![](images/image125.png) | Upload Required | Plan has changed since last upload. |
 | ​​![](images/image3.png)​   | Upload          | Plan has not changed on this ground station (but can be uploaded anyway). |
 
 ### Plan Type Selector
@@ -1092,40 +1092,13 @@ The Plan **File/Sync Tool** provides options to create a new plans, load/save p
 
 #####  File Options
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Option</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>New...</p></td>
-<td><p>Clear plan on QGC and vehicle.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Open...</p></td>
-<td><p>Open plan file from storage, clearing the current mission in the ground station.
-The plan on the vehicle is not affected.</p>
-<p>QGC can open <strong>.plan</strong> files (and also a number of legacy formats: <strong>.mission</strong>, <strong>.txt</strong>, <strong>.waypoints</strong>).</p></td>
-</tr>
-<tr class="even">
-<td><p>Save</p></td>
-<td><p>Save previously opened or saved plan under same name. QGC prompts to "<strong>Save as</strong>" if the file is new.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Save as...</p></td>
-<td><p>Save current plan under new name (the save format is <em>.plan</em>).</p></td>
-</tr>
-<tr class="even">
-<td><p>Save Mission Waypoints as KML ...</p></td>
-<td><p>Save current mission (only) as a KML file. KML files are used by Google Earth.</p></td>
-</tr>
-</tbody>
-</table>
+Option | Description
+--- | ---
+New... | Clear plan on QGC and vehicle.
+Open... | Open plan file from storage, clearing the current mission in the ground station. The plan on the vehicle is not affected. QGC can open **.plan** files (and also a number of legacy formats: **.mission**, **.txt**, **.waypoints**).
+Save | Save previously opened or saved plan under same name. QGC prompts to "**Save as**" if the file is new.
+Save as... | Save current plan under new name (the save format is _.plan_).
+Save Mission Waypoints as KML ... | Save current mission (only) as a KML file. KML files are used by Google Earth.
 
 ##### Vehicle Options
 
