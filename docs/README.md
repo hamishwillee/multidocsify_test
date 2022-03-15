@@ -1359,13 +1359,11 @@ To create a manual mission:
    This makes the mission land at the takeoff point when on completion.
 5. Add a takeoff waypoint.
 
-   - Select **Plan Tools \> Waypoint**.to enable adding waypoints
-
-    ![](images/image73.png)
+   - Select **Plan Tools \> Waypoint** to enable adding waypoints
+     ![](images/image73.png)
    - Select on the map to add a *Takeoff* item.
      The first waypoint added to a mission is automatically turned into a Takeoff item!
-
-    ![](images/image229.jpg)
+     ![](images/image229.jpg)
    - An (open) *Takeoff Editor* is also added to the mission item list.
      If needed, use the editor to modify the altitude and/or heading.
 
@@ -1373,10 +1371,10 @@ To create a manual mission:
 
    - Select **Plan Tools \> Waypoint**.to enable adding waypoints
 
-    ![](images/image73.png)
+     ![](images/image73.png)
    - Select on the map to add a *Waypoint* item.
 
-    ![](images/image134.jpg) 
+     ![](images/image134.jpg) 
    - An (open) *Mission Waypoint Editor* is also added to the mission item list.
      If needed, use the editor to modify the altitude, heading, or flight speed.
      Camera triggering can also be configured from this panel (and will apply until the next waypoint).
@@ -1387,15 +1385,16 @@ To create a manual mission:
 
    - Add two waypoints. The first should be the next planned waypoint, while the second will be changed into a new type of mission item.
    - Select the heading on the “placeholder” waypoint
+
      ![](images/image49.jpg)
 
     This will launch the *Select Mission Command* prompt.
    - Select a Category and an option. Below we show *Camera* and item *Cancel ROI*.
 
-    ![](images/image209.png)
+     ![](images/image209.png)
    - The waypoint will be replaced with the *Cancel ROI* item.
 
-    ![](images/image107.jpg)
+     ![](images/image107.jpg)
 
 Many other types of mission items and operations are possible.
 For more information see the following sections.
