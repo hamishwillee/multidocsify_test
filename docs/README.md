@@ -288,7 +288,7 @@ The current vehicle is the connected vehicle for which information is being disp
 <tr class="even">
 <td><p><img src="images/image133.jpg" /></p></td>
 <td><p>Mode</p></td>
-<td><p>Display the current <a href="#h.eamm54591ala">flight mode</a> and/or select a manual flight mode: <a href="#position-mode">Position mode</a> or <a
+<td><p>Display the current <a href="#flight-modes--tasks">flight mode</a> and/or select a manual flight mode: <a href="#position-mode">Position mode</a> or <a
 href="#altitude-mode">Altitude mode</a>.
 <img src="images/image206.png" /></p></td>
 </tr>
@@ -518,7 +518,7 @@ For more information see:
 
 ![](images/image201.png)
 
-The Fly View video/map switcher control is used to toggle display between the map and the current video source (as set by the [Camera Display Control](#h.ujtalm1xcrlw)).
+The Fly View video/map switcher control is used to toggle display between the map and the current video source (as set by the [Camera Display Control](#camera-controls)).
 
 The main controls are
 
@@ -549,18 +549,8 @@ The Fly View camera controls are composed of the following elements:
 QGC SRR edition supports both Electro Optical (EO) and Infrared (IR) video streams.
 The video display mode control is used to specify which video stream(s) are displayed, and to select the thermal palette used for IR streams.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong></p>
-<p>QGC SRR edition supports a number of pre-integrated cameras.
-The options displayed in the control depend on vehicle camera support/capabilities.</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** QGC SRR edition supports a number of pre-integrated cameras.
+> The options displayed in the control depend on vehicle camera support/capabilities.
 
 The button actions from left to right are:
 
@@ -615,7 +605,7 @@ The sub-controls for each mode display are:
 | ![](images/image18.png)![](images/image18.png)  | Display connected camera(s) and SD card free space                              |
 | ![](images/image18.png)![](images/image43.png)  | Display current capture mode. Select to change to alternate mode                |
 | ![](images/image18.png)![](images/image43.png)  | Capture (video or photo)                                                        |
-| ![](images/image18.png)                         | Open [settings panel](#h.ltzkt0g6ygl5) for current capture mode                 |
+| ![](images/image18.png)                         | Open [settings panel](#camera-and-gimbal-settings) for current capture mode     |
 | ![](images/image18.png)![](images/image43.png)  | Display time for current (ongoing) video capture / Number of captured pictures. |
 
 #### Gimbal Indicator/Slider
@@ -634,18 +624,7 @@ The gimbal indicator *displays* the current camera pitch and yaw on a vertical s
 
 By default you can also change the pitch (but not yaw) by dragging the green icon up and down the indicator/control.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> </p>
-<p>An <a href="#h.8yv5pvctg9j6">on-screen gimbal joystick</a> can alternatively be enabled that controls both pitch and yaw (if supported by hardware).<br />
-</p></td>
-</tr>
-</tbody>
-</table>
+> **Note:** An [on-screen gimbal joystick](#gimbal-control-virtual-joystick) can alternatively be enabled that controls both pitch and yaw (if supported by hardware).
 
 ### Gimbal Control (Virtual Joystick)
 
@@ -653,7 +632,7 @@ The *Gimbal Control* is an on-screen gimbal joystick. It can be enabled as an a
 
 ![](images/image91.png)
 
-The virtual joystick is enabled in the [Gimbal Settings](#h.ltzkt0g6ygl5).
+The virtual joystick is enabled in the [Gimbal Settings](#camera-and-gimbal-settings).
 The setting **Use Camera Gimbal Control** must be set to *Off*, after which **Use Gimbal Joystick Control** can be set to *On*.
 
 ![](images/image169.png)
@@ -666,7 +645,7 @@ Continuous zoom out / in via a tap+hold interaction.
 
 ### Camera and Gimbal Settings
 
-Camera settings for photo and video are accessed from the [Camera Controls](#h.j61z6aodx7fd) settings icon.
+Camera settings for photo and video are accessed from the [Camera Controls](#camera-controls) settings icon.
 
 ![](images/image18.png)
 
@@ -708,7 +687,7 @@ The settings that are *independent of the camera type* are shown below.
 <tr class="odd">
 <td><p>Show Gimbal Control</p></td>
 <td><p><em>On</em> | <em>Off</em>.</p>
-<p>Enable display of <a href="#h.8yv5pvctg9j6">on-screen gimbal joystick</a>.
+<p>Enable display of <a href="#gimbal-control-virtual-joystick">on-screen gimbal joystick</a>.
 Option hidden if <strong>Use Camera Gimbal Control</strong> is <em>On</em>.<br />
 <img src="images/image91.png" /></p></td>
 </tr>
@@ -782,23 +761,13 @@ All other modes are automatically selected when you perform an associated operat
 
 The most important PX4 flight modes and tasks are covered at high level below.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><strong>Note:</strong> </p>
-<p>Flight Mode behaviour depends on vehicle type and configuration.
-The information here covers <em>default behaviour</em> at high level.
-More detailed information can be found in the PX4 user guide:</p>
-<ul>
-<li><a href="https://docs.px4.io/master/en/getting_started/flight_modes.html">Basic Concepts &gt; Flight Modes</a></li>
-<li><a href="https://docs.px4.io/master/en/flight_modes/">Flying &gt; Flight Modes</a> (sub-topics for individual modes)</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+> **Note: **
+> Flight Mode behaviour depends on vehicle type and configuration.
+> The information here covers _default behaviour_ at high level.
+> More detailed information can be found in the PX4 user guide:
+> - [Basic Concepts > Flight Modes](https://docs.px4.io/master/en/getting_started/flight_modes.html)
+> - [Flying > Flight Modes](https://docs.px4.io/master/en/flight_modes/) (sub-topics for individual modes)
+
 
 ## Position Mode
 
@@ -885,7 +854,7 @@ This mode is started when you select [Orbit at Location](#orbit-location) on th
 ## Goto Task
 
 The *GoTo Task* takes you to a specific location.
-This task is run from within *Hold Mode* when you select a [Go to Location](#h.fstl2p4ru3jm) on the map.
+This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
 
 > **Note:** At time of writing this is a “task” rather than a mode.
 > The main difference is that when executing this task the mode that is displayed will not change.
@@ -1060,11 +1029,11 @@ To pause and edit an ongoing mission:
 *Plan View* is used to define different types of *plans*:
 
 - ​[Missions](#mission-plan): Autonomous missions, including ground and building surveys.
-- ​[GeoFence](#h.1tb124ydh1ev): Virtual fences that define areas the areas the vehicle can safely move.
-- ​[Rally Points](#h.1ujb4zfqgbwr): Alternative safe destinations when in Return mode.
+- ​[GeoFence](#geofence): Virtual fences that define areas the areas the vehicle can safely move.
+- ​[Rally Points](#rally-points): Alternative safe destinations when in Return mode.
 
 Each type of plan is edited separately.
-The [Plan Type](#h.enj2s8mieyhv) selector specifies the current type, and hence both the tools and item editors that are displayed.
+The [Plan Type Selector](#plan-type-selector) specifies the current type, and hence both the tools and item editors that are displayed.
 
 There are individual topics with detailed instructions on each type of plan and survey.
 
@@ -1108,7 +1077,7 @@ Different editors are displayed for each type of plan:
 
 The *Plan Information* section contains information that is useful for planning *missions*, including details about both the currently selected waypoint and the whole mission (it shows the same information for all plan types).
 
-For more details see [Mission Plan \> Mission Information](#h.gps8di7albe3).
+For more details see [Mission Plan \> Mission Information](#mission-information).
 
 ### Plan Tools
 
@@ -1241,12 +1210,12 @@ In addition, the **Plan Tools \> Center** tool can be used to control how the ma
 ### Map Grid
 
 The map can be configured to overlay a map grid in both Plan and Fly Views.
-For more information see: [Fly View\> Map Grid (MGRS)](#h.kl2ir3il3sjn).
+For more information see: [Fly View\> Map Grid (MGRS)](#map-grid-mgrs).
 
 # Mission Plan
 
 Missions plans are used to define fully autonomous flight operations, including scans and surveys.
-They are are created in *Plan View* when the [Plan Type](#h.enj2s8mieyhv) is set to **Mission**.
+They are are created in *Plan View* when the [Plan Type](#plan-type-selector) is set to **Mission**.
 
 There are a number of different “types” of missions:
 
@@ -1374,9 +1343,9 @@ road).</li>
 
 ### Mission Command List
 
-The *Mission Command List* (below the [Plan Type Selector](#h.enj2s8mieyhv)) contains item editors for all the waypoints, surveys/scans, and commands in the mission.
+The *Mission Command List* (below the [Plan Type Selector](#plan-type-selector)) contains item editors for all the waypoints, surveys/scans, and commands in the mission.
 
-The first item is the [Mission Start](#h.gq0ev0y33sau), which contains default and initial settings for the mission.
+The first item is the [Mission Start](#mission-start-editor-defaults), which contains default and initial settings for the mission.
 
 Individual mission items can be selected on the map or in the mission list to edit their settings (other than location, which is generally set using the map).
 
@@ -1552,10 +1521,10 @@ All the mission editors are listed below (other than those for patterns).
 
 | Category       | Command                                     | Description                                                                            |
 |----------------|---------------------------------------------|----------------------------------------------------------------------------------------|
-| Basic          | [Waypoint](#h.ebvqml8iujc)                  | Travel to a position in 3D space.                                                      |
+| Basic          | [Waypoint](#mission-waypoint-editor)        | Travel to a position in 3D space.                                                      |
 | ​               | Return Home                                 | Send the vehicle back to the home position.                                            |
 | ​               | Land                                        | Land vehicle at specified location.                                                    |
-| ​               | [Takeoff](#h.9dtl6nz4r325)                  | Takeoff from the ground and travel towards the specified position.                     |
+| ​               | [Takeoff](#mission-takeoff-editor)          | Takeoff from the ground and travel towards the specified position.                     |
 | Loiter         | Loiter                                      | Travel to position and loiter indefinitely.                                            |
 | ​               | Loiter (time)                               | Travel to position and loiter for a specified time.                                    |
 | ​               | Loiter  (altitude)                          | Travel to position and loiter until specified altitude reached.                        |
@@ -1570,9 +1539,9 @@ All the mission editors are listed below (other than those for patterns).
 | Conditionals   | Wait for Heading                            | Delay the mission until the specified heading is reached.                              |
 | Flight control | Change speed                                | Change speed and/or throttle setpoints.                                                |
 | ​               | Land start                                  | Marker to indicate the start of a landing sequence.                                    |
-| Camera         | [Region of interest (ROI)](#h.qxrh61ab02t7) | Sets region of interest for the camera.                                                |
+| Camera         | [Region of interest (ROI)](#mission-region-of-interest-roi-editor) | Sets region of interest for the camera.                         |
 | ​               | ROI to next waypoint                        | Sets the region of interest.                                                           |
-| ​               | [Cancel ROI](#h.2xa54mq3wnjj)               | Cancels the region of interest.                                                        |
+| ​               | [Cancel ROI](#mission-cancel-roi-editor)    | Cancels the region of interest.                                                        |
 | ​               | Camera control                              | Control onboard camera.                                                                |
 | ​               | Camera trigger distance                     | Set camera trigger distance.                                                           |
 | ​               | Set camera modes                            | Set camera photo, video modes.                                                         |
@@ -1594,7 +1563,7 @@ To change the type of a mission editor:
 1. Select its *type selector* (name).
 
    ![](images/image34.png)
-   The *Select Mission Command* prompt is then displayed
+   The *Select Mission Command* prompt is then displayed.
 2. Select a Category / Command from the prompt.
 
    ![](images/image96.png)
@@ -1747,7 +1716,7 @@ To create a survey mission:
    The new grid includes entry/exit points, and arrowed lines showing the proposed grid flight path.
 
    ![](images/image128.jpg)
-5. Use the [Mission Takeoff Editor](#h.9dtl6nz4r325) to edit the takeoff altitude (if different from altitude set in *Mission Start*).
+5. Use the [Mission Takeoff Editor](#mission-takeoff-editor) to edit the takeoff altitude (if different from altitude set in *Mission Start*).
 6. Select the center marker to set the survey as a circle or polygon.
 
    ![](images/image97.png)  
@@ -2052,7 +2021,7 @@ To create a structure scan mission:
    This will create a takeoff item and a basic rectangular scan footprint.
    
    ![](images/image109.png)
-5. Use the [Mission Takeoff Editor](#h.9dtl6nz4r325) to edit the takeoff altitude (if different from altitude set in *Mission Start*).
+5. Use the [Mission Takeoff Editor](#mission-takeoff-editor) to edit the takeoff altitude (if different from altitude set in *Mission Start*).
 6. Select the center marker menu to choose between a circle and polygon scan footprint.
 
    ![](images/image58.png)
@@ -2092,7 +2061,7 @@ Set the camera first, as camera capabilities affect the other settings.
 Camera triggering during a scan depends on the capabilities and orientation of the camera, the scan distance, required image resolution, layer density and trigger distance.
 
 > **Note:** The camera settings are almost exactly the same as for surveys (and for Corridor Scans).
-> For more information see: [Survey \> Camera](#h.ec857u6hndiu).
+> For more information see: [Survey \> Camera](#camera).
 
 Users can select a predefined camera (recommended), enter the details for a custom camera, or manually enter the altitude and scan characteristics.
 
@@ -2305,7 +2274,7 @@ To create a corridor scan mission:
    This will create a takeoff item and a scan line as shown. The new scan includes entry/exit points, and arrowed lines showing the proposed grid flight path.
    
    ![](images/image210.png)
-5. Use the [Mission Takeoff Editor](#h.9dtl6nz4r325) to edit the takeoff altitude (if different from altitude set in *Mission Start*).
+5. Use the [Mission Takeoff Editor](#mission-takeoff-editor) to edit the takeoff altitude (if different from altitude set in *Mission Start*).
 6. Select end markers/vertices (yellow filled circles) on the map and drag/drop them to the start and end of the desired path, respectively.
    ![](images/image149.png)
 7. Select the unfilled circle marker between two vertices (highlighted in mauve above) to turn it into a vertix.
@@ -2314,7 +2283,7 @@ To create a corridor scan mission:
    - Repeat the process of creating and moving new vertices to trace the path.
    - To delete a vertix, select it on the map and choose the menu option: **Remove vertix**.
 
-8. Edit the other properties of the scan using the [Corridor Scan Editor](#h.e108asj8ren2) (covered in the next section).
+8. Edit the other properties of the scan using the [Corridor Scan Editor](#corridor-scan-editor-settings) (covered in the next section).
 
 ## Corridor Scan Editor (Settings)
 
@@ -2328,7 +2297,7 @@ Set the camera first, before configuring the grid (camera capabilities affect th
 ### Camera
 
 The camera settings are exactly the same as for surveys.
-For more information see: [Survey \> Camera](#h.ec857u6hndiu).
+For more information see: [Survey \> Camera](#camera).
 
 ### Corridor
 
@@ -2398,7 +2367,7 @@ QGC SRR allows the creation of complex GeoFence boundaries made up of multiple c
 
 > **Note:** GeoFences can be used to prevent a vehicle flying out of range of the RC controller, or into unsafe or restricted airspace. They are checked in all modes, including missions and manual flight.
 
-> **Note:** The [Geofence Failsafe](#h.u8v47vhdu6rp) defines a simple cylindrical *GeoFence*. This is independent of the GeoFence plan defined here.
+> **Note:** The [Geofence Failsafe](#geofence-failsafe) defines a simple cylindrical *GeoFence*. This is independent of the GeoFence plan defined here.
 
 ![](images/image158.png)
 
@@ -2549,7 +2518,7 @@ There are also buttons to open the image and video folders in the native file sy
 
 The gallery can be scrolled and images resized using the normal mechanisms for the ground station operating system (e.g. drag, pinch, etc.).
 
-Select (short-press) a thumbnail to open the photo full-screen in the [Image Viewer](#h.21heyrxy9esk).
+Select (short-press) a thumbnail to open the photo full-screen in the [Image Viewer](#image-viewer).
 
 Long press a thumbnail to enable multi-selection (and bulk deletion).
 
@@ -2694,7 +2663,7 @@ The calibration steps are:
 
    ![](images/image155.png)​
 
-   - The [Autopilot Orientation](#h.tgluq487rghh) should already be set correctly for the vehicle.
+   - The [Autopilot Orientation](#set-orientations) should already be set correctly for the vehicle.
 
 2. ​​Click **OK** to start the calibration.
 3. Place the vehicle in any of the orientations shown in red (incomplete) and hold it still.
@@ -2917,7 +2886,7 @@ The *Geofence Failsafe* is a "virtual" cylinder centered around the home positi
 If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
 
 
-> **Note:** QGC supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas in [Plan View \> Geofence](#h.952e99foio8c).
+> **Note:** QGC supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas in [Plan View \> Geofence](#geofence).
 
 Set the action on fence breach, and the radius and/or altitude of the geofence cylinder.
 
@@ -3169,13 +3138,13 @@ The *Application Settings* view is used to configure the settings that aren't s
 
 | Setting                  | Description                                                                          |
 |--------------------------|--------------------------------------------------------------------------------------|
-| Use Vehicle Pairing      | Check to enable the [Pairing Manager](#h.ycu0ycwour6q).                              |
-| Disable MGRS coordinates | Uncheck to overlay an [MGRS grid](#h.kl2ir3il3sjn) on the map in Plan and Fly views. |
+| Use Vehicle Pairing      | Check to enable the [Pairing Manager](#pairing-manager-microhard).                              |
+| Disable MGRS coordinates | Uncheck to overlay an [MGRS grid](#map-grid-mgrs) on the map in Plan and Fly views. |
 
 ## Microhard
 
 These settings are used to enable the Microhard for use with *QGroundControl*.
-They can also be used to *manually* configure the microhard (if not using the [Pairing Manager](#h.ycu0ycwour6q)).
+They can also be used to *manually* configure the microhard (if not using the [Pairing Manager](#pairing-manager-microhard)).
 
 > **Note:** The settings are not generally intended for pilots.
 
