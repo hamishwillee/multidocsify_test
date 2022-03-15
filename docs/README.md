@@ -270,9 +270,9 @@ The status icons can be selected for additional information.
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><p>Icon</p></td>
-<td><p>Name</p></td>
-<td><p>Description</p></td>
+<th>Icon</th>
+<th>Name</th>
+<th>Description</th>
 </tr>
 <tr class="even">
 <td><p><img src="images/image147.jpg" /></p></td>
@@ -289,8 +289,8 @@ The current vehicle is the connected vehicle for which information is being disp
 <td><p><img src="images/image133.jpg" /></p></td>
 <td><p>Mode</p></td>
 <td><p>Display the current <a href="#flight-modes--tasks">flight mode</a> and/or select a manual flight mode: <a href="#position-mode">Position mode</a> or <a
-href="#altitude-mode">Altitude mode</a>.
-<img src="images/image206.png" /></p></td>
+href="#altitude-mode">Altitude mode</a>.</p>
+<p><img src="images/image206.png" /></p></td>
 </tr>
 <tr class="odd">
 <td><p><img src="images/image95.jpg" /></p></td>
@@ -359,63 +359,20 @@ Click anywhere in the control to toggle an expanded panel with additional inform
 
 The table below shows the purpose of each field.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Icon</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image234.png" /></p></td>
-<td><p>Time since armed (approximate flight time).</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image40.png" /></p></td>
-<td><p>Horizontal speed.</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image200.png" /></p></td>
-<td><p>Ascent/descent speed</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image130.png" /></p></td>
-<td><p>Distance traveled (odometer).</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image157.png" /></p></td>
-<td><p>Altitude above home.</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image235.png" /></p></td>
-<td><p>Distance between vehicle and ground station.</p>
-<p>This requires GPS/position on the ground station!</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image199.png" /></p></td>
-<td><p>Vehicle heading (direction of travel).</p></td>
-</tr>
-<tr class="odd">
-<td><p>Lat</p></td>
-<td><p>Vehicle latitude (Expanded panel).</p></td>
-</tr>
-<tr class="even">
-<td><p>Lon</p></td>
-<td><p>Vehicle longitude (Expanded panel).</p></td>
-</tr>
-<tr class="odd">
-<td><p>HDOP</p></td>
-<td><p>GPS Horizontal Degree of Precision (Expanded panel).</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image38.png" /></p></td>
-<td><p>Artificial Horizon (Expanded panel)</p></td>
-</tr>
-</tbody>
-</table>
+Icon | Description
+--- | --- 
+![](images/image234.png) | Time since armed (approximate flight time).
+![](images/image40.png) | Horizontal speed.
+![](images/image200.png) | Ascent/descent speed
+![](images/image130.png) | Distance traveled (odometer).
+![](images/image157.png) | Altitude above home.
+![](images/image235.png) | Distance between vehicle and ground station. This requires GPS/position on the ground station!
+![](images/image199.png) | Vehicle heading (direction of travel).
+Lat | Vehicle latitude (Expanded panel).
+Lon | Vehicle longitude (Expanded panel).
+HDOP | GPS Horizontal Degree of Precision (Expanded panel).
+![](images/image38.png) | Artificial Horizon (Expanded panel)
+
 
 ### Flight Path & Orientation (Map)
 
