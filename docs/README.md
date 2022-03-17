@@ -1648,6 +1648,7 @@ To create a survey mission:
    
     ![](images/image30.jpg)
    - Click the center to get menu options for setting the radius (and position).
+
     ![](images/image55.png)
 
 9. Edit the other properties of the grid using the *Survey Editor* (covered in the next section).
