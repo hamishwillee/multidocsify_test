@@ -54,7 +54,7 @@ jobs:
           args: >-  # allows you to break string into multiple lines
             --standalone
             --resource-path=.:docs:docs/images
-            --output=output/QGC-Gov-User-Manual_PR${{prNumber}}.pdf
+            --output=output/QGC-Gov-User-Manual_PR${prNumber}.pdf
             docs/README.md
             
       - uses: actions/upload-artifact@master
