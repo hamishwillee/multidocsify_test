@@ -1727,7 +1727,7 @@ Camera triggering during a survey depends on the capabilities and orientation of
 
 Users can select a predefined camera (recommended), enter the details for a custom camera, or manually enter the altitude and grid characteristics.
 
-![](images/image116.png) 
+![](images/image116.png)  
 
 > **Tip:** Use a *predefined* or *custom camera* were possible, as this allows the survey grid to be automatically recalculated, trading off desired image overlap, image resolution and survey altitude.
 
