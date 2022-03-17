@@ -1657,7 +1657,7 @@ To create a survey mission:
 
 The *Survey Editor* is used to configure camera and grid settings, and also to save and re-use *Presets*.
 
-![Survey Editor](images/image7.png) 
+![Survey Editor](images/image7.png)
 
 Set the camera first, before configuring the grid/transects (camera capabilities affect the grid settings).
 
