@@ -506,23 +506,14 @@ The button actions from left to right are:
 
 Screenshots for each of the modes are shown below.
 
-#### Full camera view (EO) 
-
 ![Full camera view (EO)](images/image154.png)
-
-#### Picture-in-picture (IR in EO)
 
 ![Picture-in-picture (IR in EO)](images/image77.png)
 
-#### Thermal Full Screen (IR)
-
-
 ![Thermal Full Screen (IR)](images/image85.png)
 
-
-#### Cycle through thermal palettes (IR)
-
 ![Cycle through thermal palettes (IR)](images/image189.png)
+
 
 ### Camera Gimbal Control
 
