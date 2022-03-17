@@ -1663,7 +1663,7 @@ Set the camera first, before configuring the grid/transects (camera capabilities
 
 ### Presets
 
-![](images/image142.png) 
+![Presets](images/image142.png) 
 
 *Presets* allow surveys to re-use camera and terrain settings.
 If a preset is selected then users can only change the entry/exit points and the angle of the survey lines.
