@@ -51,12 +51,12 @@ jobs:
       
       - uses: docker://pandoc/latex
         with:
-          args: >-  # allows you to break string into multiple lines
-            --standalone
-            --resource-path=.:docs:docs/images
-            --output=output/QGC-Gov-User-Manual_PR{{steps.PR.outputs.number}}.pdf
-            docs/README.md
-          # args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{steps.PR.outputs.number}}.pdf docs/README.md #Works
+          #args: >-  # allows you to break string into multiple lines
+          #  --standalone
+          #  --resource-path=.:docs:docs/images
+          #  --output=output/QGC-Gov-User-Manual_PR{{steps.PR.outputs.number}}.pdf
+          #  docs/README.md
+          args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
           # args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{env.prNumber}}.pdf docs/README.md  # env is empty
             
             
