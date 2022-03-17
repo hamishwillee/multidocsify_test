@@ -40,10 +40,10 @@ jobs:
           args: >-  # allows you to break string into multiple lines
             --standalone
             --resource-path=.:docs:docs/images
-            --output=output/WHATEVER.pdf
+            --output=output/QGC-Gov-User-Manual.pdf
             docs/README.md
             
       - uses: actions/upload-artifact@master
         with:
-          name: qgc-gov-guide
+          name: qgc-gov-user-manual
           path: output
