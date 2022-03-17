@@ -43,7 +43,7 @@ jobs:
       - run: echo "Your PR is ${prNumber}"
         if: success() && steps.PR.outputs.number
         env:
-          PRNUMBER: ${{ steps.PR.outputs.number }}
+          prNumber: ${{ steps.PR.outputs.number }}
       
       - name: create output directory
         run: |
@@ -51,11 +51,13 @@ jobs:
       
       - uses: docker://pandoc/latex
         with:
-          args: >-  # allows you to break string into multiple lines
-            --standalone
-            --resource-path=.:docs:docs/images
-            --output=output/QGC-Gov-User-ManualPR$PRNUMBER.pdf
-            docs/README.md
+          #args: >-  # allows you to break string into multiple lines
+          #  --standalone
+          #  --resource-path=.:docs:docs/images
+          #  --output=output/QGC-Gov-User-ManualPR${prNumber).pdf
+          #  docs/README.md
+          args: format("--standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual{0}).pdf docs/README.md", prNumber)
+            
             
       - uses: actions/upload-artifact@master
         with:
