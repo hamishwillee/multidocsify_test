@@ -45,7 +45,7 @@ The continued focus of the ground station is to deliver user friendly features t
 It has been designed specifically to run best on tablet hardware with inbuilt physical joysticks/buttons to control the vehicle and camera.
 It integrates with cameras that support both visible light and IR video streams, and that can be directed independently of vehicle orientation using a joystick controlled gimbal.
   
-![](images/image77.png)
+![](images/image77.png) 
 
 The app has a very clear focus on both safety and ease of use.
 Navigation is straightforward, with a very clear division between planning missions, flying, and configuration.
@@ -1657,13 +1657,13 @@ To create a survey mission:
 
 The *Survey Editor* is used to configure camera and grid settings, and also to save and re-use *Presets*.
 
-![](images/image7.png)
+![Survey Editor](images/image7.png)
 
 Set the camera first, before configuring the grid/transects (camera capabilities affect the grid settings).
 
 ### Presets
 
-![](images/image142.png)
+![](images/image142.png) 
 
 *Presets* allow surveys to re-use camera and terrain settings.
 If a preset is selected then users can only change the entry/exit points and the angle of the survey lines.
@@ -1708,7 +1708,7 @@ To save the current set of presets:
 1.  Select the **Save Settings As Preset** option from the *Presets* list.
 2.  This will display the Save Preset dialog (on the right)
 
-    ​![](images/image160.png)​
+    ![](images/image160.png)
 3.  Enter a *Preset Name*.
 4.  Select **Save**.
 
@@ -1727,7 +1727,7 @@ Camera triggering during a survey depends on the capabilities and orientation of
 
 Users can select a predefined camera (recommended), enter the details for a custom camera, or manually enter the altitude and grid characteristics.
 
-![](images/image116.png)  
+![](images/image116.png)
 
 > **Tip:** Use a *predefined* or *custom camera* were possible, as this allows the survey grid to be automatically recalculated, trading off desired image overlap, image resolution and survey altitude.
 
@@ -1801,7 +1801,7 @@ The predefined cameras are:
 
 The *Custom Camera* option specifies the settings for a “custom” camera, allowing users to benefit from dynamic recalculation of the grid even if their camera is not predefined.
 
-![](images/image165.png)
+![](images/image165.png) 
 
 The additional settings for a custom camera (compared to a predefined camera) are listed below.
 
@@ -1815,7 +1815,7 @@ The additional settings for a custom camera (compared to a predefined camera) ar
 
 Users can also choose *Manual (no camera specs)* as shown below.
 
-![](images/image35.png)
+![](images/image35.png) 
 
 The settings are listed below.
 If any of these settings or the camera changes then the other settings must be recalculated.
@@ -1831,7 +1831,7 @@ If any of these settings or the camera changes then the other settings must be r
 The *Transects* section is used for grid settings that are independent of the camera.
 Changes in the settings are reflected in the map.
 
-![](images/image207.png)
+![](images/image207.png) 
 
 <table>
 <colgroup>
