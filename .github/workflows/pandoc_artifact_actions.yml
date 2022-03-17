@@ -35,6 +35,7 @@ jobs:
         with:
           args: >-  # allows you to break string into multiple lines
             --standalone
+            --resource-path=.:docs:docs/images
             --output=output/WHATEVER.pdf
             docs/README.md
             
