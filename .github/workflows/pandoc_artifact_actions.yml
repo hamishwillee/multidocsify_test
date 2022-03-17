@@ -57,7 +57,7 @@ jobs:
           #  --output=output/QGC-Gov-User-ManualPR${prNumber).pdf
           #  docs/README.md
           # args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{steps.PR.outputs.number}}.pdf docs/README.md #Works
-          args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{prNumber}}.pdf docs/README.md 
+          args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${prNumber}.pdf docs/README.md 
             
             
       - uses: actions/upload-artifact@master
