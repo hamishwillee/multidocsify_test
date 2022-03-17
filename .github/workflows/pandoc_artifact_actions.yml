@@ -43,4 +43,7 @@ jobs:
             --output=output/WHATEVER.pdf
             docs/README.md
             
-
+      - uses: actions/upload-artifact@master
+        with:
+          name: output
+          path: output
