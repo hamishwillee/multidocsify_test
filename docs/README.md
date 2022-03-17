@@ -1646,7 +1646,7 @@ To create a survey mission:
 
    - Drag-drop the center marker to move the survey.
    
-    ![Drag/Drop survey marker](images/image30.jpg)
+    ![](images/image30.jpg)
    - Click the center to get menu options for setting the radius (and position).
     ![](images/image55.png)
 
