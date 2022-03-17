@@ -45,7 +45,7 @@ The continued focus of the ground station is to deliver user friendly features t
 It has been designed specifically to run best on tablet hardware with inbuilt physical joysticks/buttons to control the vehicle and camera.
 It integrates with cameras that support both visible light and IR video streams, and that can be directed independently of vehicle orientation using a joystick controlled gimbal.
   
-![](images/image77.png) 
+![](images/image77.png)
 
 The app has a very clear focus on both safety and ease of use.
 Navigation is straightforward, with a very clear division between planning missions, flying, and configuration.
