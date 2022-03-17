@@ -21,6 +21,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
   # This workflow contains a single job called "build"
   convert_via_pandoc:
     # The type of runner that the job will run on
@@ -31,6 +32,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - uses: 8BitJonny/gh-get-current-pr@1.4.0
+        id: PR
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Verbose setting SHA when using Pull_Request event trigger to fix #16
+          sha: ${{ github.event.pull_request.head.sha }}
+          # Only return if PR is still open
+          filterOutClosed: true
+      - run: echo "Your PR is ${prNumber} and its JSON is ${prJSON}"
+        if: success() && steps.PR.outputs.number
+        env:
+          prNumber: ${{ steps.PR.outputs.number }}
+      
       - name: create output directory
         run: |
           mkdir output  # create output dir
@@ -40,7 +54,7 @@ jobs:
           args: >-  # allows you to break string into multiple lines
             --standalone
             --resource-path=.:docs:docs/images
-            --output=output/QGC-Gov-User-Manual.pdf
+            --output=output/QGC-Gov-User-Manual_PR${{prNumber}}.pdf
             docs/README.md
             
       - uses: actions/upload-artifact@master
