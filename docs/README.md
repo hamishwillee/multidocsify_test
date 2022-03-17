@@ -1831,7 +1831,7 @@ If any of these settings or the camera changes then the other settings must be r
 The *Transects* section is used for grid settings that are independent of the camera.
 Changes in the settings are reflected in the map.
 
-![](images/image207.png) 
+![](images/image207.png)  
 
 <table>
 <colgroup>
