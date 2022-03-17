@@ -1,3 +1,10 @@
+---
+mainfont: DejaVuSerif
+sansfont: DejaVuSans
+monofont: DejaVuSansMono
+mathfont: TeXGyreDejaVuMath
+---
+
 ![Auterion logo - icon and text](images/image113.png)
 
 ![Auterion logo - icon only](images/image170.png)
