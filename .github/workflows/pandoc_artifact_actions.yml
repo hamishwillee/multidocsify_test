@@ -40,10 +40,10 @@ jobs:
           sha: ${{ github.event.pull_request.head.sha }}
           # Only return if PR is still open
           filterOutClosed: true
-      - run: echo "Your PR is ${prNumber} and its JSON is ${prJSON}"
+      - run: echo "Your PR is ${prNumber}"
         if: success() && steps.PR.outputs.number
         env:
-          prNumber: ${{ steps.PR.outputs.number }}
+          PRNUMBER: ${{ steps.PR.outputs.number }}
       
       - name: create output directory
         run: |
@@ -54,7 +54,7 @@ jobs:
           args: >-  # allows you to break string into multiple lines
             --standalone
             --resource-path=.:docs:docs/images
-            --output=output/QGC-Gov-User-Manual_PR${prNumber}.pdf
+            --output=output/QGC-Gov-User-ManualPR$PRNUMBER.pdf
             docs/README.md
             
       - uses: actions/upload-artifact@master
