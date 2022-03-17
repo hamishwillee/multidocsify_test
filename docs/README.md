@@ -1801,7 +1801,7 @@ The predefined cameras are:
 
 The *Custom Camera* option specifies the settings for a “custom” camera, allowing users to benefit from dynamic recalculation of the grid even if their camera is not predefined.
 
-![](images/image165.png) 
+![](images/image165.png)  
 
 The additional settings for a custom camera (compared to a predefined camera) are listed below.
 
