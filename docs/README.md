@@ -6,12 +6,8 @@
 
 Authors: Lorenz Meier, Hamish Willee
 
-This data is being delivered as Category B Data, as defined in Agreement
-W15QKN-18-9-1023. Use, duplication, or disclosure is subject to the
-restrictions as stated in Agreement W15QKN-18-9-1023 between the COMPANY
-and the Government.
-
----
+This data is being delivered as Category B Data, as defined in Agreement W15QKN-18-9-1023.
+Use, duplication, or disclosure is subject to the restrictions as stated in Agreement W15QKN-18-9-1023 between the COMPANY and the Government.
 
 # Revision History
 
@@ -512,19 +508,21 @@ Screenshots for each of the modes are shown below.
 
 #### Full camera view (EO) 
 
-![](images/image154.png)
+![Full camera view (EO)](images/image154.png)
 
 #### Picture-in-picture (IR in EO)
 
-![](images/image77.png)
+![Picture-in-picture (IR in EO)](images/image77.png)
 
 #### Thermal Full Screen (IR)
 
-![](images/image85.png)
+
+![Thermal Full Screen (IR)](images/image85.png)
+
 
 #### Cycle through thermal palettes (IR)
 
-![](images/image189.png)
+![Cycle through thermal palettes (IR)](images/image189.png)
 
 ### Camera Gimbal Control
 
@@ -532,7 +530,7 @@ The Camera-Gimbal control is used to control the camera and display the gimbal p
 By default the gimbal slider part of the control can also be used to *control* camera pitch (but not yaw).
 There is a setting to disable pitch control using the slider, and another that enables a separate on screen joystick for gimbal control.
 
-![](images/image124.png)
+![Camera Gimbal Control](images/image124.png)
 
 The parts of the control are discussed separately below.
 
