@@ -31,6 +31,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: create output directory
+        run: |
+          mkdir output  # create output dir
+      
       - uses: docker://pandoc/latex
         with:
           args: >-  # allows you to break string into multiple lines
