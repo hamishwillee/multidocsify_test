@@ -49,7 +49,7 @@ jobs:
         run: |
           mkdir output  # create output dir
       
-      - uses: docker://pandoc/latex
+      - uses: docker://jenosam/pandoc-with-fonts
         with:
           #args: >-  # allows you to break string into multiple lines
           #  --standalone
