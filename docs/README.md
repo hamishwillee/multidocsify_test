@@ -8,7 +8,8 @@ fontsize: 12pt
 # fontfamily: ebgaramond
 # fontfamily: libertinus
 # fontfamily: arev
-mainfont: Free Sans
+#mainfont: Free Sans
+mainfont: Source Sans Pro
 
 #header-includes: |
 #    \usepackage{tcolorbox}
