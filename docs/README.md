@@ -1,8 +1,18 @@
 ---
-mainfont: DejaVuSerif
-sansfont: DejaVuSans
-monofont: DejaVuSansMono
-mathfont: TeXGyreDejaVuMath
+title: 'Auterion QGC SRR Edition: Features  Roadmap'
+author:
+  - Hamish Willee
+  - Lorenz Meier
+logo: images/image113.png
+fontsize: 12pt
+# fontfamily: ebgaramond
+# fontfamily: libertinus
+fontfamily: arev
+
+header-includes: |
+    \usepackage{tcolorbox}
+    \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
+    \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
 ---
 
 ![Auterion logo - icon and text](images/image113.png)
