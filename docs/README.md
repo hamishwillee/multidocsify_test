@@ -8,11 +8,12 @@ fontsize: 12pt
 # fontfamily: ebgaramond
 # fontfamily: libertinus
 # fontfamily: arev
+mainfont: Arial
 
-header-includes: |
-    \usepackage{tcolorbox}
-    \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
-    \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
+#header-includes: |
+#    \usepackage{tcolorbox}
+#    \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
+#    \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
 ---
 
 ![Auterion logo - icon and text](images/image113.png)
