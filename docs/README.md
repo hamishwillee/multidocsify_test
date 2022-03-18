@@ -1,40 +1,12 @@
-![Auterion logo - icon and text](images/image113.png)
-
-![Auterion logo - icon only](images/image170.png)
-
-# Auterion QGC SRR Edition: Features and Roadmap
-
-Authors: Lorenz Meier, Hamish Willee
-
-This data is being delivered as Category B Data, as defined in Agreement
-W15QKN-18-9-1023. Use, duplication, or disclosure is subject to the
-restrictions as stated in Agreement W15QKN-18-9-1023 between the COMPANY
-and the Government.
-
 ---
+title: 'Auterion QGC SRR Edition: User Manual'
+logo: images/image113.png
+fontsize: 12pt
+mainfont: DejaVu Sans
+---
+<!-- ![](images/image113.png) --> <!-- Auterion logo - icon and text -->
 
-# Revision History
-
-|         |            |                                                            |                             |               |
-|---------|------------|------------------------------------------------------------|-----------------------------|---------------|
-| Version | Date       | Changes                                                    | Authors                     | Approver      |
-| 0.1     | 2019-09-02 | Initial submission                                         | Hamish Willee, Lorenz Meier | Thomas Gubler |
-| 0.2     | 2019-10-30 | Renamed to “User Manual” (from “Features and Roadmap”)     | Hamish Willee               | Amanda Wilson |
-| 0.3     | 2020-02-20 | Updated to include latest features from 2020-02-14 release | Hamish Willee               | Amanda Wilson |
-
-# Contact Information
-
-Auterion AG
-
-Giesshübelstrasse 40
-
-8045 Zurich
-
-SWITZERLAND
-
-[support@auterion.com](mailto:suppport@auterion.com)
-
-<https://auterion.com>
+![](images/image170.png) <!-- Auterion logo - icon only -->
 
 # Introduction
 
