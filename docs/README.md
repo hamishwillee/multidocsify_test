@@ -1,8 +1,5 @@
 ---
 title: 'Auterion QGC SRR Edition: User Manual'
-author:
-  - Hamish Willee
-  - Lorenz Meier
 logo: images/image113.png
 fontsize: 12pt
 mainfont: DejaVu Sans
