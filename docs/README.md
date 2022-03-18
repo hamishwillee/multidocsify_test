@@ -3,6 +3,10 @@ title: 'Auterion QGC SRR Edition: User Manual'
 logo: images/image113.png
 fontsize: 12pt
 mainfont: DejaVu Sans
+header-includes: |
+    \usepackage{tcolorbox}
+    \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
+    \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
 ---
 <!-- ![](images/image113.png) --> <!-- Auterion logo - icon and text -->
 
