@@ -1627,7 +1627,7 @@ To create a survey mission:
 8. For a circular survey (created by selecting the centre point “circle” menu option)
 
    - Drag-drop the center marker to move the survey.
-    
+     
     ![](images/image30.jpg)
    - Click the center to get menu options for setting the radius (and position).
 
