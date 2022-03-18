@@ -40,7 +40,7 @@ jobs:
           sha: ${{ github.event.pull_request.head.sha }}
           # Only return if PR is still open
           filterOutClosed: true
-      - run: echo "Your PR is ${prNumber} and its JSON is ${prJSON}"
+      - run: echo "Your PR is ${prNumber}"
         if: success() && steps.PR.outputs.number
         env:
           prNumber: ${{ steps.PR.outputs.number }}
@@ -49,13 +49,16 @@ jobs:
         run: |
           mkdir output  # create output dir
       
-      - uses: docker://pandoc/latex
+      - uses: docker://jenosam/pandoc-with-fonts
         with:
-          args: >-  # allows you to break string into multiple lines
-            --standalone
-            --resource-path=.:docs:docs/images
-            --output=output/QGC-Gov-User-Manual_PR${prNumber}.pdf
-            docs/README.md
+          #args: >-  # allows you to break string into multiple lines
+          #  --standalone
+          #  --resource-path=.:docs:docs/images
+          #  --output=output/QGC-Gov-User-Manual_PR{{steps.PR.outputs.number}}.pdf
+          #  docs/README.md
+          #args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
+          # args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{env.prNumber}}.pdf docs/README.md  # env is empty
+          args: --standalone --pdf-engine=xelatex --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
             
       - uses: actions/upload-artifact@master
         with:

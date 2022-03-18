@@ -18,11 +18,6 @@ header-includes: |
     \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
 ---
 
-
-![](images/image170.png)
-
-
-
 # Introduction
 
 Auterion QGC SRR Edition is a customized version of QGC.
