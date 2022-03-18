@@ -7,7 +7,7 @@ logo: images/image113.png
 fontsize: 12pt
 # fontfamily: ebgaramond
 # fontfamily: libertinus
-fontfamily: arev
+# fontfamily: arev
 
 header-includes: |
     \usepackage{tcolorbox}
