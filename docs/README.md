@@ -9,7 +9,8 @@ fontsize: 12pt
 # fontfamily: libertinus
 # fontfamily: arev
 #mainfont: Free Sans
-mainfont: Source Sans Pro
+#mainfont: Source Sans Pro
+mainfont: DejaVu Sans
 
 #header-includes: |
 #    \usepackage{tcolorbox}
