@@ -5,13 +5,6 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: 
-      - main
-    paths:
-        - 'docs/**'
-    tags:
-      - 'v*'
   pull_request:
     branches: [ main ]
     paths:
@@ -48,26 +41,13 @@ jobs:
         env:
           prNumber: ${{ steps.PR.outputs.number }}
      
-      - uses: little-core-labs/get-git-tag@v3.0.1
-        id: tagName
-     
       - name: create output directory
         run: |
           mkdir output  # create output dir
       
       - uses: docker://jenosam/pandoc-with-fonts
         with:
-          #args: >-  # allows you to break string into multiple lines
-          #  --standalone
-          #  --resource-path=.:docs:docs/images
-          #  --output=output/QGC-Gov-User-Manual_PR{{steps.PR.outputs.number}}.pdf
-          #  docs/README.md
-          #args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
-          # args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{env.prNumber}}.pdf docs/README.md  # env is empty
-          args: --defaults=docs/defaults.yaml --output=output/QGC-Gov-User-Manual_${{steps.PR.outputs.number}}_${{ steps.tagName.outputs.tag }}.pdf  --variable=author:${{ steps.tagName.outputs.tag }}
-          
-          
-          
+          args: --defaults=docs/defaults.yaml --output=output/QGC-Gov-User-Manual_PR_${{steps.PR.outputs.number}}.pdf  --variable=author:PR_{{steps.PR.outputs.number}}
           
       - uses: actions/upload-artifact@master
         with:
