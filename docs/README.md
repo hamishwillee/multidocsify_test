@@ -1,16 +1,16 @@
 ---
 title: 'Auterion QGC SRR Edition: User Manual'
-logo: images/image113.png
 fontsize: 12pt
 mainfont: DejaVu Sans
 header-includes: |
     \usepackage{tcolorbox}
     \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
     \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
+    \pagestyle{fancy}
+    \fancyhead[L]{\includegraphics[width=5mm]{images/image170.png}}
+    \fancyhead[R]{Auterion QGC SRR Edition: User Manual}
+    \fancyfoot[R]{\thepage}
 ---
-<!-- ![](images/image113.png) --> <!-- Auterion logo - icon and text -->
-
-![](images/image170.png) <!-- Auterion logo - icon only -->
 
 # Introduction
 
