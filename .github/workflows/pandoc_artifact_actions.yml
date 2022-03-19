@@ -64,7 +64,7 @@ jobs:
           #  docs/README.md
         #args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
           # args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{env.prNumber}}.pdf docs/README.md  # env is empty
-          args: --defaults=docs/defaults.yaml --output=output/QGC-Gov-User-Manual_PR${env.RELEASE_VERSION}.pdf  --variable=author:${{ format('Version {0}', $RELEASE_VERSION) }}
+          args: --defaults=docs/defaults.yaml --output=output/QGC-Gov-User-Manual_PR${RELEASE_VERSION}.pdf  --variable=author:$RELEASE_VERSION
           
           
           
