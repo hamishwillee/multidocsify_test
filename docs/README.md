@@ -6,6 +6,7 @@ header-includes: |
     \usepackage{tcolorbox}
     \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
     \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
+    \usepackage{fancyhdr}
     \pagestyle{fancy}
     \fancyhead[L]{\includegraphics[width=5mm]{images/image170.png}}
     \fancyhead[R]{Auterion QGC SRR Edition: User Manual}
