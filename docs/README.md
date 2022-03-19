@@ -8,7 +8,7 @@ header-includes: |
     \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
     \usepackage{fancyhdr}
     \pagestyle{fancy}
-    \fancyhead[L]{\includegraphics[width=5mm]{images/image170.png}}
+    \fancyhead[L]{\includegraphics[width=5mm]{docs/images/image170.png}}
     \fancyhead[R]{Auterion QGC SRR Edition: User Manual}
     \fancyfoot[R]{\thepage}
 ---
