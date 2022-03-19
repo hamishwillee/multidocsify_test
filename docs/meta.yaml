@@ -1,7 +1,7 @@
 title: 'Auterion QGC SRR Edition: User Manual'
 fontsize: 12pt
 mainfont: DejaVu Sans
-pdf-engine: xelatex
+author: Version [not set]
 header-includes: |
     \usepackage{tcolorbox}
     \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}

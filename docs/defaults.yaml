@@ -1,0 +1,7 @@
+metadata-file: docs/meta.yaml
+pdf-engine: xelatex
+standalone: true
+resource-path: ['.','docs', 'docs/images']
+input-file: docs/README.md
+output-file: QGC-Gov-User-Manual_default.pdf
+
