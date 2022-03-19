@@ -58,7 +58,7 @@ jobs:
           #  docs/README.md
           #args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
           # args: --standalone --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual${{env.prNumber}}.pdf docs/README.md  # env is empty
-          args: --standalone --pdf-engine=xelatex --metadata-file=docs/meta.yaml --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
+          args: --standalone --metadata-file=docs/meta.yaml --resource-path=.:docs:docs/images --output=output/QGC-Gov-User-Manual_PR${{steps.PR.outputs.number}}.pdf docs/README.md #Works
             
       - uses: actions/upload-artifact@master
         with:
