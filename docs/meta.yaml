@@ -1,0 +1,17 @@
+title: 'Auterion QGC SRR Edition: User Manual'
+fontsize: 12pt
+mainfont: DejaVu Sans
+author: AUTHOR Big Boy
+subtitle: SUBTITLE Cock head
+date: DATE 12-3-444
+institute: INSTITURE
+header-includes: |
+    \usepackage{tcolorbox}
+    \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
+    \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhead[L]{\includegraphics[width=5mm]{docs/images/image170.png}}
+    \fancyhead[R]{Auterion QGC SRR Edition: User Manual}
+    \fancyfoot[C]{\thepage}
+    \fancyfoot[R]{}
