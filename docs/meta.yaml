@@ -1,10 +1,7 @@
 title: 'Auterion QGC SRR Edition: User Manual'
 fontsize: 12pt
 mainfont: DejaVu Sans
-author: AUTHOR Big Boy
-subtitle: SUBTITLE Cock head
-date: DATE 12-3-444
-institute: INSTITURE
+pdf-engine: xelatex
 header-includes: |
     \usepackage{tcolorbox}
     \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
