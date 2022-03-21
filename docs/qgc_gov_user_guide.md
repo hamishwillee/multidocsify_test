@@ -564,6 +564,9 @@ Setting | Options | Description
 --- | ---
 Photo Mode | Single/Timelapse | Capture image when capture button is pressed, or after a specified Photo Interval.
 Photo Interval | ![](images/image65.jpg) | Time after capture image/video button is pressed that the image is captured (only enabled for Photo Mode: Time Lapse). This value is displayed on the capture image/video button when a time-lapse is set.
+Use Camera Gimbal Control | On / Off | Enable to allow the gimbal indicator to be used as a control for setting the gimbal pitch. If enabled the on-screen gimbal joystick cannot be used.
+
+
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -575,11 +578,6 @@ Photo Interval | ![](images/image65.jpg) | Time after capture image/video button
 <td><p>Options</p></td>
 </tr>
 <!-- removed to above -->
-<tr class="even">
-<td><p>Use Camera Gimbal Control</p></td>
-<td><p><em>On</em> | <em>Off</em>.</p>
-<p>Enable to allow the gimbal indicator to be used as a control for setting the gimbal pitch. If enabled the on-screen gimbal joystick cannot be used.</p></td>
-</tr>
 <tr class="odd">
 <td><p>Show Gimbal Control</p></td>
 <td><p><em>On</em> | <em>Off</em>.</p>
