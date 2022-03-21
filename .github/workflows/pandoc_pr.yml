@@ -47,9 +47,7 @@ jobs:
       
       - uses: docker://jenosam/pandoc-with-fonts
         with:
-          args: --defaults=docs/defaults.yaml --output=output/QGC-Gov-User-Manual_PR_${{steps.PR.outputs.number}}.pdf --variable=author:PR_{{steps.PR.outputs.number}}
-          #args: --defaults=docs/defaults.yaml --output=output/QGC-Gov-User-Manual_PR_${{steps.PR.outputs.number}}.pdf --variable=author:PRX
-
+          args: --defaults=docs/defaults.yaml --output=output/QGC-Gov-User-Manual_PR_${{ steps.PR.outputs.number }}.pdf --variable=author:PR_${{ steps.PR.outputs.number }}
 
       - uses: actions/upload-artifact@master
         with:
