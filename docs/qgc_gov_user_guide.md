@@ -817,8 +817,7 @@ You can use the sticks on the controller to change the radius, speed, and direct
 
 # Fly Manually
 
-QGC-Gov isn't required for manual flight, but can make some tasks
-easier:
+QGC-Gov isn't required for manual flight, but can make some tasks easier:
 
 - [Viewing vehicle state and flight information](#vehicle-state-and-flight-information) allows pilots to see the map, historical and planned flight path, geofences, rally points, speed, altitude, direction, battery capacity, and much more.
 - [Taking off, landing, flying home and landing actions](#fly-using-high-level-commands) can be triggered from the [fly tools](#fly-tools).
