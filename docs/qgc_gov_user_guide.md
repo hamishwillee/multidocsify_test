@@ -433,7 +433,7 @@ The main controls are
 
 - Tap anywhere in middle to toggle map and video
 - Resize the switcher by dragging the icon in the top right corner.
-- Hide/shrink the switcher by pressing the toggle icon in the lower left.
+- Hide/shrink the switcher by pressing the toggle icon in the lower left. 
 
 ![](images/image118.png)
 
