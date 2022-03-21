@@ -503,8 +503,8 @@ The views for video and photo control are shown below:
 
 The sub-controls for each mode display are:
 
-Images | Description
---- | ---
+Video/Camera | Description
+--- | --- | ---
 ![](images/image18.png)![](images/image18.png) | Display connected camera(s) and SD card free space 
 ![](images/image18.png)![](images/image43.png) | Display current capture mode. Select to change to alternate mode
 ![](images/image18.png)![](images/image43.png) | Capture (video or photo)
@@ -513,7 +513,7 @@ Images | Description
 
 #### Gimbal Indicator/Slider
 
-![](images/image211.png)
+![Gimbal indicator/slider](images/image211.png)
 
 A gimbal allows camera pitch (up/down) and/or yaw (left/right) movement to be controlled independently of vehicle movement.
 *QGC-Gov* is expected to be used on hardware with a dedicated gimbal joystick.
