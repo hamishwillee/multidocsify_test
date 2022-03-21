@@ -51,7 +51,6 @@ The following reminders are provided to help ensure you have a safe flight:
 
 > **Tip:** Dedicated hardware controls are not _required_, but make many operations a lot easier (in particular, manual flight and controlling the camera).
 
-
 A ground station might have:
 
 - Analog sticks for throttle/yaw and roll/pitch
@@ -93,7 +92,7 @@ Up to 10 vehicles can be paired, but only a single (paired) vehicle can connect 
 
 Access to pair and connect to vehicles is via the pairing icon in the application status bar.
 
-![](images/image93.png)
+![Pairing icon](images/image93.png)
 
 ## Enabling Pairing
 
