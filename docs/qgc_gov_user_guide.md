@@ -1,6 +1,6 @@
 # Introduction
 
-Auterion QGC SRR Edition is a customized version of QGC.
+QGC-Gov is a customized version of QGC.
 It enables a rapidly deployable scouting capability to gain situational awareness beyond the next terrain feature.
 The continued focus of the ground station is to deliver user friendly features that are easy to learn/train and have low cognitive load for the user, while enhancing intelligence, surveillance, and reconnaissance (ISR) capabilities.
 
@@ -13,7 +13,7 @@ The app has a very clear focus on both safety and ease of use.
 Navigation is straightforward, with a very clear division between planning missions, flying, and configuration.
 Views are clean and uncluttered, displaying just the telemetry, mission and flight path information that is needed for safe flight.
 There are both audible and visual notifications for important warnings, and readily accessible logs for less important status updates.
-The SRR Edition even provides a pre-flight checklist to help you ensure your vehicle and mission are safe to fly before you even take off.
+QGC-Gov even provides a pre-flight checklist to help you ensure your vehicle and mission are safe to fly before you even take off.
   
 Complex missions, including surveying arbitrarily shaped areas, vertical structures and even corridor paths like roads are defined using simple graphical tools.
 You can run pre-planned mission in fully automated mode, using any of a huge range of supported cameras to capture and geotag images.
@@ -23,14 +23,14 @@ You can pause or restart the mission, skip forward or back, and even land for a 
 In addition to automated flight, you can fly “manually” using the sticks on the controller, or high level command: takeoff, go to a particular location and orbit, fly back to the launch location and land.
 When you’re at the target you can tilt the camera using the sticks on the controller, zoom in and out, and capture images.
 
-QGC SRR Edition is designed specifically to run *best* on rugged tablet hardware with joysticks/buttons to control vehicle and camera.
+QGC-Gov is designed specifically to run *best* on rugged tablet hardware with joysticks/buttons to control vehicle and camera.
 It also will work on both iPad and Android tablets, and desktop computers running macOS, Windows and Linux.
 
 Up to 255 vehicles can be controlled at a time (although only very experienced pilots should attempt to control more than one).
 
 # Supported Flight Stacks
 
-*Auterion QGC SRR Edition* can be used with the same set of flight stacks (autopilot software) as “vanilla” *QGroundControl*: PX4, ArduPilot and other MAVLink-standard compliant stacks.
+*QGC-Gov* can be used with the same set of flight stacks (autopilot software) as “vanilla” *QGroundControl*: PX4, ArduPilot and other MAVLink-standard compliant stacks.
 
 Note however that the software has been tested and validated against PX4; Auterion does not provide specific support for its use with other flight stacks.
 
@@ -47,7 +47,7 @@ The following reminders are provided to help ensure you have a safe flight:
 
 ## Ground Station
 
-*QGC SRR Edition* runs *best* on tablet hardware with joysticks/buttons to control the vehicle and camera during manual flight.
+*QGC-Gov* runs *best* on tablet hardware with joysticks/buttons to control the vehicle and camera during manual flight.
 
 > **Tip:** Dedicated hardware controls are not _required_, but make many operations a lot easier (in particular, manual flight and controlling the camera).
 
@@ -441,7 +441,7 @@ The main controls are
 
 ![](images/image137.png)
 
-*QGC SRR Edition* has been specifically designed to integrate with cameras that support both visible light and IR video streams, and which can be directed independent of vehicle orientation using a joystick controlled gimbal.
+*QGC-Gov* has been specifically designed to integrate with cameras that support both visible light and IR video streams, and which can be directed independent of vehicle orientation using a joystick controlled gimbal.
 
 The Fly View camera controls are composed of the following elements:
 
@@ -455,10 +455,10 @@ The Fly View camera controls are composed of the following elements:
 
 ![](images/image190.png) 
 
-QGC SRR edition supports both Electro Optical (EO) and Infrared (IR) video streams.
+QGC-Gov supports both Electro Optical (EO) and Infrared (IR) video streams.
 The video display mode control is used to specify which video stream(s) are displayed, and to select the thermal palette used for IR streams.
 
-> **Note:** QGC SRR edition supports a number of pre-integrated cameras.
+> **Note:** QGC-Gov supports a number of pre-integrated cameras.
 > The options displayed in the control depend on vehicle camera support/capabilities.
 
 The button actions from left to right are:
@@ -522,7 +522,7 @@ The sub-controls for each mode display are:
 ![](images/image211.png)
 
 A gimbal allows camera pitch (up/down) and/or yaw (left/right) movement to be controlled independently of vehicle movement.
-*Auterion QGC SRR Edition* is expected to be used on hardware with a dedicated gimbal joystick.
+*QGC-Gov* is expected to be used on hardware with a dedicated gimbal joystick.
 
 The gimbal indicator *displays* the current camera pitch and yaw on a vertical slider:
 
@@ -662,7 +662,7 @@ Screenshots for all sections are shown below.
 
 Flight modes provide different types of autopilot assistance to a pilot, including automation of common operations like *takeoff* and *landing*, execution of fully autonomous missions, and changing how the vehicle responds to pilot input during manual flight (for example by making it easier to regain level flight, hold the vehicle to a fixed path or position, etc.).
 
-QGC SRR displays the current flight mode in the mode selector on the application top status bar.
+QGC-Gov displays the current flight mode in the mode selector on the application top status bar.
 The selector menu can be opened to select the two **manual** modes: *Altitude* and *Position*.
 All other modes are automatically selected when you perform an associated operation - e.g. start a mission, takeoff, land etc.
 
@@ -823,7 +823,7 @@ You can use the sticks on the controller to change the radius, speed, and direct
 
 # Fly Manually
 
-QGC SRR isn't required for manual flight, but can make some tasks
+QGC-Gov isn't required for manual flight, but can make some tasks
 easier:
 
 - [Viewing vehicle state and flight information](#vehicle-state-and-flight-information) allows pilots to see the map, historical and planned flight path, geofences, rally points, speed, altitude, direction, battery capacity, and much more.
@@ -833,7 +833,7 @@ easier:
 
 ## Supported Manual Modes
 
-QGC SRR explicitly supports two manual modes (which can be enabled through the app):
+QGC-Gov explicitly supports two manual modes (which can be enabled through the app):
 
 - [Position mode](#position-mode) is the easiest and safest manual flight mode.
   It has intuitive stick controls and is impossible to flip.
@@ -856,7 +856,7 @@ The manual modes can be enabled using the mode selector as shown.
 
 ## Region of Interest (Position Mode)
 
-QGC SRR allows users to set a *Region Of Interest (ROI)* on the map in fly view.
+QGC-Gov allows users to set a *Region Of Interest (ROI)* on the map in fly view.
 The camera will then track this ROI in when flying in position mode (only).
 
 To set the ROI:
@@ -869,7 +869,7 @@ To set the ROI:
 3. Acknowledge the confirmation prompt:
 
    ![](images/image111.png)
-4. QGC SRR will then add an ROI marker at the selected position, and mark the ROI status icon (application top bar) green ("enabled").
+4. QGC-Gov will then add an ROI marker at the selected position, and mark the ROI status icon (application top bar) green ("enabled").
 
    ![](images/image68.png)
 
@@ -2235,7 +2235,7 @@ The Statistics section shows the calculated survey area, photo count, interval, 
 # GeoFence
 
 A *GeoFence* is a virtual fence that defines areas within which the vehicle can move (inclusions) or cannot move (exclusions).
-QGC SRR allows the creation of complex GeoFence boundaries made up of multiple circular and polygonal regions.
+QGC-Gov allows the creation of complex GeoFence boundaries made up of multiple circular and polygonal regions.
 
 > **Note:** GeoFences can be used to prevent a vehicle flying out of range of the RC controller, or into unsafe or restricted airspace. They are checked in all modes, including missions and manual flight.
 
@@ -2484,7 +2484,7 @@ Sensors are configured and calibrated through **Vehicle Setup \> Sensors** (onl
 The sensor calibration statuses are indicated by colored markers: green (calibrated)/red (uncalibrated).
 The calibration process for each sensor is guided by on-screen instructions, and is initiated by selecting the associated button.
 
-> **Note:** Vehicles used with QGC SRR Edition are expected to be factory calibrated, and generally should not require re-calibration.
+> **Note:** Vehicles used with QGC-Gov are expected to be factory calibrated, and generally should not require re-calibration.
 
 ![](images/image185.png)
 
