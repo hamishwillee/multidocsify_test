@@ -1,4 +1,4 @@
-title: 'Auterion QGC SRR Edition: User Manual'
+title: 'QGC-Gov: User Manual'
 fontsize: 12pt
 mainfont: DejaVu Sans
 author: Version [not set]
@@ -9,6 +9,6 @@ header-includes: |
     \usepackage{fancyhdr}
     \pagestyle{fancy}
     \fancyhead[L]{\includegraphics[width=5mm]{docs/images/image170.png}}
-    \fancyhead[R]{Auterion QGC SRR Edition: User Manual}
+    \fancyhead[R]{QGC-Gov: User Manual}
     \fancyfoot[C]{\thepage}
     \fancyfoot[R]{}

@@ -107,9 +107,10 @@ To pair a vehicle:
 
 1. Select the *Pair Vehicle* icon in the status bar to display the *pairing dialog*.
 
-   > **Note:** If a *connection dialog* is displayed instead, select **Pair Another** to launch the *pairing dialog* shown below. |
+   > **Note:** If a *connection dialog* is displayed instead, select **Pair Another** to launch the *pairing dialog* shown below.
 
-   > **Note:** The settings (network ID, etc.) depend on the configuration of your vehicle network/fleet. If any need to be changed the relevant values should be provided by your vendor.
+   > **Note:** The settings (network ID, etc.) depend on the configuration of your vehicle network/fleet.
+   > If any need to be changed the relevant values should be provided by your vendor.
 
    ![](images/image69.png)
 
@@ -393,16 +394,16 @@ Actions that can have an associated altitude will display an altitude slider alo
 The fly toolbar is used to execute most flight and preflight operations.
 The toolbar only displays valid tool options for the current vehicle state (invalid options are hidden or greyed out).
 
-| Icon | Tool | Description |
-| --- | --- | --- |
-| ![](images/image227.png) | [Plan](#planning) | Switch to Plan View (in order to plan a mission, geofence or rally point). |
-| ![](images/image163.png) | [Checklist](#flight-preparation) | Start pre-flight safety checks. |
-| ![](images/image27.png)  | [Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed). |
-| ![](images/image14.png)  | [Land](#land-mode) | Land vehicle and disarm (option visible if flying). |
-| ![](images/image183.png) | [Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration. |
-| ![](images/image88.png)  | [Pause](#hold-mode) | Pause current operation. |
-| ![](images/image36.png)  | Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc. |
-| ![](images/image45.png)  | [Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission. |
+Icon | Tool | Description
+--- | --- | ---
+![](images/image227.png) | [Plan](#planning) | Switch to Plan View (in order to plan a mission, geofence or rally point).
+![](images/image163.png) | [Checklist](#flight-preparation) | Start pre-flight safety checks.
+![](images/image27.png)  | [Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
+![](images/image14.png)  | [Land](#land-mode) | Land vehicle and disarm (option visible if flying).
+![](images/image183.png) | [Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
+![](images/image88.png)  | [Pause](#hold-mode) | Pause current operation.
+![](images/image36.png)  | Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc.
+![](images/image45.png)  | [Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission.
 
 
 All operations must be confirmed using a slider before they will be executed.
@@ -472,21 +473,14 @@ The button actions from left to right are:
 
 Screenshots for each of the modes are shown below.
 
-#### Full camera view (EO) 
+![Full camera view (EO)](images/image154.png)
 
-![](images/image154.png)
+![Picture-in-picture (IR in EO)](images/image77.png)
 
-#### Picture-in-picture (IR in EO)
+![Thermal Full Screen (IR)](images/image85.png)
 
-![](images/image77.png)
+![Cycle through thermal palettes (IR)](images/image189.png)
 
-#### Thermal Full Screen (IR)
-
-![](images/image85.png)
-
-#### Cycle through thermal palettes (IR)
-
-![](images/image189.png)
 
 ### Camera Gimbal Control
 
@@ -494,7 +488,7 @@ The Camera-Gimbal control is used to control the camera and display the gimbal p
 By default the gimbal slider part of the control can also be used to *control* camera pitch (but not yaw).
 There is a setting to disable pitch control using the slider, and another that enables a separate on screen joystick for gimbal control.
 
-![](images/image124.png)
+![Camera/Gimbal Control](images/image124.png)
 
 The parts of the control are discussed separately below.
 
@@ -509,13 +503,13 @@ The views for video and photo control are shown below:
 
 The sub-controls for each mode display are:
 
-|                                                 |                                                                                 |
-|-------------------------------------------------|---------------------------------------------------------------------------------|
-| ![](images/image18.png)![](images/image18.png)  | Display connected camera(s) and SD card free space                              |
-| ![](images/image18.png)![](images/image43.png)  | Display current capture mode. Select to change to alternate mode                |
-| ![](images/image18.png)![](images/image43.png)  | Capture (video or photo)                                                        |
-| ![](images/image18.png)                         | Open [settings panel](#camera-and-gimbal-settings) for current capture mode     |
-| ![](images/image18.png)![](images/image43.png)  | Display time for current (ongoing) video capture / Number of captured pictures. |
+Images | Description
+--- | ---
+![](images/image18.png)![](images/image18.png) | Display connected camera(s) and SD card free space 
+![](images/image18.png)![](images/image43.png) | Display current capture mode. Select to change to alternate mode
+![](images/image18.png)![](images/image43.png) | Capture (video or photo)
+![](images/image18.png)                        | Open [settings panel](#camera-and-gimbal-settings) for current capture mode
+![](images/image18.png)![](images/image43.png) | Display time for current (ongoing) video capture / Number of captured pictures.
 
 #### Gimbal Indicator/Slider
 
@@ -539,7 +533,7 @@ By default you can also change the pitch (but not yaw) by dragging the green ico
 
 The *Gimbal Control* is an on-screen gimbal joystick. It can be enabled as an alternative to the camera-gimbal control, and allows both gimbal yaw and pitch to be set.
 
-![](images/image91.png)
+![Gimbal virtual joystick](images/image91.png)
 
 The virtual joystick is enabled in the [Gimbal Settings](#camera-and-gimbal-settings).
 The setting **Use Camera Gimbal Control** must be set to *Off*, after which **Use Gimbal Joystick Control** can be set to *On*.
@@ -548,7 +542,7 @@ The setting **Use Camera Gimbal Control** must be set to *Off*, after which **U
 
 ### Zoom controls
 
-![](images/image92.png) 
+![Zoom controls](images/image92.png) 
 
 Continuous zoom out / in via a tap+hold interaction.
 
