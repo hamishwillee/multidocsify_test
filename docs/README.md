@@ -2,7 +2,7 @@
 
 The QGC User Guide is written in github-compatible markdown and generated into PDF files using the [Pandoc](https://pandoc.org/MANUAL.html) toolchain.
 
-The source/master version can be found in this directory: [qgc_gov_user_guide](qgc_gov_user_guide.md) (incorporating images stored in the [images](/images) subdirectory).
+The source/master version can be found in this directory: [qgc_gov_user_guide](qgc_gov_user_guide.md) (incorporating images stored in the [images](images) subdirectory).
 
 This is effectively the latest version and can be read online.
 In addition, a PDF is generated on every new pull request and when a new tag is created (this and can be found in the Actions tab).
