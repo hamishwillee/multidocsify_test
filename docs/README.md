@@ -31,6 +31,8 @@ A configuration is file sets up everything needed for the build.
 Specific settings can then be overridden on the command line (this is how version tags can be passed into the build).
 
 The files in the project are:
+- [docs/qgc_gov_user_guide](qgc_gov_user_guide.md) the user guide
+  - Images for above doc: [docs/images](images). 
 - [docs/Docker](Docker) - This is the source file for the docker image, which is built to dockerhub as: `jenosam/pandoc-with-fonts:latest`
   It is based on the minimal docker image provided Pandoc: `pandoc/latex:latest` but with the addition of the Dejavu fonts and the ability to define "Note" boxes in the generated PDF.
 - [docs/defaults.yaml](default.yaml) - default build configuration.
