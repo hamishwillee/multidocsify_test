@@ -560,6 +560,10 @@ The settings that are *independent of the camera type* are shown below.
 
 ![](images/image19.png)
 
+Setting | Options | Description
+--- | ---
+Photo Mode | Single/Timelapse | Capture image when capture button is pressed, or after a specified Photo Interval.
+Photo Interval | ![](images/image65.jpg) | Time after capture image/video button is pressed that the image is captured (only enabled for Photo Mode: Time Lapse). This value is displayed on the capture image/video button when a time-lapse is set.
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -570,17 +574,7 @@ The settings that are *independent of the camera type* are shown below.
 <td><p>Setting</p></td>
 <td><p>Options</p></td>
 </tr>
-<tr class="even">
-<td><p>Photo Mode</p></td>
-<td><p><em>Single</em> | <em>Timelapse</em>.</p>
-<p>Capture image when capture button is pressed, or after a specified Photo Interval.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Photo Interval</p></td>
-<td><p>Time after capture image/video button is pressed that the image is captured (only enabled for Photo Mode: Time Lapse).</p>
-<p><img src="images/image65.jpg" /></p>
-<p>This value is displayed on the capture image/video button when a time-lapse is set.</p></td>
-</tr>
+<!-- removed to above -->
 <tr class="even">
 <td><p>Use Camera Gimbal Control</p></td>
 <td><p><em>On</em> | <em>Off</em>.</p>
