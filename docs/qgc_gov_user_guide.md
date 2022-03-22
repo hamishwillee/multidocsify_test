@@ -123,7 +123,7 @@ To pair a vehicle:
 
 4. You can stop the pairing operation if needed by pressing **Cancel** (and then **Done** in the popup).
 
-    ![](images/image230.png)  
+    ![](images/image230.png)
 5. Once pairing is complete you can select **Confirm** in the next dialog to connect to the vehicle (or **Cancel** to exit without connecting) :
 
    ![](images/image11.png)
@@ -491,6 +491,7 @@ There is a setting to disable pitch control using the slider, and another that e
 
 The parts of the control are discussed separately below.
 
+
 #### Camera Controls
 
 The camera controls are used to capture video or images and to switch between the image and video capture modes.
@@ -498,24 +499,24 @@ They also allow you to configure the camera settings for each mode and display h
 
 The views for video and photo control are shown below:
 
-![](images/image18.png)![](images/image43.png)
+![](images/image18.png) ![](images/image43.png)
 
-The sub-controls for each mode display are:
+The controls, in order are:
 
-Video/Camera | Description
---- | --- | ---
-![](images/image18.png)![](images/image18.png) | Display connected camera(s) and SD card free space 
-![](images/image18.png)![](images/image43.png) | Display current capture mode. Select to change to alternate mode
-![](images/image18.png)![](images/image43.png) | Capture (video or photo)
-![](images/image18.png)                        | Open [settings panel](#camera-and-gimbal-settings) for current capture mode
-![](images/image18.png)![](images/image43.png) | Display time for current (ongoing) video capture / Number of captured pictures.
+- Connected camera
+- Free SD card memory
+- Camera mode
+- Capture
+- Open settings for current captue mode
+- Elapsed time for current video (Video mode) / Number of captured pictures (Camera mode)
+
 
 #### Gimbal Indicator/Slider
 
-![Gimbal indicator/slider](images/image211.png)
-
 A gimbal allows camera pitch (up/down) and/or yaw (left/right) movement to be controlled independently of vehicle movement.
 *QGC-Gov* is expected to be used on hardware with a dedicated gimbal joystick.
+
+![Gimbal indicator/slider](images/image211.png)
 
 The gimbal indicator *displays* the current camera pitch and yaw on a vertical slider:
 
@@ -549,69 +550,38 @@ Continuous zoom out / in via a tap+hold interaction.
 
 Camera settings for photo and video are accessed from the [Camera Controls](#camera-controls) settings icon.
 
-![](images/image18.png)
+![Camera Control: Settings Selector](images/camera_settings_selector.png)
 
 The options presented depend on the attached camera and camera mode (video/photo).
 For example: ISO, white balance, brightness, sharpness, video frame rate, exposure mode, etc.
 
-The settings that are *independent of the camera type* are shown below.
+![Camera Control: Camera Settings](images/image19.png)
+<!-- ![Camera: Common Settings](images/camera_settings_common.png) -->
 
-![](images/image221.png)
+The settings that are *independent of the camera type* are listed below.
 
-![](images/image19.png)
+- `Photo mode`:
+  - `Single`: Capture image
+  - `Timelapse`: Capture image after specified interval (specified using `Photo Interval` slider)
+- `Use Camera Gimbal Control` (`On` | `Off`): Enable the gimbal indicator to be used as a control for setting the gimbal pitch (disables the on-screen gimbal joystick).
+- `Show Gimbal Control` (`On` | `Off`): Enable [on-screen gimbal joystick](#gimbal-control-virtual-joystick). <!-- ![](images/image91.png) -->
+- `Screen Grid` (`On` | `Off`): Overlays 3x3 grid over the video feed (aids image alignment). <!-- ![](images/image22.png) -->
+- `Video Screen Fit`: Full screen video display
+  - `Fit Height`: Fit to height
+  - `Fit Width`: Fit to width
+  - `Stretch`: Stretch to fill screen
+- `Reset Camera Defaults`: Reset camera/gimbal to default settings.
 
-Setting | Options | Description
---- | ---
-Photo Mode | Single/Timelapse | Capture image when capture button is pressed, or after a specified Photo Interval.
-Photo Interval | ![](images/image65.jpg) | Time after capture image/video button is pressed that the image is captured (only enabled for Photo Mode: Time Lapse). This value is displayed on the capture image/video button when a time-lapse is set.
-Use Camera Gimbal Control | On / Off | Enable to allow the gimbal indicator to be used as a control for setting the gimbal pitch. If enabled the on-screen gimbal joystick cannot be used.
-
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Setting</p></td>
-<td><p>Options</p></td>
-</tr>
-<!-- removed to above -->
-<tr class="odd">
-<td><p>Show Gimbal Control</p></td>
-<td><p><em>On</em> | <em>Off</em>.</p>
-<p>Enable display of <a href="#gimbal-control-virtual-joystick">on-screen gimbal joystick</a>.
-Option hidden if <strong>Use Camera Gimbal Control</strong> is <em>On</em>.<br />
-<img src="images/image91.png" /></p></td>
-</tr>
-<tr class="even">
-<td><p>Screen Grid</p></td>
-<td><p><em>On</em> | <em>Off</em>.<br />
-This setting overlays a 3x3 grid of very fine lines on the screen (center of grid shown below).<br />
-<img src="images/image22.png" /></p></td>
-</tr>
-<tr class="odd">
-<td><p>Video Screen Fit</p></td>
-<td><p><em>Fit Height</em> | <em>Fit Width</em> | <em>Stretch</em>.</p>
-<p>Control how full-screen video is displayed.</p></td>
-</tr>
-<tr class="even">
-<td><p>Reset Camera Defaults</p></td>
-<td><p>Press to reset camera/gimbal to default settings.</p></td>
-</tr>
-</tbody>
-</table>
 
 # Flight Preparation
 
 The ground station has an automated checklist that you should use to verify that your vehicle and planned flight path are safe to fly.
 
+![Preflight Checklist](images/image103.png)
+
 The checklist has three separate sections, each containing a number of tests that have a color-coded status button and a description.
 Tests are either automatic or manual; the former tests are run automatically and the results displayed while the manual tests must be marked as passed by the user.
 All tests in a section must pass before you can start the next section.
-
-![](images/image103.png)
 
 To use the checklist:
 
