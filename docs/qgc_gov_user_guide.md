@@ -562,14 +562,16 @@ The settings that are *independent of the camera type* are listed below.
 
 - `Photo mode`:
   - `Single`: Capture image
-  - `Timelapse`: Capture image after specified interval (specified using `Photo Interval` slider)
+  - `Timelapse`: Capture image after specified interval.
+    - `Photo Interval`: Interval for timelapse capture.
+      
 - `Use Camera Gimbal Control` (`On` | `Off`): Enable the gimbal indicator to be used as a control for setting the gimbal pitch (disables the on-screen gimbal joystick).
 - `Show Gimbal Control` (`On` | `Off`): Enable [on-screen gimbal joystick](#gimbal-control-virtual-joystick). <!-- ![](images/image91.png) -->
 - `Screen Grid` (`On` | `Off`): Overlays 3x3 grid over the video feed (aids image alignment). <!-- ![](images/image22.png) -->
 - `Video Screen Fit`: Full screen video display
-  - `Fit Height`: Fit to height
-  - `Fit Width`: Fit to width
-  - `Stretch`: Stretch to fill screen
+    - `Fit Height`: Fit to height
+    - `Fit Width`: Fit to width
+    - `Stretch`: Stretch to fill screen
 - `Reset Camera Defaults`: Reset camera/gimbal to default settings.
 
 
