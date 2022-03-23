@@ -1,6 +1,13 @@
 title: 'QGC-Gov: User Manual'
 fontsize: 12pt
 mainfont: DejaVu Sans
+
+# highlight urls
+colorlinks: true
+linkcolor: blue  #internal link
+urlcolor: red #external link
+#toccolor: gray
+
 author: Version [not set]
 header-includes: |
     \usepackage{tcolorbox}
