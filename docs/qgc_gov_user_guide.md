@@ -322,7 +322,7 @@ Click anywhere in the control to toggle an expanded panel with additional inform
 The table below shows the purpose of each field.
 
 Icon | Description
---- | --- 
+--- | --------- 
 ![](images/image234.png) | Time since armed (approximate flight time).
 ![](images/image40.png) | Horizontal speed.
 ![](images/image200.png) | Ascent/descent speed
@@ -390,20 +390,33 @@ Actions that can have an associated altitude will display an altitude slider alo
 
 ### Fly Tools
 
+[TODO: Insert the fly toolbar image here]
+
 The fly toolbar is used to execute most flight and preflight operations.
 The toolbar only displays valid tool options for the current vehicle state (invalid options are hidden or greyed out).
 
-Icon | Tool | Description
---- | --- | ---
-![](images/image227.png) | [Plan](#planning) | Switch to Plan View (in order to plan a mission, geofence or rally point).
-![](images/image163.png) | [Checklist](#flight-preparation) | Start pre-flight safety checks.
-![](images/image27.png)  | [Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
-![](images/image14.png)  | [Land](#land-mode) | Land vehicle and disarm (option visible if flying).
-![](images/image183.png) | [Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
-![](images/image88.png)  | [Pause](#hold-mode) | Pause current operation.
-![](images/image36.png)  | Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc.
-![](images/image45.png)  | [Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission.
+Tool | Description
+--- | -----------
+[Plan](#planning) | Switch to Plan View (in order to plan a mission, geofence or rally point).
+[Checklist](#flight-preparation) | Start pre-flight safety checks.
+[Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
+[Land](#land-mode) | Land vehicle and disarm (option visible if flying).
+[Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
+[Pause](#hold-mode) | Pause current operation.
+Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc.
+[Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission.
+  
 
+<!-- 
+![Plan](images/image227.png) 
+![Checklist](images/image163.png)
+![Takeoff](images/image27.png)
+![Land](images/image14.png)
+![Return](images/image183.png)
+![Pause](images/image88.png)
+![Action](images/image36.png)
+![Edit](images/image45.png) 
+-->
 
 All operations must be confirmed using a slider before they will be executed.
 Confirmation prompts are displayed in the bottom center of the map (if an altitude can be set for an operation, a vertical slider will be displayed at the same time).
