@@ -960,18 +960,18 @@ For more details see [Mission Plan \> Mission Information](#mission-information)
 
 The *Plan Tools* provides tools for working with plans, including adding waypoints, inserting survey patterns, saving/loading/uploading/downloading plans etc. Some of the options are only displayed when working on a particular type of plan.
 
-| Icon | Name | Plan Type | Description |
-| --- | --- | --- | --- |
-| ![](images/image80.png)  | Fly           | All       | Switch to Fly View (e.g. in order to fly a mission) |
-| ![](images/image44.png)  | File/Sync     | All       | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle). |
-| ![](images/image120.png) | Waypoint      | Mission   | Select to enable adding new waypoints to the map. |
-| ![](images/image126.png) | Pattern tools | Mission   | Add or load a survey pattern - survey (area), structure, corridor. |
-| ![](images/image184.png) | Rally Point   | Rally     | Add a rally (safe) point. |
-| ![](images/image16.png)  | Centre map    | All       | Center map on mission, home, vehicle, all items, or specified location |
+Icon | Name | Plan Type | Description
+--- | ---- | ---- | -------------
+![](images/image80.png)  | Fly           | All     | Switch to Fly View (e.g. in order to fly a mission)
+![](images/image44.png)  | File/Sync     | All     | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/image120.png) | Waypoint      | Mission | Select to enable adding new waypoints to the map.
+![](images/image126.png) | Pattern tools | Mission | Add or load a survey pattern - survey (area), structure, corridor.
+![](images/image184.png) | Rally Point   | Rally   | Add a rally (safe) point.
+![](images/image16.png)  | Centre map    | All     | Center map on mission, home, vehicle, all items, or specified location
 
 #### File/Sync Tools
 
-![](images/image17.png)
+![File/Sync Tools](images/image17.png)
 
 The Plan **File/Sync Tool** provides options to create a new plans, load/save plans on the ground station computer, and upload/download/clear the plan on the vehicle.
 
@@ -980,7 +980,7 @@ The Plan **File/Sync Tool** provides options to create a new plans, load/save p
 #####  File Options
 
 Option | Description
---- | ---
+--- | ------
 New... | Clear plan on QGC and vehicle.
 Open... | Open plan file from storage, clearing the current mission in the ground station. The plan on the vehicle is not affected. QGC can open **.plan** files (and also a number of legacy formats: **.mission**, **.txt**, **.waypoints**).
 Save | Save previously opened or saved plan under same name. QGC prompts to "**Save as**" if the file is new.
@@ -991,11 +991,11 @@ Save Mission Waypoints as KML ... | Save current mission (only) as a KML file. K
 
 The vehicle options upload, download and clear plans to/from/on the vehicle.
 
-| Option                | Description                                                                            |
-|-----------------------|----------------------------------------------------------------------------------------|
-| Upload                | Upload plan to vehicle. Existing plans on the vehicle are cleared.                     |
-| Download              | Download current plan from vehicle. The current plan on the ground station is cleared. |
-| Clear Vehicle Mission | Clear plan on vehicle and QGC. Disabled if no vehicle is connected.                    |
+Option                | Description
+--- | ------
+Upload                | Upload plan to vehicle. Existing plans on the vehicle are cleared.
+Download              | Download current plan from vehicle. The current plan on the ground station is cleared.
+Clear Vehicle Mission | Clear plan on vehicle and QGC. Disabled if no vehicle is connected.
 
 ### Map Tools
 
@@ -1006,44 +1006,15 @@ In addition, the **Plan Tools \> Center** tool can be used to control how the ma
 
 ![](images/image41.png)
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Option</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>Mission</p></td>
-<td><p>Center/zoom map to include all mission waypoints.</p></td>
-</tr>
-<tr class="odd">
-<td><p>All items</p></td>
-<td><p>Center/zoom map to include all plan items (missions, geofences, rally points)</p></td>
-</tr>
-<tr class="even">
-<td><p>Home</p></td>
-<td><p>Center map on home location (normally where vehicle arms and takes off).</p></td>
-</tr>
-<tr class="odd">
-<td><p>Vehicle</p></td>
-<td><p>Center map on vehicle location. Disabled if no vehicle is connected.</p></td>
-</tr>
-<tr class="even">
-<td><p>Current Location</p></td>
-<td><p>Center map on ground station location. Disabled if ground station does not have location/GPS.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Specified Location</p></td>
-<td><p>Center map on specified location.</p>
-<p><img src="images/image105.png" /></p>
-<p>Selecting this option opens the <em>Specify Position</em> dialog (right of the screen). Enter geographic, UTM or MGRS position information, then press the associated <strong>Set...</strong> button to make it the new map center.</p></td>
-</tr>
-</tbody>
-</table>
+Option | Description
+--- | -------
+Mission | Center/zoom map to include all mission waypoints.
+All items | Center/zoom map to include all plan items (missions, geofences, rally points).
+Home | Center map on home location (normally where vehicle arms and takes off).
+Vehicle | Center map on vehicle location. Disabled if no vehicle is connected
+Current Location | Center map on ground station location. Disabled if ground station does not have location/GPS.
+Specified Location | Center map on specified location. Selecting this option opens the _Specify Position_ dialog (right of the screen). Enter geographic, UTM or MGRS position information, then press the associated **Set...** button to make it the new map center. ![](images/image105.png)
+
 
 > **Note:** Additional, for _mission editing_ (only) the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.
 > ![](images/image122.png)
@@ -1089,21 +1060,21 @@ The plan information (application top bar) provides useful statistics for planni
 
 The *Selected Waypoint* section fields are relative to the planned home position:
 
-| Field    | Description 
-| --- | --- |
-| Alt diff | Relative altitude with respect to planned home position. |
-| Gradient | Gradient (%) with respect to planned home position. 0 indicates waypoint and home at the same altitude. |
-| Azimuth  | Heading of current waypoint with respect to previous waypoint (in degrees, clockwise from North=0°). |
-| Heading  | Heading of vehicle to next waypoint (in degrees, clockwise from North=0°). For the last waypoint the vehicle is assumed to continue following the path of the current line (i.e. the heading is the same value as the azimuth). |
-| Distance | Distance to planned home position. |
+Field | Description 
+--- | ------
+Alt diff | Relative altitude with respect to planned home position.
+Gradient | Gradient (%) with respect to planned home position. 0 indicates waypoint and home at the same altitude.
+Azimuth  | Heading of current waypoint with respect to previous waypoint (in degrees, clockwise from North=0°).
+Heading  | Heading of vehicle to next waypoint (in degrees, clockwise from North=0°). For the last waypoint the vehicle is assumed to continue following the path of the current line (i.e. the heading is the same value as the azimuth).
+Distance | Distance to planned home position.
 
 The *Total Mission* section contains information about the whole mission.
 
-| Field          | Description                                                                     |
-|----------------|---------------------------------------------------------------------------------|
-| Distance       | Total distance of mission.                                                      |
-| Max telem dist | Maximum distance from ground station (should not exceed telemetry radio range). |
-| Time           | Expected/calculated time to complete mission (H:M:S).                           |
+Field | Description
+--- | ------
+Distance       | Total distance of mission.
+Max telem dist | Maximum distance from ground station (should not exceed telemetry radio range).
+Time           | Expected/calculated time to complete mission (H:M:S).
 
 ### Terrain/Altitude Indicator
 
@@ -1120,68 +1091,25 @@ The Terrain Indicator shows the relative altitude and distance (from planned hom
 
 The legend for the circle text is given below.
 
-| Text | Type                          |
-|------|-------------------------------|
-| P    | Planned home                  |
-| T    | Takeoff waypoint              |
-| S    | Survey scan or Structure scan |
-| C    | Corridor scan                 |
+Text | Type
+--- | ------
+P | Planned home
+T | Takeoff waypoint
+S | Survey scan or Structure scan
+C | Corridor scan
 
 ### Plan Tools (Mission)
 
 The [Plan Tools](#plan-tools) that are displayed when working with missions are listed below.
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Icon</p></td>
-<td><p>Name</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image80.png" /></p></td>
-<td><p>Fly</p></td>
-<td><p>Switch to <em>Fly View</em> (e.g. in order to fly a mission)</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image44.png" /></p></td>
-<td><p>File/Sync</p></td>
-<td><p>File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image120.png" /></p></td>
-<td><p>Waypoint</p></td>
-<td><p>Select to enable adding new waypoints to the map.</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image126.png" /></p></td>
-<td><p>Pattern tools</p></td>
-<td><p>Add or load a survey pattern - survey (area), structure,
-corridor.</p>
-<p><img src="images/image161.jpg" /><br />
-</p>
-<p>Patterns provide a simple and flexible approach for surveying. For more information see:</p>
-<ul>
-<li><strong>​</strong>​<a href="#survey-mission">Survey</a> - A survey pattern that captures an arbitrarily complex polygonal region. This
-allows you to specify the polygon, grid and camera settings appropriate for creating geotagged images.</li>
-<li><strong>​</strong>​<a href="#corridor-scan">Corridor Scan</a> - A survey pattern that follows a poly-line (for example, to survey a
-road).</li>
-<li><strong>​</strong><a href="#structure-scan-mission">Structure Scan</a> - A survey pattern that captures images over vertical surfaces (polygonal or circular). Typically used for the visual inspection or creation of 3D models of structures.</li>
-<li><strong>Load KML/SHP... -</strong> A pattern defined in a KML or SHP file (e.g. KML is used by Google Earth).</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image16.png" /></p></td>
-<td><p>Centre map</p></td>
-<td><p>Center map on mission, home, vehicle, all items, or specified location</p></td>
-</tr>
-</tbody>
-</table>
+Icon | Name | Description
+--- | --- | ---------
+![](images/image80.png) | Fly | Switch to _Fly View_ (in order to fly a mission)
+![](images/image44.png) | File/Sync | File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/image120.png) | Waypoint | Select to enable adding new waypoints to the map.
+![](images/image126.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern defintion. ![](images/image161.jpg) 
+![](images/image16.png) | Centre map | Center map on mission, home, vehicle, all items, or specified location
+
 
 ### Mission Command List
 
@@ -1302,10 +1230,10 @@ Set the initial altitude and (optionally) flight speed for the mission (the valu
 
 If the altitude is changed after a mission has been defined, the user is prompted to confirm whether the change should apply to all waypoints.
 
-| ​Setting | ​Description |
-| --- | --- |
-| Waypoint alt | Default altitude for the first mission item added to a plan (subsequent items take an initial altitude from the previous item). This can also be used to change the altitude of all items in a plan to the same value; users will be prompted if the value is changed when there are items in a plan. |
-| Flight speed | Set a flight speed for the mission that is different than the default mission speed. |
+​Setting | ​Description
+--- | ------
+Waypoint alt | Default altitude for the first mission item added to a plan (subsequent items take an initial altitude from the previous item). This can also be used to change the altitude of all items in a plan to the same value; users will be prompted if the value is changed when there are items in a plan.
+Flight speed | Set a flight speed for the mission that is different than the default mission speed.
 
 #### Mission End Panel
 
@@ -1322,11 +1250,11 @@ The *Vehicle Info* section allows the default vehicle speed to be specified, wh
 The vehicle type can be specified when *not connected to a vehicle* (if connected it is pre-set).
 The *type* determines the set of mission commands that can be used in a mission.
 
-| ​Setting      | ​Description                                                                                          |
-|--------------|------------------------------------------------------------------------------------------------------|
-| Vehicle      | Vehicle type. One of: *Fixed Wing*, *Multi-Rotor*, *VTOL*, *Rover*, *Sub*.                           |
-| Hover Speed  | Flight speed for multi-rotor (and VTOL in multi-rotor mode). Used to calculate mission flight times. |
-| Cruise Speed | Cruise speed for fixed wing (and VTOL in fixed-wing mode). Used to calculate mission flight times.   |
+​Setting | ​Description
+--- | ------
+Vehicle      | Vehicle type. One of: *Fixed Wing*, *Multi-Rotor*, *VTOL*, *Rover*, *Sub*.
+Hover Speed  | Flight speed for multi-rotor (and VTOL in multi-rotor mode). Used to calculate mission flight times.
+Cruise Speed | Cruise speed for fixed wing (and VTOL in fixed-wing mode). Used to calculate mission flight times.
 
 #### Planned Home Position Panel
 
@@ -1342,10 +1270,10 @@ If no vehicle is connected a placeholder is added along with the first waypoint.
 The point can be moved via drag/drop, or its position can be set using the **Set Home to Map Center** button.
 Its altitude can be set using this panel.
 
-| ​Setting                | ​Description                                                       |
-|------------------------|-------------------------------------------------------------------|
-| Altitude               | Enter the altitude of the planned home position.                  |
-| Set Home to Map Center | Select to set the home location to the current center of the map. |
+​Setting | ​Description
+--- | ------
+Altitude               | Enter the altitude of the planned home position.
+Set Home to Map Center | Select to set the home location to the current center of the map.
 
 ## Mission Command Editors
 
@@ -1428,10 +1356,10 @@ All other options are accessed from the menu (shown below)
 
 The *Takeoff Editor* can be used to set the altitude of the takeoff point (relative to home), and can also be used to set the heading the vehicle will face during takeoff.
 
-| Setting  | Description |
-| --- | --- |
-| Altitude | Altitude for the takeoff, relative to the home/takeoff point. This is initialised from the [Mission Start Editor](#mission-start-editor) settings. |
-| Heading  | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North). |
+Setting  | Description
+--- | ------
+Altitude | Altitude for the takeoff, relative to the home/takeoff point. This is initialised from the [Mission Start Editor](#mission-start-editor) settings.
+Heading  | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North).
 
 ### Mission Waypoint Editor
 
@@ -1442,12 +1370,12 @@ The menu (top) can be used to tune the position by entering coordinates.
 
 > **Note:** It may not be necessary to change any values, as settings are retained from the previous waypoint.
 
-| Setting      | Description                                                                                                                    |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------|
-| Altitude     | Altitude for the waypoint, relative to the home/takeoff point. This is initialised with the altitude of the previous waypoint. |
-| Hold         | Hold at waypoint for the specified number of seconds (before moving to the next mission item). Default is 0.                   |
-| Heading      | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North).                    |
-| Flight Speed | The speed of the vehicle over ground.                                                                                          |
+Setting | Description
+--- | ------
+Altitude     | Altitude for the waypoint, relative to the home/takeoff point. This is initialised with the altitude of the previous waypoint.
+Hold         | Hold at waypoint for the specified number of seconds (before moving to the next mission item). Default is 0.
+Heading      | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North).
+Flight Speed | The speed of the vehicle over ground.
 
 #### Camera Panel
 
@@ -1734,11 +1662,11 @@ The *Custom Camera* option specifies the settings for a “custom” camera, al
 
 The additional settings for a custom camera (compared to a predefined camera) are listed below.
 
-| Setting             | Description                       |
-|---------------------|-----------------------------------|
-| Sensor Width/Height | Camera image sensor size (mm).    |
-| Image Width/Height  | Camera image resolution (pixels). |
-| Focal length        | Camera focal length (mm).         |
+Setting | Description
+--- | ------
+Sensor Width/Height | Camera image sensor size (mm).
+Image Width/Height  | Camera image resolution (pixels).
+Focal length        | Camera focal length (mm).
 
 #### Manual Camera
 
@@ -1749,11 +1677,11 @@ Users can also choose *Manual (no camera specs)* as shown below.
 The settings are listed below.
 If any of these settings or the camera changes then the other settings must be recalculated.
 
-| Setting          | Description                                                                |
-|------------------|----------------------------------------------------------------------------|
-| Altitude         | Altitude to fly the whole grid.                                            |
-| Trigger Distance | Distance over ground between each camera shot.                             |
-| Spacing          | Distance between adjacent grid (flight path) lines across the survey area. |
+Setting | Description
+--- | ------
+Altitude         | Altitude to fly the whole grid.
+Trigger Distance | Distance over ground between each camera shot.
+Spacing          | Distance between adjacent grid (flight path) lines across the survey area.
 
 ### Transects
 
@@ -1809,12 +1737,12 @@ Terrain Following makes the vehicle maintain a constant height relative to groun
 
 Terrain following uses terrain heights queried from AirMap servers.
 
-| Setting                 | Description                                                            |
-|-------------------------|------------------------------------------------------------------------|
-| Vehicle follows terrain | Check to enable terrain following (and display the following options). |
-| Tolerance               | The accepted deviation in altitude from the target altitude.           |
-| Max Climb Rate          | Maximum climb rate when following terrain.                             |
-| Max Descent Rate        | Maximum descent rate when following terrain.                           |
+Setting | Description
+--- | ------
+Vehicle follows terrain | Check to enable terrain following (and display the following options). 
+Tolerance               | The accepted deviation in altitude from the target altitude.
+Max Climb Rate          | Maximum climb rate when following terrain.
+Max Descent Rate        | Maximum descent rate when following terrain.
 
 ### Statistics
 
@@ -1988,11 +1916,11 @@ The *Custom Camera* option specifies the settings for a “custom” camera, al
 
 The additional settings for a custom camera (compared to a predefined camera) are listed below.
 
-| Setting             | Description                       |
-|---------------------|-----------------------------------|
-| Sensor Width/Height | Camera image sensor size (mm).    |
-| Image Width/Height  | Camera image resolution (pixels). |
-| Focal length        | Camera focal length (mm).         |
+Setting | Description
+--- | ------
+Sensor Width/Height | Camera image sensor size (mm).
+Image Width/Height  | Camera image resolution (pixels).
+Focal length        | Camera focal length (mm).
 
 #### Manual Camera
 
@@ -2188,12 +2116,12 @@ Terrain Following makes the vehicle maintain a constant height relative to groun
 
 Terrain following uses terrain heights queried from AirMap servers.
 
-| Setting                 | Description                                                            |
-|-------------------------|------------------------------------------------------------------------|
-| Vehicle follows terrain | Check to enable terrain following (and display the following options). |
-| Tolerance               | The accepted deviation in altitude from the target altitude.           |
-| Max Climb Rate          | Maximum climb rate when following terrain.                             |
-| Max Descent Rate        | Maximum descent rate when following terrain.                           |
+Setting | Description
+--- | ------
+Vehicle follows terrain | Check to enable terrain following (and display the following options).
+Tolerance               | The accepted deviation in altitude from the target altitude.
+Max Climb Rate          | Maximum climb rate when following terrain.
+Max Descent Rate        | Maximum descent rate when following terrain.
 
 ### Statistics
 
@@ -2283,16 +2211,16 @@ Map tools, file/sync tools, etc. work in the same way for Geofence planning as t
 The **Polygon Fence** and **Circular Fence** buttons are used to add a fence of the respective type to the map.
 The entries in the *Polygon Fences* or *Circular Fences* panels are used to select which fence is currently being edited on the map, to delete the fence, and to set the fence as an inclusion/exclusion zone.
 
-| Name | Description |
-| --- | --- |
-| Polygon Fence | Add a polygon fence to the map and an entry to the *Polygon Fences* section. |
-| Circular Fence | Add a circular fence to the map and an entry to the *Circular Fences* section. |
-| Inclusion | Set this fence as an inclusion (vehicle must move within the fence). Uncheck if vehicle must fly outside the region enclosed by the fence. |
-| Edit | Set this fence as current fence (for editing on map). |
-| Radius | Set radius for this fence (circular fence only). |
-| Del | Delete this fence. |
-| Add/Remove Breach Return Point | Add or remove breach return point.  The breach return point should be used as return destination instead of the home location. TBD. |
-| Altitude | Breach return point altitude, if a point has been defined. |
+Name | Description
+--- | ------
+Polygon Fence | Add a polygon fence to the map and an entry to the *Polygon Fences* section.
+Circular Fence | Add a circular fence to the map and an entry to the *Circular Fences* section.
+Inclusion | Set this fence as an inclusion (vehicle must move within the fence). Uncheck if vehicle must fly outside the region enclosed by the fence.
+Edit | Set this fence as current fence (for editing on map).
+Radius | Set radius for this fence (circular fence only).
+Del | Delete this fence.
+Add/Remove Breach Return Point | Add or remove breach return point.  The breach return point should be used as return destination instead of the home location. TBD.
+Altitude | Breach return point altitude, if a point has been defined.
 
 # Rally Points
 
@@ -2367,12 +2295,13 @@ Select the open folder icons on the bottom left to open photo and video folders 
 
 Icons on the main view are described below.
 
-| Icon                     | Name         | Description                                                                           |
-|--------------------------|--------------|---------------------------------------------------------------------------------------|
-| ![](images/image159.png) | Photo Folder | Open folder containing all photos in the ground station file system.                  |
-| ![](images/image32.png)  | Video Folder | Open folder containing all videos in the ground station file system.                  |
-| ![](images/image162.png) | Take Photo   | Capture camera image.                                                                 |
-| ![](images/image84.png)  | Delete       | Delete selected images (long press). Displayed when multiple thumbnails are selected. |
+
+Icon | Name | Description
+--- | --- | ------
+![](images/image159.png) | Photo Folder | Open folder containing all photos in the ground station file system.
+![](images/image32.png)  | Video Folder | Open folder containing all videos in the ground station file system.
+![](images/image162.png) | Take Photo   | Capture camera image.
+![](images/image84.png)  | Delete       | Delete selected images (long press). Displayed when multiple thumbnails are selected.
 
 ###  Multi Image Selection/Deletion
 
@@ -2589,16 +2518,16 @@ The **Vehicle Setup \> Safety** page is used to configure the most important fa
 Failsafe detection can trigger one of the following (selectable)
 actions.
 
-| Action | Description |
-| --- | --- |
-| None/ Disabled | No action (the failsafe will be ignored). |
-| Warning | A warning message will be displayed/announced. |
-| Hold mode | The vehicle will enter Hold mode. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle. |
-| Return mode | The vehicle will enter [Return mode](#return-mode). Return behaviour can be set in the Return Home Settings (below). |
-| Land mode | The vehicle will enter [Land mode](#land-mode), and land immediately. |
-| CASA Outback Challenge rules | Unsupported. Do not use. |
-| Flight termination | Turns off all controllers and sets all PWM outputs to their failsafe values. The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. |
-| Lockdown | Kills the motors (sets them to disarmed). This is the same as using the kill switch. |
+Action | Description
+--- | ------
+None/ Disabled | No action (the failsafe will be ignored).
+Warning | A warning message will be displayed/announced.
+Hold mode | The vehicle will enter Hold mode. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
+Return mode | The vehicle will enter [Return mode](#return-mode). Return behaviour can be set in the Return Home Settings (below).
+Land mode | The vehicle will enter [Land mode](#land-mode), and land immediately.
+CASA Outback Challenge rules | Unsupported. Do not use.
+Flight termination | Turns off all controllers and sets all PWM outputs to their failsafe values. The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation.
+Lockdown | Kills the motors (sets them to disarmed). This is the same as using the kill switch.
 
 > **Note:** It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
 > For example, in the case where RC Loss failsafe causes the vehicle to enter Return mode, if RC is recovered you can change to Position mode and continue flying.
@@ -2659,11 +2588,11 @@ Alternatively set the *Failsafe Action* to warn, return, or land when the **Bat
 
 Enable/disable collision prevention and obstacle avoidance, and set the closest allowed approach distance when collision prevention is active.
 
-| Setting              | Description                                                                                      |
-|----------------------|--------------------------------------------------------------------------------------------------|
-| Collision Prevention | Disabled/Enabled.                                                                                |
-| Obstacle Avoidance   | Disabled/Enabled.                                                                                |
-| Minimum Distance     | Distance (metres) away from obstacle that vehicle will stop when collision prevention is active. |
+Setting | Description
+--- | ------
+Collision Prevention | Disabled/Enabled.
+Obstacle Avoidance   | Disabled/Enabled.
+Minimum Distance     | Distance (metres) away from obstacle that vehicle will stop when collision prevention is active.
 
 ### RC Loss
 
@@ -2671,10 +2600,10 @@ Enable/disable collision prevention and obstacle avoidance, and set the closest 
 
 Set the action on RC loss, and how quickly the vehicle responds.
 
-| Setting         | Description                                                                                                                             |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| Failsafe Action | Values are: *Disabled*, Hold mode, Return mode, Land mode, Data Link Auto Recovery (CASA Outback Challenge rules), Terminate, Lockdown. |
-| RC Loss Timeout | Time after RC loss that the *Failsafe Action* is triggered.                                                                             |
+Setting | Description
+--- | ------
+Failsafe Action | Values are: *Disabled*, Hold mode, Return mode, Land mode, Data Link Auto Recovery (CASA Outback Challenge rules), Terminate, Lockdown.
+RC Loss Timeout | Time after RC loss that the *Failsafe Action* is triggered.
 
 ### Data Link Loss
 
@@ -2683,10 +2612,10 @@ Set the action on RC loss, and how quickly the vehicle responds.
 Set the action on data-link loss (loss of telemetry to ground station),
 and how quickly the vehicle responds.
 
-| Setting                | Description  |
-|------------------------|--------------------------------------------------------------------------|
-| Failsafe Action        | Values are: *Disabled*, *Hold mode*, *Return mode*, *Land mode*, *Data Link Auto Recovery (CASA Outback Challenge rules)*, *Terminate*, *Lockdown*. |
-| Data Link Loss Timeout | Time after data link loss that the *Failsafe Action* is triggered. |
+Setting | Description
+--- | ------
+Failsafe Action | Values are: *Disabled*, *Hold mode*, *Return mode*, *Land mode*, *Data Link Auto Recovery (CASA Outback Challenge rules)*, *Terminate*, *Lockdown*.
+Data Link Loss Timeout | Time after data link loss that the *Failsafe Action* is triggered.
 
 ### Geofence Failsafe
 
@@ -2700,11 +2629,11 @@ If the vehicle moves outside the radius or above the altitude the specified *Fai
 
 Set the action on fence breach, and the radius and/or altitude of the geofence cylinder.
 
-| Setting          | Description                                                                                |
-|------------------|--------------------------------------------------------------------------------------------|
-| Action on Breach | Values are: none, *Warning*, *Hold mod*e, *Return mode*, *Terminate* (flight termination). |
-| Max Radius       | Horizontal radius of geofence cylinder. Horizontal geofence disabled if 0.                 |
-| Max Altitude     | Height of geofence cylinder. Altitude geofence disabled if 0.                              |
+Setting | Description
+--- | ------
+Action on Breach | Values are: none, *Warning*, *Hold mod*e, *Return mode*, *Terminate* (flight termination).
+Max Radius       | Horizontal radius of geofence cylinder. Horizontal geofence disabled if 0.
+Max Altitude     | Height of geofence cylinder. Altitude geofence disabled if 0.
 
 ### Return Mode Settings
 
@@ -2716,12 +2645,12 @@ Set the action on fence breach, and the radius and/or altitude of the geofence c
 [Return mode](#return-mode) causes a vehicle to fly at a safe height to a safe destination, where it may loiter and/or then land.
 This section allows the return height, and landing behaviour to be specified for rally point and home location landings.
 
-| Setting              | Description                                                                                            |
-|----------------------|--------------------------------------------------------------------------------------------------------|
-| Climb to altitude of | Vehicle ascend to this minimum height (if below it) for the return flight.                             |
-| Return home then     | The action on return: Land, Loiter and do not land, or Loiter and land after a specified time.         |
-| Loiter Time          | The time to loiter before landing (if return home action is *Loiter and land after a specified time*). |
-| Loiter Altitude      | Altitude at which the vehicle will loiter (i.e. before landing).                                       |
+Setting | Description
+--- | ------
+Climb to altitude of | Vehicle ascend to this minimum height (if below it) for the return flight.
+Return home then     | The action on return: Land, Loiter and do not land, or Loiter and land after a specified time.
+Loiter Time          | The time to loiter before landing (if return home action is *Loiter and land after a specified time*).
+Loiter Altitude      | Altitude at which the vehicle will loiter (i.e. before landing).
 
 ### Land Mode Settings
 
@@ -2729,10 +2658,10 @@ This section allows the return height, and landing behaviour to be specified for
 
 Specify Land mode descent and disarm behaviour.
 
-| Setting | Description |
-| --- | ---|
-| Landing Descent Rate | Land descent rate. |
-| Disarm After | Auto disarm vehicle on landing (the default) by enabling the checkbox and setting the disarm time. If checkbox not enabled, the vehicle will not disarm after landing. |
+Setting | Description
+--- | ------
+Landing Descent Rate | Land descent rate.
+Disarm After | Auto disarm vehicle on landing (the default) by enabling the checkbox and setting the disarm time. If checkbox not enabled, the vehicle will not disarm after landing.
 
 ### Vehicle Telemetry Logging
 
@@ -2740,9 +2669,9 @@ Specify Land mode descent and disarm behaviour.
 
 Enable telemetry logging to vehicle storage.
 
-| Setting                              | Description              |
-|--------------------------------------|--------------------------|
-| Telemetry logging to vehicle storage | Enabled/Disable logging. |
+Setting | Description
+--- | ------
+Telemetry logging to vehicle storage | Enabled/Disable logging.
 
 ### Hardware In The Loop Simulation (HITL)
 
@@ -2786,25 +2715,25 @@ The general tab is used to enable and verify joystick input.
 
 The settings are explained below.
 
-|Setting | Description|
-| --- | --- |
-| **Enable joystick input** | Select to start sending joystick commands to the connected vehicle.                                                |
-| Active joystick           | Ensure this matches the connected/desired joystick.                                                                |
-| RC Mode                   | Set mode (see below) to define the function of the left and right sticks. This is normally set to 2 for US pilots. |
-| Test Sticks               | Move the main and gimbal sticks and verify that the motion is as expected on the screen.                           |
-| Test Buttons              | Press joystick buttons and verify that the expected buttons are highlighted on the screen.                         |
+Setting | Description
+--- | ------
+**Enable joystick input** | Select to start sending joystick commands to the connected vehicle.
+Active joystick           | Ensure this matches the connected/desired joystick.
+RC Mode                   | Set mode (see below) to define the function of the left and right sticks. This is normally set to 2 for US pilots.
+Test Sticks               | Move the main and gimbal sticks and verify that the motion is as expected on the screen.
+Test Buttons              | Press joystick buttons and verify that the expected buttons are highlighted on the screen.
 
 RC Modes
 
 RC Modes define how the movement of the left and right joysticks are mapped to throttle, pitch, yaw and roll.
 The modes are largely a matter of preference: US pilots commonly use mode 2.
 
-| Mode | Left Stick (Forward/Back, Left/Right) | Right Stick (FB/LR)      |
-|------|---------------------------------------|--------------------------|
-| 1    | Pitch (FB), Yaw (LR)                  | Throttle (FB), Roll (LR) |
-| 2    | Throttle (FB), Yaw (LR)               | Pitch (FB), Roll (LR)    |
-| 3    | Pitch (FB), Roll (LR)                 | Throttle (FB), Yaw (LR)  |
-| 4    | Throttle  (FB), Roll(LR)              | Pitch (FB), Yaw (LR)     |
+Mode | Left Stick (Forward/Back, Left/Right) | Right Stick (FB/LR)
+--- | ----- | -----
+1 | Pitch (FB), Yaw (LR)     | Throttle (FB), Roll (LR)
+2 | Throttle (FB), Yaw (LR)  | Pitch (FB), Roll (LR)
+3 | Pitch (FB), Roll (LR)    | Throttle (FB), Yaw (LR)
+4 | Throttle  (FB), Roll(LR) | Pitch (FB), Yaw (LR)
 
 ### Button Assignment tab
 
@@ -2928,10 +2857,10 @@ The *Application Settings* view is used to configure the settings that aren't s
 
 - ![](images/image174.png)
 
-| Setting                  | Description                                                                          |
-|--------------------------|--------------------------------------------------------------------------------------|
-| Use Vehicle Pairing      | Check to enable the [Pairing Manager](#pairing-manager-microhard).                              |
-| Disable MGRS coordinates | Uncheck to overlay an [MGRS grid](#map-grid-mgrs) on the map in Plan and Fly views. |
+Setting | Description
+--- | ------
+Use Vehicle Pairing      | Check to enable the [Pairing Manager](#pairing-manager-microhard).
+Disable MGRS coordinates | Uncheck to overlay an [MGRS grid](#map-grid-mgrs) on the map in Plan and Fly views.
 
 ## Microhard
 
@@ -3026,7 +2955,6 @@ All vehicles on a network should use the same frequency.</p></td>
 </table>
 
 # Footnotes
-
 
 <a href="#cmnt_ref1" id="cmnt1">[a]</a>Still confirming next step. Close dialog or some other dialog?
 
