@@ -1,92 +1,74 @@
 # Introduction
 
-QGC-Gov is a customized version of QGC.
-It enables a rapidly deployable scouting capability to gain situational awareness beyond the next terrain feature.
-The continued focus of the ground station is to deliver user friendly features that are easy to learn/train and have low cognitive load for the user, while enhancing intelligence, surveillance, and reconnaissance (ISR) capabilities.
+[QGC-Gov](https://qgcgov.com/) is an open-source UAS Ground Control Station for controlling vehicles trusted by the US Department of Defense and the US Federal government.
+More specifically, it can be used to control any multicopter, fixed-wing or hybrid sUAS that is compatible with the RAS-A protocol.
 
-It has been designed specifically to run best on tablet hardware with inbuilt physical joysticks/buttons to control the vehicle and camera.
-It integrates with cameras that support both visible light and IR video streams, and that can be directed independently of vehicle orientation using a joystick controlled gimbal.
-  
-![](images/image77.png)
+![](images/image77.png) <!-- TODO: New image -->
 
-The app has a very clear focus on both safety and ease of use.
+It is designed with a focus on ease of use and safety.
 Navigation is straightforward, with a very clear division between planning missions, flying, and configuration.
 Views are clean and uncluttered, displaying just the telemetry, mission and flight path information that is needed for safe flight.
 There are both audible and visual notifications for important warnings, and readily accessible logs for less important status updates.
 QGC-Gov even provides a pre-flight checklist to help you ensure your vehicle and mission are safe to fly before you even take off.
-  
-Complex missions, including surveying arbitrarily shaped areas, vertical structures and even corridor paths like roads are defined using simple graphical tools.
-You can run pre-planned mission in fully automated mode, using any of a huge range of supported cameras to capture and geotag images.
-You can monitor both the previous and future flight path and vehicle state along the way, and will be notified both visually and audibly of any problems.
-You can pause or restart the mission, skip forward or back, and even land for a battery recharge and restart!
 
-In addition to automated flight, you can fly “manually” using the sticks on the controller, or high level command: takeoff, go to a particular location and orbit, fly back to the launch location and land.
-When you’re at the target you can tilt the camera using the sticks on the controller, zoom in and out, and capture images.
+QGC-Gov enables the planning and automated execution of complex pre-planned ground, structure and corridor survey missions using simple graphical tools.
+Images can be captured automatically using any of the many supported visible-light and IR cameras, and at any time you can view the video feed, flight path and telemetry.
+If you need to you can pause and restart the mission, jump forward or back, or even change it altogether.
 
-QGC-Gov is designed specifically to run *best* on rugged tablet hardware with joysticks/buttons to control vehicle and camera.
-It also will work on both iPad and Android tablets, and desktop computers running macOS, Windows and Linux.
+Manual control can be implemented using physical controls, on-screen controls, or a combination of both.
+The ground station enhances purely manual flight-control by providing high level commands like "takeoff", "go to location", "fly to a safe place and land", and so on.
 
 Up to 255 vehicles can be controlled at a time (although only very experienced pilots should attempt to control more than one).
 
-# Supported Flight Stacks
 
-*QGC-Gov* can be used with the same set of flight stacks (autopilot software) as “vanilla” *QGroundControl*: PX4, ArduPilot and other MAVLink-standard compliant stacks.
+## Compatibility
 
-Note however that the software has been tested and validated against PX4; Auterion does not provide specific support for its use with other flight stacks.
+### Flight Stacks
 
-# Important Reminders
+*QGC-Gov* can be used with flight stacks that support the RAS-A protocol.
 
-The following reminders are provided to help ensure you have a safe flight:
+### OS Compatibility
 
-1. Ensure both your vehicle and planned flight are safe before you take off.
-   The app’s pre-flight checklist can guide you on best practise.
-2. Be aware of local regulations with respect flying drones in your planned location.
-3. Turn up the sound on your ground station loud enough to hear warnings.
+Compatible with: Android 10, Android 11, Ubuntu 18.04
 
-# Hardware
+### Hardware
 
-## Ground Station
+*QGC-Gov* can run on any relatively recent PC or tablet hardware that supports the indicated OS.
 
-*QGC-Gov* runs *best* on tablet hardware with joysticks/buttons to control the vehicle and camera during manual flight.
-
-> **Tip:** Dedicated hardware controls are not _required_, but make many operations a lot easier (in particular, manual flight and controlling the camera).
-
-A ground station might have:
+Hardware with integrated physical joysticks/buttons can make manual control of the vehicle and camera a lot easier.
+Recommended controls include:
 
 - Analog sticks for throttle/yaw and roll/pitch
 - Camera zoom in/out buttons
 - Image/video capture button
 - Gimbal up, down, yaw left/right buttons
 
-The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings \>** [Joystick Setup](#joystick-setup) view.
+# Important Reminders
 
-The *Tactical Open Government Owned Architecture* (TOGA) hardware shown below is representative of the kind of hardware platform that is expected.
+The following reminders are provided to help ensure you have a safe flight:
 
+1. Ensure both your vehicle and planned flight are safe before you take off.
+   The inbuilt pre-flight checklist can guide you through the steps.
+2. Be aware of local regulations with respect flying drones in your planned location.
+3. Turn up the sound on your ground station loud enough to hear warnings.
+
+
+<!-- 
+The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings > [Joystick Setup](#joystick-setup)** view.
+-->
+
+<!-- 
+*Tactical Open Government Owned Architecture* (TOGA)
 ![TOGA - Back](images/image9.jpg)
 
 ![TOGA - Front](images/image59.jpg)
-
-
-## Kill Switch / Gimbal Lock
-
-The RC controller may have a *kill switch* configured to enable the *Flight Termination* safety failsafe.
-When enabled this action turns off all controllers and sets all PWM outputs to their failsafe values.
-
-The failsafe values may be used to deploy a parachute, landing gear or perform another operation.
-For example, the screenshots below show a camera first in its normal position (forward facing), and then in locked in its safety position (pointing upwards).
-
-> **Note:** Kill switch/failsafe behaviour depends on the connected hardware and PX4 configuration (i.e. it is controlled outside of QGC).
-> For more information see:  <https://docs.px4.io/master/en/advanced_config/flight_termination.html>.
-
-![](images/image132.png)
-
-![](images/image213.png)
+-->
 
 # Pairing Manager (Microhard)
 
 The Microhard radio system is used to provide a long range and secure link between a vehicle and ground station for vehicle control and telemetry.  
 
-The *Pairing Manager* is used to securely “pair” (“associate”) the ground and air modules so they are able to connect and exchange data.
+The *Pairing Manager* is used to securely "pair" ("associate") the ground and air modules so they are able to connect and exchange data.
 Multiple vehicles can be paired to the ground station and users can then choose which vehicle to connect.
 Up to 10 vehicles can be paired, but only a single (paired) vehicle can connect via Microhard at a time.
 
@@ -128,7 +110,7 @@ To pair a vehicle:
 
    ![](images/image11.png)
 
-   > **Note:** High power mode is what defines a vehicle “connection” (and allows commands and telemetry to be sent).
+   > **Note:** High power mode is what defines a vehicle "connection" (and allows commands and telemetry to be sent).
 
 6. The pairing manager displays the following prompt once the connection is active.
    Select **Done** to continue (or you can **Pair Another** vehicle).
@@ -223,6 +205,7 @@ The following indicators are used to monitor vehicle and flight/mission state.
 
 The top bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
 The status icons can be selected for additional information.
+
 
 <table>
 <colgroup>
@@ -338,7 +321,7 @@ HDOP | GPS Horizontal Degree of Precision (Expanded panel).
 
 ### Flight Path & Orientation (Map)
 
-The map shows you where the vehicle is, where it has come from (the vehicle home location), where it has flown (in red), and where it is going (below is a “goto” destination, but this would be a mission path if a mission was loaded).
+The map shows you where the vehicle is, where it has come from (the vehicle home location), where it has flown (in red), and where it is going (below is a "goto" destination, but this would be a mission path if a mission was loaded).
 It also shows which direction the vehicle is facing (which may differ from the direction it is travelling).
   
 ![](images/image150.png)
@@ -354,7 +337,7 @@ The grid overlay shows map coordinates with 10m resolution \[4 digits\].
 The information strip at the bottom is visible in **Fly View** only.
 It provides <sup><a href="#cmnt2" id="cmnt_ref2">[b]</a><a href="#cmnt3" id="cmnt_ref3">[c]</a><a href="#cmnt4" id="cmnt_ref4">[d]</a></sup>the position of the *map center* (caret icon) and the *vehicle* (plane icon) to one meter accuracy \[5 digits\].  ![](images/image21.png)
 
-The strip will additionally include the *ground station location* (“person” icon) **if** the ground station has a GPS module.  
+The strip will additionally include the *ground station location* ("person" icon) **if** the ground station has a GPS module.  
 
 > **Note:** The MGRS coordinate system divides the world up into 100000m2 submaps, and then defines positions within each map in terms of northing and easting values.
 > The resolution of the northing/easting values is determined by the number of digits provided: 5 digits gives 1m resolution, 4 digits gives 10m resolution, while 1 digit gives just 10km resolution.
@@ -367,7 +350,7 @@ The MGRS grid overlay and information strip are enabled by selecting the checkbo
 
 ### Log & Notifications
 
-Important notifications are “spoken” by the GCS and then stored in the log.
+Important notifications are "spoken" by the GCS and then stored in the log.
 The log can be accessed from an icon on the top right of the screen.
 
 The icon has three states. The exclamation mark state indicates that there are important unread notifications.
@@ -375,7 +358,7 @@ The blue and grey speaker icons indicate that there are unread/read messages, re
 
 ![](images/image48.jpg)![](images/image15.jpg)![](images/image53.jpg)
 
-The log is displayed in a popup dialog. It can be closed or emptied using the X and “trash” icons.
+The log is displayed in a popup dialog. It can be closed or emptied using the X and "trash" icons.
 
 ![](images/image87.png)
 
@@ -734,7 +717,7 @@ This mode is started when you select [Orbit at Location](#orbit-location) on th
 The *GoTo Task* takes you to a specific location.
 This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
 
-> **Note:** At time of writing this is a “task” rather than a mode.
+> **Note:** At time of writing this is a "task" rather than a mode.
 > The main difference is that when executing this task the mode that is displayed will not change.
 
 # Fly using High-Level Commands
@@ -1030,7 +1013,7 @@ For more information see: [Fly View\> Map Grid (MGRS)](#map-grid-mgrs).
 Missions plans are used to define fully autonomous flight operations, including scans and surveys.
 They are are created in *Plan View* when the [Plan Type](#plan-type-selector) is set to **Mission**.
 
-There are a number of different “types” of missions:
+There are a number of different "types" of missions:
 
 - [Manual Missions](#manual-waypoint-mission): The flight path is defined as a series of waypoints and other mission commands.
 - ​[Survey Missions](#survey-mission): An area survey defined by an arbitrary polygon.
@@ -1129,7 +1112,7 @@ To create a completely new mission, you can first clear away any existing missio
 
 ![](images/image17.png)
 
-There are four main “types” of mission - waypoint missions, survey missions, structure scans, and corridor scans.
+There are four main "types" of mission - waypoint missions, survey missions, structure scans, and corridor scans.
 The surveys/scan missions are just waypoint missions that happen to include patterns of the different types.
 
 For more information about how to create each type of mission:
@@ -1141,12 +1124,12 @@ For more information about how to create each type of mission:
 
 # Manual/Waypoint Mission
 
-A manual (or “waypoint”) mission is an autonomous mission where the flight path is explicitly defined on the map using waypoint mission items.
+A manual (or "waypoint") mission is an autonomous mission where the flight path is explicitly defined on the map using waypoint mission items.
 
 ![](images/image131.jpg)
 
 The mission path and direction are shown on the map, with filled circles for the waypoints.
-Other important types of points are marked with labeled points (e.g. “**T**” for takeoff, “**P**” for Planned Home).
+Other important types of points are marked with labeled points (e.g. "**T**" for takeoff, "**P**" for Planned Home).
 A mission item can be selected for editing from the map or the mission item list; it is then highlighted using a larger filled green circle and a description) and its editor is opened.
 
 Waypoints are added by first selecting the associated tool in the *Plan Toolbar*, and then selecting the desired position for the item on the map.
@@ -1199,7 +1182,7 @@ To create a manual mission:
 7. Add a different type of mission item (by changing the mission item type).
 
    - Add two waypoints. The first should be the next planned waypoint, while the second will be changed into a new type of mission item.
-   - Select the heading on the “placeholder” waypoint
+   - Select the heading on the "placeholder" waypoint
 
      ![](images/image49.jpg)
 
@@ -1264,7 +1247,7 @@ The *Planned Home Position* (a.k.a. Launch point) simulates the vehicle's home/
 
 > **Note:** The planned home position has no impact on flying the mission. The actual home position of a vehicle is set by the vehicle itself when arming.
 
-The planned home point is added to the map at the location of the vehicle (shown as a circle with the text “**P**”).
+The planned home point is added to the map at the location of the vehicle (shown as a circle with the text "**P**").
 If no vehicle is connected a placeholder is added along with the first waypoint.
 
 The point can be moved via drag/drop, or its position can be set using the **Set Home to Map Center** button.
@@ -1383,6 +1366,44 @@ Flight Speed | The speed of the vehicle over ground.
 
 The *Camera Panel* specifies camera action/triggering and gimbal positioning from the current waypoint until the next waypoint (the next waypoint continues the camera action by default).
 
+- `Camera Triggering`:
+  - `No change (continue current action) - default`
+  - `Take photos (time)`:
+    - `Time`: Sets trigger interval in seconds
+  - `Take photos (distance)`:
+    - `Distance`: Sets trigger interval in distance traveled.
+  - `Stop taking photos`
+  - `Start recording video`
+  - `Stop recording video`
+- `Mode` Camera mode:
+  - `Photo`
+  - `Video`
+- `Gimbal` (checkbox). Enables:
+  - `Pitch`: Gimbal pitch
+  - `Yaw`: Gimbal yaw
+
+
+<!-- 
+
++-------------------+---------------------------+
+| Setting           | Description               |
++===================+===========================+
+| Camera triggering | Options:                  |
+|                   |                           |
+|                   | -  No change              |
+|                   | -  Take photos (time)     |
+|                   | -  Take photos (distance) |
+|                   | -  Stop taking photos     |
+|                   | -  Start recording video  |
+|                   | -  Stop recording video   |
+|                   |                           |
++-------------------+---------------------------+
+| Time              | - cures scurvy            |
+|                   | - tasty                   |
++-------------------+---------------------------+
+-->
+
+<!-- 
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -1397,7 +1418,7 @@ The *Camera Panel* specifies camera action/triggering and gimbal positioning fr
 <td><p>Camera triggering</p></td>
 <td><p>Options:</p>
 <ul>
-<li>No change (continue current action) - default</li>
+<li></li>
 <li>Take photos (time)</li>
 <li>Take photos (distance)</li>
 <li>Stop taking photos</li>
@@ -1430,6 +1451,7 @@ The *Camera Panel* specifies camera action/triggering and gimbal positioning fr
 </tr>
 </tbody>
 </table>
+-->
 
 ### Mission Region of Interest (ROI) Editor
 
@@ -1501,7 +1523,7 @@ To create a survey mission:
      This allows for the creation of arbitrary polygonal survey areas.
    - To delete a vertix, select it on the map and choose the menu option: **Remove vertix**.
 
-8. For a circular survey (created by selecting the centre point “circle” menu option)
+8. For a circular survey (created by selecting the centre point "circle" menu option)
 
    - Drag-drop the center marker to move the survey.
     ![](images/image30.jpg)
@@ -1656,7 +1678,7 @@ The predefined cameras are:
 
 #### Custom Camera
 
-The *Custom Camera* option specifies the settings for a “custom” camera, allowing users to benefit from dynamic recalculation of the grid even if their camera is not predefined.
+The *Custom Camera* option specifies the settings for a "custom" camera, allowing users to benefit from dynamic recalculation of the grid even if their camera is not predefined.
 
 ![](images/image165.png)
 
@@ -1806,7 +1828,7 @@ To create a structure scan mission:
    - To delete a vertix, select it on the map and choose the menu option: **Remove vertix**.
 
 8. For a circular-footprint structure scan (created by selecting the
-   centre point “Circle” menu option)
+   centre point "Circle" menu option)
 
 - Drag-drop the center marker to move the survey.  
   ![](images/image232.png)
@@ -1910,7 +1932,7 @@ The predefined cameras are:
 
 #### Custom Camera
 
-The *Custom Camera* option specifies the settings for a “custom” camera, allowing users to benefit from dynamic recalculation of the scan even if their camera is not predefined.
+The *Custom Camera* option specifies the settings for a "custom" camera, allowing users to benefit from dynamic recalculation of the scan even if their camera is not predefined.
 
 ![](images/image50.png)
 
@@ -2164,7 +2186,7 @@ To create a new *GeoFence*:
    A rectangular geofence region will be added to the map, along with a corresponding entry in the list of *Polygon Fences* below the buttons.
 
    - Move the fence by dragging the *central marker* on the map.
-   - Move the vertices by dragging the “filled” circles.
+   - Move the vertices by dragging the "filled" circles.
    - Create new vertices by clicking the "unfilled" dots on the lines between the filled vertices.​
   
      ![](images/image114.png)​
@@ -2663,6 +2685,24 @@ Setting | Description
 Landing Descent Rate | Land descent rate.
 Disarm After | Auto disarm vehicle on landing (the default) by enabling the checkbox and setting the disarm time. If checkbox not enabled, the vehicle will not disarm after landing.
 
+
+### Kill Switch / Gimbal Lock
+
+The RC controller may have a *kill switch* configured to enable the *Flight Termination* safety failsafe.
+When enabled this action turns off all controllers and sets all PWM outputs to their failsafe values.
+
+The failsafe values may be used to deploy a parachute, landing gear or perform another operation.
+For example, the screenshots below show a camera first in its normal position (forward facing), and then in locked in its safety position (pointing upwards).
+
+> **Note:** Kill switch/failsafe behaviour depends on the connected hardware and PX4 configuration (i.e. it is controlled outside of QGC).
+> For more information see:  <https://docs.px4.io/master/en/advanced_config/flight_termination.html>.
+
+![](images/image132.png)
+
+![](images/image213.png)
+
+
+
 ### Vehicle Telemetry Logging
 
 ![](images/image233.png)
@@ -2706,6 +2746,10 @@ Enable hardware-dependent simulation: *hardware in the loop* or *simulation in 
 ## Joystick Setup
 
 Joystick setup is used to setup and calibrate the stick configuration and to assign actions to joystick buttons.
+
+<!-- 
+The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings > [Joystick Setup](#joystick-setup)** view.
+-->
 
 ### General tab
 
