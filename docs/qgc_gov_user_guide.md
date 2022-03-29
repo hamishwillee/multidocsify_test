@@ -100,7 +100,7 @@ To pair a vehicle:
 1. Select the *Pair Vehicle* icon in the status bar:
 
    ![Pairing icon](images/pairing_icon.png) <!-- image93.png -->
-   
+
 2. The ground station unit will launch the *Vehicle Pairing* dialog and try to "discover" an air unit to pair.
    
    ![Pairing Discovery](images/pairing_discovery.png) \ <!-- ![](images/image69.png) -->
@@ -122,7 +122,7 @@ To pair a vehicle:
 
 The pairing manager will display the connected vehicles if any are connected.
 The dialog can be used to disconnect the vehicles or pair another vehicle.  
-  
+
 To disconnect a vehicle (when connected):
 
 1. Open the pairing manager (using its status icon).
@@ -163,10 +163,11 @@ To unpair to a vehicle:
 3. Confirm the unpairing prompt.
 
    ![](images/image194.png)
-   
+
    The pairing manager will then return to the list of available vehicles.
-   
+
    ![](images/image1.png)
+
 
 # Application Structure and Navigation
 
@@ -178,13 +179,15 @@ The ground station has five views:
 - [Photos](#photos)**:** Photo gallery for vehicle image and video management.
 - [Settings](#application-settings)**:** Configure application settings (e.g. display units, map providers, etc.).
 
-All views can be accessed using the menu slider-sidebar (the menu toggle is available at the top left of the application toolbar on all views).
+All views are linked from the application menu, which is opened by selecting the application icon in the top toolbar.
+The menu sidebar sides in from the left.
 
-![](images/image81.png)
+![QGC Application Menu: Slide-in Sidebar](images/app_menu.png)   <!-- ![](images/image81.png) -->
 
 In addition, users can easily switch between planning and flying missions using the top toolbar button in their respective views.
 
-![](images/image63.png) ![](images/image135.png)
+![Switch to Fly View](images/app_switch_to_fly.png) ![Switch to Plan View](images/app_switch_to_plan.png) \ <!-- ![](images/image63.png) ![](images/image135.png) -->
+
 
 # Fly View
 
@@ -883,7 +886,8 @@ To pause and edit an ongoing mission:
 
 6. Acknowledge the **Continue** prompt slider to restart the mission (if this is not visible, you can bring it to the foreground using the **Action** tool).
 
-# Planning
+
+# Plan View
 
 *Plan View* is used to define different types of *plans*:
 
