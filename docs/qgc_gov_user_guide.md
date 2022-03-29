@@ -72,59 +72,53 @@ The *Pairing Manager* is used to securely "pair" ("associate") the ground and a
 Multiple vehicles can be paired to the ground station and users can then choose which vehicle to connect.
 Up to 10 vehicles can be paired, but only a single (paired) vehicle can connect via Microhard at a time.
 
-Access to pair and connect to vehicles is via the pairing icon in the application status bar.
-
-![Pairing icon](images/pairing_icon.png) <!-- image93.png -->
 
 
-## Enabling Pairing
-
-Pilots should not need to enable pairing. If configuration is required this should be supplied by the vehicle/controller vendor.
 
 ## Pair a Vehicle
+
+<!-- TODO: 
+All this needs update/review as flow isn't the same and I can't check it "fully"
+Note, this may still be true, but might be unnecessary to say. Removing for now:
+
+Pilots should not need to enable pairing.
+If configuration is required this should be supplied by the vehicle/controller vendor
+
+Kinds of things to answer
+- Is pairting automatically set up.
+- How many things can you pair to at a time?
+- What if there are errors?
+- What settings?
+- What do you do on the vehicle - click the button on the GPS?
+
+--> 
 
 Vehicles must be paired to the ground station before they can be connected.
 
 To pair a vehicle:
 
-1. Select the *Pair Vehicle* icon in the status bar to display the *pairing dialog*.
+1. Select the *Pair Vehicle* icon in the status bar:
 
-   > **Note:** If a *connection dialog* is displayed instead, select **Pair Another** to launch the *pairing dialog* shown below.
+   ![Pairing icon](images/pairing_icon.png) <!-- image93.png -->
+   
+2. The ground station unit will launch the *Vehicle Pairing* dialog and try to "discover" an air unit to pair.
+   
+   ![Pairing Discovery](images/pairing_discovery.png) \ <!-- ![](images/image69.png) -->
 
-   > **Note:** The settings (network ID, etc.) depend on the configuration of your vehicle network/fleet.
-   > If any need to be changed the relevant values should be provided by your vendor.
+2. If pairing doesn't work it may be that you're using the wrong encryption key.
+   Select the gear icon on the discovery dialog.
+   This will display a dialog you can use to enter a new encryption key.
 
-   ![](images/image69.png)
+   ![Pairing Config](images/pairing_config.png) \ <!-- ![](images/image179.png) -->
 
-2. Select **Pair a Vehicle**.
-   The ground station unit will start looking for an air unit to pair.
+3. After a short while the ground station and vehicle should pair and connect.
 
-   ![](images/image179.png)
-3. Put the vehicle into pairing mode.
+4. You can stop the pairing operation at any time by closing the *Pairing Dialog* (select the **X** or anywhere outside the window).
 
-   > **Note:** The method to enable vehicle-side pairing mode is vehicle specific, and should be supplied by your vendor/fleet manager.
-
-4. You can stop the pairing operation if needed by pressing **Cancel** (and then **Done** in the popup).
-
-    ![](images/image230.png)
-5. Once pairing is complete you can select **Confirm** in the next dialog to connect to the vehicle (or **Cancel** to exit without connecting) :
-
-   ![](images/image11.png)
-
-   > **Note:** High power mode is what defines a vehicle "connection" (and allows commands and telemetry to be sent).
-
-6. The pairing manager displays the following prompt once the connection is active.
-   Select **Done** to continue (or you can **Pair Another** vehicle).
-
-   ![](images/image177.png)
-7. Finally the pairing manager displays the list of connected devices.
-
-   ![](images/image75.png)
-
-Use this prompt to disconnect, change the connection channel, or pair another vehicle.
-Press **Done** to exit the manager (remaining connected).
 
 ## Disconnecting a Vehicle
+
+<!-- TODO: Needs update/review -->
 
 The pairing manager will display the connected vehicles if any are connected.
 The dialog can be used to disconnect the vehicles or pair another vehicle.  
@@ -141,6 +135,8 @@ To disconnect a vehicle (when connected):
 
 ## Connecting to a Vehicle
 
+<!-- TODO: Needs update/review -->
+
 The pairing manager can be used to connect to any paired vehicle.
 
 To connect to a vehicle (when disconnected):
@@ -152,6 +148,8 @@ To connect to a vehicle (when disconnected):
    ![](images/image175.png)<sup><a href="#cmnt1" id="cmnt_ref1">[a]</a></sup>
 
 ## Unpairing a Vehicle
+
+<!-- TODO: Needs update/review -->
 
 Vehicle can only be unpaired when no vehicle is connected.
 
