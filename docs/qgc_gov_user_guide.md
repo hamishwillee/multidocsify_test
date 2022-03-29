@@ -201,29 +201,80 @@ The main elements of the view are highlighted below.
 
 The following indicators are used to monitor vehicle and flight/mission state.
 
-### Vehicle Status Icons (App bar)
+### Fly View App Bar (Vehicle Status Icons)
 
 ![Fly View: Top Bar](images/fly_view_top_bar.png) \
 
 <!-- TODO: image above should label each item -->
 
-The top bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
+The Fly View app bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
 The status icons can be selected for additional information.
 
 <!-- TODO: Cross link this to sections --> 
 
+[App menu](#application-structure-and-navigation)
+  ~ &nbsp;
+  ~ Select to navigate main app views.
+  
+Vehicle
+  ~ &nbsp;
+  ~ Displays current vehicle under control.
+  ~ Select to change current vehicle.
+  
+[Flight mode](#flight-modes)
+  ~ &nbsp;
+  ~ Display current mode.
+  ~ Select either [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
+
+Armed state
+  ~ &nbsp;
+  ~ Display _armed state_: Armed (motors spinning), Disarmed (motors stopped)
+  ~ Select to arm/disarm on ground, or emergency stop in air
+  
+Pairing
+  ~ &nbsp;
+  ~ Pair and connect vehicle and ground station.
+
+ROI
+  ~ &nbsp;
+  ~ Display region of interest state: enabled (green), no ROI (grey)
+  - Select to remove the active ROI.
+
+RC Status
+  ~ &nbsp;
+  ~ Display RC controller signal status. The bars on the status icon indicate _uplink_ signal strength.
+  ~ Select to open prompt with uplink and downlink RSSI.
+  
+GPS Status
+  ~ &nbsp;
+  ~ Display GPS satellite count and HDOP. 
+  ~ Select to open prompt with additional information.
+  
+Battery Status
+  ~ &nbsp;
+  ~ Battery percentage remaining.
+  
+[Log](#notification-log)
+  ~ &nbsp;
+  ~ Display log status: Warning (important unread messages), Blue announce (unread/non-critical messages), Grey announce (read messages)
+  ~ Select to display notification log
+
+<!-- Version in Tabular  format
+
 Name | Description
 --- | ------
-Menu / icon | [App menu](#application-structure-and-navigation) to navigate main app views.
-Vehicle | Current vehicle. Select to change current vehicle.
-Mode | Display the current [flight mode](#flight-modes--tasks) and/or select a manual flight mode: [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
-Armed/ Disarmed state | Display/select the _armed state_. The states are Armed (motors spinning), Disarmed. (motors stopped), Emergency Stop (motors stopped in flight, potentially causing the drone to crash).
-Pairing Manager | Pair and connect vehicle and ground station.
-ROI Status | Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode. Enabled (green) -  Select to remove the ROI, Disabled/undefined (grey).
+[App menu](#application-structure-and-navigation) | Navigate main app views.
+Vehicle | Display current vehicle. Select to change current vehicle.
+[Flight mode](#flight-modes) | Display current mode. Select to choose either [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
+Armed state | Display the _armed state_: armed (motors spinning), disarmed (motors stopped). Select to change state or emergency stop.
+Pairing | Pair and connect vehicle and ground station.
+ROI | Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode. Enabled (green) -  Select to remove the ROI, Disabled/undefined (grey).
 RC Status | Microhard/remote controller signal status. The bars on the status icon indicate _uplink_ signal strength. Select the icon to display the numeric uplink and downlink RSSI values.
 GPS Status | GPS satellite count and HDOP. Select to open prompt with additional information
 Battery Status | Battery percentage remaining.
-Log | Toggle to display notification log. Icon and colours indicate status: Warning (important/unread), Blue announce (unread/non-critical), Grey announce (read) 
+[Log](#log--notifications) | Display log status: Warning (important unread messages), Blue announce (unread/non-critical messages), Grey announce (read messages). Select to open promot with notification log.
+
+-->
 
 <!-- JUST KEEPING THIS UNTIL HAVE CROSS LINKED SECTIONS AND IMAGES
 
@@ -253,7 +304,7 @@ The current vehicle is the connected vehicle for which information is being disp
 <tr class="even">
 <td><p><img src="images/image133.jpg" /></p></td>
 <td><p>Mode</p></td>
-<td><p>Display the current <a href="#flight-modes--tasks">flight mode</a> and/or select a manual flight mode: <a href="#position-mode">Position mode</a> or <a
+<td><p>Display the current <a href="#flight-modes">flight mode</a> and/or select a manual flight mode: <a href="#position-mode">Position mode</a> or <a
 href="#altitude-mode">Altitude mode</a>.</p>
 <p><img src="images/image206.png" /></p></td>
 </tr>
@@ -371,7 +422,7 @@ The strip will additionally include the *ground station location* ("person" ico
 
 The MGRS grid overlay and information strip are enabled by selecting the checkbox: **Application Settings \> General \> Miscellaneous \> Display MGRS coordinates**.
 
-### Log & Notifications
+### Notification Log
 
 Important notifications are "spoken" by the GCS and then stored in the log.
 The log can be accessed from an icon on the top right of the screen.
@@ -634,7 +685,7 @@ Screenshots for all sections are shown below.
 
 ![](images/image79.png)
 
-# Flight Modes & Tasks
+# Flight Modes
 
 Flight modes provide different types of autopilot assistance to a pilot, including automation of common operations like *takeoff* and *landing*, execution of fully autonomous missions, and changing how the vehicle responds to pilot input during manual flight (for example by making it easier to regain level flight, hold the vehicle to a fixed path or position, etc.).
 
