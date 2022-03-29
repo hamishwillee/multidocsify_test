@@ -53,7 +53,7 @@ The following reminders are provided to help ensure you have a safe flight:
 3. Turn up the sound on your ground station loud enough to hear warnings.
 
 
-<!-- 
+<!--  TODO:  Decide if we need stick settings/mode to be pulled out as part of hardware near front, or assume they remain in the setttings.
 The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings > [Joystick Setup](#joystick-setup)** view.
 -->
 
@@ -74,7 +74,8 @@ Up to 10 vehicles can be paired, but only a single (paired) vehicle can connect 
 
 Access to pair and connect to vehicles is via the pairing icon in the application status bar.
 
-![Pairing icon](images/image93.png)
+![Pairing icon](images/pairing_icon.png) <!-- image93.png -->
+
 
 ## Enabling Pairing
 
