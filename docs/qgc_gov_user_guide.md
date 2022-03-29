@@ -319,27 +319,27 @@ src="images/image15.jpg" /><img src="images/image53.jpg" /></p></td>
 
 The telemetry panel provides vehicle telemetry and flight information, including: flight time and distance, speed, altitude, and heading.
 
-![](images/image164.png)
+![Telemetry panel (compact)](images/telemetry_panel_compact.png) \ <!-- ![](images/image164.png) -->
 
 Click anywhere in the control to toggle an expanded panel with additional information including: latitude, longitude, HDOP and artificial horizon instrumentation.
 
-![](images/image145.png)
+![Telemetry panel (extended)](images/telemetry_panel_large.png) \ <!-- ![](images/image145.png) -->
 
 The table below shows the purpose of each field.
 
 Icon | Description
 --- | --------- 
-![](images/image234.png) | Time since armed (approximate flight time).
-![](images/image40.png) | Horizontal speed.
-![](images/image200.png) | Ascent/descent speed
-![](images/image130.png) | Distance traveled (odometer).
-![](images/image157.png) | Altitude above home.
-![](images/image235.png) | Distance between vehicle and ground station. This requires GPS/position on the ground station!
-![](images/image199.png) | Vehicle heading (direction of travel).
+![](images/telemetry_icon_time_since_armed.png) | Time since armed (approximate flight time).
+![](images/telemetry_icon_horizontal_speed.png) | Horizontal speed.
+![](images/telemetry_icon_vertical_speed.png.png) | Ascent/descent speed
+![](images/telemetry_icon_distance_traveled.png) | Distance traveled (odometer).
+![](images/telemetry_icon_altitude_above_home.png) | Altitude above home.
+![](images/telemetry_icon_distance_to_gcs.png) | Distance between vehicle and ground station. This requires GPS/position on the ground station!
+![](images/telemetry_icon_vehicle_heading.png) | Vehicle heading (direction of travel).
 Lat | Vehicle latitude (Expanded panel).
 Lon | Vehicle longitude (Expanded panel).
 HDOP | GPS Horizontal Degree of Precision (Expanded panel).
-![](images/image38.png) | Artificial Horizon (Expanded panel)
+![](images/telemetry_icon_artificial_horizon.png) | Artificial horizon (Expanded panel)
 
 
 ### Flight Path & Orientation (Map)
