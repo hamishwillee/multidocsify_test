@@ -203,7 +203,7 @@ The following indicators are used to monitor vehicle and flight/mission state.
 
 ### Vehicle Status Icons (App bar)
 
-![](images/image60.jpg)
+![Fly View: Top Bar](images/fly_view_top_bar.png) \
 
 <!-- TODO: image above should label each item -->
 
@@ -214,10 +214,10 @@ The status icons can be selected for additional information.
 
 Name | Description
 --- | ------
-Menu / icon | App menu (navigate to Fly, Plan, Vehicle Setup, Photos, User Login, Application Settings).
-Vehicle | Display/select the current vehicle. The current vehicle is the connected vehicle for which information is being displayed, and to which commands will be directed.
+Menu / icon | [App menu](#application-structure-and-navigation) to navigate main app views.
+Vehicle | Current vehicle. Select to change current vehicle.
 Mode | Display the current [flight mode](#flight-modes--tasks) and/or select a manual flight mode: [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
-Armed/ Disarmed State | Display/select the _armed state_. The states are Armed (motors spinning), Disarmed. (motors stopped), Emergency Stop (motors stopped in flight, potentially causing the drone to crash).
+Armed/ Disarmed state | Display/select the _armed state_. The states are Armed (motors spinning), Disarmed. (motors stopped), Emergency Stop (motors stopped in flight, potentially causing the drone to crash).
 Pairing Manager | Pair and connect vehicle and ground station.
 ROI Status | Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode. Enabled (green) -  Select to remove the ROI, Disabled/undefined (grey).
 RC Status | Microhard/remote controller signal status. The bars on the status icon indicate _uplink_ signal strength. Select the icon to display the numeric uplink and downlink RSSI values.
@@ -331,7 +331,7 @@ Icon | Description
 --- | --------- 
 ![](images/telemetry_icon_time_since_armed.png) | Time since armed (approximate flight time).
 ![](images/telemetry_icon_horizontal_speed.png) | Horizontal speed.
-![](images/telemetry_icon_vertical_speed.png.png) | Ascent/descent speed
+![](images/telemetry_icon_vertical_speed.png) | Ascent/descent speed
 ![](images/telemetry_icon_distance_traveled.png) | Distance traveled (odometer).
 ![](images/telemetry_icon_altitude_above_home.png) | Altitude above home.
 ![](images/telemetry_icon_distance_to_gcs.png) | Distance between vehicle and ground station. This requires GPS/position on the ground station!
