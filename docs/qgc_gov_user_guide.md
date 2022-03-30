@@ -64,18 +64,7 @@ The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of butto
 ![TOGA - Front](images/image59.jpg)
 -->
 
-# Pairing Manager (Microhard)
-
-The Microhard radio system is used to provide a long range and secure link between a vehicle and ground station for vehicle control and telemetry.  
-
-The *Pairing Manager* is used to securely "pair" ("associate") the ground and air modules so they are able to connect and exchange data.
-Multiple vehicles can be paired to the ground station and users can then choose which vehicle to connect.
-Up to 10 vehicles can be paired, but only a single (paired) vehicle can connect via Microhard at a time.
-
-
-
-
-## Pair a Vehicle
+# Pairing 
 
 <!-- TODO: 
 All this needs update/review as flow isn't the same and I can't check it "fully"
@@ -90,8 +79,17 @@ Kinds of things to answer
 - What if there are errors?
 - What settings?
 - What do you do on the vehicle - click the button on the GPS?
+- Confirm pairing and connection are synonymous 
 
 --> 
+
+QGC-Gov can be used to securely _pair_ ground and air communication modules so they are able to connect and exchange data.
+Multiple vehicles can be paired to the ground station and users can then choose which vehicle(s) to connect.
+
+> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A).
+> However the actual number depends on the communication modules used, and is practically limited by how many vehicles a pilot can safely control.
+
+## Pair a Vehicle
 
 Vehicles must be paired to the ground station before they can be connected.
 
@@ -99,7 +97,7 @@ To pair a vehicle:
 
 1. Select the *Pair Vehicle* icon in the status bar:
 
-   ![Pairing icon](images/pairing_icon.png) <!-- image93.png -->
+   ![Pairing icon](images/pairing_icon.png) \ <!-- image93.png -->
 
 2. The ground station unit will launch the *Vehicle Pairing* dialog and try to "discover" an air unit to pair.
    
@@ -192,20 +190,15 @@ In addition, users can easily switch between planning and flying missions using 
 # Fly View
 
 *Fly View* is used for all operations related to monitoring and controlling vehicle flight.
-It is the default view when you start QGC.
+It is the default view when you start QGC-Gov.
 The main elements of the view are highlighted below.
 
-![](images/image191.png)
+![Fly View - Showing Map](images/fly_view_main_map.png) <!-- ![](images/image191.png) -->
 
-## Vehicle State and Flight Information
 
-The following indicators are used to monitor vehicle and flight/mission state.
-
-### Fly View App Bar (Vehicle Status Icons)
+### Fly View App Bar
 
 ![Fly View: Top Bar](images/fly_view_top_bar.png) \
-
-<!-- TODO: image above should label each item -->
 
 The Fly View app bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
 The status icons can be selected for additional information.
@@ -226,20 +219,25 @@ Vehicle
   ~ Display current mode.
   ~ Select either [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
 
-Armed state
+Arm state
   ~ &nbsp;
-  ~ Display _armed state_: Armed (motors spinning), Disarmed (motors stopped)
-  ~ Select to arm/disarm on ground, or emergency stop in air
+  ~ Display _arm state_: Armed (motors spinning), Disarmed (motors stopped).
+  ~ Select to arm/disarm on ground, or emergency stop in air.
+  ~ Select to _emergency stop_ in air.
   
 Pairing
   ~ &nbsp;
   ~ Pair and connect vehicle and ground station.
 
-ROI
+[ROI](#region-of-interest)
   ~ &nbsp;
-  ~ Display region of interest state: enabled (green), no ROI (grey)
+  ~ Display _Region of Interest_ state: enabled (green), no ROI (grey).
   - Select to remove the active ROI.
 
+Telemetry Status
+  ~ &nbsp;
+  ~ Select to open prompt with detailed telemetry RSSI information.
+  
 RC Status
   ~ &nbsp;
   ~ Display RC controller signal status. The bars on the status icon indicate _uplink_ signal strength.
@@ -253,6 +251,7 @@ GPS Status
 Battery Status
   ~ &nbsp;
   ~ Battery percentage remaining.
+  ~ Select to open prompt with more detailed information.
   
 [Log](#notification-log)
   ~ &nbsp;
@@ -266,9 +265,9 @@ Name | Description
 [App menu](#application-structure-and-navigation) | Navigate main app views.
 Vehicle | Display current vehicle. Select to change current vehicle.
 [Flight mode](#flight-modes) | Display current mode. Select to choose either [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
-Armed state | Display the _armed state_: armed (motors spinning), disarmed (motors stopped). Select to change state or emergency stop.
+Arm state | Display the _arm state_: armed (motors spinning), disarmed (motors stopped). Select to change state or emergency stop.
 Pairing | Pair and connect vehicle and ground station.
-ROI | Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode. Enabled (green) -  Select to remove the ROI, Disabled/undefined (grey).
+[ROI](#region-of-interest) | Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode. Enabled (green) -  Select to remove the ROI, Disabled/undefined (grey).
 RC Status | Microhard/remote controller signal status. The bars on the status icon indicate _uplink_ signal strength. Select the icon to display the numeric uplink and downlink RSSI values.
 GPS Status | GPS satellite count and HDOP. Select to open prompt with additional information
 Battery Status | Battery percentage remaining.
@@ -880,10 +879,10 @@ The manual modes can be enabled using the mode selector as shown.
 
 ![](images/image141.png)
 
-## Region of Interest (Position Mode)
+## Region of Interest
 
-QGC-Gov allows users to set a *Region Of Interest (ROI)* on the map in fly view.
-The camera will then track this ROI in when flying in position mode (only).
+QGC-Gov allows users to set a *Region Of Interest* (ROI) on the map in fly view.
+The camera will then track this ROI in when flying in [position mode](#position-mode) (only).
 
 To set the ROI:
 
