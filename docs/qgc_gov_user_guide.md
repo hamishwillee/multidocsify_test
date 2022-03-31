@@ -189,14 +189,15 @@ In addition, users can easily switch between planning and flying missions using 
 
 # Fly View
 
-*Fly View* is used for all operations related to monitoring and controlling vehicle flight.
-It is the default view when you start QGC-Gov.
-The main elements of the view are highlighted below.
+*Fly View* is used for all operations related controlling a vehicle in flight.
+You can fily with either map or video feed in the foreground.
 
-![Fly View - Showing Map](images/fly_view_main_map.png) <!-- ![](images/image191.png) -->
+![Fly View - Map](images/fly_view_main_map.png) \
+
+![Fly View - Video](images/fly_view_main_video.png) \
 
 
-### Fly View App Bar
+## Fly View App Bar
 
 ![Fly View: Top Bar](images/fly_view_top_bar.png) \
 
@@ -225,14 +226,14 @@ Arm state
   ~ Select to arm/disarm on ground, or emergency stop in air.
   ~ Select to _emergency stop_ in air.
   
-Pairing
+[Pairing](#pairing)
   ~ &nbsp;
   ~ Pair and connect vehicle and ground station.
 
 [ROI](#region-of-interest)
   ~ &nbsp;
   ~ Display _Region of Interest_ state: enabled (green), no ROI (grey).
-  - Select to remove the active ROI.
+  ~ Select to remove the active ROI.
 
 Telemetry Status
   ~ &nbsp;
@@ -365,7 +366,7 @@ src="images/image15.jpg" /><img src="images/image53.jpg" /></p></td>
 -->
 
 
-### Telemetry Panel
+## Telemetry Panel
 
 The telemetry panel provides vehicle telemetry and flight information, including: flight time and distance, speed, altitude, and heading.
 
@@ -392,12 +393,66 @@ HDOP | GPS Horizontal Degree of Precision (Expanded panel).
 ![](images/telemetry_icon_artificial_horizon.png) | Artificial horizon (Expanded panel)
 
 
-### Flight Path & Orientation (Map)
+## Fly View Map
 
-The map shows you where the vehicle is, where it has come from (the vehicle home location), where it has flown (in red), and where it is going (below is a "goto" destination, but this would be a mission path if a mission was loaded).
+The Fly View Map shows you where the vehicle is, where it has come from (the vehicle home location), where it has flown (in red), and where it is going (below is a "goto" destination, but this would be a mission path if a mission was loaded).
 It also shows which direction the vehicle is facing (which may differ from the direction it is travelling).
   
 ![](images/image150.png)
+
+- types of map
+- switching between type
+- modifing the angle
+- where you've flown
+- where you're going.
+- setting targets.
+- Mission markers
+
+
+
+### Fly View Map Actions
+
+Actions that require a position are initiated by touching the map at the desired position (when flying).
+The popup menu below will then be displayed to select the desired operation.
+
+![Map actions (Fly View)](images/fly_view_map_actions.png) \
+
+For more information see:
+
+- [Goto Location](#goto-task) (Flying using High-Level Commands)
+- [Orbit Location](#orbit-location) (Flying using High-Level Commands)
+- [ROI at Location](#region-of-interest-position-mode) (Flying Manually)
+
+### Map Markers
+
+Map markers indicate particular locations and targets, like the target of a [Go here](#goto-task):
+
+![](images/fly_view_map_marker_go_here.png)
+ 
+The map markers include:
+
+Marker | Description
+--- | -----
+**(G)** Go here | The target of a [Go here](#goto-task) task.
+**(O)** Orbit here | The center of a [Orbit here](#orbit-location) target.
+**(R)** ROI here | The current [Region of interest (ROI)](#region-of-interest-position-mode).
+**(L)** | Land/Home marker.
+![](images/fly_view_waypoint.png) | Mission waypoint
+![](images/fly_view_waypoint_selected.png) | Selected (target) mission waypoint
+
+### Map Types
+
+The map selector on the Video/Map widget can be used to change the displayed map type.
+
+![](images/fly_view_map_map_type_select.png)
+
+QGC-Gov supports street view, satellite view, or hybrid satellite/street view.
+
+![](images/fly_view_map_streets.png)
+![](images/fly_view_map_satellite.png)
+
+![](images/fly_view_map_satellite_streets.png)
+
 
 ### Map Grid (MGRS)
 
@@ -421,7 +476,7 @@ The strip will additionally include the *ground station location* ("person" ico
 
 The MGRS grid overlay and information strip are enabled by selecting the checkbox: **Application Settings \> General \> Miscellaneous \> Display MGRS coordinates**.
 
-### Notification Log
+## Notification Log
 
 Important notifications are "spoken" by the GCS and then stored in the log.
 The log can be accessed from an icon on the top right of the screen.
@@ -444,7 +499,7 @@ All operations must be confirmed via a slider.
 
 Actions that can have an associated altitude will display an altitude slider along with the confirmation prompt.
 
-### Fly Tools
+## Fly Tools
 
 [TODO: Insert the fly toolbar image here]
 
@@ -479,18 +534,7 @@ Confirmation prompts are displayed in the bottom center of the map (if an altitu
 
 ![](images/image12.png)
 
-### Map Actions/Operations
 
-Actions that require a position are initiated by touching the map at the desired position (when flying).
-The popup menu below will then be displayed to select the desired operation.
-
-![](images/image146.jpg)
-
-For more information see:
-
-- [Goto Location](#goto-task) (Flying using High-Level Commands)
-- [Orbit Location](#orbit-location) (Flying using High-Level Commands)
-- [ROI at Location](#region-of-interest-position-mode) (Flying Manually)
 
 ## Video/Map Switcher
 
