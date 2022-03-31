@@ -395,33 +395,30 @@ HDOP | GPS Horizontal Degree of Precision (Expanded panel).
 
 ## Fly View Map
 
-The Fly View Map shows you where the vehicle is, where it has come from (the vehicle home location), where it has flown (in red), and where it is going (below is a "goto" destination, but this would be a mission path if a mission was loaded).
-It also shows which direction the vehicle is facing (which may differ from the direction it is travelling).
-  
-![](images/image150.png)
+The Fly View Map shows the current vehicle position, historical flight path (in red), and various markers such as a "goto" location, or the path of a mission (if one has been loaded).
 
-- types of map
-- switching between type
-- modifing the angle
-- where you've flown
-- where you're going.
-- setting targets.
-- Mission markers
+You can click on the map to set a goto, orbit or region of interest target, and use the map switcher to change the type of map that is displayed.
 
+![Fly view map - overview](images/fly_view_map_basic_overview.png) \ <!-- image150.png -->
 
 
 ### Fly View Map Actions
 
-Actions that require a position are initiated by touching the map at the desired position (when flying).
-The popup menu below will then be displayed to select the desired operation.
+Actions that require a position are initiated by touching the location on the map (when flying).
+A popup menu will be displayed allowing the desired operation to be selected.
 
 ![Map actions (Fly View)](images/fly_view_map_actions.png) \
+
+Map actions must be acknowledged using a confirmation slider prompt.
+You may also need to set some additional information like the orbit radius.
+After acknowledging the prompt a [map marker](#map-markers) is added to the map and the action will be executed.
 
 For more information see:
 
 - [Goto Location](#goto-task) (Flying using High-Level Commands)
 - [Orbit Location](#orbit-location) (Flying using High-Level Commands)
-- [ROI at Location](#region-of-interest-position-mode) (Flying Manually)
+- [Region of Interest](#region-of-interest) (Flying Manually)
+
 
 ### Map Markers
 
@@ -435,10 +432,10 @@ Marker | Description
 --- | -----
 **(G)** Go here | The target of a [Go here](#goto-task) task.
 **(O)** Orbit here | The center of a [Orbit here](#orbit-location) target.
-**(R)** ROI here | The current [Region of interest (ROI)](#region-of-interest-position-mode).
+**(R)** ROI here | The current [Region of interest (ROI)](#region-of-interest).
 **(L)** | Land/Home marker.
-![](images/fly_view_waypoint.png) | Mission waypoint
-![](images/fly_view_waypoint_selected.png) | Selected (target) mission waypoint
+![](images/fly_view_waypoint.png) \ | Mission waypoint
+![](images/fly_view_waypoint_selected.png) \ | Selected (target) mission waypoint
 
 ### Map Types
 
@@ -458,12 +455,13 @@ QGC-Gov supports street view, satellite view, or hybrid satellite/street view.
 
 The map in **Fly-** and **Plan View** may (optionally) overlay a grid and vehicle position information in MGRS coordinates.
 
-![](images/image112.jpg)
+![MGRS Map overlay](images/map_mgrs.png)  <!-- image112.jpg -->
 
 The grid overlay shows map coordinates with 10m resolution \[4 digits\].
 
 The information strip at the bottom is visible in **Fly View** only.
-It provides <sup><a href="#cmnt2" id="cmnt_ref2">[b]</a><a href="#cmnt3" id="cmnt_ref3">[c]</a><a href="#cmnt4" id="cmnt_ref4">[d]</a></sup>the position of the *map center* (caret icon) and the *vehicle* (plane icon) to one meter accuracy \[5 digits\].  ![](images/image21.png)
+It provides the position of the *map center* (caret icon) and the *vehicle* (plane icon) to one meter accuracy \[5 digits\].
+ ![](images/image21.png)
 
 The strip will additionally include the *ground station location* ("person" icon) **if** the ground station has a GPS module.  
 
@@ -474,41 +472,21 @@ The strip will additionally include the *ground station location* ("person" ico
 >
 > For more information see [MGRS coordinates](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) (Wikipedia).
 
-The MGRS grid overlay and information strip are enabled by selecting the checkbox: **Application Settings \> General \> Miscellaneous \> Display MGRS coordinates**.
-
-## Notification Log
-
-Important notifications are "spoken" by the GCS and then stored in the log.
-The log can be accessed from an icon on the top right of the screen.
-
-The icon has three states. The exclamation mark state indicates that there are important unread notifications.
-The blue and grey speaker icons indicate that there are unread/read messages, respectively.
-
-![](images/image48.jpg)![](images/image15.jpg)![](images/image53.jpg)
-
-The log is displayed in a popup dialog. It can be closed or emptied using the X and "trash" icons.
-
-![](images/image87.png)
-
-## Vehicle Actions/Commands
-
-The vehicle can be flown entirely through the ground station application either by running an autonomous mission or using high level commands.
-Most of the operations are triggered from the toolbar.
-Actions that require a position are initiated through the map.
-All operations must be confirmed via a slider.
-
-Actions that can have an associated altitude will display an altitude slider along with the confirmation prompt.
+Enable the overlay in the settings by selecting the checkbox:
+**Application Settings > General > Miscellaneous > Display MGRS coordinates**.
 
 ## Fly Tools
 
-[TODO: Insert the fly toolbar image here]
+The fly toolbar is used to execute flight and preflight operations that do not require a specific map position.
 
-The fly toolbar is used to execute most flight and preflight operations.
+![Fly View Toolbar](images/fly_view_toolbar.png) \
+
 The toolbar only displays valid tool options for the current vehicle state (invalid options are hidden or greyed out).
+All toolbar actions are listed below.
 
 Tool | Description
 --- | -----------
-[Plan](#planning) | Switch to Plan View (in order to plan a mission, geofence or rally point).
+[Plan](#plan-view) | Switch to Plan View (in order to plan a mission, geofence or rally point).
 [Checklist](#flight-preparation) | Start pre-flight safety checks.
 [Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
 [Land](#land-mode) | Land vehicle and disarm (option visible if flying).
@@ -516,7 +494,7 @@ Tool | Description
 [Pause](#hold-mode) | Pause current operation.
 Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc.
 [Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission.
-  
+
 
 <!-- 
 ![Plan](images/image227.png) 
@@ -532,7 +510,7 @@ Action | Display additional (context-sensitive) actions for the current vehicle 
 All operations must be confirmed using a slider before they will be executed.
 Confirmation prompts are displayed in the bottom center of the map (if an altitude can be set for an operation, a vertical slider will be displayed at the same time).
 
-![](images/image12.png)
+![Confirmation promptt - Land](images/confirmation_prompt_land.png) \
 
 
 
@@ -686,6 +664,22 @@ The settings that are *independent of the camera type* are listed below.
     - `Fit Width`: Fit to width
     - `Stretch`: Stretch to fill screen
 - `Reset Camera Defaults`: Reset camera/gimbal to default settings.
+
+
+## Notification Log
+
+Important notifications are "spoken" by the GCS and then stored in the log.
+The log can be accessed from an icon on the top right of the screen.
+
+The icon has three states. The exclamation mark state indicates that there are important unread notifications.
+The blue and grey speaker icons indicate that there are unread/read messages, respectively.
+
+![](images/image48.jpg)![](images/image15.jpg)![](images/image53.jpg)
+
+The log is displayed in a popup dialog. It can be closed or emptied using the X and "trash" icons.
+
+![](images/image87.png)
+
 
 
 # Flight Preparation
@@ -922,6 +916,7 @@ Other manual modes may be accessible outside of *QGroundControl* (i.e. though R
 The manual modes can be enabled using the mode selector as shown.
 
 ![](images/image141.png)
+
 
 ## Region of Interest
 
@@ -3116,13 +3111,3 @@ All vehicles on a network should use the same frequency.</p></td>
 </tbody>
 </table>
 
-# Footnotes
-
-<a href="#cmnt_ref1" id="cmnt1">[a]</a>Still confirming next step. Close dialog or some other dialog?
-
-<a href="#cmnt_ref2" id="cmnt2">[b]</a>+matej@auterion.com Can you please sanity check this section? You said the strip should also display home position, but I don't see that. Can you confirm how I'd get that to show up?
-
-<a href="#cmnt_ref3" id="cmnt3">[c]</a>It is GCS position not home position. You can get it in simulation or if you have GPS setup on GCS.
-
-<a href="#cmnt_ref4" id="cmnt4">[d]</a>Thanks. I added a line "If the ground station has a GPS attached, the strip will additionally include the ground station location."
-Can you screenshot what this looks like with GPS? It is not the end of the world if you can't because readers can work out what it is by inference.
