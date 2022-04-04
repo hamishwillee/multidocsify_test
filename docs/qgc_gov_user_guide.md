@@ -481,9 +481,49 @@ The fly toolbar is used to execute flight and preflight operations that do not r
 
 ![Fly View Toolbar](images/fly_view_toolbar.png) \
 
-The toolbar only displays valid tool options for the current vehicle state (invalid options are hidden or greyed out).
+The toolbar only offers valid options for the current vehicle state (invalid options are either removed or greyed out).
+Some toolbar options, such as the [Checklist](#flight-preparation), must be enabled in settings.
+
 All toolbar actions are listed below.
 
+[Plan](#plan-view)
+  ~ &nbsp;
+  ~ Switch to _Plan View_ (in order to plan a mission, geofence or rally point).
+
+[Checklist](#flight-preparation)
+  ~ &nbsp;
+  ~ Start pre-flight safety checks.
+  
+[Takeoff](#takeoff-mode)
+  ~ &nbsp;
+  ~ Arm vehicle and takeoff (option visible if landed).
+  
+[Land](#land-mode)
+  ~ &nbsp;
+  ~ Land vehicle and disarm (option visible if flying).
+  
+[Return](#return-mode)
+  ~ &nbsp;
+  ~ Fly to a safe point (option enabled if flying). The path/landing behaviour depends on vehicle configuration.
+  
+[Pause](#hold-mode)
+  ~ &nbsp;
+  ~ Pause current operation or mission.
+  
+Action
+  ~ &nbsp;
+  ~ Display additional (context-sensitive) actions for the current vehicle state.
+    May be used to change the altitude, pause, continue or edit a mission, takeoff if landed, etc.
+  
+[Edit](#pause-edit-continue-a-mission)
+  ~ &nbsp;
+  ~ Edit the current mission, after switching to [Plan View](#plan-view) (only visible when in a paused mission).
+  
+[Overlay]
+  ~ &nbsp;
+  ~ TBD <!-- TODO: What is this? -->
+
+<!-- 
 Tool | Description
 --- | -----------
 [Plan](#plan-view) | Switch to Plan View (in order to plan a mission, geofence or rally point).
@@ -492,11 +532,10 @@ Tool | Description
 [Land](#land-mode) | Land vehicle and disarm (option visible if flying).
 [Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
 [Pause](#hold-mode) | Pause current operation.
-Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc.
-[Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission.
+Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to continue or edit a mission, or to change the altitude.
+[Edit](#pause-edit-continue-a-mission) | Edit the current mission (only visible when in a paused mission).
+[Overlay] | TBD 
 
-
-<!-- 
 ![Plan](images/image227.png) 
 ![Checklist](images/image163.png)
 ![Takeoff](images/image27.png)
@@ -510,23 +549,25 @@ Action | Display additional (context-sensitive) actions for the current vehicle 
 All operations must be confirmed using a slider before they will be executed.
 Confirmation prompts are displayed in the bottom center of the map (if an altitude can be set for an operation, a vertical slider will be displayed at the same time).
 
-![Confirmation promptt - Land](images/confirmation_prompt_land.png) \
-
+![Confirmation prompt - Land](images/confirmation_prompt_land.png) \
 
 
 ## Video/Map Switcher
 
-![](images/image201.png)
+The Fly View video/map switcher is used to toggle the camera video feed or the map to the foreground.
 
-The Fly View video/map switcher control is used to toggle display between the map and the current video source (as set by the [Camera Display Control](#camera-controls)).
+![Fly View - Video Switcher](images/fly_view_main_video.png) \ <!-- image201.png -->
 
-The main controls are
+Additional controls are displayed in the switcher if it is selected:
 
-- Tap anywhere in middle to toggle map and video
-- Resize the switcher by dragging the icon in the top right corner.
-- Hide/shrink the switcher by pressing the toggle icon in the lower left. 
+- Resize the switcher window by dragging the top right corner.
+- Collapse/expand the switcher by pressing the arrows in the lower left.
+- Make the switcher a separate window by selecting the icon in the top left corner (desktop systems only).
+- Change the [map type](#map-types) using the icon on the bottom right.
 
-![](images/image118.png)
+![Video Switcher - Overlay options](images/fly_view_video_switcher_overlay.png)  <!-- image118.png -->
+
+
 
 ## Camera View and Controls
 
