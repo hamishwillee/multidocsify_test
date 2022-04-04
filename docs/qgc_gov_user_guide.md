@@ -639,7 +639,7 @@ The controls, in order are:
 - Free SD card memory
 - Camera mode
 - Capture
-- Open settings for current captue mode
+- Open settings for current capture mode
 - Elapsed time for current video (Video mode) / Number of captured pictures (Camera mode)
 
 
@@ -709,18 +709,19 @@ The settings that are *independent of the camera type* are listed below.
 
 ## Notification Log
 
-Important notifications are "spoken" by the GCS and then stored in the log.
-The log can be accessed from an icon on the top right of the screen.
+The notification log dialog is accessed from the "announcements" icon on the right of the [Fly View application bar](#fly-view-app-bar).
 
-The icon has three states. The exclamation mark state indicates that there are important unread notifications.
-The blue and grey speaker icons indicate that there are unread/read messages, respectively.
+![Notification Log](images/fly_view_log.png) \  <!-- image87.png -->
 
-![](images/image48.jpg)![](images/image15.jpg)![](images/image53.jpg)
+The icon has three states.
 
-The log is displayed in a popup dialog. It can be closed or emptied using the X and "trash" icons.
+Icon | Description
+--- | ---------
+![](images/log_important.jpg) | Important unread notifications. These notifications are also "spoken" by the GCS.
+![](images/log_unread.jpg) | Unread informational messages.
+![](images/log_read.jpg) | Read messages
 
-![](images/image87.png)
-
+The log can be closed using the **X** icon and emptied using the "trash" icon.
 
 
 # Flight Preparation
