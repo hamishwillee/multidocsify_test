@@ -482,7 +482,7 @@ The fly toolbar is used to execute flight and preflight operations that do not r
 ![Fly View Toolbar](images/fly_view_toolbar.png) \
 
 The toolbar only offers valid options for the current vehicle state (invalid options are either removed or greyed out).
-Some toolbar options, such as the [Checklist](#flight-preparation), must be enabled in settings.
+Some toolbar options, such as the [Checklist](#preflight-checklist), must be enabled in settings.
 
 All toolbar actions are listed below.
 
@@ -490,7 +490,7 @@ All toolbar actions are listed below.
   ~ &nbsp;
   ~ Switch to _Plan View_ (in order to plan a mission, geofence or rally point).
 
-[Checklist](#flight-preparation)
+[Checklist](#preflight-checklist)
   ~ &nbsp;
   ~ Start pre-flight safety checks.
   
@@ -527,7 +527,7 @@ Action
 Tool | Description
 --- | -----------
 [Plan](#plan-view) | Switch to Plan View (in order to plan a mission, geofence or rally point).
-[Checklist](#flight-preparation) | Start pre-flight safety checks.
+[Checklist](#preflight-checklist) | Start pre-flight safety checks.
 [Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
 [Land](#land-mode) | Land vehicle and disarm (option visible if flying).
 [Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
@@ -713,34 +713,35 @@ The notification log dialog is accessed from the "announcements" icon on the rig
 
 ![Notification Log](images/fly_view_log.png) \  <!-- image87.png -->
 
-The icon has three states.
+The log uses different icons to indicate notification status.
 
 Icon | Description
 --- | ---------
 ![](images/log_important.jpg) | Important unread notifications. These notifications are also "spoken" by the GCS.
-![](images/log_unread.jpg) | Unread informational messages.
-![](images/log_read.jpg) | Read messages
+![](images/log_unread.jpg) | Unread notifications.
+![](images/log_read.jpg) | No unread notifications.
 
 The log can be closed using the **X** icon and emptied using the "trash" icon.
 
 
-# Flight Preparation
+## Preflight Checklist
 
-The ground station has an automated checklist that you should use to verify that your vehicle and planned flight path are safe to fly.
+The *Preflight Checklist* may be used used to verify that a vehicle and planned flight path are safe to fly.
 
-![Preflight Checklist](images/image103.png)
+![Preflight Checklist](images/fly_checklist_1.png) \ <!-- image103.png -->
 
-The checklist has three separate sections, each containing a number of tests that have a color-coded status button and a description.
-Tests are either automatic or manual; the former tests are run automatically and the results displayed while the manual tests must be marked as passed by the user.
+The checklist is started using the **Checklist** button on the Fly View toolbar.
+It has three separate sections, each containing a number of tests that have a color-coded status button and a description.
+Tests are either automatic or manual; the automatic tests run without intervention while the manual tests must be marked as passed by the user.
 All tests in a section must pass before you can start the next section.
 
 To use the checklist:
 
-1. Start running the checklist by selecting the **Checklist** button in the toolbar.
+1. Start running the checklist by selecting the **Checklist** button in the Fly toolbar.
 
-   - If the **Checklist** button is not displayed, check the Use Preflight Checklist option in the Application Settings (**Menu \> Settings \> General \> Fly View**).
-   - The Checklist button can only be selected when there is a connected vehicle.
-
+   > **Note:** If the checklist button is not displayed when a vehicle is connected then this feature is disabled.
+   > You can enable it in the application settings: **Menu > Settings > General > Fly View >** _Use Preflight Checklist_ (checkbox)
+   
 2. Review the status of the tests:
 
    - *Green*: Passed.
@@ -751,18 +752,18 @@ To use the checklist:
 
    - *GPS*: Test passes (turns green) when the vehicle has a valid position estimate.
      If this takes too long, move the vehicle to ensure it has a clear view of the sky and is away from buildings.
-   - *Sensors*: If it remains red after the vehicle has booted you may need to recalibration the sensors.
+   - *Sensors*: If the button remains red after the vehicle has booted you may need to recalibrate the sensors.
 
 4. Manually run each of the "orange" tests following their description.
    Once completed, tap the associated button to mark the test as passed.
 5. When all the tests in the first section are complete (green) you will be able to arm the vehicle and start the second section.
 6. When all the tests in the final section are green, the test is complete.
 
-> **Note:** You can exit the checklist at any time by selecting outside of its boundary and reset the checklist by clicking the button on the top right corner of the dialog.
+You can exit the checklist at any time by selecting outside of its boundary, and reset the checklist by clicking the button on the top right corner of the dialog.
 
 Screenshots for all sections are shown below.
 
-![](images/image79.png)
+![Preflight checklist - all screens](images/fly_checklist_all.png)  <!-- image79.png -->
 
 # Flight Modes
 
