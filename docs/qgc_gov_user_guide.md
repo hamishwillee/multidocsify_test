@@ -765,7 +765,8 @@ Screenshots for all sections are shown below.
 
 ![Preflight checklist - all screens](images/fly_checklist_all.png)  <!-- image79.png -->
 
-# Flight Modes
+
+## Flight Modes
 
 Flight modes provide different types of autopilot assistance to a pilot, including automation of common operations like *takeoff* and *landing*, execution of fully autonomous missions, and changing how the vehicle responds to pilot input during manual flight (for example by making it easier to regain level flight, hold the vehicle to a fixed path or position, etc.).
 
@@ -773,15 +774,12 @@ QGC-Gov displays the current flight mode in the mode selector on the application
 The selector menu can be opened to select the two **manual** modes: *Altitude* and *Position*.
 All other modes are automatically selected when you perform an associated operation - e.g. start a mission, takeoff, land etc.
 
-![](images/image61.jpg)
+![](images/fly_view_mode_selector.jpg) \
 
-The most important PX4 flight modes and tasks are covered at high level below.
+The most important flight modes and tasks are covered at high level below.
 
 > **Note:** Flight Mode behaviour depends on vehicle type and configuration.
 > The information here covers _default behaviour_ at high level.
-> More detailed information can be found in the PX4 user guide:
-> - [Basic Concepts > Flight Modes](https://docs.px4.io/master/en/getting_started/flight_modes.html)
-> - [Flying > Flight Modes](https://docs.px4.io/master/en/flight_modes/) (sub-topics for individual modes)
 
 
 ## Position Mode
