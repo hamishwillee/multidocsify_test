@@ -232,7 +232,7 @@ The main sections of the fly view are:
   ~ &nbsp;
   ~ Vehicle flight and mission telemetry.
   
-[Video/Map Switcher](#video-map-switcher)
+[Video/Map Switcher](#switcher)
   ~ &nbsp;
   ~ Switch between [Map](#fly-view-map) and [Camera View](#camera-view).
   
@@ -564,7 +564,7 @@ Screenshots for all sections are shown below.
 
 ![Preflight checklist - all screens](images/fly_checklist_all.png)  <!-- image79.png -->
 
-## Video/Map Switcher
+## Video/Map Switcher {#switcher}
 
 The Fly View video/map switcher is used to toggle the camera video feed or the map to the foreground.
 
