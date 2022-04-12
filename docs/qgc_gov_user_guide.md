@@ -170,17 +170,19 @@ To unpair to a vehicle:
 # App Menu
 
 The application menu is accessed from the **Q** icon on the top left of the application.
-The menu slides in from the left, providing links to the main application views.
+The menu slides in from the left.
 
 ![QGC Application Menu: Slide-in Sidebar](images/app_menu.png) \
 
-[Fly](#fly-view)
+The menu provides access to separate views which are used for each main activity
+
+[Fly](#fly-view) (default)
   ~ &nbsp;
-  ~ Manual and autonomous flight control (default view on startup).
+  ~ Flying both manually and autonomously, using map or camera view.
 
 [Plan](#plan-view)
   ~ &nbsp;
-  ~ Autonomous mission, geofence, and rally point planning.
+  ~ Planning missions, geofence, and rally points.
 
 [Vehicle Setup](#vehicle-setup)
   ~ &nbsp;
@@ -188,17 +190,15 @@ The menu slides in from the left, providing links to the main application views.
 
 [Photos](#photos)
   ~ &nbsp;
-  ~ Photo gallery for vehicle image and video management.
+  ~ Photo gallery for managing captured images and video.
   
 [Settings](#application-settings)
   ~ &nbsp;
   ~ Configure application settings (e.g. display units, map providers, etc.).
 
-
+> **Note:** You can toggle between [Fly](#fly-view) and [Plan](#plan-view) using a dedicated toolbar button in each view
 
 <!--
-Users can easily switch between planning and flying missions using the top toolbar button in their respective views.
-
 ![Switch to Fly View](images/app_switch_to_fly.png) ![Switch to Plan View](images/app_switch_to_plan.png) \ 
 -->
 
@@ -206,11 +206,39 @@ Users can easily switch between planning and flying missions using the top toolb
 # Fly View
 
 *Fly View* is used for all operations related controlling a vehicle in flight.
-You can fily with either map or video feed in the foreground.
+You can fly with either map or video feed in the foreground, and monitor the status using the camera and/or telemetry information.
 
 ![Fly View - Map](images/fly_view_main_map.png) \
 
 ![Fly View - Video](images/fly_view_main_video.png) \
+
+The main sections of the fly view are:
+
+<!-- TBD - finish this list on main sections -->
+
+[App Bar](#fly-view-app-bar)
+  ~ &nbsp;
+  ~ Vehicle selector and high-level status information (connection, mode, GPS, battery, log)
+  
+[Toolbar](#fly-toolbar)
+  ~ &nbsp;
+  ~ Select actions including checklist, takeoff, land, return, run mission.
+
+[Map](#fly-view-map)
+  ~ &nbsp;
+  ~ Vehicle map, showing flight path, mission, and so on. Select actions like "orbit" and "goto"
+  
+[Telemetry Panel](#telemetry-panel)
+  ~ &nbsp;
+  ~ Vehicle flight and mission telemetry.
+  
+[Video/Map Switcher](#video-map-switcher)
+  ~ &nbsp;
+  ~ Switch between [Map](#fly-view-map) and [Camera View](#camera-view).
+  
+[Camera View](#camera-view)
+  ~ &nbsp;
+  ~ Fly with foreground camera view. Control image and video capture and settings.
 
 
 ## Fly View App Bar
@@ -418,7 +446,7 @@ The strip will additionally include the *ground station location* ("person" ico
 Enable the overlay in the settings by selecting the checkbox:
 **Application Settings > General > Miscellaneous > Display MGRS coordinates**.
 
-## Fly Tools
+## Fly Toolbar
 
 The fly toolbar is used to execute flight and preflight operations that do not require a specific map position.
 
@@ -495,6 +523,47 @@ Confirmation prompts are displayed in the bottom center of the map (if an altitu
 ![Confirmation prompt - Land](images/confirmation_prompt_land.png) \
 
 
+### Preflight Checklist
+
+The *Preflight Checklist* is used to verify that a vehicle and planned flight path are safe to fly.
+It is started from the **Checklist** button on the Fly View toolbar.
+
+> **Note:** If the checklist button is not displayed when a vehicle is connected then this feature is disabled.
+> You can enable it in the application settings: **Menu > Settings > General > Fly View >** _Use Preflight Checklist_ (checkbox)
+
+![Preflight Checklist](images/fly_checklist_1.png) \ <!-- image103.png -->
+
+The checklist has three separate sections, each containing a number of tests that have a color-coded status button and a description.
+Tests are either automatic or manual; the automatic tests run without intervention while the manual tests must be marked as passed by the user.
+All tests in a section must pass before you can start the next section.
+
+To use the checklist:
+
+1. Start running the checklist by selecting the **Checklist** button in the Fly toolbar.
+   
+2. Review the status of the tests:
+
+   - *Green*: Passed.
+   - *Orange*: Manual test that still needs to be run (and then marked as passed).
+   - *Red*: Automatic test that has either failed or is still in progress.
+
+3. Fix any automatic test failures (shown in red)
+
+   - *GPS*: Test passes (turns green) when the vehicle has a valid position estimate.
+     If this takes too long, move the vehicle to ensure it has a clear view of the sky and is away from buildings.
+   - *Sensors*: If the button remains red after the vehicle has booted you may need to recalibrate the sensors.
+
+4. Manually run each of the "orange" tests following their description.
+   Once completed, tap the associated button to mark the test as passed.
+5. When all the tests in the first section are complete (green) you will be able to arm the vehicle and start the second section.
+6. When all the tests in the final section are green, the test is complete.
+
+You can exit the checklist at any time by selecting outside of its boundary, and reset the checklist by clicking the button on the top right corner of the dialog.
+
+Screenshots for all sections are shown below.
+
+![Preflight checklist - all screens](images/fly_checklist_all.png)  <!-- image79.png -->
+
 ## Video/Map Switcher
 
 The Fly View video/map switcher is used to toggle the camera video feed or the map to the foreground.
@@ -512,7 +581,7 @@ Additional controls are displayed in the switcher if it is selected:
 
 
 
-## Camera View and Controls
+## Camera View
 
 ![](images/image137.png)
 
@@ -652,50 +721,6 @@ The settings that are *independent of the camera type* are listed below.
 
 
 
-
-## Preflight Checklist
-
-The *Preflight Checklist* is used to verify that a vehicle and planned flight path are safe to fly.
-It is started from the **Checklist** button on the Fly View toolbar.
-
-> **Note:** If the checklist button is not displayed when a vehicle is connected then this feature is disabled.
-> You can enable it in the application settings: **Menu > Settings > General > Fly View >** _Use Preflight Checklist_ (checkbox)
-
-![Preflight Checklist](images/fly_checklist_1.png) \ <!-- image103.png -->
-
-The checklist has three separate sections, each containing a number of tests that have a color-coded status button and a description.
-Tests are either automatic or manual; the automatic tests run without intervention while the manual tests must be marked as passed by the user.
-All tests in a section must pass before you can start the next section.
-
-To use the checklist:
-
-1. Start running the checklist by selecting the **Checklist** button in the Fly toolbar.
-   
-2. Review the status of the tests:
-
-   - *Green*: Passed.
-   - *Orange*: Manual test that still needs to be run (and then marked as passed).
-   - *Red*: Automatic test that has either failed or is still in progress.
-
-3. Fix any automatic test failures (shown in red)
-
-   - *GPS*: Test passes (turns green) when the vehicle has a valid position estimate.
-     If this takes too long, move the vehicle to ensure it has a clear view of the sky and is away from buildings.
-   - *Sensors*: If the button remains red after the vehicle has booted you may need to recalibrate the sensors.
-
-4. Manually run each of the "orange" tests following their description.
-   Once completed, tap the associated button to mark the test as passed.
-5. When all the tests in the first section are complete (green) you will be able to arm the vehicle and start the second section.
-6. When all the tests in the final section are green, the test is complete.
-
-You can exit the checklist at any time by selecting outside of its boundary, and reset the checklist by clicking the button on the top right corner of the dialog.
-
-Screenshots for all sections are shown below.
-
-![Preflight checklist - all screens](images/fly_checklist_all.png)  <!-- image79.png -->
-
-
-
 ## Flight Modes
 
 <!-- not sure this should go here yet -->
@@ -726,7 +751,7 @@ Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (s
 When the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
 
 
-## Altitude Mode
+### Altitude Mode
 
 *Altitude Mode* (also known as *Altitude Hold*) is a safe and easy-to-fly *manual* flight mode that does not rely on GPS.
 It shares the **same** flight control behaviour as *Position Mode*.
@@ -737,7 +762,7 @@ A fixed wing vehicle will hold level and straight flight, but will not hold cour
 
 *Altitude Mode* is selected in QGC from the mode selector in the application status bar.
 
-## Return Mode
+### Return Mode
 
 *Return Mode* causes the vehicle to fly a clear path to a safe location.
 The mode can be activated manually by selecting the **RTL** button ([Fly View Toolbar](#fly-view)) or using a pre-programmed RC switch.
@@ -746,7 +771,7 @@ It may also be entered automatically as a response to a vehicle failsafe being t
 The return behaviour depends on vehicle settings, and may follow a mission path and/or mission landing pattern (if defined).
 By default a fixed wing vehicle will use a landing pattern defined in a mission while a multicopter will fly to the home location and land.
 
-## Takeoff Mode
+### Takeoff Mode
 
 *Takeoff Mode* initiates the automatic takeoff sequence.
 The mode can be activated by selecting the **Takeoff** button ([Fly View Toolbar](#fly-view)) when landed or using a pre-programmed RC switch.
@@ -754,7 +779,7 @@ The mode can be activated by selecting the **Takeoff** button ([Fly View Toolbar
 On multicopter takeoff causes the vehicle to climb vertically until it reaches the *takeoff altitude*, and then switch to [Hold Mode](#hold-mode).
 On fixed wing, the launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
 
-## Land Mode
+### Land Mode
 
 *Land Mode* initiates the automatic land sequence.
 The mode can be activated by selecting the **Land** button ([Fly View Toolbar](#fly-view)) when flying or using a pre-programmed RC switch.
@@ -763,7 +788,7 @@ On multicopter the vehicle will just descend and land.
 Fixed wing landing depends on vehicle configuration.
 
 
-## Hold Mode
+### Hold Mode
 
 *Hold Mode* is an automatic mode used to hold a vehicle at a particular location.
 
@@ -774,7 +799,7 @@ It can also be activated with a pre-programmed RC switch.
 
 In some cases Hold mode can be used for high level vehicle control, including goto and orbit.
 
-## Mission Mode
+### Mission Mode
 
 *Mission Mode* is used to execute a pre-planned mission.
 This mode is automatically activated when you start a mission in QGC.
