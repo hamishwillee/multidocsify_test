@@ -167,24 +167,40 @@ To unpair to a vehicle:
    ![](images/image1.png)
 
 
-# Application Structure and Navigation
+# App Menu
 
-The ground station has five views:
+The application menu is accessed from the **Q** icon on the top left of the application.
+The menu slides in from the left, providing links to the main application views.
 
-- [Fly](#fly-view)**:** Manual and autonomous flight control (default view on startup).
-- [Plan](#plan-view)**:** Autonomous mission, geofence, and rally point planning.
-- [Vehicle Setup](#vehicle-setup)**:** Configure vehicle-specific settings (calibration, failsafes, etc.).
-- [Photos](#photos)**:** Photo gallery for vehicle image and video management.
-- [Settings](#application-settings)**:** Configure application settings (e.g. display units, map providers, etc.).
+![QGC Application Menu: Slide-in Sidebar](images/app_menu.png) \
 
-All views are linked from the application menu, which is opened by selecting the application icon in the top toolbar.
-The menu sidebar sides in from the left.
+[Fly](#fly-view)
+  ~ &nbsp;
+  ~ Manual and autonomous flight control (default view on startup).
 
-![QGC Application Menu: Slide-in Sidebar](images/app_menu.png)   <!-- ![](images/image81.png) -->
+[Plan](#plan-view)
+  ~ &nbsp;
+  ~ Autonomous mission, geofence, and rally point planning.
 
-In addition, users can easily switch between planning and flying missions using the top toolbar button in their respective views.
+[Vehicle Setup](#vehicle-setup)
+  ~ &nbsp;
+  ~ Configure vehicle-specific settings (calibration, failsafes, etc.).
 
-![Switch to Fly View](images/app_switch_to_fly.png) ![Switch to Plan View](images/app_switch_to_plan.png) \ <!-- ![](images/image63.png) ![](images/image135.png) -->
+[Photos](#photos)
+  ~ &nbsp;
+  ~ Photo gallery for vehicle image and video management.
+  
+[Settings](#application-settings)
+  ~ &nbsp;
+  ~ Configure application settings (e.g. display units, map providers, etc.).
+
+
+
+<!--
+Users can easily switch between planning and flying missions using the top toolbar button in their respective views.
+
+![Switch to Fly View](images/app_switch_to_fly.png) ![Switch to Plan View](images/app_switch_to_plan.png) \ 
+-->
 
 
 # Fly View
@@ -206,16 +222,16 @@ The status icons can be selected for additional information.
 
 <!-- TODO: Cross link this to sections --> 
 
-[App menu](#application-structure-and-navigation)
+[App menu](#app-menu)
   ~ &nbsp;
-  ~ Select to navigate main app views.
+  ~ Select/change application views.
   
 Vehicle
   ~ &nbsp;
   ~ Displays current vehicle under control.
   ~ Select to change current vehicle.
   
-[Flight mode](#flight-modes)
+[Flight mode](#flight-mode-selector)
   ~ &nbsp;
   ~ Display current mode.
   ~ Select either [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
@@ -259,111 +275,39 @@ Battery Status
   ~ Display log status: Warning (important unread messages), Blue announce (unread/non-critical messages), Grey announce (read messages)
   ~ Select to display notification log
 
-<!-- Version in Tabular  format
 
-Name | Description
---- | ------
-[App menu](#application-structure-and-navigation) | Navigate main app views.
-Vehicle | Display current vehicle. Select to change current vehicle.
-[Flight mode](#flight-modes) | Display current mode. Select to choose either [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
-Arm state | Display the _arm state_: armed (motors spinning), disarmed (motors stopped). Select to change state or emergency stop.
-Pairing | Pair and connect vehicle and ground station.
-[ROI](#region-of-interest) | Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode. Enabled (green) -  Select to remove the ROI, Disabled/undefined (grey).
-RC Status | Microhard/remote controller signal status. The bars on the status icon indicate _uplink_ signal strength. Select the icon to display the numeric uplink and downlink RSSI values.
-GPS Status | GPS satellite count and HDOP. Select to open prompt with additional information
-Battery Status | Battery percentage remaining.
-[Log](#log--notifications) | Display log status: Warning (important unread messages), Blue announce (unread/non-critical messages), Grey announce (read messages). Select to open promot with notification log.
+### Flight Mode Selector
 
--->
+QGC-Gov displays the active [flight mode](#flight-modes) for the current vehicle in the flight mode selector on the [Fly View app bar](#fly-view-app-bar).
 
-<!-- JUST KEEPING THIS UNTIL HAVE CROSS LINKED SECTIONS AND IMAGES
+![Fly view app bar: Flight mode](images/fly_view_app_bar_flight_mode.png) \
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<th>Icon</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-<tr class="even">
-<td><p><img src="images/image147.jpg" /></p></td>
-<td><p>Menu / icon</p></td>
-<td><p>App menu (navigate to Fly, Plan, Vehicle Setup, Photos, User Login, Application Settings).</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image212.jpg" /></p></td>
-<td><p>Vehicle</p></td>
-<td><p>Display/select the current vehicle.
-The current vehicle is the connected vehicle for which information is being displayed, and to which commands will be directed.</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image133.jpg" /></p></td>
-<td><p>Mode</p></td>
-<td><p>Display the current <a href="#flight-modes">flight mode</a> and/or select a manual flight mode: <a href="#position-mode">Position mode</a> or <a
-href="#altitude-mode">Altitude mode</a>.</p>
-<p><img src="images/image206.png" /></p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image95.jpg" /></p></td>
-<td><p>Armed/ Disarmed State</p></td>
-<td><p>Display/select the <em>armed state</em>.
-The states are Armed (motors spinning), Disarmed. (motors stopped), Emergency Stop (motors stopped in flight, potentially causing the drone to crash).</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image231.jpg" /></p></td>
-<td><p>Pairing Manager</p></td>
-<td><p>Pair and connect vehicle and ground station.</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image104.jpg" /><img
-src="images/image166.jpg" /></p></td>
-<td><p>ROI Status</p></td>
-<td><p>Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode.</p>
-<ul>
-<li>Defined (green). Select to remove the ROI.</li>
-<li>Undefined (grey).</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image2.jpg" /></p></td>
-<td><p>RC Status</p></td>
-<td><p>Microhard/remote controller signal status.<br />
-<br />
-The bars on the status icon indicate <em>uplink</em> signal strength.
-Select the icon to display the numeric uplink and downlink RSSI values.<br />
-<img src="images/image6.png" /></p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image72.jpg" /></p></td>
-<td><p>GPS Status</p></td>
-<td><p>GPS satellite count and HDOP. Select to open prompt with additional information.<br />
-<img src="images/image196.png" /></p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image46.jpg" /></p></td>
-<td><p>Battery Status</p></td>
-<td><p>Battery percentage remaining.</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image48.jpg" /><img
-src="images/image15.jpg" /><img src="images/image53.jpg" /></p></td>
-<td><p>Log</p></td>
-<td><p>Toggle to display notification log.</p>
-<ul>
-<li>Grey indicates messages have been read.</li>
-<li>Blue indicates unread non-critical messages.</li>
-<li>Warning indicates important unread notifications.</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+The selector menu can be opened to _select_ either of the two **manual** modes: [Position mode](#position-mode) (recommended) and [Altitude mode](#altitude-mode).
 
--->
+![Fly view app bar: Flight mode selector](images/fly_view_mode_selector.jpg) \
+
+Other modes are selected from toolbar actions like takeoff, land, mission, and so on.
+
+> **Note:** A vehicle will only switch to a manual mode if a manual control method is enabled: RC controller, Joystick or virtual joysticks.
+
+<!-- Vehicle selector etc need to be added -->
+
+
+### Notification Log
+
+The notification log dialog is accessed from the "announcements" icon on the [Fly View app bar](#fly-view-app-bar).
+
+![Notification Log](images/fly_view_log.png) \  <!-- image87.png -->
+
+The log uses different icons to indicate notification status.
+
+Icon | Description
+--- | ---------
+![](images/log_important.jpg) | Important unread notifications. These notifications are also "spoken" by the GCS.
+![](images/log_unread.jpg) | Unread notifications.
+![](images/log_read.jpg) | No unread notifications.
+
+The log can be closed using the **X** icon and emptied using the "trash" icon.
 
 
 ## Telemetry Panel
@@ -401,8 +345,20 @@ You can click on the map to set a goto, orbit or region of interest target, and 
 
 ![Fly view map - overview](images/fly_view_map_basic_overview.png) \ <!-- image150.png -->
 
+### Map Types
 
-### Fly View Map Actions
+The map selector on the Video/Map widget can be used to change the displayed map type.
+
+![](images/fly_view_map_map_type_select.png)
+
+QGC-Gov supports: _street view_, _satellite view_, or _hybrid satellite/street view_.
+
+![](images/fly_view_map_streets.png)
+![](images/fly_view_map_satellite.png)
+
+![](images/fly_view_map_satellite_streets.png)
+
+### Map Actions (Fly View)
 
 Actions that require a position are initiated by touching the location on the map (when flying).
 A popup menu will be displayed allowing the desired operation to be selected.
@@ -436,19 +392,6 @@ Marker | Description
 **(L)** | Land/Home marker.
 ![](images/fly_view_waypoint.png) \ | Mission waypoint
 ![](images/fly_view_waypoint_selected.png) \ | Selected (target) mission waypoint
-
-### Map Types
-
-The map selector on the Video/Map widget can be used to change the displayed map type.
-
-![](images/fly_view_map_map_type_select.png)
-
-QGC-Gov supports street view, satellite view, or hybrid satellite/street view.
-
-![](images/fly_view_map_streets.png)
-![](images/fly_view_map_satellite.png)
-
-![](images/fly_view_map_satellite_streets.png)
 
 
 ### Map Grid (MGRS)
@@ -707,40 +650,26 @@ The settings that are *independent of the camera type* are listed below.
 - `Reset Camera Defaults`: Reset camera/gimbal to default settings.
 
 
-## Notification Log
 
-The notification log dialog is accessed from the "announcements" icon on the right of the [Fly View application bar](#fly-view-app-bar).
-
-![Notification Log](images/fly_view_log.png) \  <!-- image87.png -->
-
-The log uses different icons to indicate notification status.
-
-Icon | Description
---- | ---------
-![](images/log_important.jpg) | Important unread notifications. These notifications are also "spoken" by the GCS.
-![](images/log_unread.jpg) | Unread notifications.
-![](images/log_read.jpg) | No unread notifications.
-
-The log can be closed using the **X** icon and emptied using the "trash" icon.
 
 
 ## Preflight Checklist
 
-The *Preflight Checklist* may be used used to verify that a vehicle and planned flight path are safe to fly.
+The *Preflight Checklist* is used to verify that a vehicle and planned flight path are safe to fly.
+It is started from the **Checklist** button on the Fly View toolbar.
+
+> **Note:** If the checklist button is not displayed when a vehicle is connected then this feature is disabled.
+> You can enable it in the application settings: **Menu > Settings > General > Fly View >** _Use Preflight Checklist_ (checkbox)
 
 ![Preflight Checklist](images/fly_checklist_1.png) \ <!-- image103.png -->
 
-The checklist is started using the **Checklist** button on the Fly View toolbar.
-It has three separate sections, each containing a number of tests that have a color-coded status button and a description.
+The checklist has three separate sections, each containing a number of tests that have a color-coded status button and a description.
 Tests are either automatic or manual; the automatic tests run without intervention while the manual tests must be marked as passed by the user.
 All tests in a section must pass before you can start the next section.
 
 To use the checklist:
 
 1. Start running the checklist by selecting the **Checklist** button in the Fly toolbar.
-
-   > **Note:** If the checklist button is not displayed when a vehicle is connected then this feature is disabled.
-   > You can enable it in the application settings: **Menu > Settings > General > Fly View >** _Use Preflight Checklist_ (checkbox)
    
 2. Review the status of the tests:
 
@@ -766,15 +695,16 @@ Screenshots for all sections are shown below.
 ![Preflight checklist - all screens](images/fly_checklist_all.png)  <!-- image79.png -->
 
 
+
 ## Flight Modes
+
+<!-- not sure this should go here yet -->
 
 Flight modes provide different types of autopilot assistance to a pilot, including automation of common operations like *takeoff* and *landing*, execution of fully autonomous missions, and changing how the vehicle responds to pilot input during manual flight (for example by making it easier to regain level flight, hold the vehicle to a fixed path or position, etc.).
 
-QGC-Gov displays the current flight mode in the mode selector on the application top status bar.
-The selector menu can be opened to select the two **manual** modes: *Altitude* and *Position*.
-All other modes are automatically selected when you perform an associated operation - e.g. start a mission, takeoff, land etc.
-
-![](images/fly_view_mode_selector.jpg) \
+The current mode is displayed in the [flight mode selector](#flight-mode-selector) in the [Fly View app bar](#fly-view-app-bar).
+The selector can be opened to select *Position* or *Altitude* mode.
+Other modes are selected from the Fly Toolbar, such as Takeoff mode, Return mode, and land mode, or other controls.
 
 The most important flight modes and tasks are covered at high level below.
 
@@ -782,10 +712,11 @@ The most important flight modes and tasks are covered at high level below.
 > The information here covers _default behaviour_ at high level.
 
 
-## Position Mode
+### Position Mode
 
-*Position Mode* (also known as *Position Control Hold*) is the easiest and safest *manual* flight mode, in particular for new fliers.
-It relies on GPS.
+*Position Mode* relies on GPS, and is the easiest and safest *manual* flight mode, in particular for new fliers.
+*Position Mode* is selected in QGC from the mode selector in the application status bar.
+This is also the default mode if you move the sticks in an automatic mode.
 
 On multicopter the roll stick controls vehicle speed in left-right direction (relative to the "front" of the vehicle), pitch stick controls forward-back speed, yaw stick controls rate of rotation above the ground plane, and throttle stick controls the speed of ascent-descent.
 When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
@@ -794,13 +725,6 @@ On fixed wing vehicles the throttle determines airspeed (at 50% throttle the air
 Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
 When the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
 
-*Position Mode* is selected in QGC from the mode selector in the application status bar.
-This is also the default mode if you move the sticks in an automatic mode.
-
-For more information see:
-
-- [Position Mode - Multicopter](https://docs.px4.io/master/en/flight_modes/position_mc.html) (*PX4 User Guide*).
-- [Position Mode - Fixed Wing](https://docs.px4.io/master/en/flight_modes/position_fw.html) (*PX4 User Guide*).
 
 ## Altitude Mode
 
@@ -813,14 +737,9 @@ A fixed wing vehicle will hold level and straight flight, but will not hold cour
 
 *Altitude Mode* is selected in QGC from the mode selector in the application status bar.
 
-For more information see:
-
-- [Altitude Mode - Multicopter](https://docs.px4.io/master/en/flight_modes/altitude_mc.html) (*PX4 User Guide*).
-- [Altitude Mode - Fixed Wing](https://docs.px4.io/master/en/flight_modes/altitude_fw.html) (*PX4 User Guide*).
-
 ## Return Mode
 
-[Return Mode](https://docs.px4.io/master/en/flight_modes/return.html) causes the vehicle to fly a clear path to a safe location.
+*Return Mode* causes the vehicle to fly a clear path to a safe location.
 The mode can be activated manually by selecting the **RTL** button ([Fly View Toolbar](#fly-view)) or using a pre-programmed RC switch.
 It may also be entered automatically as a response to a vehicle failsafe being triggered (e.g. low battery).
 
@@ -829,7 +748,7 @@ By default a fixed wing vehicle will use a landing pattern defined in a mission 
 
 ## Takeoff Mode
 
-[Takeoff Mode](http://docs.px4.io/master/en/flight_modes/takeoff.html) initiates the automatic takeoff sequence.
+*Takeoff Mode* initiates the automatic takeoff sequence.
 The mode can be activated by selecting the **Takeoff** button ([Fly View Toolbar](#fly-view)) when landed or using a pre-programmed RC switch.
 
 On multicopter takeoff causes the vehicle to climb vertically until it reaches the *takeoff altitude*, and then switch to [Hold Mode](#hold-mode).
@@ -841,36 +760,26 @@ On fixed wing, the launch behaviour depends on the configured takeoff mode (cata
 The mode can be activated by selecting the **Land** button ([Fly View Toolbar](#fly-view)) when flying or using a pre-programmed RC switch.
 
 On multicopter the vehicle will just descend and land.
-Fixed wing landing depends on vehicle configuration (for more information see: [PX4 User Guide \> Fixed Wing Landing](https://docs.px4.io/master/en/flying/fixed_wing_landing.html)).
+Fixed wing landing depends on vehicle configuration.
 
-For more information see: [Land Mode](https://docs.px4.io/master/en/flight_modes/land.html) (*PX4 User Guide*).
 
 ## Hold Mode
 
-[Hold Mode](https://docs.px4.io/master/en/flight_modes/hold.html) is an automatic mode used to hold a vehicle at a particular location.
+*Hold Mode* is an automatic mode used to hold a vehicle at a particular location.
 
 A multicopter in this mode will hover at its current position and altitude (maintaining position against wind and other forces) while a fixed-wing vehicle will hold altitude and circle the current position.
 
 Hold mode is entered automatically after takeoff and landing modes complete, and when pausing a mission.
 It can also be activated with a pre-programmed RC switch.
 
+In some cases Hold mode can be used for high level vehicle control, including goto and orbit.
+
 ## Mission Mode
 
-[Mission Mode](https://docs.px4.io/master/en/flight_modes/mission.html) is used to execute a pre-planned mission.
+*Mission Mode* is used to execute a pre-planned mission.
 This mode is automatically activated when you start a mission in QGC.
 
-## Orbit Mode
 
-[Orbit Mode](https://docs.px4.io/master/en/flight_modes/orbit.html) (multicopter only) starts an orbit at a specific location.
-This mode is started when you select [Orbit at Location](#orbit-location) on the map.
-
-## Goto Task
-
-The *GoTo Task* takes you to a specific location.
-This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
-
-> **Note:** At time of writing this is a "task" rather than a mode.
-> The main difference is that when executing this task the mode that is displayed will not change.
 
 # Fly using High-Level Commands
 
@@ -899,6 +808,13 @@ The basic flight operations are all initiated by pressing the appropriate button
 
 ## Goto Location
 
+<!-- 
+
+The *GoTo Task* takes you to a specific location.
+This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
+
+-->
+
 To send the vehicle to a particular location:
 
 1. First takeoff
@@ -910,6 +826,10 @@ To send the vehicle to a particular location:
    ![](images/image171.png)
 
 ## Orbit Location
+
+<!-- *Orbit Mode* (multicopter only) starts an orbit at a specific location.
+This mode is started when you select [Orbit at Location](#orbit-location) on the map.
+-->
 
 To orbit a particular location:
 
@@ -983,6 +903,7 @@ To set the ROI:
 To remove an ROI, select the ROI status icon in the toolbar and select the popup option: **Disable ROI**.
 
 ![](images/image153.png)
+
 
 # Fly a Mission
 
