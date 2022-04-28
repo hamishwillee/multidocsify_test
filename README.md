@@ -14,7 +14,7 @@ To push it:
 ```
 docker push jenosam/pandoc-with-fonts:latest
 ```
-To run it on windows command prompt locally from root (ie dir with docs in it
+To run it on windows command prompt locally from root (ie dir with docs in it)
 ```
-docker run --rm --volume "%cd%:/data"  jenosam/pandoc-with-fonts:latest --standalone --pdf-engine=xelatex --resource-path=.:docs:docs/images --output=QGC-Gov-User-Manual_X.pdf README.md
+docker run --rm --volume "%cd%:/data" jenosam/pandoc-with-fonts:latest --defaults=docs/defaults.yaml
 ```

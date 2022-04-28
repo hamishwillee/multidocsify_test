@@ -18,8 +18,7 @@ Write in standard github markdown, with the following exceptions:
   ```
 - The text for an image link is turned into figure text.
   Do NOT include image text for images in bullets, as this pulls them out of place in the rendered doc.
-
-
+- Tables with images suck. In fact tables suck. But they are still useful.
 
 ## Build Toolchain
 
@@ -57,6 +56,14 @@ docker run --rm --volume "%cd%:/data" jenosam/pandoc-with-fonts:latest --standal
 The `default.yml` specifies where the files are located and built to, and also includes `meta.yml` with additional settings.
 You can override these.
 
+
+## CI
+
+CI is github actions. Each PR and tag includes a zip containing the generated PDF in the associated CI reference in the Actions tab.
+
+
+## Docker
+
 If you need to build a new docker, update `Docker` and then run the following in the same directory.
 This assumes you are pushing to `jenosam/pandoc-with-fonts:latest`.
 
@@ -69,9 +76,6 @@ To push the image to dockerhub\:
 docker push jenosam/pandoc-with-fonts:latest
 ```
 
-## CI
-
-CI is github actions. Each PR and tag includes a zip containing the generated PDF in the associated CI reference in the Actions tab.
 
 ## Other info/Links
 
