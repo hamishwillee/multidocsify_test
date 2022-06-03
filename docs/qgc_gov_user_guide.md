@@ -1,103 +1,93 @@
 # Introduction
 
-Auterion QGC SRR Edition is a customized version of QGC.
-It enables a rapidly deployable scouting capability to gain situational awareness beyond the next terrain feature.
-The continued focus of the ground station is to deliver user friendly features that are easy to learn/train and have low cognitive load for the user, while enhancing intelligence, surveillance, and reconnaissance (ISR) capabilities.
+[QGC-Gov](https://qgcgov.com/) is an open-source UAS Ground Control Station for controlling vehicles trusted by the US Department of Defense and the US Federal government.
+More specifically, it can be used to control any multicopter, fixed-wing or hybrid sUAS that is compatible with the RAS-A protocol.
 
-It has been designed specifically to run best on tablet hardware with inbuilt physical joysticks/buttons to control the vehicle and camera.
-It integrates with cameras that support both visible light and IR video streams, and that can be directed independently of vehicle orientation using a joystick controlled gimbal.
-  
-![](images/image77.png)
+![](images/image77.png) <!-- TODO: New image -->
 
-The app has a very clear focus on both safety and ease of use.
+It is designed with a focus on ease of use and safety.
 Navigation is straightforward, with a very clear division between planning missions, flying, and configuration.
 Views are clean and uncluttered, displaying just the telemetry, mission and flight path information that is needed for safe flight.
 There are both audible and visual notifications for important warnings, and readily accessible logs for less important status updates.
-The SRR Edition even provides a pre-flight checklist to help you ensure your vehicle and mission are safe to fly before you even take off.
-  
-Complex missions, including surveying arbitrarily shaped areas, vertical structures and even corridor paths like roads are defined using simple graphical tools.
-You can run pre-planned mission in fully automated mode, using any of a huge range of supported cameras to capture and geotag images.
-You can monitor both the previous and future flight path and vehicle state along the way, and will be notified both visually and audibly of any problems.
-You can pause or restart the mission, skip forward or back, and even land for a battery recharge and restart!
+QGC-Gov even provides a pre-flight checklist to help you ensure your vehicle and mission are safe to fly before you even take off.
 
-In addition to automated flight, you can fly “manually” using the sticks on the controller, or high level command: takeoff, go to a particular location and orbit, fly back to the launch location and land.
-When you’re at the target you can tilt the camera using the sticks on the controller, zoom in and out, and capture images.
+QGC-Gov enables the planning and automated execution of complex pre-planned ground, structure and corridor survey missions using simple graphical tools.
+Images can be captured automatically using any of the many supported visible-light and IR cameras, and at any time you can view the video feed, flight path and telemetry.
+If you need to you can pause and restart the mission, jump forward or back, or even change it altogether.
 
-QGC SRR Edition is designed specifically to run *best* on rugged tablet hardware with joysticks/buttons to control vehicle and camera.
-It also will work on both iPad and Android tablets, and desktop computers running macOS, Windows and Linux.
+Manual control can be implemented using physical controls, on-screen controls, or a combination of both.
+The ground station enhances purely manual flight-control by providing high level commands like "takeoff", "go to location", "fly to a safe place and land", and so on.
 
 Up to 255 vehicles can be controlled at a time (although only very experienced pilots should attempt to control more than one).
 
-# Supported Flight Stacks
 
-*Auterion QGC SRR Edition* can be used with the same set of flight stacks (autopilot software) as “vanilla” *QGroundControl*: PX4, ArduPilot and other MAVLink-standard compliant stacks.
+## Compatibility
 
-Note however that the software has been tested and validated against PX4; Auterion does not provide specific support for its use with other flight stacks.
+### Flight Stacks
 
-# Important Reminders
+*QGC-Gov* can be used with flight stacks that support the RAS-A protocol.
 
-The following reminders are provided to help ensure you have a safe flight:
+### OS Compatibility
 
-1. Ensure both your vehicle and planned flight are safe before you take off.
-   The app’s pre-flight checklist can guide you on best practise.
-2. Be aware of local regulations with respect flying drones in your planned location.
-3. Turn up the sound on your ground station loud enough to hear warnings.
+Compatible with: Android 10, Android 11, Ubuntu 18.04
 
-# Hardware
+### Hardware
 
-## Ground Station
+*QGC-Gov* can run on any relatively recent PC or tablet hardware that supports the indicated OS.
 
-*QGC SRR Edition* runs *best* on tablet hardware with joysticks/buttons to control the vehicle and camera during manual flight.
-
-> **Tip:** Dedicated hardware controls are not _required_, but make many operations a lot easier (in particular, manual flight and controlling the camera).
-
-
-A ground station might have:
+Hardware with integrated physical joysticks/buttons can make manual control of the vehicle and camera a lot easier.
+Recommended controls include:
 
 - Analog sticks for throttle/yaw and roll/pitch
 - Camera zoom in/out buttons
 - Image/video capture button
 - Gimbal up, down, yaw left/right buttons
 
-The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings \>** [Joystick Setup](#joystick-setup) view.
+# Important Reminders
 
-The *Tactical Open Government Owned Architecture* (TOGA) hardware shown below is representative of the kind of hardware platform that is expected.
+The following reminders are provided to help ensure you have a safe flight:
 
+1. Ensure both your vehicle and planned flight are safe before you take off.
+   The inbuilt pre-flight checklist can guide you through the steps.
+2. Be aware of local regulations with respect flying drones in your planned location.
+3. Turn up the sound on your ground station loud enough to hear warnings.
+
+
+<!--  TODO:  Decide if we need stick settings/mode to be pulled out as part of hardware near front, or assume they remain in the setttings.
+The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings > [Joystick Setup](#joystick-setup)** view.
+-->
+
+<!-- 
+*Tactical Open Government Owned Architecture* (TOGA)
 ![TOGA - Back](images/image9.jpg)
 
 ![TOGA - Front](images/image59.jpg)
+-->
 
+# Pairing 
 
-## Kill Switch / Gimbal Lock
+<!-- TODO: 
+All this needs update/review as flow isn't the same and I can't check it "fully"
+Note, this may still be true, but might be unnecessary to say. Removing for now:
 
-The RC controller may have a *kill switch* configured to enable the *Flight Termination* safety failsafe.
-When enabled this action turns off all controllers and sets all PWM outputs to their failsafe values.
+Pilots should not need to enable pairing.
+If configuration is required this should be supplied by the vehicle/controller vendor
 
-The failsafe values may be used to deploy a parachute, landing gear or perform another operation.
-For example, the screenshots below show a camera first in its normal position (forward facing), and then in locked in its safety position (pointing upwards).
+Kinds of things to answer
+- Is pairting automatically set up.
+- How many things can you pair to at a time?
+- What if there are errors?
+- What settings?
+- What do you do on the vehicle - click the button on the GPS?
+- Confirm pairing and connection are synonymous 
 
-> **Note:** Kill switch/failsafe behaviour depends on the connected hardware and PX4 configuration (i.e. it is controlled outside of QGC).
-> For more information see:  <https://docs.px4.io/master/en/advanced_config/flight_termination.html>.
+--> 
 
-![](images/image132.png)
+QGC-Gov can be used to securely _pair_ ground and air communication modules so they are able to connect and exchange data.
+Multiple vehicles can be paired to the ground station and users can then choose which vehicle(s) to connect.
 
-![](images/image213.png)
-
-# Pairing Manager (Microhard)
-
-The Microhard radio system is used to provide a long range and secure link between a vehicle and ground station for vehicle control and telemetry.  
-
-The *Pairing Manager* is used to securely “pair” (“associate”) the ground and air modules so they are able to connect and exchange data.
-Multiple vehicles can be paired to the ground station and users can then choose which vehicle to connect.
-Up to 10 vehicles can be paired, but only a single (paired) vehicle can connect via Microhard at a time.
-
-Access to pair and connect to vehicles is via the pairing icon in the application status bar.
-
-![](images/image93.png)
-
-## Enabling Pairing
-
-Pilots should not need to enable pairing. If configuration is required this should be supplied by the vehicle/controller vendor.
+> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A).
+> However the actual number depends on the communication modules used, and is practically limited by how many vehicles a pilot can safely control.
 
 ## Pair a Vehicle
 
@@ -105,47 +95,32 @@ Vehicles must be paired to the ground station before they can be connected.
 
 To pair a vehicle:
 
-1. Select the *Pair Vehicle* icon in the status bar to display the *pairing dialog*.
+1. Select the *Pair Vehicle* icon in the status bar:
 
-   > **Note:** If a *connection dialog* is displayed instead, select **Pair Another** to launch the *pairing dialog* shown below. |
+   ![Pairing icon](images/pairing_icon.png) \ <!-- image93.png -->
 
-   > **Note:** The settings (network ID, etc.) depend on the configuration of your vehicle network/fleet. If any need to be changed the relevant values should be provided by your vendor.
+2. The ground station unit will launch the *Vehicle Pairing* dialog and try to "discover" an air unit to pair.
+   
+   ![Pairing Discovery](images/pairing_discovery.png) \ <!-- ![](images/image69.png) -->
 
-   ![](images/image69.png)
+2. If pairing doesn't work it may be that you're using the wrong encryption key.
+   Select the gear icon on the discovery dialog.
+   This will display a dialog you can use to enter a new encryption key.
 
-2. Select **Pair a Vehicle**.
-   The ground station unit will start looking for an air unit to pair.
+   ![Pairing Config](images/pairing_config.png) \ <!-- ![](images/image179.png) -->
 
-   ![](images/image179.png)
-3. Put the vehicle into pairing mode.
+3. After a short while the ground station and vehicle should pair and connect.
 
-   > **Note:** The method to enable vehicle-side pairing mode is vehicle specific, and should be supplied by your vendor/fleet manager.
+4. You can stop the pairing operation at any time by closing the *Pairing Dialog* (select the **X** or anywhere outside the window).
 
-4. You can stop the pairing operation if needed by pressing **Cancel** (and then **Done** in the popup).
-
-    ![](images/image230.png)  
-5. Once pairing is complete you can select **Confirm** in the next dialog to connect to the vehicle (or **Cancel** to exit without connecting) :
-
-   ![](images/image11.png)
-
-   > **Note:** High power mode is what defines a vehicle “connection” (and allows commands and telemetry to be sent).
-
-6. The pairing manager displays the following prompt once the connection is active.
-   Select **Done** to continue (or you can **Pair Another** vehicle).
-
-   ![](images/image177.png)
-7. Finally the pairing manager displays the list of connected devices.
-
-   ![](images/image75.png)
-
-Use this prompt to disconnect, change the connection channel, or pair another vehicle.
-Press **Done** to exit the manager (remaining connected).
 
 ## Disconnecting a Vehicle
 
+<!-- TODO: Needs update/review -->
+
 The pairing manager will display the connected vehicles if any are connected.
 The dialog can be used to disconnect the vehicles or pair another vehicle.  
-  
+
 To disconnect a vehicle (when connected):
 
 1. Open the pairing manager (using its status icon).
@@ -157,6 +132,8 @@ To disconnect a vehicle (when connected):
    ![](images/image152.png)
 
 ## Connecting to a Vehicle
+
+<!-- TODO: Needs update/review -->
 
 The pairing manager can be used to connect to any paired vehicle.
 
@@ -170,6 +147,8 @@ To connect to a vehicle (when disconnected):
 
 ## Unpairing a Vehicle
 
+<!-- TODO: Needs update/review -->
+
 Vehicle can only be unpaired when no vehicle is connected.
 
 To unpair to a vehicle:
@@ -182,179 +161,280 @@ To unpair to a vehicle:
 3. Confirm the unpairing prompt.
 
    ![](images/image194.png)
-   
+
    The pairing manager will then return to the list of available vehicles.
-   
+
    ![](images/image1.png)
 
-# Application Structure and Navigation
 
-The ground station has five views:
+# App Menu
 
-- [Fly](#fly-view)**:** Manual and autonomous flight control (default view on startup).
-- [Plan](#plan-view)**:** Autonomous mission, geofence, and rally point planning.
-- [Vehicle Setup](#vehicle-setup)**:** Configure vehicle-specific settings (calibration, failsafes, etc.).
-- [Photos](#photos)**:** Photo gallery for vehicle image and video management.
-- [Settings](#application-settings)**:** Configure application settings (e.g. display units, map providers, etc.).
+The application menu is accessed from the **Q** icon on the top left of the application.
+The menu slides in from the left.
 
-All views can be accessed using the menu slider-sidebar (the menu toggle is available at the top left of the application toolbar on all views).
+![QGC Application Menu: Slide-in Sidebar](images/app_menu.png) \
 
-![](images/image81.png)
+The menu provides access to separate views which are used for each main activity
 
-In addition, users can easily switch between planning and flying missions using the top toolbar button in their respective views.
+[Fly](#fly-view) (default)
+  ~ &nbsp;
+  ~ Flying both manually and autonomously, using map or camera view.
 
-![](images/image63.png) ![](images/image135.png)
+[Plan](#plan-view)
+  ~ &nbsp;
+  ~ Planning missions, geofence, and rally points.
+
+[Vehicle Setup](#vehicle-setup)
+  ~ &nbsp;
+  ~ Configure vehicle-specific settings (calibration, failsafes, etc.).
+
+[Photos](#photos)
+  ~ &nbsp;
+  ~ Photo gallery for managing captured images and video.
+  
+[Settings](#application-settings)
+  ~ &nbsp;
+  ~ Configure application settings (e.g. display units, map providers, etc.).
+
+> **Note:** You can toggle between [Fly](#fly-view) and [Plan](#plan-view) using a dedicated toolbar button in each view
+
+<!--
+![Switch to Fly View](images/app_switch_to_fly.png) ![Switch to Plan View](images/app_switch_to_plan.png) \ 
+-->
+
 
 # Fly View
 
-*Fly View* is used for all operations related to monitoring and controlling vehicle flight.
-It is the default view when you start QGC.
-The main elements of the view are highlighted below.
+*Fly View* is used for all operations related controlling a vehicle in flight.
+You can fly with either map or video feed in the foreground, and monitor the status using the camera and/or telemetry information.
 
-![](images/image191.png)
+![Fly View - Map](images/fly_view_main_map.png) \
 
-## Vehicle State and Flight Information
+![Fly View - Video](images/fly_view_main_video.png) \
 
-The following indicators are used to monitor vehicle and flight/mission state.
+The main sections of the fly view are:
 
-### Vehicle Status Icons (App bar)
+<!-- TBD - finish this list on main sections -->
 
-![](images/image60.jpg)
+[App Bar](#fly-view-app-bar)
+  ~ &nbsp;
+  ~ Vehicle selector and high-level status information (connection, mode, GPS, battery, log)
+  
+[Toolbar](#fly-toolbar)
+  ~ &nbsp;
+  ~ Select actions including checklist, takeoff, land, return, run mission.
 
-The top bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
+[Map](#fly-view-map)
+  ~ &nbsp;
+  ~ Vehicle map, showing flight path, mission, and so on. Select actions like "orbit" and "goto"
+  
+[Telemetry Panel](#telemetry-panel)
+  ~ &nbsp;
+  ~ Vehicle flight and mission telemetry.
+  
+[Video/Map Switcher](#switcher)
+  ~ &nbsp;
+  ~ Switch between [Map](#fly-view-map) and [Camera View](#camera-view).
+  
+[Camera View](#camera-view)
+  ~ &nbsp;
+  ~ Fly with foreground camera view. Control image and video capture and settings.
+
+
+## Fly View App Bar
+
+![Fly View: Top Bar](images/fly_view_top_bar.png) \
+
+The Fly View app bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
 The status icons can be selected for additional information.
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<th>Icon</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-<tr class="even">
-<td><p><img src="images/image147.jpg" /></p></td>
-<td><p>Menu / icon</p></td>
-<td><p>App menu (navigate to Fly, Plan, Vehicle Setup, Photos, User Login, Application Settings).</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image212.jpg" /></p></td>
-<td><p>Vehicle</p></td>
-<td><p>Display/select the current vehicle.
-The current vehicle is the connected vehicle for which information is being displayed, and to which commands will be directed.</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image133.jpg" /></p></td>
-<td><p>Mode</p></td>
-<td><p>Display the current <a href="#flight-modes--tasks">flight mode</a> and/or select a manual flight mode: <a href="#position-mode">Position mode</a> or <a
-href="#altitude-mode">Altitude mode</a>.</p>
-<p><img src="images/image206.png" /></p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image95.jpg" /></p></td>
-<td><p>Armed/ Disarmed State</p></td>
-<td><p>Display/select the <em>armed state</em>.
-The states are Armed (motors spinning), Disarmed. (motors stopped), Emergency Stop (motors stopped in flight, potentially causing the drone to crash).</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image231.jpg" /></p></td>
-<td><p>Pairing Manager</p></td>
-<td><p>Pair and connect vehicle and ground station.</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image104.jpg" /><img
-src="images/image166.jpg" /></p></td>
-<td><p>ROI Status</p></td>
-<td><p>Position Mode ROI state. If defined, an ROI location is displayed on the map and will be tracked by the camera in position mode.</p>
-<ul>
-<li>Defined (green). Select to remove the ROI.</li>
-<li>Undefined (grey).</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image2.jpg" /></p></td>
-<td><p>RC Status</p></td>
-<td><p>Microhard/remote controller signal status.<br />
-<br />
-The bars on the status icon indicate <em>uplink</em> signal strength.
-Select the icon to display the numeric uplink and downlink RSSI values.<br />
-<img src="images/image6.png" /></p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image72.jpg" /></p></td>
-<td><p>GPS Status</p></td>
-<td><p>GPS satellite count and HDOP. Select to open prompt with additional information.<br />
-<img src="images/image196.png" /></p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image46.jpg" /></p></td>
-<td><p>Battery Status</p></td>
-<td><p>Battery percentage remaining.</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image48.jpg" /><img
-src="images/image15.jpg" /><img src="images/image53.jpg" /></p></td>
-<td><p>Log</p></td>
-<td><p>Toggle to display notification log.</p>
-<ul>
-<li>Grey indicates messages have been read.</li>
-<li>Blue indicates unread non-critical messages.</li>
-<li>Warning indicates important unread notifications.</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+<!-- TODO: Cross link this to sections --> 
 
-### Telemetry Panel
+[App menu](#app-menu)
+  ~ &nbsp;
+  ~ Select/change application views.
+  
+Vehicle
+  ~ &nbsp;
+  ~ Displays current vehicle under control.
+  ~ Select to change current vehicle.
+  
+[Flight mode](#flight-mode-selector)
+  ~ &nbsp;
+  ~ Display current mode.
+  ~ Select either [Position mode](#position-mode) or [Altitude mode](#altitude-mode).
+
+Arm state
+  ~ &nbsp;
+  ~ Display _arm state_: Armed (motors spinning), Disarmed (motors stopped).
+  ~ Select to arm/disarm on ground, or emergency stop in air.
+  ~ Select to _emergency stop_ in air.
+  
+[Pairing](#pairing)
+  ~ &nbsp;
+  ~ Pair and connect vehicle and ground station.
+
+[ROI](#region-of-interest)
+  ~ &nbsp;
+  ~ Display _Region of Interest_ state: enabled (green), no ROI (grey).
+  ~ Select to remove the active ROI.
+
+Telemetry Status
+  ~ &nbsp;
+  ~ Select to open prompt with detailed telemetry RSSI information.
+  
+RC Status
+  ~ &nbsp;
+  ~ Display RC controller signal status. The bars on the status icon indicate _uplink_ signal strength.
+  ~ Select to open prompt with uplink and downlink RSSI.
+  
+GPS Status
+  ~ &nbsp;
+  ~ Display GPS satellite count and HDOP. 
+  ~ Select to open prompt with additional information.
+  
+Battery Status
+  ~ &nbsp;
+  ~ Battery percentage remaining.
+  ~ Select to open prompt with more detailed information.
+  
+[Log](#notification-log)
+  ~ &nbsp;
+  ~ Display log status: Warning (important unread messages), Blue announce (unread/non-critical messages), Grey announce (read messages)
+  ~ Select to display notification log
+
+
+### Flight Mode Selector
+
+QGC-Gov displays the active [flight mode](#flight-modes) for the current vehicle in the flight mode selector on the [Fly View app bar](#fly-view-app-bar).
+
+![Fly view app bar: Flight mode](images/fly_view_app_bar_flight_mode.png) \
+
+The selector menu can be opened to _select_ either of the two **manual** modes: [Position mode](#position-mode) (recommended) and [Altitude mode](#altitude-mode).
+
+![Fly view app bar: Flight mode selector](images/fly_view_mode_selector.jpg) \
+
+Other modes are selected from toolbar actions like takeoff, land, mission, and so on.
+
+> **Note:** A vehicle will only switch to a manual mode if a manual control method is enabled: RC controller, Joystick or virtual joysticks.
+
+<!-- Vehicle selector etc need to be added -->
+
+
+### Notification Log
+
+The notification log dialog is accessed from the "announcements" icon on the [Fly View app bar](#fly-view-app-bar).
+
+![Notification Log](images/fly_view_log.png) \  <!-- image87.png -->
+
+The log uses different icons to indicate notification status.
+
+Icon | Description
+--- | ---------
+![](images/log_important.jpg) | Important unread notifications. These notifications are also "spoken" by the GCS.
+![](images/log_unread.jpg) | Unread notifications.
+![](images/log_read.jpg) | No unread notifications.
+
+The log can be closed using the **X** icon and emptied using the "trash" icon.
+
+
+## Telemetry Panel
 
 The telemetry panel provides vehicle telemetry and flight information, including: flight time and distance, speed, altitude, and heading.
 
-![](images/image164.png)
+![Telemetry panel (compact)](images/telemetry_panel_compact.png) \ <!-- ![](images/image164.png) -->
 
 Click anywhere in the control to toggle an expanded panel with additional information including: latitude, longitude, HDOP and artificial horizon instrumentation.
 
-![](images/image145.png)
+![Telemetry panel (extended)](images/telemetry_panel_large.png) \ <!-- ![](images/image145.png) -->
 
 The table below shows the purpose of each field.
 
 Icon | Description
---- | --- 
-![](images/image234.png) | Time since armed (approximate flight time).
-![](images/image40.png) | Horizontal speed.
-![](images/image200.png) | Ascent/descent speed
-![](images/image130.png) | Distance traveled (odometer).
-![](images/image157.png) | Altitude above home.
-![](images/image235.png) | Distance between vehicle and ground station. This requires GPS/position on the ground station!
-![](images/image199.png) | Vehicle heading (direction of travel).
+--- | --------- 
+![](images/telemetry_icon_time_since_armed.png) | Time since armed (approximate flight time).
+![](images/telemetry_icon_horizontal_speed.png) | Horizontal speed.
+![](images/telemetry_icon_vertical_speed.png) | Ascent/descent speed
+![](images/telemetry_icon_distance_traveled.png) | Distance traveled (odometer).
+![](images/telemetry_icon_altitude_above_home.png) | Altitude above home.
+![](images/telemetry_icon_distance_to_gcs.png) | Distance between vehicle and ground station. This requires GPS/position on the ground station!
+![](images/telemetry_icon_vehicle_heading.png) | Vehicle heading (direction of travel).
 Lat | Vehicle latitude (Expanded panel).
 Lon | Vehicle longitude (Expanded panel).
 HDOP | GPS Horizontal Degree of Precision (Expanded panel).
-![](images/image38.png) | Artificial Horizon (Expanded panel)
+![](images/telemetry_icon_artificial_horizon.png) | Artificial horizon (Expanded panel)
 
 
-### Flight Path & Orientation (Map)
+## Fly View Map
 
-The map shows you where the vehicle is, where it has come from (the vehicle home location), where it has flown (in red), and where it is going (below is a “goto” destination, but this would be a mission path if a mission was loaded).
-It also shows which direction the vehicle is facing (which may differ from the direction it is travelling).
-  
-![](images/image150.png)
+The Fly View Map shows the current vehicle position, historical flight path (in red), and various markers such as a "goto" location, or the path of a mission (if one has been loaded).
+
+You can click on the map to set a goto, orbit or region of interest target, and use the map switcher to change the type of map that is displayed.
+
+![Fly view map - overview](images/fly_view_map_basic_overview.png) \ <!-- image150.png -->
+
+### Map Types
+
+The map selector on the Video/Map widget can be used to change the displayed map type.
+
+![](images/fly_view_map_map_type_select.png)
+
+QGC-Gov supports: _street view_, _satellite view_, or _hybrid satellite/street view_.
+
+![](images/fly_view_map_streets.png)
+![](images/fly_view_map_satellite.png)
+
+![](images/fly_view_map_satellite_streets.png)
+
+### Map Actions (Fly View)
+
+Actions that require a position are initiated by touching the location on the map (when flying).
+A popup menu will be displayed allowing the desired operation to be selected.
+
+![Map actions (Fly View)](images/fly_view_map_actions.png) \
+
+Map actions must be acknowledged using a confirmation slider prompt.
+You may also need to set some additional information like the orbit radius.
+After acknowledging the prompt a [map marker](#map-markers) is added to the map and the action will be executed.
+
+For more information see:
+
+- [Goto Location](#goto-task) (Flying using High-Level Commands)
+- [Orbit Location](#orbit-location) (Flying using High-Level Commands)
+- [Region of Interest](#region-of-interest) (Flying Manually)
+
+
+### Map Markers
+
+Map markers indicate particular locations and targets, like the target of a [Go here](#goto-task):
+
+![](images/fly_view_map_marker_go_here.png)
+ 
+The map markers include:
+
+Marker | Description
+--- | -----
+**(G)** Go here | The target of a [Go here](#goto-task) task.
+**(O)** Orbit here | The center of a [Orbit here](#orbit-location) target.
+**(R)** ROI here | The current [Region of interest (ROI)](#region-of-interest).
+**(L)** | Land/Home marker.
+![](images/fly_view_waypoint.png) \ | Mission waypoint
+![](images/fly_view_waypoint_selected.png) \ | Selected (target) mission waypoint
+
 
 ### Map Grid (MGRS)
 
 The map in **Fly-** and **Plan View** may (optionally) overlay a grid and vehicle position information in MGRS coordinates.
 
-![](images/image112.jpg)
+![MGRS Map overlay](images/map_mgrs.png)  <!-- image112.jpg -->
 
 The grid overlay shows map coordinates with 10m resolution \[4 digits\].
 
 The information strip at the bottom is visible in **Fly View** only.
-It provides <sup><a href="#cmnt2" id="cmnt_ref2">[b]</a><a href="#cmnt3" id="cmnt_ref3">[c]</a><a href="#cmnt4" id="cmnt_ref4">[d]</a></sup>the position of the *map center* (caret icon) and the *vehicle* (plane icon) to one meter accuracy \[5 digits\].  ![](images/image21.png)
+It provides the position of the *map center* (caret icon) and the *vehicle* (plane icon) to one meter accuracy \[5 digits\].
+ ![](images/image21.png)
 
-The strip will additionally include the *ground station location* (“person” icon) **if** the ground station has a GPS module.  
+The strip will additionally include the *ground station location* ("person" icon) **if** the ground station has a GPS module.  
 
 > **Note:** The MGRS coordinate system divides the world up into 100000m2 submaps, and then defines positions within each map in terms of northing and easting values.
 > The resolution of the northing/easting values is determined by the number of digits provided: 5 digits gives 1m resolution, 4 digits gives 10m resolution, while 1 digit gives just 10km resolution.
@@ -363,85 +443,149 @@ The strip will additionally include the *ground station location* (“person”
 >
 > For more information see [MGRS coordinates](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) (Wikipedia).
 
-The MGRS grid overlay and information strip are enabled by selecting the checkbox: **Application Settings \> General \> Miscellaneous \> Display MGRS coordinates**.
+Enable the overlay in the settings by selecting the checkbox:
+**Application Settings > General > Miscellaneous > Display MGRS coordinates**.
 
-### Log & Notifications
+## Fly Toolbar
 
-Important notifications are “spoken” by the GCS and then stored in the log.
-The log can be accessed from an icon on the top right of the screen.
+The fly toolbar is used to execute flight and preflight operations that do not require a specific map position.
 
-The icon has three states. The exclamation mark state indicates that there are important unread notifications.
-The blue and grey speaker icons indicate that there are unread/read messages, respectively.
+![Fly View Toolbar](images/fly_view_toolbar.png) \
 
-![](images/image48.jpg)![](images/image15.jpg)![](images/image53.jpg)
+The toolbar only offers valid options for the current vehicle state (invalid options are either removed or greyed out).
+Some toolbar options, such as the [Checklist](#preflight-checklist), must be enabled in settings.
 
-The log is displayed in a popup dialog. It can be closed or emptied using the X and “trash” icons.
+All toolbar actions are listed below.
 
-![](images/image87.png)
+[Plan](#plan-view)
+  ~ &nbsp;
+  ~ Switch to _Plan View_ (in order to plan a mission, geofence or rally point).
 
-## Vehicle Actions/Commands
+[Checklist](#preflight-checklist)
+  ~ &nbsp;
+  ~ Start pre-flight safety checks.
+  
+[Takeoff](#takeoff-mode)
+  ~ &nbsp;
+  ~ Arm vehicle and takeoff (option visible if landed).
+  
+[Land](#land-mode)
+  ~ &nbsp;
+  ~ Land vehicle and disarm (option visible if flying).
+  
+[Return](#return-mode)
+  ~ &nbsp;
+  ~ Fly to a safe point (option enabled if flying). The path/landing behaviour depends on vehicle configuration.
+  
+[Pause](#hold-mode)
+  ~ &nbsp;
+  ~ Pause current operation or mission.
+  
+Action
+  ~ &nbsp;
+  ~ Display additional (context-sensitive) actions for the current vehicle state.
+    May be used to change the altitude, pause, continue or edit a mission, takeoff if landed, etc.
+  
+[Edit](#pause-edit-continue-a-mission)
+  ~ &nbsp;
+  ~ Edit the current mission, after switching to [Plan View](#plan-view) (only visible when in a paused mission).
+  
+[Overlay]
+  ~ &nbsp;
+  ~ TBD <!-- TODO: What is this? -->
 
-The vehicle can be flown entirely through the ground station application either by running an autonomous mission or using high level commands.
-Most of the operations are triggered from the toolbar.
-Actions that require a position are initiated through the map.
-All operations must be confirmed via a slider.
+<!-- 
+Tool | Description
+--- | -----------
+[Plan](#plan-view) | Switch to Plan View (in order to plan a mission, geofence or rally point).
+[Checklist](#preflight-checklist) | Start pre-flight safety checks.
+[Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
+[Land](#land-mode) | Land vehicle and disarm (option visible if flying).
+[Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
+[Pause](#hold-mode) | Pause current operation.
+Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to continue or edit a mission, or to change the altitude.
+[Edit](#pause-edit-continue-a-mission) | Edit the current mission (only visible when in a paused mission).
+[Overlay] | TBD 
 
-Actions that can have an associated altitude will display an altitude slider along with the confirmation prompt.
-
-### Fly Tools
-
-The fly toolbar is used to execute most flight and preflight operations.
-The toolbar only displays valid tool options for the current vehicle state (invalid options are hidden or greyed out).
-
-| Icon | Tool | Description |
-| --- | --- | --- |
-| ![](images/image227.png) | [Plan](#planning) | Switch to Plan View (in order to plan a mission, geofence or rally point). |
-| ![](images/image163.png) | [Checklist](#flight-preparation) | Start pre-flight safety checks. |
-| ![](images/image27.png)  | [Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed). |
-| ![](images/image14.png)  | [Land](#land-mode) | Land vehicle and disarm (option visible if flying). |
-| ![](images/image183.png) | [Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration. |
-| ![](images/image88.png)  | [Pause](#hold-mode) | Pause current operation. |
-| ![](images/image36.png)  | Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to start, pause, restart missions, etc. |
-| ![](images/image45.png)  | [Edit](#pause-edit-continue-a-mission) | Edit the current (paused) mission. |
-
+![Plan](images/image227.png) 
+![Checklist](images/image163.png)
+![Takeoff](images/image27.png)
+![Land](images/image14.png)
+![Return](images/image183.png)
+![Pause](images/image88.png)
+![Action](images/image36.png)
+![Edit](images/image45.png) 
+-->
 
 All operations must be confirmed using a slider before they will be executed.
 Confirmation prompts are displayed in the bottom center of the map (if an altitude can be set for an operation, a vertical slider will be displayed at the same time).
 
-![](images/image12.png)
+![Confirmation prompt - Land](images/confirmation_prompt_land.png) \
 
-### Map Actions/Operations
 
-Actions that require a position are initiated by touching the map at the desired position (when flying).
-The popup menu below will then be displayed to select the desired operation.
+### Preflight Checklist
 
-![](images/image146.jpg)
+The *Preflight Checklist* is used to verify that a vehicle and planned flight path are safe to fly.
+It is started from the **Checklist** button on the Fly View toolbar.
 
-For more information see:
+> **Note:** If the checklist button is not displayed when a vehicle is connected then this feature is disabled.
+> You can enable it in the application settings: **Menu > Settings > General > Fly View >** _Use Preflight Checklist_ (checkbox)
 
-- [Goto Location](#goto-task) (Flying using High-Level Commands)
-- [Orbit Location](#orbit-location) (Flying using High-Level Commands)
-- [ROI at Location](#region-of-interest-position-mode) (Flying Manually)
+![Preflight Checklist](images/fly_checklist_1.png) \ <!-- image103.png -->
 
-## Video/Map Switcher
+The checklist has three separate sections, each containing a number of tests that have a color-coded status button and a description.
+Tests are either automatic or manual; the automatic tests run without intervention while the manual tests must be marked as passed by the user.
+All tests in a section must pass before you can start the next section.
 
-![](images/image201.png)
+To use the checklist:
 
-The Fly View video/map switcher control is used to toggle display between the map and the current video source (as set by the [Camera Display Control](#camera-controls)).
+1. Start running the checklist by selecting the **Checklist** button in the Fly toolbar.
+   
+2. Review the status of the tests:
 
-The main controls are
+   - *Green*: Passed.
+   - *Orange*: Manual test that still needs to be run (and then marked as passed).
+   - *Red*: Automatic test that has either failed or is still in progress.
 
-- Tap anywhere in middle to toggle map and video
-- Resize the switcher by dragging the icon in the top right corner.
-- Hide/shrink the switcher by pressing the toggle icon in the lower left.
+3. Fix any automatic test failures (shown in red)
 
-![](images/image118.png)
+   - *GPS*: Test passes (turns green) when the vehicle has a valid position estimate.
+     If this takes too long, move the vehicle to ensure it has a clear view of the sky and is away from buildings.
+   - *Sensors*: If the button remains red after the vehicle has booted you may need to recalibrate the sensors.
 
-## Camera View and Controls
+4. Manually run each of the "orange" tests following their description.
+   Once completed, tap the associated button to mark the test as passed.
+5. When all the tests in the first section are complete (green) you will be able to arm the vehicle and start the second section.
+6. When all the tests in the final section are green, the test is complete.
+
+You can exit the checklist at any time by selecting outside of its boundary, and reset the checklist by clicking the button on the top right corner of the dialog.
+
+Screenshots for all sections are shown below.
+
+![Preflight checklist - all screens](images/fly_checklist_all.png)  <!-- image79.png -->
+
+## Video/Map Switcher {#switcher}
+
+The Fly View video/map switcher is used to toggle the camera video feed or the map to the foreground.
+
+![Fly View - Video Switcher](images/fly_view_main_video.png) \ <!-- image201.png -->
+
+Additional controls are displayed in the switcher if it is selected:
+
+- Resize the switcher window by dragging the top right corner.
+- Collapse/expand the switcher by pressing the arrows in the lower left.
+- Make the switcher a separate window by selecting the icon in the top left corner (desktop systems only).
+- Change the [map type](#map-types) using the icon on the bottom right.
+
+![Video Switcher - Overlay options](images/fly_view_video_switcher_overlay.png)  <!-- image118.png -->
+
+
+
+## Camera View
 
 ![](images/image137.png)
 
-*QGC SRR Edition* has been specifically designed to integrate with cameras that support both visible light and IR video streams, and which can be directed independent of vehicle orientation using a joystick controlled gimbal.
+*QGC-Gov* has been specifically designed to integrate with cameras that support both visible light and IR video streams, and which can be directed independent of vehicle orientation using a joystick controlled gimbal.
 
 The Fly View camera controls are composed of the following elements:
 
@@ -455,10 +599,10 @@ The Fly View camera controls are composed of the following elements:
 
 ![](images/image190.png) 
 
-QGC SRR edition supports both Electro Optical (EO) and Infrared (IR) video streams.
+QGC-Gov supports both Electro Optical (EO) and Infrared (IR) video streams.
 The video display mode control is used to specify which video stream(s) are displayed, and to select the thermal palette used for IR streams.
 
-> **Note:** QGC SRR edition supports a number of pre-integrated cameras.
+> **Note:** QGC-Gov supports a number of pre-integrated cameras.
 > The options displayed in the control depend on vehicle camera support/capabilities.
 
 The button actions from left to right are:
@@ -472,21 +616,14 @@ The button actions from left to right are:
 
 Screenshots for each of the modes are shown below.
 
-#### Full camera view (EO) 
+![Full camera view (EO)](images/image154.png)
 
-![](images/image154.png)
+![Picture-in-picture (IR in EO)](images/image77.png)
 
-#### Picture-in-picture (IR in EO)
+![Thermal Full Screen (IR)](images/image85.png)
 
-![](images/image77.png)
+![Cycle through thermal palettes (IR)](images/image189.png)
 
-#### Thermal Full Screen (IR)
-
-![](images/image85.png)
-
-#### Cycle through thermal palettes (IR)
-
-![](images/image189.png)
 
 ### Camera Gimbal Control
 
@@ -494,9 +631,10 @@ The Camera-Gimbal control is used to control the camera and display the gimbal p
 By default the gimbal slider part of the control can also be used to *control* camera pitch (but not yaw).
 There is a setting to disable pitch control using the slider, and another that enables a separate on screen joystick for gimbal control.
 
-![](images/image124.png)
+![Camera/Gimbal Control](images/image124.png)
 
 The parts of the control are discussed separately below.
+
 
 #### Camera Controls
 
@@ -505,24 +643,24 @@ They also allow you to configure the camera settings for each mode and display h
 
 The views for video and photo control are shown below:
 
-![](images/image18.png)![](images/image43.png)
+![](images/image18.png) ![](images/image43.png)
 
-The sub-controls for each mode display are:
+The controls, in order are:
 
-|                                                 |                                                                                 |
-|-------------------------------------------------|---------------------------------------------------------------------------------|
-| ![](images/image18.png)![](images/image18.png)  | Display connected camera(s) and SD card free space                              |
-| ![](images/image18.png)![](images/image43.png)  | Display current capture mode. Select to change to alternate mode                |
-| ![](images/image18.png)![](images/image43.png)  | Capture (video or photo)                                                        |
-| ![](images/image18.png)                         | Open [settings panel](#camera-and-gimbal-settings) for current capture mode     |
-| ![](images/image18.png)![](images/image43.png)  | Display time for current (ongoing) video capture / Number of captured pictures. |
+- Connected camera
+- Free SD card memory
+- Camera mode
+- Capture
+- Open settings for current capture mode
+- Elapsed time for current video (Video mode) / Number of captured pictures (Camera mode)
+
 
 #### Gimbal Indicator/Slider
 
-![](images/image211.png)
-
 A gimbal allows camera pitch (up/down) and/or yaw (left/right) movement to be controlled independently of vehicle movement.
-*Auterion QGC SRR Edition* is expected to be used on hardware with a dedicated gimbal joystick.
+*QGC-Gov* is expected to be used on hardware with a dedicated gimbal joystick.
+
+![Gimbal indicator/slider](images/image211.png)
 
 The gimbal indicator *displays* the current camera pitch and yaw on a vertical slider:
 
@@ -539,7 +677,7 @@ By default you can also change the pitch (but not yaw) by dragging the green ico
 
 The *Gimbal Control* is an on-screen gimbal joystick. It can be enabled as an alternative to the camera-gimbal control, and allows both gimbal yaw and pitch to be set.
 
-![](images/image91.png)
+![Gimbal virtual joystick](images/image91.png)
 
 The virtual joystick is enabled in the [Gimbal Settings](#camera-and-gimbal-settings).
 The setting **Use Camera Gimbal Control** must be set to *Off*, after which **Use Gimbal Joystick Control** can be set to *On*.
@@ -548,7 +686,7 @@ The setting **Use Camera Gimbal Control** must be set to *Off*, after which **U
 
 ### Zoom controls
 
-![](images/image92.png) 
+![Zoom controls](images/image92.png) 
 
 Continuous zoom out / in via a tap+hold interaction.
 
@@ -556,131 +694,54 @@ Continuous zoom out / in via a tap+hold interaction.
 
 Camera settings for photo and video are accessed from the [Camera Controls](#camera-controls) settings icon.
 
-![](images/image18.png)
+![Camera Control: Settings Selector](images/camera_settings_selector.png)
 
 The options presented depend on the attached camera and camera mode (video/photo).
 For example: ISO, white balance, brightness, sharpness, video frame rate, exposure mode, etc.
 
-The settings that are *independent of the camera type* are shown below.
+![Camera Control: Camera Settings](images/image19.png)
+<!-- ![Camera: Common Settings](images/camera_settings_common.png) -->
 
-![](images/image221.png)
+The settings that are *independent of the camera type* are listed below.
 
-![](images/image19.png)
+- `Photo mode`:
+  - `Single`: Capture image
+  - `Timelapse`: Capture image after specified interval.
+    - `Photo Interval`: Interval for timelapse capture.
+      
+- `Use Camera Gimbal Control` (`On` | `Off`): Enable the gimbal indicator to be used as a control for setting the gimbal pitch (disables the on-screen gimbal joystick).
+- `Show Gimbal Control` (`On` | `Off`): Enable [on-screen gimbal joystick](#gimbal-control-virtual-joystick). <!-- ![](images/image91.png) -->
+- `Screen Grid` (`On` | `Off`): Overlays 3x3 grid over the video feed (aids image alignment). <!-- ![](images/image22.png) -->
+- `Video Screen Fit`: Full screen video display
+    - `Fit Height`: Fit to height
+    - `Fit Width`: Fit to width
+    - `Stretch`: Stretch to fill screen
+- `Reset Camera Defaults`: Reset camera/gimbal to default settings.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Setting</p></td>
-<td><p>Options</p></td>
-</tr>
-<tr class="even">
-<td><p>Photo Mode</p></td>
-<td><p><em>Single</em> | <em>Timelapse</em>.</p>
-<p>Capture image when capture button is pressed, or after a specified Photo Interval.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Photo Interval</p></td>
-<td><p>Time after capture image/video button is pressed that the image is captured (only enabled for Photo Mode: Time Lapse).</p>
-<p><img src="images/image65.jpg" /></p>
-<p>This value is displayed on the capture image/video button when a time-lapse is set.</p></td>
-</tr>
-<tr class="even">
-<td><p>Use Camera Gimbal Control</p></td>
-<td><p><em>On</em> | <em>Off</em>.</p>
-<p>Enable to allow the gimbal indicator to be used as a control for setting the gimbal pitch. If enabled the on-screen gimbal joystick cannot be used.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Show Gimbal Control</p></td>
-<td><p><em>On</em> | <em>Off</em>.</p>
-<p>Enable display of <a href="#gimbal-control-virtual-joystick">on-screen gimbal joystick</a>.
-Option hidden if <strong>Use Camera Gimbal Control</strong> is <em>On</em>.<br />
-<img src="images/image91.png" /></p></td>
-</tr>
-<tr class="even">
-<td><p>Screen Grid</p></td>
-<td><p><em>On</em> | <em>Off</em>.<br />
-This setting overlays a 3x3 grid of very fine lines on the screen (center of grid shown below).<br />
-<img src="images/image22.png" /></p></td>
-</tr>
-<tr class="odd">
-<td><p>Video Screen Fit</p></td>
-<td><p><em>Fit Height</em> | <em>Fit Width</em> | <em>Stretch</em>.</p>
-<p>Control how full-screen video is displayed.</p></td>
-</tr>
-<tr class="even">
-<td><p>Reset Camera Defaults</p></td>
-<td><p>Press to reset camera/gimbal to default settings.</p></td>
-</tr>
-</tbody>
-</table>
 
-# Flight Preparation
 
-The ground station has an automated checklist that you should use to verify that your vehicle and planned flight path are safe to fly.
 
-The checklist has three separate sections, each containing a number of tests that have a color-coded status button and a description.
-Tests are either automatic or manual; the former tests are run automatically and the results displayed while the manual tests must be marked as passed by the user.
-All tests in a section must pass before you can start the next section.
+## Flight Modes
 
-![](images/image103.png)
-
-To use the checklist:
-
-1. Start running the checklist by selecting the **Checklist** button in the toolbar.
-
-   - If the **Checklist** button is not displayed, check the Use Preflight Checklist option in the Application Settings (**Menu \> Settings \> General \> Fly View**).
-   - The Checklist button can only be selected when there is a connected vehicle.
-
-2. Review the status of the tests:
-
-   - *Green*: Passed.
-   - *Orange*: Manual test that still needs to be run (and then marked as passed).
-   - *Red*: Automatic test that has either failed or is still in progress.
-
-3. Fix any automatic test failures (shown in red)
-
-   - *GPS*: Test passes (turns green) when the vehicle has a valid position estimate.
-     If this takes too long, move the vehicle to ensure it has a clear view of the sky and is away from buildings.
-   - *Sensors*: If it remains red after the vehicle has booted you may need to recalibration the sensors.
-
-4. Manually run each of the "orange" tests following their description.
-   Once completed, tap the associated button to mark the test as passed.
-5. When all the tests in the first section are complete (green) you will be able to arm the vehicle and start the second section.
-6. When all the tests in the final section are green, the test is complete.
-
-> **Note:** You can exit the checklist at any time by selecting outside of its boundary and reset the checklist by clicking the button on the top right corner of the dialog.
-
-Screenshots for all sections are shown below.
-
-![](images/image79.png)
-
-# Flight Modes & Tasks
+<!-- not sure this should go here yet -->
 
 Flight modes provide different types of autopilot assistance to a pilot, including automation of common operations like *takeoff* and *landing*, execution of fully autonomous missions, and changing how the vehicle responds to pilot input during manual flight (for example by making it easier to regain level flight, hold the vehicle to a fixed path or position, etc.).
 
-QGC SRR displays the current flight mode in the mode selector on the application top status bar.
-The selector menu can be opened to select the two **manual** modes: *Altitude* and *Position*.
-All other modes are automatically selected when you perform an associated operation - e.g. start a mission, takeoff, land etc.
+The current mode is displayed in the [flight mode selector](#flight-mode-selector) in the [Fly View app bar](#fly-view-app-bar).
+The selector can be opened to select *Position* or *Altitude* mode.
+Other modes are selected from the Fly Toolbar, such as Takeoff mode, Return mode, and land mode, or other controls.
 
-![](images/image61.jpg)
-
-The most important PX4 flight modes and tasks are covered at high level below.
+The most important flight modes and tasks are covered at high level below.
 
 > **Note:** Flight Mode behaviour depends on vehicle type and configuration.
 > The information here covers _default behaviour_ at high level.
-> More detailed information can be found in the PX4 user guide:
-> - [Basic Concepts > Flight Modes](https://docs.px4.io/master/en/getting_started/flight_modes.html)
-> - [Flying > Flight Modes](https://docs.px4.io/master/en/flight_modes/) (sub-topics for individual modes)
 
 
-## Position Mode
+### Position Mode
 
-*Position Mode* (also known as *Position Control Hold*) is the easiest and safest *manual* flight mode, in particular for new fliers.
-It relies on GPS.
+*Position Mode* relies on GPS, and is the easiest and safest *manual* flight mode, in particular for new fliers.
+*Position Mode* is selected in QGC from the mode selector in the application status bar.
+This is also the default mode if you move the sticks in an automatic mode.
 
 On multicopter the roll stick controls vehicle speed in left-right direction (relative to the "front" of the vehicle), pitch stick controls forward-back speed, yaw stick controls rate of rotation above the ground plane, and throttle stick controls the speed of ascent-descent.
 When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
@@ -689,15 +750,8 @@ On fixed wing vehicles the throttle determines airspeed (at 50% throttle the air
 Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
 When the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
 
-*Position Mode* is selected in QGC from the mode selector in the application status bar.
-This is also the default mode if you move the sticks in an automatic mode.
 
-For more information see:
-
-- [Position Mode - Multicopter](https://docs.px4.io/master/en/flight_modes/position_mc.html) (*PX4 User Guide*).
-- [Position Mode - Fixed Wing](https://docs.px4.io/master/en/flight_modes/position_fw.html) (*PX4 User Guide*).
-
-## Altitude Mode
+### Altitude Mode
 
 *Altitude Mode* (also known as *Altitude Hold*) is a safe and easy-to-fly *manual* flight mode that does not rely on GPS.
 It shares the **same** flight control behaviour as *Position Mode*.
@@ -708,64 +762,49 @@ A fixed wing vehicle will hold level and straight flight, but will not hold cour
 
 *Altitude Mode* is selected in QGC from the mode selector in the application status bar.
 
-For more information see:
+### Return Mode
 
-- [Altitude Mode - Multicopter](https://docs.px4.io/master/en/flight_modes/altitude_mc.html) (*PX4 User Guide*).
-- [Altitude Mode - Fixed Wing](https://docs.px4.io/master/en/flight_modes/altitude_fw.html) (*PX4 User Guide*).
-
-## Return Mode
-
-[Return Mode](https://docs.px4.io/master/en/flight_modes/return.html) causes the vehicle to fly a clear path to a safe location.
+*Return Mode* causes the vehicle to fly a clear path to a safe location.
 The mode can be activated manually by selecting the **RTL** button ([Fly View Toolbar](#fly-view)) or using a pre-programmed RC switch.
 It may also be entered automatically as a response to a vehicle failsafe being triggered (e.g. low battery).
 
 The return behaviour depends on vehicle settings, and may follow a mission path and/or mission landing pattern (if defined).
 By default a fixed wing vehicle will use a landing pattern defined in a mission while a multicopter will fly to the home location and land.
 
-## Takeoff Mode
+### Takeoff Mode
 
-[Takeoff Mode](http://docs.px4.io/master/en/flight_modes/takeoff.html) initiates the automatic takeoff sequence.
+*Takeoff Mode* initiates the automatic takeoff sequence.
 The mode can be activated by selecting the **Takeoff** button ([Fly View Toolbar](#fly-view)) when landed or using a pre-programmed RC switch.
 
 On multicopter takeoff causes the vehicle to climb vertically until it reaches the *takeoff altitude*, and then switch to [Hold Mode](#hold-mode).
 On fixed wing, the launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
 
-## Land Mode
+### Land Mode
 
 *Land Mode* initiates the automatic land sequence.
 The mode can be activated by selecting the **Land** button ([Fly View Toolbar](#fly-view)) when flying or using a pre-programmed RC switch.
 
 On multicopter the vehicle will just descend and land.
-Fixed wing landing depends on vehicle configuration (for more information see: [PX4 User Guide \> Fixed Wing Landing](https://docs.px4.io/master/en/flying/fixed_wing_landing.html)).
+Fixed wing landing depends on vehicle configuration.
 
-For more information see: [Land Mode](https://docs.px4.io/master/en/flight_modes/land.html) (*PX4 User Guide*).
 
-## Hold Mode
+### Hold Mode
 
-[Hold Mode](https://docs.px4.io/master/en/flight_modes/hold.html) is an automatic mode used to hold a vehicle at a particular location.
+*Hold Mode* is an automatic mode used to hold a vehicle at a particular location.
 
 A multicopter in this mode will hover at its current position and altitude (maintaining position against wind and other forces) while a fixed-wing vehicle will hold altitude and circle the current position.
 
 Hold mode is entered automatically after takeoff and landing modes complete, and when pausing a mission.
 It can also be activated with a pre-programmed RC switch.
 
-## Mission Mode
+In some cases Hold mode can be used for high level vehicle control, including goto and orbit.
 
-[Mission Mode](https://docs.px4.io/master/en/flight_modes/mission.html) is used to execute a pre-planned mission.
+### Mission Mode
+
+*Mission Mode* is used to execute a pre-planned mission.
 This mode is automatically activated when you start a mission in QGC.
 
-## Orbit Mode
 
-[Orbit Mode](https://docs.px4.io/master/en/flight_modes/orbit.html) (multicopter only) starts an orbit at a specific location.
-This mode is started when you select [Orbit at Location](#orbit-location) on the map.
-
-## Goto Task
-
-The *GoTo Task* takes you to a specific location.
-This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
-
-> **Note:** At time of writing this is a “task” rather than a mode.
-> The main difference is that when executing this task the mode that is displayed will not change.
 
 # Fly using High-Level Commands
 
@@ -794,6 +833,13 @@ The basic flight operations are all initiated by pressing the appropriate button
 
 ## Goto Location
 
+<!-- 
+
+The *GoTo Task* takes you to a specific location.
+This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
+
+-->
+
 To send the vehicle to a particular location:
 
 1. First takeoff
@@ -805,6 +851,10 @@ To send the vehicle to a particular location:
    ![](images/image171.png)
 
 ## Orbit Location
+
+<!-- *Orbit Mode* (multicopter only) starts an orbit at a specific location.
+This mode is started when you select [Orbit at Location](#orbit-location) on the map.
+-->
 
 To orbit a particular location:
 
@@ -823,8 +873,7 @@ You can use the sticks on the controller to change the radius, speed, and direct
 
 # Fly Manually
 
-QGC SRR isn't required for manual flight, but can make some tasks
-easier:
+QGC-Gov isn't required for manual flight, but can make some tasks easier:
 
 - [Viewing vehicle state and flight information](#vehicle-state-and-flight-information) allows pilots to see the map, historical and planned flight path, geofences, rally points, speed, altitude, direction, battery capacity, and much more.
 - [Taking off, landing, flying home and landing actions](#fly-using-high-level-commands) can be triggered from the [fly tools](#fly-tools).
@@ -833,7 +882,7 @@ easier:
 
 ## Supported Manual Modes
 
-QGC SRR explicitly supports two manual modes (which can be enabled through the app):
+QGC-Gov explicitly supports two manual modes (which can be enabled through the app):
 
 - [Position mode](#position-mode) is the easiest and safest manual flight mode.
   It has intuitive stick controls and is impossible to flip.
@@ -854,10 +903,11 @@ The manual modes can be enabled using the mode selector as shown.
 
 ![](images/image141.png)
 
-## Region of Interest (Position Mode)
 
-QGC SRR allows users to set a *Region Of Interest (ROI)* on the map in fly view.
-The camera will then track this ROI in when flying in position mode (only).
+## Region of Interest
+
+QGC-Gov allows users to set a *Region Of Interest* (ROI) on the map in fly view.
+The camera will then track this ROI in when flying in [position mode](#position-mode) (only).
 
 To set the ROI:
 
@@ -869,7 +919,7 @@ To set the ROI:
 3. Acknowledge the confirmation prompt:
 
    ![](images/image111.png)
-4. QGC SRR will then add an ROI marker at the selected position, and mark the ROI status icon (application top bar) green ("enabled").
+4. QGC-Gov will then add an ROI marker at the selected position, and mark the ROI status icon (application top bar) green ("enabled").
 
    ![](images/image68.png)
 
@@ -878,6 +928,7 @@ To set the ROI:
 To remove an ROI, select the ROI status icon in the toolbar and select the popup option: **Disable ROI**.
 
 ![](images/image153.png)
+
 
 # Fly a Mission
 
@@ -932,7 +983,8 @@ To pause and edit an ongoing mission:
 
 6. Acknowledge the **Continue** prompt slider to restart the mission (if this is not visible, you can bring it to the foreground using the **Action** tool).
 
-# Planning
+
+# Plan View
 
 *Plan View* is used to define different types of *plans*:
 
@@ -991,18 +1043,18 @@ For more details see [Mission Plan \> Mission Information](#mission-information)
 
 The *Plan Tools* provides tools for working with plans, including adding waypoints, inserting survey patterns, saving/loading/uploading/downloading plans etc. Some of the options are only displayed when working on a particular type of plan.
 
-| Icon | Name | Plan Type | Description |
-| --- | --- | --- | --- |
-| ![](images/image80.png)  | Fly           | All       | Switch to Fly View (e.g. in order to fly a mission) |
-| ![](images/image44.png)  | File/Sync     | All       | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle). |
-| ![](images/image120.png) | Waypoint      | Mission   | Select to enable adding new waypoints to the map. |
-| ![](images/image126.png) | Pattern tools | Mission   | Add or load a survey pattern - survey (area), structure, corridor. |
-| ![](images/image184.png) | Rally Point   | Rally     | Add a rally (safe) point. |
-| ![](images/image16.png)  | Centre map    | All       | Center map on mission, home, vehicle, all items, or specified location |
+Icon | Name | Plan Type | Description
+--- | ---- | ---- | -------------
+![](images/image80.png)  | Fly           | All     | Switch to Fly View (e.g. in order to fly a mission)
+![](images/image44.png)  | File/Sync     | All     | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/image120.png) | Waypoint      | Mission | Select to enable adding new waypoints to the map.
+![](images/image126.png) | Pattern tools | Mission | Add or load a survey pattern - survey (area), structure, corridor.
+![](images/image184.png) | Rally Point   | Rally   | Add a rally (safe) point.
+![](images/image16.png)  | Centre map    | All     | Center map on mission, home, vehicle, all items, or specified location
 
 #### File/Sync Tools
 
-![](images/image17.png)
+![File/Sync Tools](images/image17.png)
 
 The Plan **File/Sync Tool** provides options to create a new plans, load/save plans on the ground station computer, and upload/download/clear the plan on the vehicle.
 
@@ -1011,7 +1063,7 @@ The Plan **File/Sync Tool** provides options to create a new plans, load/save p
 #####  File Options
 
 Option | Description
---- | ---
+--- | ------
 New... | Clear plan on QGC and vehicle.
 Open... | Open plan file from storage, clearing the current mission in the ground station. The plan on the vehicle is not affected. QGC can open **.plan** files (and also a number of legacy formats: **.mission**, **.txt**, **.waypoints**).
 Save | Save previously opened or saved plan under same name. QGC prompts to "**Save as**" if the file is new.
@@ -1022,11 +1074,11 @@ Save Mission Waypoints as KML ... | Save current mission (only) as a KML file. K
 
 The vehicle options upload, download and clear plans to/from/on the vehicle.
 
-| Option                | Description                                                                            |
-|-----------------------|----------------------------------------------------------------------------------------|
-| Upload                | Upload plan to vehicle. Existing plans on the vehicle are cleared.                     |
-| Download              | Download current plan from vehicle. The current plan on the ground station is cleared. |
-| Clear Vehicle Mission | Clear plan on vehicle and QGC. Disabled if no vehicle is connected.                    |
+Option                | Description
+--- | ------
+Upload                | Upload plan to vehicle. Existing plans on the vehicle are cleared.
+Download              | Download current plan from vehicle. The current plan on the ground station is cleared.
+Clear Vehicle Mission | Clear plan on vehicle and QGC. Disabled if no vehicle is connected.
 
 ### Map Tools
 
@@ -1037,44 +1089,15 @@ In addition, the **Plan Tools \> Center** tool can be used to control how the ma
 
 ![](images/image41.png)
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Option</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>Mission</p></td>
-<td><p>Center/zoom map to include all mission waypoints.</p></td>
-</tr>
-<tr class="odd">
-<td><p>All items</p></td>
-<td><p>Center/zoom map to include all plan items (missions, geofences, rally points)</p></td>
-</tr>
-<tr class="even">
-<td><p>Home</p></td>
-<td><p>Center map on home location (normally where vehicle arms and takes off).</p></td>
-</tr>
-<tr class="odd">
-<td><p>Vehicle</p></td>
-<td><p>Center map on vehicle location. Disabled if no vehicle is connected.</p></td>
-</tr>
-<tr class="even">
-<td><p>Current Location</p></td>
-<td><p>Center map on ground station location. Disabled if ground station does not have location/GPS.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Specified Location</p></td>
-<td><p>Center map on specified location.</p>
-<p><img src="images/image105.png" /></p>
-<p>Selecting this option opens the <em>Specify Position</em> dialog (right of the screen). Enter geographic, UTM or MGRS position information, then press the associated <strong>Set...</strong> button to make it the new map center.</p></td>
-</tr>
-</tbody>
-</table>
+Option | Description
+--- | -------
+Mission | Center/zoom map to include all mission waypoints.
+All items | Center/zoom map to include all plan items (missions, geofences, rally points).
+Home | Center map on home location (normally where vehicle arms and takes off).
+Vehicle | Center map on vehicle location. Disabled if no vehicle is connected
+Current Location | Center map on ground station location. Disabled if ground station does not have location/GPS.
+Specified Location | Center map on specified location. Selecting this option opens the _Specify Position_ dialog (right of the screen). Enter geographic, UTM or MGRS position information, then press the associated **Set...** button to make it the new map center. ![](images/image105.png)
+
 
 > **Note:** Additional, for _mission editing_ (only) the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.
 > ![](images/image122.png)
@@ -1090,7 +1113,7 @@ For more information see: [Fly View\> Map Grid (MGRS)](#map-grid-mgrs).
 Missions plans are used to define fully autonomous flight operations, including scans and surveys.
 They are are created in *Plan View* when the [Plan Type](#plan-type-selector) is set to **Mission**.
 
-There are a number of different “types” of missions:
+There are a number of different "types" of missions:
 
 - [Manual Missions](#manual-waypoint-mission): The flight path is defined as a series of waypoints and other mission commands.
 - ​[Survey Missions](#survey-mission): An area survey defined by an arbitrary polygon.
@@ -1120,21 +1143,21 @@ The plan information (application top bar) provides useful statistics for planni
 
 The *Selected Waypoint* section fields are relative to the planned home position:
 
-| Field    | Description 
-| --- | --- |
-| Alt diff | Relative altitude with respect to planned home position. |
-| Gradient | Gradient (%) with respect to planned home position. 0 indicates waypoint and home at the same altitude. |
-| Azimuth  | Heading of current waypoint with respect to previous waypoint (in degrees, clockwise from North=0°). |
-| Heading  | Heading of vehicle to next waypoint (in degrees, clockwise from North=0°). For the last waypoint the vehicle is assumed to continue following the path of the current line (i.e. the heading is the same value as the azimuth). |
-| Distance | Distance to planned home position. |
+Field | Description 
+--- | ------
+Alt diff | Relative altitude with respect to planned home position.
+Gradient | Gradient (%) with respect to planned home position. 0 indicates waypoint and home at the same altitude.
+Azimuth  | Heading of current waypoint with respect to previous waypoint (in degrees, clockwise from North=0°).
+Heading  | Heading of vehicle to next waypoint (in degrees, clockwise from North=0°). For the last waypoint the vehicle is assumed to continue following the path of the current line (i.e. the heading is the same value as the azimuth).
+Distance | Distance to planned home position.
 
 The *Total Mission* section contains information about the whole mission.
 
-| Field          | Description                                                                     |
-|----------------|---------------------------------------------------------------------------------|
-| Distance       | Total distance of mission.                                                      |
-| Max telem dist | Maximum distance from ground station (should not exceed telemetry radio range). |
-| Time           | Expected/calculated time to complete mission (H:M:S).                           |
+Field | Description
+--- | ------
+Distance       | Total distance of mission.
+Max telem dist | Maximum distance from ground station (should not exceed telemetry radio range).
+Time           | Expected/calculated time to complete mission (H:M:S).
 
 ### Terrain/Altitude Indicator
 
@@ -1151,68 +1174,25 @@ The Terrain Indicator shows the relative altitude and distance (from planned hom
 
 The legend for the circle text is given below.
 
-| Text | Type                          |
-|------|-------------------------------|
-| P    | Planned home                  |
-| T    | Takeoff waypoint              |
-| S    | Survey scan or Structure scan |
-| C    | Corridor scan                 |
+Text | Type
+--- | ------
+P | Planned home
+T | Takeoff waypoint
+S | Survey scan or Structure scan
+C | Corridor scan
 
 ### Plan Tools (Mission)
 
 The [Plan Tools](#plan-tools) that are displayed when working with missions are listed below.
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Icon</p></td>
-<td><p>Name</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image80.png" /></p></td>
-<td><p>Fly</p></td>
-<td><p>Switch to <em>Fly View</em> (e.g. in order to fly a mission)</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image44.png" /></p></td>
-<td><p>File/Sync</p></td>
-<td><p>File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).</p></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image120.png" /></p></td>
-<td><p>Waypoint</p></td>
-<td><p>Select to enable adding new waypoints to the map.</p></td>
-</tr>
-<tr class="odd">
-<td><p><img src="images/image126.png" /></p></td>
-<td><p>Pattern tools</p></td>
-<td><p>Add or load a survey pattern - survey (area), structure,
-corridor.</p>
-<p><img src="images/image161.jpg" /><br />
-</p>
-<p>Patterns provide a simple and flexible approach for surveying. For more information see:</p>
-<ul>
-<li><strong>​</strong>​<a href="#survey-mission">Survey</a> - A survey pattern that captures an arbitrarily complex polygonal region. This
-allows you to specify the polygon, grid and camera settings appropriate for creating geotagged images.</li>
-<li><strong>​</strong>​<a href="#corridor-scan">Corridor Scan</a> - A survey pattern that follows a poly-line (for example, to survey a
-road).</li>
-<li><strong>​</strong><a href="#structure-scan-mission">Structure Scan</a> - A survey pattern that captures images over vertical surfaces (polygonal or circular). Typically used for the visual inspection or creation of 3D models of structures.</li>
-<li><strong>Load KML/SHP... -</strong> A pattern defined in a KML or SHP file (e.g. KML is used by Google Earth).</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p><img src="images/image16.png" /></p></td>
-<td><p>Centre map</p></td>
-<td><p>Center map on mission, home, vehicle, all items, or specified location</p></td>
-</tr>
-</tbody>
-</table>
+Icon | Name | Description
+--- | --- | ---------
+![](images/image80.png) | Fly | Switch to _Fly View_ (in order to fly a mission)
+![](images/image44.png) | File/Sync | File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/image120.png) | Waypoint | Select to enable adding new waypoints to the map.
+![](images/image126.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern defintion. ![](images/image161.jpg) 
+![](images/image16.png) | Centre map | Center map on mission, home, vehicle, all items, or specified location
+
 
 ### Mission Command List
 
@@ -1232,7 +1212,7 @@ To create a completely new mission, you can first clear away any existing missio
 
 ![](images/image17.png)
 
-There are four main “types” of mission - waypoint missions, survey missions, structure scans, and corridor scans.
+There are four main "types" of mission - waypoint missions, survey missions, structure scans, and corridor scans.
 The surveys/scan missions are just waypoint missions that happen to include patterns of the different types.
 
 For more information about how to create each type of mission:
@@ -1244,12 +1224,12 @@ For more information about how to create each type of mission:
 
 # Manual/Waypoint Mission
 
-A manual (or “waypoint”) mission is an autonomous mission where the flight path is explicitly defined on the map using waypoint mission items.
+A manual (or "waypoint") mission is an autonomous mission where the flight path is explicitly defined on the map using waypoint mission items.
 
 ![](images/image131.jpg)
 
 The mission path and direction are shown on the map, with filled circles for the waypoints.
-Other important types of points are marked with labeled points (e.g. “**T**” for takeoff, “**P**” for Planned Home).
+Other important types of points are marked with labeled points (e.g. "**T**" for takeoff, "**P**" for Planned Home).
 A mission item can be selected for editing from the map or the mission item list; it is then highlighted using a larger filled green circle and a description) and its editor is opened.
 
 Waypoints are added by first selecting the associated tool in the *Plan Toolbar*, and then selecting the desired position for the item on the map.
@@ -1302,7 +1282,7 @@ To create a manual mission:
 7. Add a different type of mission item (by changing the mission item type).
 
    - Add two waypoints. The first should be the next planned waypoint, while the second will be changed into a new type of mission item.
-   - Select the heading on the “placeholder” waypoint
+   - Select the heading on the "placeholder" waypoint
 
      ![](images/image49.jpg)
 
@@ -1333,10 +1313,10 @@ Set the initial altitude and (optionally) flight speed for the mission (the valu
 
 If the altitude is changed after a mission has been defined, the user is prompted to confirm whether the change should apply to all waypoints.
 
-| ​Setting | ​Description |
-| --- | --- |
-| Waypoint alt | Default altitude for the first mission item added to a plan (subsequent items take an initial altitude from the previous item). This can also be used to change the altitude of all items in a plan to the same value; users will be prompted if the value is changed when there are items in a plan. |
-| Flight speed | Set a flight speed for the mission that is different than the default mission speed. |
+​Setting | ​Description
+--- | ------
+Waypoint alt | Default altitude for the first mission item added to a plan (subsequent items take an initial altitude from the previous item). This can also be used to change the altitude of all items in a plan to the same value; users will be prompted if the value is changed when there are items in a plan.
+Flight speed | Set a flight speed for the mission that is different than the default mission speed.
 
 #### Mission End Panel
 
@@ -1353,11 +1333,11 @@ The *Vehicle Info* section allows the default vehicle speed to be specified, wh
 The vehicle type can be specified when *not connected to a vehicle* (if connected it is pre-set).
 The *type* determines the set of mission commands that can be used in a mission.
 
-| ​Setting      | ​Description                                                                                          |
-|--------------|------------------------------------------------------------------------------------------------------|
-| Vehicle      | Vehicle type. One of: *Fixed Wing*, *Multi-Rotor*, *VTOL*, *Rover*, *Sub*.                           |
-| Hover Speed  | Flight speed for multi-rotor (and VTOL in multi-rotor mode). Used to calculate mission flight times. |
-| Cruise Speed | Cruise speed for fixed wing (and VTOL in fixed-wing mode). Used to calculate mission flight times.   |
+​Setting | ​Description
+--- | ------
+Vehicle      | Vehicle type. One of: *Fixed Wing*, *Multi-Rotor*, *VTOL*, *Rover*, *Sub*.
+Hover Speed  | Flight speed for multi-rotor (and VTOL in multi-rotor mode). Used to calculate mission flight times.
+Cruise Speed | Cruise speed for fixed wing (and VTOL in fixed-wing mode). Used to calculate mission flight times.
 
 #### Planned Home Position Panel
 
@@ -1367,16 +1347,16 @@ The *Planned Home Position* (a.k.a. Launch point) simulates the vehicle's home/
 
 > **Note:** The planned home position has no impact on flying the mission. The actual home position of a vehicle is set by the vehicle itself when arming.
 
-The planned home point is added to the map at the location of the vehicle (shown as a circle with the text “**P**”).
+The planned home point is added to the map at the location of the vehicle (shown as a circle with the text "**P**").
 If no vehicle is connected a placeholder is added along with the first waypoint.
 
 The point can be moved via drag/drop, or its position can be set using the **Set Home to Map Center** button.
 Its altitude can be set using this panel.
 
-| ​Setting                | ​Description                                                       |
-|------------------------|-------------------------------------------------------------------|
-| Altitude               | Enter the altitude of the planned home position.                  |
-| Set Home to Map Center | Select to set the home location to the current center of the map. |
+​Setting | ​Description
+--- | ------
+Altitude               | Enter the altitude of the planned home position.
+Set Home to Map Center | Select to set the home location to the current center of the map.
 
 ## Mission Command Editors
 
@@ -1459,10 +1439,10 @@ All other options are accessed from the menu (shown below)
 
 The *Takeoff Editor* can be used to set the altitude of the takeoff point (relative to home), and can also be used to set the heading the vehicle will face during takeoff.
 
-| Setting  | Description |
-| --- | --- |
-| Altitude | Altitude for the takeoff, relative to the home/takeoff point. This is initialised from the [Mission Start Editor](#mission-start-editor) settings. |
-| Heading  | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North). |
+Setting  | Description
+--- | ------
+Altitude | Altitude for the takeoff, relative to the home/takeoff point. This is initialised from the [Mission Start Editor](#mission-start-editor) settings.
+Heading  | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North).
 
 ### Mission Waypoint Editor
 
@@ -1473,12 +1453,12 @@ The menu (top) can be used to tune the position by entering coordinates.
 
 > **Note:** It may not be necessary to change any values, as settings are retained from the previous waypoint.
 
-| Setting      | Description                                                                                                                    |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------|
-| Altitude     | Altitude for the waypoint, relative to the home/takeoff point. This is initialised with the altitude of the previous waypoint. |
-| Hold         | Hold at waypoint for the specified number of seconds (before moving to the next mission item). Default is 0.                   |
-| Heading      | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North).                    |
-| Flight Speed | The speed of the vehicle over ground.                                                                                          |
+Setting | Description
+--- | ------
+Altitude     | Altitude for the waypoint, relative to the home/takeoff point. This is initialised with the altitude of the previous waypoint.
+Hold         | Hold at waypoint for the specified number of seconds (before moving to the next mission item). Default is 0.
+Heading      | Check to set the direction that the front of the vehicle will point towards (degrees clockwise from North).
+Flight Speed | The speed of the vehicle over ground.
 
 #### Camera Panel
 
@@ -1486,6 +1466,44 @@ The menu (top) can be used to tune the position by entering coordinates.
 
 The *Camera Panel* specifies camera action/triggering and gimbal positioning from the current waypoint until the next waypoint (the next waypoint continues the camera action by default).
 
+- `Camera Triggering`:
+  - `No change (continue current action) - default`
+  - `Take photos (time)`:
+    - `Time`: Sets trigger interval in seconds
+  - `Take photos (distance)`:
+    - `Distance`: Sets trigger interval in distance traveled.
+  - `Stop taking photos`
+  - `Start recording video`
+  - `Stop recording video`
+- `Mode` Camera mode:
+  - `Photo`
+  - `Video`
+- `Gimbal` (checkbox). Enables:
+  - `Pitch`: Gimbal pitch
+  - `Yaw`: Gimbal yaw
+
+
+<!-- 
+
++-------------------+---------------------------+
+| Setting           | Description               |
++===================+===========================+
+| Camera triggering | Options:                  |
+|                   |                           |
+|                   | -  No change              |
+|                   | -  Take photos (time)     |
+|                   | -  Take photos (distance) |
+|                   | -  Stop taking photos     |
+|                   | -  Start recording video  |
+|                   | -  Stop recording video   |
+|                   |                           |
++-------------------+---------------------------+
+| Time              | - cures scurvy            |
+|                   | - tasty                   |
++-------------------+---------------------------+
+-->
+
+<!-- 
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -1500,7 +1518,7 @@ The *Camera Panel* specifies camera action/triggering and gimbal positioning fr
 <td><p>Camera triggering</p></td>
 <td><p>Options:</p>
 <ul>
-<li>No change (continue current action) - default</li>
+<li></li>
 <li>Take photos (time)</li>
 <li>Take photos (distance)</li>
 <li>Stop taking photos</li>
@@ -1533,6 +1551,7 @@ The *Camera Panel* specifies camera action/triggering and gimbal positioning fr
 </tr>
 </tbody>
 </table>
+-->
 
 ### Mission Region of Interest (ROI) Editor
 
@@ -1604,7 +1623,7 @@ To create a survey mission:
      This allows for the creation of arbitrary polygonal survey areas.
    - To delete a vertix, select it on the map and choose the menu option: **Remove vertix**.
 
-8. For a circular survey (created by selecting the centre point “circle” menu option)
+8. For a circular survey (created by selecting the centre point "circle" menu option)
 
    - Drag-drop the center marker to move the survey.
     ![](images/image30.jpg)
@@ -1759,17 +1778,17 @@ The predefined cameras are:
 
 #### Custom Camera
 
-The *Custom Camera* option specifies the settings for a “custom” camera, allowing users to benefit from dynamic recalculation of the grid even if their camera is not predefined.
+The *Custom Camera* option specifies the settings for a "custom" camera, allowing users to benefit from dynamic recalculation of the grid even if their camera is not predefined.
 
 ![](images/image165.png)
 
 The additional settings for a custom camera (compared to a predefined camera) are listed below.
 
-| Setting             | Description                       |
-|---------------------|-----------------------------------|
-| Sensor Width/Height | Camera image sensor size (mm).    |
-| Image Width/Height  | Camera image resolution (pixels). |
-| Focal length        | Camera focal length (mm).         |
+Setting | Description
+--- | ------
+Sensor Width/Height | Camera image sensor size (mm).
+Image Width/Height  | Camera image resolution (pixels).
+Focal length        | Camera focal length (mm).
 
 #### Manual Camera
 
@@ -1780,11 +1799,11 @@ Users can also choose *Manual (no camera specs)* as shown below.
 The settings are listed below.
 If any of these settings or the camera changes then the other settings must be recalculated.
 
-| Setting          | Description                                                                |
-|------------------|----------------------------------------------------------------------------|
-| Altitude         | Altitude to fly the whole grid.                                            |
-| Trigger Distance | Distance over ground between each camera shot.                             |
-| Spacing          | Distance between adjacent grid (flight path) lines across the survey area. |
+Setting | Description
+--- | ------
+Altitude         | Altitude to fly the whole grid.
+Trigger Distance | Distance over ground between each camera shot.
+Spacing          | Distance between adjacent grid (flight path) lines across the survey area.
 
 ### Transects
 
@@ -1840,12 +1859,12 @@ Terrain Following makes the vehicle maintain a constant height relative to groun
 
 Terrain following uses terrain heights queried from AirMap servers.
 
-| Setting                 | Description                                                            |
-|-------------------------|------------------------------------------------------------------------|
-| Vehicle follows terrain | Check to enable terrain following (and display the following options). |
-| Tolerance               | The accepted deviation in altitude from the target altitude.           |
-| Max Climb Rate          | Maximum climb rate when following terrain.                             |
-| Max Descent Rate        | Maximum descent rate when following terrain.                           |
+Setting | Description
+--- | ------
+Vehicle follows terrain | Check to enable terrain following (and display the following options). 
+Tolerance               | The accepted deviation in altitude from the target altitude.
+Max Climb Rate          | Maximum climb rate when following terrain.
+Max Descent Rate        | Maximum descent rate when following terrain.
 
 ### Statistics
 
@@ -1909,7 +1928,7 @@ To create a structure scan mission:
    - To delete a vertix, select it on the map and choose the menu option: **Remove vertix**.
 
 8. For a circular-footprint structure scan (created by selecting the
-   centre point “Circle” menu option)
+   centre point "Circle" menu option)
 
 - Drag-drop the center marker to move the survey.  
   ![](images/image232.png)
@@ -2013,17 +2032,17 @@ The predefined cameras are:
 
 #### Custom Camera
 
-The *Custom Camera* option specifies the settings for a “custom” camera, allowing users to benefit from dynamic recalculation of the scan even if their camera is not predefined.
+The *Custom Camera* option specifies the settings for a "custom" camera, allowing users to benefit from dynamic recalculation of the scan even if their camera is not predefined.
 
 ![](images/image50.png)
 
 The additional settings for a custom camera (compared to a predefined camera) are listed below.
 
-| Setting             | Description                       |
-|---------------------|-----------------------------------|
-| Sensor Width/Height | Camera image sensor size (mm).    |
-| Image Width/Height  | Camera image resolution (pixels). |
-| Focal length        | Camera focal length (mm).         |
+Setting | Description
+--- | ------
+Sensor Width/Height | Camera image sensor size (mm).
+Image Width/Height  | Camera image resolution (pixels).
+Focal length        | Camera focal length (mm).
 
 #### Manual Camera
 
@@ -2219,12 +2238,12 @@ Terrain Following makes the vehicle maintain a constant height relative to groun
 
 Terrain following uses terrain heights queried from AirMap servers.
 
-| Setting                 | Description                                                            |
-|-------------------------|------------------------------------------------------------------------|
-| Vehicle follows terrain | Check to enable terrain following (and display the following options). |
-| Tolerance               | The accepted deviation in altitude from the target altitude.           |
-| Max Climb Rate          | Maximum climb rate when following terrain.                             |
-| Max Descent Rate        | Maximum descent rate when following terrain.                           |
+Setting | Description
+--- | ------
+Vehicle follows terrain | Check to enable terrain following (and display the following options).
+Tolerance               | The accepted deviation in altitude from the target altitude.
+Max Climb Rate          | Maximum climb rate when following terrain.
+Max Descent Rate        | Maximum descent rate when following terrain.
 
 ### Statistics
 
@@ -2235,7 +2254,7 @@ The Statistics section shows the calculated survey area, photo count, interval, 
 # GeoFence
 
 A *GeoFence* is a virtual fence that defines areas within which the vehicle can move (inclusions) or cannot move (exclusions).
-QGC SRR allows the creation of complex GeoFence boundaries made up of multiple circular and polygonal regions.
+QGC-Gov allows the creation of complex GeoFence boundaries made up of multiple circular and polygonal regions.
 
 > **Note:** GeoFences can be used to prevent a vehicle flying out of range of the RC controller, or into unsafe or restricted airspace. They are checked in all modes, including missions and manual flight.
 
@@ -2267,7 +2286,7 @@ To create a new *GeoFence*:
    A rectangular geofence region will be added to the map, along with a corresponding entry in the list of *Polygon Fences* below the buttons.
 
    - Move the fence by dragging the *central marker* on the map.
-   - Move the vertices by dragging the “filled” circles.
+   - Move the vertices by dragging the "filled" circles.
    - Create new vertices by clicking the "unfilled" dots on the lines between the filled vertices.​
   
      ![](images/image114.png)​
@@ -2314,16 +2333,16 @@ Map tools, file/sync tools, etc. work in the same way for Geofence planning as t
 The **Polygon Fence** and **Circular Fence** buttons are used to add a fence of the respective type to the map.
 The entries in the *Polygon Fences* or *Circular Fences* panels are used to select which fence is currently being edited on the map, to delete the fence, and to set the fence as an inclusion/exclusion zone.
 
-| Name | Description |
-| --- | --- |
-| Polygon Fence | Add a polygon fence to the map and an entry to the *Polygon Fences* section. |
-| Circular Fence | Add a circular fence to the map and an entry to the *Circular Fences* section. |
-| Inclusion | Set this fence as an inclusion (vehicle must move within the fence). Uncheck if vehicle must fly outside the region enclosed by the fence. |
-| Edit | Set this fence as current fence (for editing on map). |
-| Radius | Set radius for this fence (circular fence only). |
-| Del | Delete this fence. |
-| Add/Remove Breach Return Point | Add or remove breach return point.  The breach return point should be used as return destination instead of the home location. TBD. |
-| Altitude | Breach return point altitude, if a point has been defined. |
+Name | Description
+--- | ------
+Polygon Fence | Add a polygon fence to the map and an entry to the *Polygon Fences* section.
+Circular Fence | Add a circular fence to the map and an entry to the *Circular Fences* section.
+Inclusion | Set this fence as an inclusion (vehicle must move within the fence). Uncheck if vehicle must fly outside the region enclosed by the fence.
+Edit | Set this fence as current fence (for editing on map).
+Radius | Set radius for this fence (circular fence only).
+Del | Delete this fence.
+Add/Remove Breach Return Point | Add or remove breach return point.  The breach return point should be used as return destination instead of the home location. TBD.
+Altitude | Breach return point altitude, if a point has been defined.
 
 # Rally Points
 
@@ -2398,12 +2417,13 @@ Select the open folder icons on the bottom left to open photo and video folders 
 
 Icons on the main view are described below.
 
-| Icon                     | Name         | Description                                                                           |
-|--------------------------|--------------|---------------------------------------------------------------------------------------|
-| ![](images/image159.png) | Photo Folder | Open folder containing all photos in the ground station file system.                  |
-| ![](images/image32.png)  | Video Folder | Open folder containing all videos in the ground station file system.                  |
-| ![](images/image162.png) | Take Photo   | Capture camera image.                                                                 |
-| ![](images/image84.png)  | Delete       | Delete selected images (long press). Displayed when multiple thumbnails are selected. |
+
+Icon | Name | Description
+--- | --- | ------
+![](images/image159.png) | Photo Folder | Open folder containing all photos in the ground station file system.
+![](images/image32.png)  | Video Folder | Open folder containing all videos in the ground station file system.
+![](images/image162.png) | Take Photo   | Capture camera image.
+![](images/image84.png)  | Delete       | Delete selected images (long press). Displayed when multiple thumbnails are selected.
 
 ###  Multi Image Selection/Deletion
 
@@ -2484,7 +2504,7 @@ Sensors are configured and calibrated through **Vehicle Setup \> Sensors** (onl
 The sensor calibration statuses are indicated by colored markers: green (calibrated)/red (uncalibrated).
 The calibration process for each sensor is guided by on-screen instructions, and is initiated by selecting the associated button.
 
-> **Note:** Vehicles used with QGC SRR Edition are expected to be factory calibrated, and generally should not require re-calibration.
+> **Note:** Vehicles used with QGC-Gov are expected to be factory calibrated, and generally should not require re-calibration.
 
 ![](images/image185.png)
 
@@ -2620,16 +2640,16 @@ The **Vehicle Setup \> Safety** page is used to configure the most important fa
 Failsafe detection can trigger one of the following (selectable)
 actions.
 
-| Action | Description |
-| --- | --- |
-| None/ Disabled | No action (the failsafe will be ignored). |
-| Warning | A warning message will be displayed/announced. |
-| Hold mode | The vehicle will enter Hold mode. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle. |
-| Return mode | The vehicle will enter [Return mode](#return-mode). Return behaviour can be set in the Return Home Settings (below). |
-| Land mode | The vehicle will enter [Land mode](#land-mode), and land immediately. |
-| CASA Outback Challenge rules | Unsupported. Do not use. |
-| Flight termination | Turns off all controllers and sets all PWM outputs to their failsafe values. The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. |
-| Lockdown | Kills the motors (sets them to disarmed). This is the same as using the kill switch. |
+Action | Description
+--- | ------
+None/ Disabled | No action (the failsafe will be ignored).
+Warning | A warning message will be displayed/announced.
+Hold mode | The vehicle will enter Hold mode. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
+Return mode | The vehicle will enter [Return mode](#return-mode). Return behaviour can be set in the Return Home Settings (below).
+Land mode | The vehicle will enter [Land mode](#land-mode), and land immediately.
+CASA Outback Challenge rules | Unsupported. Do not use.
+Flight termination | Turns off all controllers and sets all PWM outputs to their failsafe values. The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation.
+Lockdown | Kills the motors (sets them to disarmed). This is the same as using the kill switch.
 
 > **Note:** It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
 > For example, in the case where RC Loss failsafe causes the vehicle to enter Return mode, if RC is recovered you can change to Position mode and continue flying.
@@ -2690,11 +2710,11 @@ Alternatively set the *Failsafe Action* to warn, return, or land when the **Bat
 
 Enable/disable collision prevention and obstacle avoidance, and set the closest allowed approach distance when collision prevention is active.
 
-| Setting              | Description                                                                                      |
-|----------------------|--------------------------------------------------------------------------------------------------|
-| Collision Prevention | Disabled/Enabled.                                                                                |
-| Obstacle Avoidance   | Disabled/Enabled.                                                                                |
-| Minimum Distance     | Distance (metres) away from obstacle that vehicle will stop when collision prevention is active. |
+Setting | Description
+--- | ------
+Collision Prevention | Disabled/Enabled.
+Obstacle Avoidance   | Disabled/Enabled.
+Minimum Distance     | Distance (metres) away from obstacle that vehicle will stop when collision prevention is active.
 
 ### RC Loss
 
@@ -2702,10 +2722,10 @@ Enable/disable collision prevention and obstacle avoidance, and set the closest 
 
 Set the action on RC loss, and how quickly the vehicle responds.
 
-| Setting         | Description                                                                                                                             |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| Failsafe Action | Values are: *Disabled*, Hold mode, Return mode, Land mode, Data Link Auto Recovery (CASA Outback Challenge rules), Terminate, Lockdown. |
-| RC Loss Timeout | Time after RC loss that the *Failsafe Action* is triggered.                                                                             |
+Setting | Description
+--- | ------
+Failsafe Action | Values are: *Disabled*, Hold mode, Return mode, Land mode, Data Link Auto Recovery (CASA Outback Challenge rules), Terminate, Lockdown.
+RC Loss Timeout | Time after RC loss that the *Failsafe Action* is triggered.
 
 ### Data Link Loss
 
@@ -2714,10 +2734,10 @@ Set the action on RC loss, and how quickly the vehicle responds.
 Set the action on data-link loss (loss of telemetry to ground station),
 and how quickly the vehicle responds.
 
-| Setting                | Description  |
-|------------------------|--------------------------------------------------------------------------|
-| Failsafe Action        | Values are: *Disabled*, *Hold mode*, *Return mode*, *Land mode*, *Data Link Auto Recovery (CASA Outback Challenge rules)*, *Terminate*, *Lockdown*. |
-| Data Link Loss Timeout | Time after data link loss that the *Failsafe Action* is triggered. |
+Setting | Description
+--- | ------
+Failsafe Action | Values are: *Disabled*, *Hold mode*, *Return mode*, *Land mode*, *Data Link Auto Recovery (CASA Outback Challenge rules)*, *Terminate*, *Lockdown*.
+Data Link Loss Timeout | Time after data link loss that the *Failsafe Action* is triggered.
 
 ### Geofence Failsafe
 
@@ -2731,11 +2751,11 @@ If the vehicle moves outside the radius or above the altitude the specified *Fai
 
 Set the action on fence breach, and the radius and/or altitude of the geofence cylinder.
 
-| Setting          | Description                                                                                |
-|------------------|--------------------------------------------------------------------------------------------|
-| Action on Breach | Values are: none, *Warning*, *Hold mod*e, *Return mode*, *Terminate* (flight termination). |
-| Max Radius       | Horizontal radius of geofence cylinder. Horizontal geofence disabled if 0.                 |
-| Max Altitude     | Height of geofence cylinder. Altitude geofence disabled if 0.                              |
+Setting | Description
+--- | ------
+Action on Breach | Values are: none, *Warning*, *Hold mod*e, *Return mode*, *Terminate* (flight termination).
+Max Radius       | Horizontal radius of geofence cylinder. Horizontal geofence disabled if 0.
+Max Altitude     | Height of geofence cylinder. Altitude geofence disabled if 0.
 
 ### Return Mode Settings
 
@@ -2747,12 +2767,12 @@ Set the action on fence breach, and the radius and/or altitude of the geofence c
 [Return mode](#return-mode) causes a vehicle to fly at a safe height to a safe destination, where it may loiter and/or then land.
 This section allows the return height, and landing behaviour to be specified for rally point and home location landings.
 
-| Setting              | Description                                                                                            |
-|----------------------|--------------------------------------------------------------------------------------------------------|
-| Climb to altitude of | Vehicle ascend to this minimum height (if below it) for the return flight.                             |
-| Return home then     | The action on return: Land, Loiter and do not land, or Loiter and land after a specified time.         |
-| Loiter Time          | The time to loiter before landing (if return home action is *Loiter and land after a specified time*). |
-| Loiter Altitude      | Altitude at which the vehicle will loiter (i.e. before landing).                                       |
+Setting | Description
+--- | ------
+Climb to altitude of | Vehicle ascend to this minimum height (if below it) for the return flight.
+Return home then     | The action on return: Land, Loiter and do not land, or Loiter and land after a specified time.
+Loiter Time          | The time to loiter before landing (if return home action is *Loiter and land after a specified time*).
+Loiter Altitude      | Altitude at which the vehicle will loiter (i.e. before landing).
 
 ### Land Mode Settings
 
@@ -2760,10 +2780,28 @@ This section allows the return height, and landing behaviour to be specified for
 
 Specify Land mode descent and disarm behaviour.
 
-| Setting | Description |
-| --- | ---|
-| Landing Descent Rate | Land descent rate. |
-| Disarm After | Auto disarm vehicle on landing (the default) by enabling the checkbox and setting the disarm time. If checkbox not enabled, the vehicle will not disarm after landing. |
+Setting | Description
+--- | ------
+Landing Descent Rate | Land descent rate.
+Disarm After | Auto disarm vehicle on landing (the default) by enabling the checkbox and setting the disarm time. If checkbox not enabled, the vehicle will not disarm after landing.
+
+
+### Kill Switch / Gimbal Lock
+
+The RC controller may have a *kill switch* configured to enable the *Flight Termination* safety failsafe.
+When enabled this action turns off all controllers and sets all PWM outputs to their failsafe values.
+
+The failsafe values may be used to deploy a parachute, landing gear or perform another operation.
+For example, the screenshots below show a camera first in its normal position (forward facing), and then in locked in its safety position (pointing upwards).
+
+> **Note:** Kill switch/failsafe behaviour depends on the connected hardware and PX4 configuration (i.e. it is controlled outside of QGC).
+> For more information see:  <https://docs.px4.io/master/en/advanced_config/flight_termination.html>.
+
+![](images/image132.png)
+
+![](images/image213.png)
+
+
 
 ### Vehicle Telemetry Logging
 
@@ -2771,9 +2809,9 @@ Specify Land mode descent and disarm behaviour.
 
 Enable telemetry logging to vehicle storage.
 
-| Setting                              | Description              |
-|--------------------------------------|--------------------------|
-| Telemetry logging to vehicle storage | Enabled/Disable logging. |
+Setting | Description
+--- | ------
+Telemetry logging to vehicle storage | Enabled/Disable logging.
 
 ### Hardware In The Loop Simulation (HITL)
 
@@ -2809,6 +2847,10 @@ Enable hardware-dependent simulation: *hardware in the loop* or *simulation in 
 
 Joystick setup is used to setup and calibrate the stick configuration and to assign actions to joystick buttons.
 
+<!-- 
+The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings > [Joystick Setup](#joystick-setup)** view.
+-->
+
 ### General tab
 
 The general tab is used to enable and verify joystick input.
@@ -2817,25 +2859,25 @@ The general tab is used to enable and verify joystick input.
 
 The settings are explained below.
 
-|Setting | Description|
-| --- | --- |
-| **Enable joystick input** | Select to start sending joystick commands to the connected vehicle.                                                |
-| Active joystick           | Ensure this matches the connected/desired joystick.                                                                |
-| RC Mode                   | Set mode (see below) to define the function of the left and right sticks. This is normally set to 2 for US pilots. |
-| Test Sticks               | Move the main and gimbal sticks and verify that the motion is as expected on the screen.                           |
-| Test Buttons              | Press joystick buttons and verify that the expected buttons are highlighted on the screen.                         |
+Setting | Description
+--- | ------
+**Enable joystick input** | Select to start sending joystick commands to the connected vehicle.
+Active joystick           | Ensure this matches the connected/desired joystick.
+RC Mode                   | Set mode (see below) to define the function of the left and right sticks. This is normally set to 2 for US pilots.
+Test Sticks               | Move the main and gimbal sticks and verify that the motion is as expected on the screen.
+Test Buttons              | Press joystick buttons and verify that the expected buttons are highlighted on the screen.
 
 RC Modes
 
 RC Modes define how the movement of the left and right joysticks are mapped to throttle, pitch, yaw and roll.
 The modes are largely a matter of preference: US pilots commonly use mode 2.
 
-| Mode | Left Stick (Forward/Back, Left/Right) | Right Stick (FB/LR)      |
-|------|---------------------------------------|--------------------------|
-| 1    | Pitch (FB), Yaw (LR)                  | Throttle (FB), Roll (LR) |
-| 2    | Throttle (FB), Yaw (LR)               | Pitch (FB), Roll (LR)    |
-| 3    | Pitch (FB), Roll (LR)                 | Throttle (FB), Yaw (LR)  |
-| 4    | Throttle  (FB), Roll(LR)              | Pitch (FB), Yaw (LR)     |
+Mode | Left Stick (Forward/Back, Left/Right) | Right Stick (FB/LR)
+--- | ----- | -----
+1 | Pitch (FB), Yaw (LR)     | Throttle (FB), Roll (LR)
+2 | Throttle (FB), Yaw (LR)  | Pitch (FB), Roll (LR)
+3 | Pitch (FB), Roll (LR)    | Throttle (FB), Yaw (LR)
+4 | Throttle  (FB), Roll(LR) | Pitch (FB), Yaw (LR)
 
 ### Button Assignment tab
 
@@ -2959,10 +3001,10 @@ The *Application Settings* view is used to configure the settings that aren't s
 
 - ![](images/image174.png)
 
-| Setting                  | Description                                                                          |
-|--------------------------|--------------------------------------------------------------------------------------|
-| Use Vehicle Pairing      | Check to enable the [Pairing Manager](#pairing-manager-microhard).                              |
-| Disable MGRS coordinates | Uncheck to overlay an [MGRS grid](#map-grid-mgrs) on the map in Plan and Fly views. |
+Setting | Description
+--- | ------
+Use Vehicle Pairing      | Check to enable the [Pairing Manager](#pairing-manager-microhard).
+Disable MGRS coordinates | Uncheck to overlay an [MGRS grid](#map-grid-mgrs) on the map in Plan and Fly views.
 
 ## Microhard
 
@@ -3056,14 +3098,3 @@ All vehicles on a network should use the same frequency.</p></td>
 </tbody>
 </table>
 
-# Footnotes
-
-
-<a href="#cmnt_ref1" id="cmnt1">[a]</a>Still confirming next step. Close dialog or some other dialog?
-
-<a href="#cmnt_ref2" id="cmnt2">[b]</a>+matej@auterion.com Can you please sanity check this section? You said the strip should also display home position, but I don't see that. Can you confirm how I'd get that to show up?
-
-<a href="#cmnt_ref3" id="cmnt3">[c]</a>It is GCS position not home position. You can get it in simulation or if you have GPS setup on GCS.
-
-<a href="#cmnt_ref4" id="cmnt4">[d]</a>Thanks. I added a line "If the ground station has a GPS attached, the strip will additionally include the ground station location."
-Can you screenshot what this looks like with GPS? It is not the end of the world if you can't because readers can work out what it is by inference.

@@ -2,7 +2,7 @@
 
 The QGC User Guide is written in github-compatible markdown and generated into PDF files using the [Pandoc](https://pandoc.org/MANUAL.html) toolchain.
 
-The source/master version can be found in this directory: [qgc_gov_user_guide](qgc_gov_user_guide.md) (incorporating images stored in the [images](images) subdirectory).
+The source/master version can be found in this directory: [qgc_gov_user_guide](qgc_gov_user_guide.md) (incorporating images stored in the [images](/images) subdirectory).
 
 This is effectively the latest version and can be read online.
 In addition, a PDF is generated on every new pull request and when a new tag is created (this and can be found in the Actions tab).
@@ -18,8 +18,7 @@ Write in standard github markdown, with the following exceptions:
   ```
 - The text for an image link is turned into figure text.
   Do NOT include image text for images in bullets, as this pulls them out of place in the rendered doc.
-
-
+- Tables with images suck. In fact tables suck. But they are still useful.
 
 ## Build Toolchain
 
@@ -31,8 +30,6 @@ A configuration is file sets up everything needed for the build.
 Specific settings can then be overridden on the command line (this is how version tags can be passed into the build).
 
 The files in the project are:
-- [docs/qgc_gov_user_guide](qgc_gov_user_guide.md) the user guide
-  - Images for above doc: [docs/images](images). 
 - [docs/Docker](Docker) - This is the source file for the docker image, which is built to dockerhub as: `jenosam/pandoc-with-fonts:latest`
   It is based on the minimal docker image provided Pandoc: `pandoc/latex:latest` but with the addition of the Dejavu fonts and the ability to define "Note" boxes in the generated PDF.
 - [docs/defaults.yaml](default.yaml) - default build configuration.
@@ -59,6 +56,14 @@ docker run --rm --volume "%cd%:/data" jenosam/pandoc-with-fonts:latest --standal
 The `default.yml` specifies where the files are located and built to, and also includes `meta.yml` with additional settings.
 You can override these.
 
+
+## CI
+
+CI is github actions. Each PR and tag includes a zip containing the generated PDF in the associated CI reference in the Actions tab.
+
+
+## Docker
+
 If you need to build a new docker, update `Docker` and then run the following in the same directory.
 This assumes you are pushing to `jenosam/pandoc-with-fonts:latest`.
 
@@ -71,9 +76,6 @@ To push the image to dockerhub\:
 docker push jenosam/pandoc-with-fonts:latest
 ```
 
-## CI
-
-CI is github actions. Each PR and tag includes a zip containing the generated PDF in the associated CI reference in the Actions tab.
 
 ## Other info/Links
 

@@ -7,5 +7,6 @@ RUN apk --update --no-cache add \
     fontconfig
 
 RUN tlmgr install tcolorbox \
-    environ
-    
+    environ \
+    enumitem
+
