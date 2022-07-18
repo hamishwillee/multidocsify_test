@@ -64,107 +64,151 @@ The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of butto
 ![TOGA - Front](images/image59.jpg)
 -->
 
-# Pairing 
+# Connection Management
 
-<!-- TODO: 
-All this needs update/review as flow isn't the same and I can't check it "fully"
-Note, this may still be true, but might be unnecessary to say. Removing for now:
+QGC-Gov can be used to securely _pair_ and _connect_ ground and air communication modules so they are able to connect and exchange data.
 
-Pilots should not need to enable pairing.
-If configuration is required this should be supplied by the vehicle/controller vendor
+Connections are managed using the _Manage Connections_ dialog, which is displayed when you select the _Connections_ icon in the top toolbar.
 
-Kinds of things to answer
-- Is pairting automatically set up.
-- How many things can you pair to at a time?
-- What if there are errors?
-- What settings?
-- What do you do on the vehicle - click the button on the GPS?
-- Confirm pairing and connection are synonymous 
-
---> 
-
-QGC-Gov can be used to securely _pair_ ground and air communication modules so they are able to connect and exchange data.
 Multiple vehicles can be paired to the ground station and users can then choose which vehicle(s) to connect.
+It is possible to pair multiple vehicles using a single GCS radio or have multiple connection methods. 
 
-> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A).
+> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A), but working with larger number and more complex radio configurations is untested.
 > However the actual number depends on the communication modules used, and is practically limited by how many vehicles a pilot can safely control.
 
-## Pair a Vehicle
+## Enable Connection Management
 
-Vehicles must be paired to the ground station before they can be connected.
+The _Connection Manager_ is enabled from the [general miscellaneous application settings](#miscellaneous).
 
-To pair a vehicle:
+![](images/app_settings_general_miscellaneous_connection_manager.png)
 
-1. Select the *Pair Vehicle* icon in the status bar:
+Select the checkbox: **Use Connection Manager**.
+The connection manager icon will then appear in the top toolbar as shown.
 
-   ![Pairing icon](images/pairing_icon.png) \ <!-- image93.png -->
+## Setup Ground Radio
 
-2. The ground station unit will launch the *Vehicle Pairing* dialog and try to "discover" an air unit to pair.
+The first step is to setup the radio attached to your ground station:
+
+1. Select the **Connections** icon to open the _Manage Connections_ dialog.
+   This will initially be empty as you haven't set up any connections.
    
-   ![Pairing Discovery](images/pairing_discovery.png) \ <!-- ![](images/image69.png) -->
+   ![](images/connection_manager_1_manage_connections.png)
+   
+   Select **Pair Vehicle** to start setting up the ground radio
+   
+1. The _Pair Vehicle_ prompt will appear.
+   Press the pairing button on your vehicle 3 times (this button is usually configured as a switch on the GPS unit). 
 
-2. If pairing doesn't work it may be that you're using the wrong encryption key.
-   Select the gear icon on the discovery dialog.
-   This will display a dialog you can use to enter a new encryption key.
+   ![](images/connection_manager_2_pairing_button_dialog.png)
 
-   ![Pairing Config](images/pairing_config.png) \ <!-- ![](images/image179.png) -->
-
-3. After a short while the ground station and vehicle should pair and connect.
-
-4. You can stop the pairing operation at any time by closing the *Pairing Dialog* (select the **X** or anywhere outside the window).
+   The _Setup Ground Radio_ dialog appears when a radio is detected.
+   
+   ![](images/connection_manager_3_setup_ground_radio_dialog.png)
 
 
-## Disconnecting a Vehicle
+1. Use the drop-down list to select a new type of connection to add (in this case it will be Microhard).
 
-<!-- TODO: Needs update/review -->
+   ![](images/connection_manager_4_select_connection_type_microhard.png)
+   
+   Then select **Add** to add the connection.
 
-The pairing manager will display the connected vehicles if any are connected.
-The dialog can be used to disconnect the vehicles or pair another vehicle.  
+   ![](images/connection_manager_5_pairing_setup_ground_radio_dialog_add_connection_type_microhard.png)
 
-To disconnect a vehicle (when connected):
+1. After a short wait the dialog will then populate with password and network information as shown below.
+   
+   This should be preconfigured correctly for your radio/network.
 
-1. Open the pairing manager (using its status icon).
-2. Select **Disconnect** (next to the vehicle name to display the confirmation dialog).
+   ![](images/connection_manager_6_pairing_setup_ground_radio_dialog_microhard_settings.png)
+   
+   > **Note:** The _Encryption key_ and _Password_ have to match the configuration on the vehicle.
+   > Default values are provided; these must be updated if the vehicle is reconfigured.
 
-   ![](images/image75.png)
-3. Press **Confirm** to disconnect and exit the pairing manager.
+1. Press **Apply** to save the settings.
 
-   ![](images/image152.png)
+   After a short while the settings will be applied and the _ground radio_ will be shown as connected.
 
-## Connecting to a Vehicle
+   ![](images/connection_manager_7_pairing_setup_ground_radio_dialog_microhard_settings_applied_pairingchannelappears.png)
 
-<!-- TODO: Needs update/review -->
+1. Press **X** to exit the dialog and start discovering/pairing the vehicle.
 
-The pairing manager can be used to connect to any paired vehicle.
 
-To connect to a vehicle (when disconnected):
+### Pairing to a Vehicle
 
-1. Open the pairing manager (using its status icon).
-2. The manager displays a list of available (paired) vehicles.
-   Select **Connect** next to the vehicle to connect.
+After indicating that you want to pair to a vehicle the _Pair vehicle dialog_ will appear:
 
-   ![](images/image175.png)<sup><a href="#cmnt1" id="cmnt_ref1">[a]</a></sup>
+1. When the pair vehicle dialog appears
 
-## Unpairing a Vehicle
+   ![](images/connection_manager_9_pairing_setup_ground_radio_dialog_discovering_pair_discovered_vehicle.png)
+   
+   - Select the **Pair** button on the dialog next to the discovered vehicle that you wish to connect to.
+   - Press the pairing button on the vehicle 3 times.
 
-<!-- TODO: Needs update/review -->
+1. The vehicle will then attempt to pair.
 
-Vehicle can only be unpaired when no vehicle is connected.
+   On success the **Manage Connections** dialog is displayed indicating the connected vehicle and channel.
+   
+   ![](images/connection_manager_10_pairing_connected_manage_connections.png)
+   
+If the pairing doesn't succeed the wheel on the pairing dialog spins and the sub title changes to "Retrying with pairing". Retrying can be ended only by clicking "Cancel".
 
-To unpair to a vehicle:
+### Connecting to a Vehicle
 
-1. Open the pairing manager (using its status icon).
-2. The manager displays a list of available (paired) vehicles.
-   Select the **X** next to the pairing to delete.  
+After a vehicle has been paired it will be displayed on the **Manage Connections** dialog allowing easy reconnection:
 
-   ![](images/image168.png)
-3. Confirm the unpairing prompt.
+1. Click the _Connections_ icon in the toolbar to launch the **Manage Connections** dialog.
 
-   ![](images/image194.png)
+1. Select the **Connect** button next to a vehicle to connect it:
 
-   The pairing manager will then return to the list of available vehicles.
+   ![](images/connection_manager_16_pairing_connected_manage_connect_again.png)
+   
+   The vehicle will then attempt to connect.
+   On succes it will be shown as connected:
 
-   ![](images/image1.png)
+   ![](images/connection_manager_10_pairing_connected_manage_connections.png)
+
+If the ground station is unable to connect to a vehicle the state will stay as "Connecting" until the dialog is canceled.
+
+
+### Disconnecting a Vehicle
+
+A connected vehicle is disconnected using the **Manage Connections** dialog:
+
+1. Click the _Connections_ icon in the toolbar to launch the **Manage Connections** dialog.
+
+   ![](images/connection_manager_10_pairing_connected_manage_connections.png)
+   
+1. Select the **Disconnect** button to disconnect an active connection.
+
+   ![](images/connection_manager_14_pairing_connected_manage_connections_disconnect.png)
+
+   You will then be prompted to confirm:
+   
+   ![](images/connection_manager_15_pairing_connected_manage_connections_disconnect_confirm.png)
+
+### Changing the Connection Channel
+
+You can change the connection channel using the **Manage Connections** dialog:
+
+1. Click the **Connections** icon in the toolbar to launch the _Manage Connections_ dialog.
+
+   ![](images/connection_manager_10_pairing_connected_manage_connections.png)
+
+1. Select the _Channel_ drop down and then choose the channel to use:
+
+   ![](images/connection_manager_11_pairing_connected_manage_connections_change_channel.png)
+
+   The connection manager will immediately try and reconfigure both radios.
+   
+   ![](images/connection_manager_12_pairing_connected_manage_connections_reconfiguring.png)
+   
+1. On success it will display a dialog indicating the connection is reconfigured.
+
+   ![](images/connection_manager_13_pairing_connected_manage_connections_reconfiguried.png).
+   
+   Press **Done** to return to the **Manage Connections** dialog.
+
+   ![](images/connection_manager_17_pairing_connected_manage_connect_again_connected.png)
+
 
 
 # App Menu
@@ -2993,108 +3037,19 @@ The *Application Settings* view is used to configure the settings that aren't s
 > **Note:** Pilots should generally not need to use the _Application Settings_, as QGC should be supplied on pre-configured hardware.
 > Only a few select settings are covered by this guide.
 
-![](images/image215.png)
+![](images/app_settings_general_top.png)
 
 ## General
 
 ### Miscellaneous
 
-- ![](images/image174.png)
+- ![](images/app_settings_general_miscellaneous.png)
 
 Setting | Description
 --- | ------
-Use Vehicle Pairing      | Check to enable the [Pairing Manager](#pairing-manager-microhard).
+Use Connection Manager   | Check to enable the [Connection Manager](#connection-management).
 Disable MGRS coordinates | Uncheck to overlay an [MGRS grid](#map-grid-mgrs) on the map in Plan and Fly views.
 
 ## Microhard
 
-These settings are used to enable the Microhard for use with *QGroundControl*.
-They can also be used to *manually* configure the microhard (if not using the [Pairing Manager](#pairing-manager-microhard)).
-
-> **Note:** The settings are not generally intended for pilots.
-
-![](images/image25.png)
-
-The settings are listed below. After changing any settings, remember to select **Apply**.
-
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Setting</p></td>
-<td><p>Default</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>Enable Microhard</p></td>
-<td><p>Unchecked</p></td>
-<td><p>Enable microhard usage.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Local IP Address</p></td>
-<td><p>192.168.168.1</p></td>
-<td><p>IP address of <em>microhard ground unit</em> (connected to QGC).
-This IP will be used at all times, since even when pairing is enabled this radio will always have the same IP.</p></td>
-</tr>
-<tr class="even">
-<td><p>Remote IP Address</p></td>
-<td><p>192.168.168.2</p></td>
-<td><p>IP address of the <em>microhard air unit</em> (on the vehicle)
-during pairing (or all the time if pairing is disabled).<br />
-<br />
-After pairing QGC will assign the <em>microhard air unit</em> a new IP
-in the range: XXX.XXX.XXX.20 to XXX.XXX.XXX.29.<br />
-<br />
-Note that the companion computer is assigned a separate IP address (by the pairing manager running on the vehicle). During pairing this is
-XXX.XXX.XXX.10. Once paired it is given an IP in the range: XXX.XXX.XXX.30 to XXX.XXX.XXX.39.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Network Mask</p></td>
-<td><p>255.255.255.0</p></td>
-<td><p>Network mask on the microhard network. The default value is recommended.</p></td>
-</tr>
-<tr class="even">
-<td><p>Configuration User Name</p></td>
-<td><p>admin</p></td>
-<td><p>This is the username of the microhard ground unit. It is needed by QGC to open a telnet session into the radio and configure its parameters.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Configuration Password</p></td>
-<td><p>admin</p></td>
-<td><p>This is the password of the microhard ground unit. It is needed by QGC to open a telnet session into the radio and configure its parameters.</p></td>
-</tr>
-<tr class="even">
-<td><p>Encryption Key</p></td>
-<td><p>1234567890</p></td>
-<td><p>This is the encryption key that the microhard uses to encrypt all the data being transmitted during pairing.<br />
-QGC automatically generates a new random key that is used by all paired units for encrypting data.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Network ID</p></td>
-<td><p>MH</p></td>
-<td><p>Microhard network ID used during the pairing phase.<br />
-Once pairing is successful, QGC will create a new network ID with the format SRR_XXXX, where XXXX is the channel frequency that the microhard radios use to communicate.</p></td>
-</tr>
-<tr class="even">
-<td><p>Channel frequency</p></td>
-<td><p>36</p></td>
-<td><p>Frequency used when the ground station and the vehicle are paired.
-All vehicles on a network should use the same frequency.</p></td>
-</tr>
-<tr class="odd">
-<td><p>Channel bandwidth</p></td>
-<td><p>4</p></td>
-<td><p>Channel bandwidth used during when the ground station and the vehicle are paired.</p></td>
-</tr>
-<tr class="even">
-<td><p>Pairing Frequency</p></td>
-<td><p>36</p></td>
-<td><p>Microhard frequency used during the pairing phase</p></td>
-</tr>
-</tbody>
-</table>
-
+The microhard app settings are deprecated and will be removed (they are not used if **Use Connection Manager** is enabled).
