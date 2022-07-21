@@ -53,7 +53,7 @@ The following reminders are provided to help ensure you have a safe flight:
 3. Turn up the sound on your ground station loud enough to hear warnings.
 
 
-<!--  TODO:  Decide if we need stick settings/mode to be pulled out as part of hardware near front, or assume they remain in the setttings.
+<!--  TODO:  Decide if we need stick settings/mode to be pulled out as part of hardware near front, or assume they remain in the settings.
 The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings > [Joystick Setup](#joystick-setup)** view.
 -->
 
@@ -162,7 +162,7 @@ After a vehicle has been paired it will be displayed on the **Manage Connections
    ![](images/connection_manager_16_pairing_connected_manage_connect_again.png)
    
    The vehicle will then attempt to connect.
-   On succes it will be shown as connected:
+   On success it will be shown as connected:
 
    ![](images/connection_manager_10_pairing_connected_manage_connections.png)
 
@@ -1234,7 +1234,7 @@ Icon | Name | Description
 ![](images/image80.png) | Fly | Switch to _Fly View_ (in order to fly a mission)
 ![](images/image44.png) | File/Sync | File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
 ![](images/image120.png) | Waypoint | Select to enable adding new waypoints to the map.
-![](images/image126.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern defintion. ![](images/image161.jpg) 
+![](images/image126.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern definition. ![](images/image161.jpg) 
 ![](images/image16.png) | Centre map | Center map on mission, home, vehicle, all items, or specified location
 
 
@@ -1473,7 +1473,7 @@ All other options are accessed from the menu (shown below)
 - **Insert waypoint \| Survey \| Corridor Scan \| Structure Scan:** Insert item of specified time after current waypoint.
 - **Delete:** Delete current waypoint
 - **Change Command:** Change the command type (same as selecting the mission item name in its header).
-- **Edit Position:** Open a dialog to specify the item position based on current vehicle position, or co-ordinates (geographic (GPS), UTM, MGRS).
+- **Edit Position:** Open a dialog to specify the item position based on current vehicle position, or coordinates (geographic (GPS), UTM, MGRS).
 - **Show all values:** Select checkbox to update the editor to display the precise MAVLink message/command values that the editor represents.
 - **Item \#:** Displays the sequence number of the selected item (within the mission).
 
