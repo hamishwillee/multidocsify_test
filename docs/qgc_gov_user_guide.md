@@ -29,7 +29,7 @@ Up to 255 vehicles can be controlled at a time (although only very experienced p
 
 ### OS Compatibility
 
-Compatible with: Android 10, Android 11, Ubuntu 18.04
+Compatible with: Android 10, Android 11, Ubuntu 20.04
 
 ### Hardware
 
