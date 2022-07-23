@@ -136,7 +136,7 @@ The first step is to setup the radio attached to your ground station:
 
 After indicating that you want to pair to a vehicle the _Pair vehicle dialog_ will appear:
 
-1. When the pair vehicle dialog appears
+1. When the pair vehicle dialog appears:
 
    ![](images/connection_manager_9_pairing_setup_ground_radio_dialog_discovering_pair_discovered_vehicle.png)
    
@@ -149,11 +149,11 @@ After indicating that you want to pair to a vehicle the _Pair vehicle dialog_ wi
    
    ![](images/connection_manager_10_pairing_connected_manage_connections.png)
    
-If the pairing doesn't succeed the wheel on the pairing dialog spins and the sub title changes to "Retrying with pairing". Retrying can be ended only by clicking "Cancel".
+If the pairing doesn't succeed the wheel on the pairing dialog spins and the subtitle changes to "Retrying with pairing". Retrying can be ended only by clicking "Cancel".
 
 ### Connecting to a Vehicle
 
-After a vehicle has been paired it will be displayed on the **Manage Connections** dialog allowing easy reconnection:
+After a vehicle has been paired it will be always be displayed on the **Manage Connections** dialog, allowing easy reconnection:
 
 1. Click the _Connections_ icon in the toolbar to launch the **Manage Connections** dialog.
 
@@ -210,7 +210,6 @@ You can change the connection channel using the **Manage Connections** dialog:
    ![](images/connection_manager_17_pairing_connected_manage_connect_again_connected.png)
 
 
-
 # App Menu
 
 The application menu is accessed from the **Q** icon on the top left of the application.
@@ -227,7 +226,11 @@ The menu provides access to separate views which are used for each main activity
 [Plan](#plan-view)
   ~ &nbsp;
   ~ Planning missions, geofence, and rally points.
-
+  
+Tactical
+  ~ &nbsp;
+  ~ TBD <!-- also need to update sidebar image above -->
+  
 [Vehicle Setup](#vehicle-setup)
   ~ &nbsp;
   ~ Configure vehicle-specific settings (calibration, failsafes, etc.).
@@ -242,10 +245,6 @@ The menu provides access to separate views which are used for each main activity
 
 > **Note:** You can toggle between [Fly](#fly-view) and [Plan](#plan-view) using a dedicated toolbar button in each view
 
-<!--
-![Switch to Fly View](images/app_switch_to_fly.png) ![Switch to Plan View](images/app_switch_to_plan.png) \ 
--->
-
 
 # Fly View
 
@@ -256,7 +255,7 @@ You can fly with either map or video feed in the foreground, and monitor the sta
 
 ![Fly View - Video](images/fly_view_main_video.png) \
 
-The main sections of the fly view are:
+The main sections of the _Fly View_ are:
 
 <!-- TBD - finish this list on main sections -->
 
@@ -289,7 +288,7 @@ The main sections of the fly view are:
 
 ![Fly View: Top Bar](images/fly_view_top_bar.png) \
 
-The Fly View app bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
+The _Fly View_ app bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
 The status icons can be selected for additional information.
 
 <!-- TODO: Cross link this to sections --> 
@@ -311,10 +310,10 @@ Vehicle
 Arm state
   ~ &nbsp;
   ~ Display _arm state_: Armed (motors spinning), Disarmed (motors stopped).
-  ~ Select to arm/disarm on ground, or emergency stop in air.
+  ~ Select to arm/disarm on ground.
   ~ Select to _emergency stop_ in air.
   
-[Pairing](#pairing)
+[Connection management](#connection-management)
   ~ &nbsp;
   ~ Pair and connect vehicle and ground station.
 
@@ -432,18 +431,18 @@ QGC-Gov supports: _street view_, _satellite view_, or _hybrid satellite/street v
 
 ### Map Actions (Fly View)
 
-Actions that require a position are initiated by touching the location on the map (when flying).
+Actions that require a position are initiated by selecting the location on the map (when flying).
 A popup menu will be displayed allowing the desired operation to be selected.
 
 ![Map actions (Fly View)](images/fly_view_map_actions.png) \
 
-Map actions must be acknowledged using a confirmation slider prompt.
+Map actions must be acknowledged using a [confirmation prompt](#confirmation-prompts).
 You may also need to set some additional information like the orbit radius.
 After acknowledging the prompt a [map marker](#map-markers) is added to the map and the action will be executed.
 
 For more information see:
 
-- [Goto Location](#goto-task) (Flying using High-Level Commands)
+- [Goto Location](#goto-location) (Flying using High-Level Commands)
 - [Orbit Location](#orbit-location) (Flying using High-Level Commands)
 - [Region of Interest](#region-of-interest) (Flying Manually)
 
@@ -462,13 +461,16 @@ Marker | Description
 **(O)** Orbit here | The center of a [Orbit here](#orbit-location) target.
 **(R)** ROI here | The current [Region of interest (ROI)](#region-of-interest).
 **(L)** | Land/Home marker.
-![](images/fly_view_waypoint.png) \ | Mission waypoint
-![](images/fly_view_waypoint_selected.png) \ | Selected (target) mission waypoint
+![](images/fly_view_waypoint.png) | Mission waypoint
+![](images/fly_view_waypoint_selected.png) | Selected (target) mission waypoint
 
 
 ### Map Grid (MGRS)
 
 The map in **Fly-** and **Plan View** may (optionally) overlay a grid and vehicle position information in MGRS coordinates.
+
+> **Note:** Enable the overlay in the settings by selecting the checkbox:
+> **Application Settings > General > Miscellaneous > Display MGRS coordinates**.
 
 ![MGRS Map overlay](images/map_mgrs.png)  <!-- image112.jpg -->
 
@@ -476,7 +478,8 @@ The grid overlay shows map coordinates with 10m resolution \[4 digits\].
 
 The information strip at the bottom is visible in **Fly View** only.
 It provides the position of the *map center* (caret icon) and the *vehicle* (plane icon) to one meter accuracy \[5 digits\].
- ![](images/image21.png)
+
+![](images/image21.png)
 
 The strip will additionally include the *ground station location* ("person" icon) **if** the ground station has a GPS module.  
 
@@ -487,12 +490,10 @@ The strip will additionally include the *ground station location* ("person" ico
 >
 > For more information see [MGRS coordinates](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) (Wikipedia).
 
-Enable the overlay in the settings by selecting the checkbox:
-**Application Settings > General > Miscellaneous > Display MGRS coordinates**.
 
 ## Fly Toolbar
 
-The fly toolbar is used to execute flight and preflight operations that do not require a specific map position.
+The _Fly View Toolbar_ is used to execute flight and preflight operations that do not require a specific map position.
 
 ![Fly View Toolbar](images/fly_view_toolbar.png) \
 
@@ -527,7 +528,7 @@ All toolbar actions are listed below.
   
 Action
   ~ &nbsp;
-  ~ Display additional (context-sensitive) actions for the current vehicle state.
+  ~ Display additional context-sensitive actions for the current vehicle state.
     May be used to change the altitude, pause, continue or edit a mission, takeoff if landed, etc.
   
 [Edit](#pause-edit-continue-a-mission)
@@ -538,28 +539,8 @@ Action
   ~ &nbsp;
   ~ TBD <!-- TODO: What is this? -->
 
-<!-- 
-Tool | Description
---- | -----------
-[Plan](#plan-view) | Switch to Plan View (in order to plan a mission, geofence or rally point).
-[Checklist](#preflight-checklist) | Start pre-flight safety checks.
-[Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
-[Land](#land-mode) | Land vehicle and disarm (option visible if flying).
-[Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
-[Pause](#hold-mode) | Pause current operation.
-Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to continue or edit a mission, or to change the altitude.
-[Edit](#pause-edit-continue-a-mission) | Edit the current mission (only visible when in a paused mission).
-[Overlay] | TBD 
 
-![Plan](images/image227.png) 
-![Checklist](images/image163.png)
-![Takeoff](images/image27.png)
-![Land](images/image14.png)
-![Return](images/image183.png)
-![Pause](images/image88.png)
-![Action](images/image36.png)
-![Edit](images/image45.png) 
--->
+### Confirmation Prompts
 
 All operations must be confirmed using a slider before they will be executed.
 Confirmation prompts are displayed in the bottom center of the map (if an altitude can be set for an operation, a vertical slider will be displayed at the same time).
@@ -622,7 +603,6 @@ Additional controls are displayed in the switcher if it is selected:
 - Change the [map type](#map-types) using the icon on the bottom right.
 
 ![Video Switcher - Overlay options](images/fly_view_video_switcher_overlay.png)  <!-- image118.png -->
-
 
 
 ## Camera View
@@ -695,7 +675,7 @@ The controls, in order are:
 - Free SD card memory
 - Camera mode
 - Capture
-- Open settings for current capture mode
+- Open settings to configure current capture mode
 - Elapsed time for current video (Video mode) / Number of captured pictures (Camera mode)
 
 
@@ -763,17 +743,13 @@ The settings that are *independent of the camera type* are listed below.
 - `Reset Camera Defaults`: Reset camera/gimbal to default settings.
 
 
-
-
 ## Flight Modes
-
-<!-- not sure this should go here yet -->
 
 Flight modes provide different types of autopilot assistance to a pilot, including automation of common operations like *takeoff* and *landing*, execution of fully autonomous missions, and changing how the vehicle responds to pilot input during manual flight (for example by making it easier to regain level flight, hold the vehicle to a fixed path or position, etc.).
 
 The current mode is displayed in the [flight mode selector](#flight-mode-selector) in the [Fly View app bar](#fly-view-app-bar).
-The selector can be opened to select *Position* or *Altitude* mode.
-Other modes are selected from the Fly Toolbar, such as Takeoff mode, Return mode, and land mode, or other controls.
+The selector can be opened to select [Position](#position-mode) or [Altitude](#altitude-mode) mode.
+Other modes are selected from the [Fly Toolbar](#fly-toolbar), such as [Takeoff mode](#takeoff-mode), [Return mode](#return-mode), and [Land mode](#land-mode), or other controls.
 
 The most important flight modes and tasks are covered at high level below.
 
@@ -849,10 +825,9 @@ In some cases Hold mode can be used for high level vehicle control, including go
 This mode is automatically activated when you start a mission in QGC.
 
 
-
 # Fly using High-Level Commands
 
-Fly View enables simple directed flight and image capture using high level commands: takeoff, fly to location, fly to location and orbit,
+_Fly View_ enables simple directed flight and image capture using high level commands: takeoff, fly to location, fly to location and orbit,
 point camera, take picture, land where you are, return home and land, etc.
 
 The command mechanisms are very simple:
@@ -868,7 +843,9 @@ In each case the action must be acknowledged using a confirmation dialog slider.
 
 ## Takeoff, Land, RTL, Pause
 
-The basic flight operations are all initiated by pressing the appropriate button on the toolbar and then using the slider on a confirmation prompt:
+<!-- all of this might be better structured into "fly actions" subsection - extended to show the options -->
+
+The basic flight operations are all initiated by pressing the appropriate button on the toolbar and then using the slider on a [confirmation prompt](#confirmation-prompts):
 
 - **Takeoff** - Arm and takeoff to specified altitude (altitude specified using vertical slider).
 - **Land** - Land immediately at current location
@@ -877,39 +854,28 @@ The basic flight operations are all initiated by pressing the appropriate button
 
 ## Goto Location
 
-<!-- 
-
-The *GoTo Task* takes you to a specific location.
-This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
-
--->
-
 To send the vehicle to a particular location:
 
 1. First takeoff
 2. Choose the map location where you want the drone to go and select the **Go to location** option:
 
-   ![](images/image228.png)
+   ![](images/fly_view_map_action_gotolocation.png)
 3. Confirm using the slider (note the target location is shown on the map):
 
-   ![](images/image171.png)
+   ![](images/fly_view_action_gotolocation_confirm.png)
 
 ## Orbit Location
-
-<!-- *Orbit Mode* (multicopter only) starts an orbit at a specific location.
-This mode is started when you select [Orbit at Location](#orbit-location) on the map.
--->
 
 To orbit a particular location:
 
 1. First takeoff
 2. Choose the map location where you want the drone to orbit and select the **Orbit at location** option:
 
-   ![](images/image108.png)
+   ![](images/fly_view_action_menu_orbit.png)
 3. Drag and drop the center of the orbit and its radius on the map using the white markers provided.
    You can also set the altitude using the vertical slider on the right.
 
-   ![](images/image99.png)
+   ![](images/fly_view_action_orbit.png)
 4. When you're satisfied, confirm using the slider.
 5. The vehicle will then fly to the location and orbit.
 
