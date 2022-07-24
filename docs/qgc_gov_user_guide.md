@@ -909,10 +909,10 @@ Other manual modes may be accessible outside of *QGroundControl* (i.e. though R
 
 > **Caution:** Ensure that sticks are centered before enabling manual modes!
 
-The manual modes can be enabled using the mode selector as shown.
+To enable manual modes select the current mode in the [Fly View app bar](#fly-view-app-bar), and then choose the desired mode from the popup dialog.
+[Position mode](#position-mode) is recommended for GPS-enabled vehicles.
 
-![](images/image141.png)
-
+![](images/fly_view_mode_selector.jpg)
 
 ## Region of Interest
 
@@ -925,19 +925,19 @@ To set the ROI:
 2. Select the target location for the ROI on the map.
    This will popup the map action menu.
    
-   ![](images/image102.png)
+   ![](images/fly_view_map_action_menu_roi.png)
 3. Acknowledge the confirmation prompt:
 
-   ![](images/image111.png)
+   ![](images/fly_view_action_confirm_roi.png)
 4. QGC-Gov will then add an ROI marker at the selected position, and mark the ROI status icon (application top bar) green ("enabled").
 
-   ![](images/image68.png)
+   ![](images/fly_view_map_icon_roi_active.png)
 
    > **Note:** the ROI isn't *actually* enabled until the vehicle is in position mode!
 
 To remove an ROI, select the ROI status icon in the toolbar and select the popup option: **Disable ROI**.
 
-![](images/image153.png)
+![](images/fly_view_prompt_disable_roi.png)
 
 
 # Fly a Mission
@@ -953,23 +953,25 @@ The UI is very simple.
   - Restart a mission if you’ve paused it.
 
 - Pause the running mission by selecting the toolbar **Pause** button (and acknowledge the confirmation prompt).
+
+  ![](images/fly_view_toolbar_button_pause_mission.png)
+
   Restart using **Continue** prompt (if not visible, display it using the Action button).
-  
-  ![](images/image88.png)
+
 - [Pause, Edit and Continue a mission](#pause-edit-continue-a-mission) using the **Pause** and **Edit** buttons (see below)
 - Pause and go to a location specified on the map.
 
   - Simply select a position on the map to add a **Go here** marker and display a *Goto Location* prompt.
     Use the slider to confirm the action.
 
-    ![](images/image42.png)
+    ![](images/fly_view_action_confirm_goto_location.png)
   - The mission can be continued by acknowledging the *Continue Mission* prompt that appears after setting the Goto target (use the **Action** button to display the prompt if it is not visible).
 
 - Use the **Action** button to display valid mission options for the current vehicle state: *start*, *continue*, *pause*, *restart*.
 
-  ![](images/image36.png)
+  ![](images/fly_view_toolbar_button_action.png)
 
-  It can be used to bring back a prompt that has been dismissed.
+  It can also be used to bring back a prompt that has been dismissed.
 
 ## Pause-Edit-Continue a Mission
 
@@ -977,15 +979,18 @@ QGroundControl makes it an almost-seamless operation to pause, edit and then con
 
 > **Note:** QGroundControl switches to [Plan View](#plan-view) for editing, and then returns you to *Fly View* to continue the mission towards the same waypoint (if available). 
 
-To pause and edit an ongoing mission:  
+To pause and edit an ongoing mission:
 
-1. Pause the current mission (select the **Pause** button and confirm using the slider).  
-   ![](images/image217.png)
-2. Press the **Edit** toolbar button to switch to the Plan View (this appears after pausing the mission)  
-   ![](images/image203.png)
+1. Pause the current mission (select the **Pause** button and confirm using the slider).
+
+   ![](images/fly_view_toolbar_pause_and_confirm.png)
+2. Press the **Edit** toolbar button to switch to the Plan View (this appears after pausing the mission)
+
+   ![](images/fly_view_toolbar_button_edit_mission.png)
 3. [Plan the mission](#plan-view) (as usual). You can add, remove, delete, move or change any item.
 4. Select **Continue Mission** on the top right to upload the changed mission and switch back to *Fly View* (or **Cancel Changes** to clear the current changes and stay in the same view).
-   ![](images/image193.png)
+
+   ![](images/fly_view_mission_edit_cancel_continue.png)
 5. Check the highlighted/current target waypoint is correct:
 
    - The mission will continue towards the original target waypoint, unless this item was deleted.
