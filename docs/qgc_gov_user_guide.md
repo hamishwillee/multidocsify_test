@@ -1014,13 +1014,13 @@ There are individual topics with detailed instructions on each type of plan and 
 
 ## Plan UI Overview
 
-![](images/image188.jpg)
+![](images/plan_view_overview.png)
 
 This topic provides an overview of the main UI elements (in particular those that are common to all plan types).
 
 ### Upload Button
 
-![](images/image125.png)
+![](images/plan_view_button_upload_required.png)
 
 The *Upload Button* sends the current mission, geofence and rally point plans to the vehicle.
 
@@ -1028,12 +1028,12 @@ The button has two states.
 
 | Appearance | State | Description |
 | --- | --- | --- |
-| ![](images/image125.png) | Upload Required | Plan has changed since last upload. |
-| ​​![](images/image3.png)​   | Upload          | Plan has not changed on this ground station (but can be uploaded anyway). |
+| ![](images/plan_view_button_upload_required.png) | Upload Required | Plan has changed since last upload. |
+| ​​![](images/plan_view_button_upload.png)​   | Upload          | Plan has not changed on this ground station (but can be uploaded anyway). |
 
 ### Plan Type Selector
 
-![](images/image178.png)
+![](images/plan_view_plan_type_selector.png)
 
 The *Plan Type* selector sets the current plan type being edited: mission (including surveys and scans), geofence, rally points.
 
@@ -1048,44 +1048,49 @@ Different editors are displayed for each type of plan:
 
 ### Plan Information
 
-![](images/image31.png)
+![](images/plan_view_plan_information.png)
 
 The *Plan Information* section contains information that is useful for planning *missions*, including details about both the currently selected waypoint and the whole mission (it shows the same information for all plan types).
 
 For more details see [Mission Plan \> Mission Information](#mission-information).
 
-### Plan Tools
+### Plan Toolbar
 
-The *Plan Tools* provides tools for working with plans, including adding waypoints, inserting survey patterns, saving/loading/uploading/downloading plans etc. Some of the options are only displayed when working on a particular type of plan.
+The *Plan Toolbar* provides tools for working with plans, including adding waypoints, inserting survey patterns, saving/loading/uploading/downloading plans etc.
+Some of the options are only displayed when working on a particular type of plan.
 
 Icon | Name | Plan Type | Description
 --- | ---- | ---- | -------------
-![](images/image80.png)  | Fly           | All     | Switch to Fly View (e.g. in order to fly a mission)
-![](images/image44.png)  | File/Sync     | All     | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
-![](images/image120.png) | Waypoint      | Mission | Select to enable adding new waypoints to the map.
-![](images/image126.png) | Pattern tools | Mission | Add or load a survey pattern - survey (area), structure, corridor.
-![](images/image184.png) | Rally Point   | Rally   | Add a rally (safe) point.
-![](images/image16.png)  | Centre map    | All     | Center map on mission, home, vehicle, all items, or specified location
+![](images/plan_toolbar_button_fly.png)      | Fly | All | Switch to Fly View (e.g. in order to fly a mission)
+![](images/plan_toolbar_button_file.png)     | File/Sync | All | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/plan_toolbar_button_waypoint.png) | Waypoint | Mission | Select to enable adding new waypoints to the map.
+![](images/plan_toolbar_button_roi.png) | ROI | Mission | Select to add an ROI to the plan at the current point. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
+![](images/plan_toolbar_button_cancel_roi.png) | Cancel ROI | Mission | Select to add a cancel ROI action to the plan (cancelling the last ROI added to the plan).
+![](images/plan_toolbar_button_pattern.png)  | Pattern tools | Mission | Add or load a survey pattern - survey (area), structure, corridor.
+![](images/plan_toolbar_button_rallypoint.png) | Rally Point | Rally | Add a rally (safe) point.
+![](images/plan_toolbar_button_centre_map.png) | Centre map | All | Center map on mission, home, vehicle, all items, or specified location
 
 #### File/Sync Tools
+\
 
-![File/Sync Tools](images/image17.png)
+![File/Sync Tools](images/plan_view_file_sync_dialog.png)
 
-The Plan **File/Sync Tool** provides options to create a new plans, load/save plans on the ground station computer, and upload/download/clear the plan on the vehicle.
+The Plan **File/Sync Tool** provides options to create a new plans of various types, store/load plans on the ground station computer, and upload/download/clear the plan on the vehicle.
 
 > **Tip:** Only valid options are enabled (e.g. *Download* is greyed out if there is no mission on the vehicle).
 
-#####  File Options
+##### Storage Options
+\
 
 Option | Description
 --- | ------
-New... | Clear plan on QGC and vehicle.
-Open... | Open plan file from storage, clearing the current mission in the ground station. The plan on the vehicle is not affected. QGC can open **.plan** files (and also a number of legacy formats: **.mission**, **.txt**, **.waypoints**).
-Save | Save previously opened or saved plan under same name. QGC prompts to "**Save as**" if the file is new.
+Open... | Open plan file from storage, clearing the current mission in the ground station. The plan on the vehicle is not affected. QGC-Gov can open **.plan** files (and also a number of legacy formats: **.mission**, **.txt**, **.waypoints**).
+Save | Save previously opened or saved plan under same name. QGC-Gov prompts to "**Save as**" if the file is new.
 Save as... | Save current plan under new name (the save format is _.plan_).
 Save Mission Waypoints as KML ... | Save current mission (only) as a KML file. KML files are used by Google Earth.
 
 ##### Vehicle Options
+\
 
 The vehicle options upload, download and clear plans to/from/on the vehicle.
 
@@ -1094,6 +1099,7 @@ Option                | Description
 Upload                | Upload plan to vehicle. Existing plans on the vehicle are cleared.
 Download              | Download current plan from vehicle. The current plan on the ground station is cleared.
 Clear Vehicle Mission | Clear plan on vehicle and QGC. Disabled if no vehicle is connected.
+
 
 ### Map Tools
 
@@ -1150,7 +1156,7 @@ General information that is common to all plan types (e.g. related to uploading 
 
 ### Mission Information
 
-![](images/image31.png)
+![](images/plan_view_plan_information.png)
 
 The plan information (application top bar) provides useful statistics for planning both individual waypoints and the whole mission.
 
@@ -1202,11 +1208,13 @@ The [Plan Tools](#plan-tools) that are displayed when working with missions are 
 
 Icon | Name | Description
 --- | --- | ---------
-![](images/image80.png) | Fly | Switch to _Fly View_ (in order to fly a mission)
-![](images/image44.png) | File/Sync | File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
-![](images/image120.png) | Waypoint | Select to enable adding new waypoints to the map.
-![](images/image126.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern definition. ![](images/image161.jpg) 
-![](images/image16.png) | Centre map | Center map on mission, home, vehicle, all items, or specified location
+![](images/plan_toolbar_button_fly.png) | Fly | Switch to _Fly View_ (in order to fly a mission)
+![](images/plan_toolbar_button_file.png) | File/Sync | File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/plan_toolbar_button_waypoint.png) | Waypoint | Select to enable adding new waypoints to the map.
+![](images/plan_toolbar_button_roi.png) | ROI | Mission | Select to add an ROI to the plan at the current point. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
+![](images/plan_toolbar_button_cancel_roi.png) | Cancel ROI | Mission | Select to add a cancel ROI action to the plan (cancelling the last ROI added to the plan).
+![](images/plan_toolbar_button_pattern.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern definition. ![](images/image161.jpg) 
+![](images/plan_toolbar_button_centre_map.png) | Centre map | Center map on mission, home, vehicle, all items, or specified location
 
 
 ### Mission Command List
@@ -1223,9 +1231,9 @@ Detailed information about the command list can be found in: [Manual/Waypoint Mi
 
 ## Creating a Mission
 
-To create a completely new mission, you can first clear away any existing mission using the **File \> New** tool.
+To create a completely new mission, you can first clear away any existing mission using the **File > Vehicle > Clear** button (or **File > Create Plan > Blank** button.
 
-![](images/image17.png)
+![](images/plan_view_file_sync_dialog.png)
 
 There are four main "types" of mission - waypoint missions, survey missions, structure scans, and corridor scans.
 The surveys/scan missions are just waypoint missions that happen to include patterns of the different types.
@@ -1260,9 +1268,9 @@ This example creates a simple end-to-end mission that includes takeoff, setting 
 
 To create a manual mission:
 
-1. Open the *Plan View* and select the **Mission** button (top     right).
+1. Open the *Plan View* and select the **Mission** button (top right).
 
-   ![](images/image178.png)​
+   ![](images/plan_view_plan_type_selector.png)​
 2. From the *Plan Tools*, select **File \> New** to clear any existing mission.
 3. Check that the [Mission Start Editor](#mission-start-editor) settings are correct for the planned survey.
    In particular, check that the altitude is high enough to avoid obstacles when travelling to the first waypoint.
