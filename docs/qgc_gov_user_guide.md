@@ -984,7 +984,7 @@ To pause and edit an ongoing mission:
 1. Pause the current mission (select the **Pause** button and confirm using the slider).
 
    ![](images/fly_view_toolbar_pause_and_confirm.png)
-2. Press the **Edit** toolbar button to switch to the Plan View (this appears after pausing the mission)
+2. Press the **Edit** toolbar button to switch to the [Plan View](#plan-view) (this appears after pausing the mission)
 
    ![](images/fly_view_toolbar_button_edit_mission.png)
 3. [Plan the mission](#plan-view) (as usual). You can add, remove, delete, move or change any item.
@@ -1029,7 +1029,7 @@ The button has two states.
 | Appearance | State | Description |
 | --- | --- | --- |
 | ![](images/plan_view_button_upload_required.png) | Upload Required | Plan has changed since last upload. |
-| ​​![](images/plan_view_button_upload.png)​   | Upload          | Plan has not changed on this ground station (but can be uploaded anyway). |
+| ​​![](images/plan_view_button_upload.png)​  | Upload | Plan has not changed on this ground station (but can be uploaded anyway). |
 
 ### Plan Type Selector
 
@@ -1054,6 +1054,7 @@ The *Plan Information* section contains information that is useful for planning
 
 For more details see [Mission Plan \> Mission Information](#mission-information).
 
+
 ### Plan Toolbar
 
 The *Plan Toolbar* provides tools for working with plans, including adding waypoints, inserting survey patterns, saving/loading/uploading/downloading plans etc.
@@ -1061,26 +1062,24 @@ Some of the options are only displayed when working on a particular type of plan
 
 Icon | Name | Plan Type | Description
 --- | ---- | ---- | -------------
-![](images/plan_toolbar_button_fly.png)      | Fly | All | Switch to Fly View (e.g. in order to fly a mission)
-![](images/plan_toolbar_button_file.png)     | File/Sync | All | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
-![](images/plan_toolbar_button_waypoint.png) | Waypoint | Mission | Select to enable adding new waypoints to the map.
-![](images/plan_toolbar_button_roi.png) | ROI | Mission | Select to add an ROI to the plan at the current point. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
-![](images/plan_toolbar_button_cancel_roi.png) | Cancel ROI | Mission | Select to add a cancel ROI action to the plan (cancelling the last ROI added to the plan).
-![](images/plan_toolbar_button_pattern.png)  | Pattern tools | Mission | Add or load a survey pattern - survey (area), structure, corridor.
-![](images/plan_toolbar_button_rallypoint.png) | Rally Point | Rally | Add a rally (safe) point.
-![](images/plan_toolbar_button_centre_map.png) | Centre map | All | Center map on mission, home, vehicle, all items, or specified location
+![](images/plan_toolbar_button_fly.png)      | Fly | All | Switch to [Fly View](#fly-view) (e.g. in order to fly a mission)
+![](images/plan_toolbar_button_file.png)     | [File/Sync](#file-sync-tools) | All | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/plan_toolbar_button_waypoint.png) | [Waypoint](#waypoint-tool) | Mission | Select to enable adding new waypoints to the map.
+![](images/plan_toolbar_button_roi.png) | [ROI](#mission-roi-tools) | Mission | Select to enable adding region of interest points on the map. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
+![](images/plan_toolbar_button_cancel_roi.png) | [Cancel ROI](#mission-roi-tools) | Mission | Select to add a _cancel ROI_ item to the plan (cancelling the previous ROI in the the plan).
+![](images/plan_toolbar_button_pattern.png)  | [Pattern](#pattern-tools) | Mission | Add or load a survey pattern: survey (area), structure survey, corridor survey.
+![](images/plan_toolbar_button_rallypoint.png) | [Rally Point](#rally-points-tool) | Rally | Add a rally (safe) point.
+![](images/plan_toolbar_button_centre_map.png) | [Centre map](#center-map-tools) | All | Center map on mission, home, vehicle, all items, or specified location
 
-#### File/Sync Tools
-\
+#### File/Sync Tools {#file-sync-tools}
 
-![File/Sync Tools](images/plan_view_file_sync_dialog.png)
+![File/Sync Tools](images/plan_view_file_sync_dialog.png) /
 
 The Plan **File/Sync Tool** provides options to create a new plans of various types, store/load plans on the ground station computer, and upload/download/clear the plan on the vehicle.
 
 > **Tip:** Only valid options are enabled (e.g. *Download* is greyed out if there is no mission on the vehicle).
 
 ##### Storage Options
-\
 
 Option | Description
 --- | ------
@@ -1090,9 +1089,8 @@ Save as... | Save current plan under new name (the save format is _.plan_).
 Save Mission Waypoints as KML ... | Save current mission (only) as a KML file. KML files are used by Google Earth.
 
 ##### Vehicle Options
-\
 
-The vehicle options upload, download and clear plans to/from/on the vehicle.
+The vehicle plan file/sync options are:
 
 Option                | Description
 --- | ------
@@ -1100,15 +1098,59 @@ Upload                | Upload plan to vehicle. Existing plans on the vehicle ar
 Download              | Download current plan from vehicle. The current plan on the ground station is cleared.
 Clear Vehicle Mission | Clear plan on vehicle and QGC. Disabled if no vehicle is connected.
 
+#### Waypoint Tool
 
-### Map Tools
+The plan toolbar waypoint tool enables adding waypoints to the map.
+These define the takeoff position and path for a [Waypoint Mission](#waypoint-mission).
+
+![](images/plan_toolbar_button_waypoint_active.png)
+
+Once this tool is selected, waypoints are added by selecting the desired position on the map.
+QGC-Gov adds a marker for the waypoint on the map and adds a [Mission Waypoint Editor](#mission-waypoint-editor) to the mission item list on the right hand side.
+
+For more information see [Create a Waypoint Mission](#create-a-waypoint-mission).
+
+#### Mission ROI Tools
+
+The ROI tool is selected to enable adding region of interest points to the mission, which the camera will track.
+
+![](images/plan_toolbar_button_roi.png)
+
+Once enabled you can select the map to add an ROI to the mission and an [ROI Editor](#roi_editor) to the mission item list at the current point.
+The ROI will be enabled until canceled or the end of the mission.
+
+An ROI can be disabled by adding another ROI, or by adding a cancel ROI mission item.
+You can add a cancel ROI item at the current point in the mission by selecting the **Cancel ROI** tool on the plan toolbar.\
+
+![](images/plan_toolbar_button_cancel_roi.png)
+
+#### Pattern Tools
+
+The pattern tool opens a dialog from which you can add a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan) to a mission, or **Load KML/SHP...** file containing a pattern definition. 
+
+![](images/image161.jpg) 
+
+Note that you can also create a new mission for each survey pattern type using the [File/Sync](#file-sync-tools) tool.
+
+#### Rally Points Tool
+
+The *Rally points* tool is selected to enable adding rally points to the map.
+These are alternative safe landing/waiting destinations for a vehicle in [Return mode](#return-mode).
+
+![](images/plan_toolbar_button_rallypoint.png)
+
+Once enabled you can select on the map to add a rally point, which can then be edited using the corresponding *Rally Point Editor* panel on the right.
+
+See [Rally Points](#rally-points) for more information.
+
+#### Center Map Tools
 
 The map responds to platform-specific mechanisms for map control.
 For example, on a tablet you can drag the map to pan, and use pinch gestures to zoom.
 
-In addition, the **Plan Tools \> Center** tool can be used to control how the map is centered.
+In addition, the **Plan Tools > Center** tool can be used to control how the map is centered.
 
-![](images/image41.png)
+![](images/plan_tool_button_centre_map_dialog.png)
 
 Option | Description
 --- | -------
@@ -1120,14 +1162,19 @@ Current Location | Center map on ground station location. Disabled if ground sta
 Specified Location | Center map on specified location. Selecting this option opens the _Specify Position_ dialog (right of the screen). Enter geographic, UTM or MGRS position information, then press the associated **Set...** button to make it the new map center. ![](images/image105.png)
 
 
-> **Note:** Additional, for _mission editing_ (only) the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.
-> ![](images/image122.png)
+#### Map Tools
 
+The map responds to platform-specific mechanisms for map control.
+For example, on a tablet you can drag the map to pan, and use pinch gestures to zoom.
+
+Additional, when editing missions the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.
+
+![](images/plan_view_map_zoom_tools_scale.png)
 
 ### Map Grid
 
 The map can be configured to overlay a map grid in both Plan and Fly Views.
-For more information see: [Fly View\> Map Grid (MGRS)](#map-grid-mgrs).
+For more information see: [Fly View > Map Grid (MGRS)](#map-grid-mgrs).
 
 # Mission Plan
 
@@ -1136,7 +1183,7 @@ They are are created in *Plan View* when the [Plan Type](#plan-type-selector) 
 
 There are a number of different "types" of missions:
 
-- [Manual Missions](#manual-waypoint-mission): The flight path is defined as a series of waypoints and other mission commands.
+- [Waypoint Missions](#waypoint-mission): The flight path is defined as a series of waypoints and other mission commands.
 - ​[Survey Missions](#survey-mission): An area survey defined by an arbitrary polygon.
 - ​[Structure Scans](#structure-scan-mission): A survey over a vertical surface with arbitrary polygonal ground footprint (e.g. a building)
 - ​[Corridor Scans](#corridor-scans): A survey that follows a poly-line (e.g. a road).
@@ -1206,16 +1253,15 @@ C | Corridor scan
 
 The [Plan Tools](#plan-tools) that are displayed when working with missions are listed below.
 
-Icon | Name | Description
---- | --- | ---------
-![](images/plan_toolbar_button_fly.png) | Fly | Switch to _Fly View_ (in order to fly a mission)
-![](images/plan_toolbar_button_file.png) | File/Sync | File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
-![](images/plan_toolbar_button_waypoint.png) | Waypoint | Select to enable adding new waypoints to the map.
-![](images/plan_toolbar_button_roi.png) | ROI | Mission | Select to add an ROI to the plan at the current point. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
-![](images/plan_toolbar_button_cancel_roi.png) | Cancel ROI | Mission | Select to add a cancel ROI action to the plan (cancelling the last ROI added to the plan).
-![](images/plan_toolbar_button_pattern.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern definition. ![](images/image161.jpg) 
-![](images/plan_toolbar_button_centre_map.png) | Centre map | Center map on mission, home, vehicle, all items, or specified location
-
+Icon | Name | Plan Type | Description
+--- | ---- | ---- | -------------
+![](images/plan_toolbar_button_fly.png)      | Fly | All | Switch to [Fly View](#fly-view) (e.g. in order to fly a mission)
+![](images/plan_toolbar_button_file.png)     | [File/Sync](#file-sync-tools) | All | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/plan_toolbar_button_waypoint.png) | [Waypoint](#waypoint-tool) | Mission | Select to enable adding new waypoints to the map.
+![](images/plan_toolbar_button_roi.png) | [ROI](#mission-roi-tools) | Mission | Select to enable adding region of interest points on the map. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
+![](images/plan_toolbar_button_cancel_roi.png) | [Cancel ROI](#mission-roi-tools) | Mission | Select to add a _cancel ROI_ item to the plan (cancelling the previous ROI in the the plan).
+![](images/plan_toolbar_button_pattern.png)  | [Pattern](#pattern-tools) | Mission | Add or load a survey pattern: survey (area), structure survey, corridor survey.
+![](images/plan_toolbar_button_centre_map.png) | [Centre map](#center-map-tools) | All | Center map on mission, home, vehicle, all items, or specified location
 
 ### Mission Command List
 
@@ -1227,7 +1273,7 @@ Individual mission items can be selected on the map or in the mission list to ed
 
 ![](images/image64.png)
 
-Detailed information about the command list can be found in: [Manual/Waypoint Mission](manual-waypoint-mission).
+Detailed information about the command list can be found in: [Waypoint Mission](#waypoint-mission).
 
 ## Creating a Mission
 
@@ -1240,14 +1286,14 @@ The surveys/scan missions are just waypoint missions that happen to include patt
 
 For more information about how to create each type of mission:
 
-- [Manual/Waypoint Mission](manual-waypoint-mission)
+- [Waypoint Mission](#waypoint-mission)
 - [Survey (Mission)](#survey-mission)
 - [Structure Scan (Mission)](#structure-scan-mission)
 - [Corridor Scan (Mission)](#corridor-scan)
 
-# Manual/Waypoint Mission
+# Waypoint Mission
 
-A manual (or "waypoint") mission is an autonomous mission where the flight path is explicitly defined on the map using waypoint mission items.
+A waypoint mission is an autonomous mission where the flight path is defined on the map using waypoint mission items.
 
 ![](images/image131.jpg)
 
@@ -1260,13 +1306,13 @@ Waypoints are added by first selecting the associated tool in the *Plan Toolbar*
 When added to the map, waypoint items editors are also added in the mission list on the right hand side.
 These editors can be used to change mission items to different types and delete them.
 
-This topic shows how to create a basic manual mission.
+This topic shows how to create a basic waypoint mission.
 
-## Create a Manual Mission
+## Create a Waypoint Mission
 
 This example creates a simple end-to-end mission that includes takeoff, setting waypoints, and landing.
 
-To create a manual mission:
+To create a waypoint mission:
 
 1. Open the *Plan View* and select the **Mission** button (top right).
 
@@ -1281,7 +1327,7 @@ To create a manual mission:
 5. Add a takeoff waypoint.
 
    - Select **Plan Tools \> Waypoint** to enable adding waypoints
-     ![](images/image73.png)
+     ![](images/plan_toolbar_button_waypoint_active.png)
    - Select on the map to add a *Takeoff* item.
      The first waypoint added to a mission is automatically turned into a Takeoff item!
      ![](images/image229.jpg)
@@ -1292,11 +1338,11 @@ To create a manual mission:
 
    - Select **Plan Tools \> Waypoint**.to enable adding waypoints
 
-     ![](images/image73.png)
+     ![](images/plan_toolbar_button_waypoint_active.png)
    - Select on the map to add a *Waypoint* item.
 
      ![](images/image134.jpg) 
-   - An (open) *Mission Waypoint Editor* is also added to the mission item list.
+   - An (open) [Mission Waypoint Editor](#mission-waypoint-editor) is also added to the mission item list.
      If needed, use the editor to modify the altitude, heading, or flight speed.
      Camera triggering can also be configured from this panel (and will apply until the next waypoint).
    - Add additional waypoints where needed on the map (along the desired path).
@@ -1425,7 +1471,6 @@ All the mission editors are listed below (other than those for patterns).
 | ​               | Start video capture                         | Start video capture.                                                                   |
 | ​               | Stop video capture                          | Stop video capture.                                                                    |
 
-​
 
 ### Common Operations
 
@@ -1506,77 +1551,7 @@ The *Camera Panel* specifies camera action/triggering and gimbal positioning fr
   - `Yaw`: Gimbal yaw
 
 
-<!-- 
-
-+-------------------+---------------------------+
-| Setting           | Description               |
-+===================+===========================+
-| Camera triggering | Options:                  |
-|                   |                           |
-|                   | -  No change              |
-|                   | -  Take photos (time)     |
-|                   | -  Take photos (distance) |
-|                   | -  Stop taking photos     |
-|                   | -  Start recording video  |
-|                   | -  Stop recording video   |
-|                   |                           |
-+-------------------+---------------------------+
-| Time              | - cures scurvy            |
-|                   | - tasty                   |
-+-------------------+---------------------------+
--->
-
-<!-- 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Setting</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>Camera triggering</p></td>
-<td><p>Options:</p>
-<ul>
-<li></li>
-<li>Take photos (time)</li>
-<li>Take photos (distance)</li>
-<li>Stop taking photos</li>
-<li>Start recording video</li>
-<li>Stop recording video</li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>Time</p></td>
-<td><p>Sets trigger interval in seconds.</p>
-<ul>
-<li>Enabled for: <em>Take photos (time)</em>.</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>Distance</p></td>
-<td><p>Sets trigger interval in distance traveled.</p>
-<ul>
-<li>Enabled for: <em>Take photos (distance)</em>.</li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>Mode</p></td>
-<td><p>Camera mode: <em>Photo</em>, <em>Video</em>,
-<em>Survey</em>.</p></td>
-</tr>
-<tr class="even">
-<td><p>Gimbal</p></td>
-<td><p>Enables gimbal fields: Pitch and Yaw.</p></td>
-</tr>
-</tbody>
-</table>
--->
-
-### Mission Region of Interest (ROI) Editor
+### Mission Region of Interest (ROI) Editor {#roi_editor}
 
 ![](images/image76.jpg)
 
@@ -1610,7 +1585,7 @@ This topic shows how to create a survey mission, and the various settings that c
 
 ## Create a Survey Mission
 
-A survey mission is just a [waypoint mission](#manual-waypoint-mission) that includes a survey item.
+A survey mission is just a [waypoint mission](#waypoint-mission) that includes a survey item.
 A simple end-to-end survey might consist of just a *Takeoff* waypoint and *Survey* item.
 
 To create a survey mission:
@@ -1916,7 +1891,7 @@ This topic shows how to create a structure scan mission, and the various setting
 
 ## Create a Structure Scan Mission
 
-A structure scan mission is just a [waypoint mission](manual-waypoint-mission) that includes a structure scan pattern/mission item.
+A structure scan mission is just a [waypoint mission](#waypoint-mission) that includes a structure scan pattern/mission item.
 A simple end-to-end scan might consist of just a *Takeoff* waypoint and *Structure Scan* item.
 
 To create a structure scan mission:
@@ -2172,7 +2147,7 @@ This topic shows how to define a corridor scan mission, and the various settings
 
 ## Create a Corridor Scan Mission
 
-A corridor scan mission is just a [waypoint mission](manual-waypoint-mission) that includes a corridor scan item.
+A corridor scan mission is just a [waypoint mission](#waypoint-mission) that includes a corridor scan item.
 A simple end-to-end survey might consist of just a *Takeoff* waypoint and *Corridor Scan* item.
 
 To create a corridor scan mission:

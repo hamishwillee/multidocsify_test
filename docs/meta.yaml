@@ -14,6 +14,7 @@ author: Version [not set]
 # - http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/latex_advanced/node14.html
 # - https://artofproblemsolving.com/wiki/index.php/LaTeX:Symbols
 header-includes: |
+
     \usepackage{tcolorbox}
     \newtcolorbox{myquote}{colback=green!5!white, colframe=green!75!black}
     \renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
@@ -30,3 +31,10 @@ header-includes: |
     \setlist[itemize,2]{label=$\circ$}
     \setlist[itemize,3]{label=$\cdot$}
     \setlist[itemize,5]{label=$\textopenbullet$}
+
+    \let\originalParaGraph\paragraph
+    \renewcommand{\paragraph}[1]{\originalParaGraph{#1} \hfill}
+
+    \let\originalSubParaGraph\subparagraph
+    \renewcommand{\subparagraph}[1]{\originalSubParaGraph{#1} \hfill}
+
