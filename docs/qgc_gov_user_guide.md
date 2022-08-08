@@ -1,7 +1,7 @@
 # Introduction
 
 [QGC-Gov](https://qgcgov.com/) is an open-source UAS Ground Control Station for controlling vehicles trusted by the US Department of Defense and the US Federal government.
-More specifically, it can be used to control any multicopter, fixed-wing or hybrid sUAS that is compatible with the RAS-A protocol.
+More specifically, it can be used to control any multicopter, fixed-wing or hybrid sUAS that is compatible with the RAS-A IOP.
 
 ![](images/image77.png) <!-- TODO: New image -->
 
@@ -25,7 +25,7 @@ Up to 255 vehicles can be controlled at a time (although only very experienced p
 
 ### Flight Stacks
 
-*QGC-Gov* can be used with flight stacks that support the RAS-A protocol.
+*QGC-Gov* can be used with flight stacks that support the RAS-A IOP.
 
 ### OS Compatibility
 
@@ -73,7 +73,7 @@ Connections are managed using the _Manage Connections_ dialog, which is displaye
 Multiple vehicles can be paired to the ground station and users can then choose which vehicle(s) to connect.
 It is possible to pair multiple vehicles using a single GCS radio or have multiple connection methods. 
 
-> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A), but working with larger number and more complex radio configurations is untested.
+> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A IOP), but working with larger number and more complex radio configurations is untested.
 > However the actual number depends on the communication modules used, and is practically limited by how many vehicles a pilot can safely control.
 
 ## Enable Connection Management
