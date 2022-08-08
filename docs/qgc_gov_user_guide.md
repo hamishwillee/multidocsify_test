@@ -1,7 +1,7 @@
 # Introduction
 
 [QGC-Gov](https://qgcgov.com/) is an open-source UAS Ground Control Station for controlling vehicles trusted by the US Department of Defense and the US Federal government.
-More specifically, it can be used to control any multicopter, fixed-wing or hybrid sUAS that is compatible with the RAS-A protocol.
+More specifically, it can be used to control any multicopter, fixed-wing or hybrid sUAS that is compatible with the RAS-A IOP.
 
 ![](images/image77.png) <!-- TODO: New image -->
 
@@ -25,7 +25,7 @@ Up to 255 vehicles can be controlled at a time (although only very experienced p
 
 ### Flight Stacks
 
-*QGC-Gov* can be used with flight stacks that support the RAS-A protocol.
+*QGC-Gov* can be used with flight stacks that support the RAS-A IOP.
 
 ### OS Compatibility
 
@@ -53,7 +53,7 @@ The following reminders are provided to help ensure you have a safe flight:
 3. Turn up the sound on your ground station loud enough to hear warnings.
 
 
-<!--  TODO:  Decide if we need stick settings/mode to be pulled out as part of hardware near front, or assume they remain in the setttings.
+<!--  TODO:  Decide if we need stick settings/mode to be pulled out as part of hardware near front, or assume they remain in the settings.
 The RC stick control mode (mode 0, mode 1, mode 2 etc.) and the mapping of buttons to actions can be configured in the **Vehicle Settings > [Joystick Setup](#joystick-setup)** view.
 -->
 
@@ -73,7 +73,7 @@ Connections are managed using the _Manage Connections_ dialog, which is displaye
 Multiple vehicles can be paired to the ground station and users can then choose which vehicle(s) to connect.
 It is possible to pair multiple vehicles using a single GCS radio or have multiple connection methods. 
 
-> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A), but working with larger number and more complex radio configurations is untested.
+> **Note:** QGC-Gov can theoretically connect to up to 254 vehicles at a time (this is maximum supported by RAS-A IOP), but working with larger number and more complex radio configurations is untested.
 > However the actual number depends on the communication modules used, and is practically limited by how many vehicles a pilot can safely control.
 
 ## Enable Connection Management
@@ -136,7 +136,7 @@ The first step is to setup the radio attached to your ground station:
 
 After indicating that you want to pair to a vehicle the _Pair vehicle dialog_ will appear:
 
-1. When the pair vehicle dialog appears
+1. When the pair vehicle dialog appears:
 
    ![](images/connection_manager_9_pairing_setup_ground_radio_dialog_discovering_pair_discovered_vehicle.png)
    
@@ -149,11 +149,11 @@ After indicating that you want to pair to a vehicle the _Pair vehicle dialog_ wi
    
    ![](images/connection_manager_10_pairing_connected_manage_connections.png)
    
-If the pairing doesn't succeed the wheel on the pairing dialog spins and the sub title changes to "Retrying with pairing". Retrying can be ended only by clicking "Cancel".
+If the pairing doesn't succeed the wheel on the pairing dialog spins and the subtitle changes to "Retrying with pairing". Retrying can be ended only by clicking "Cancel".
 
 ### Connecting to a Vehicle
 
-After a vehicle has been paired it will be displayed on the **Manage Connections** dialog allowing easy reconnection:
+After a vehicle has been paired it will be always be displayed on the **Manage Connections** dialog, allowing easy reconnection:
 
 1. Click the _Connections_ icon in the toolbar to launch the **Manage Connections** dialog.
 
@@ -162,7 +162,7 @@ After a vehicle has been paired it will be displayed on the **Manage Connections
    ![](images/connection_manager_16_pairing_connected_manage_connect_again.png)
    
    The vehicle will then attempt to connect.
-   On succes it will be shown as connected:
+   On success it will be shown as connected:
 
    ![](images/connection_manager_10_pairing_connected_manage_connections.png)
 
@@ -210,7 +210,6 @@ You can change the connection channel using the **Manage Connections** dialog:
    ![](images/connection_manager_17_pairing_connected_manage_connect_again_connected.png)
 
 
-
 # App Menu
 
 The application menu is accessed from the **Q** icon on the top left of the application.
@@ -227,7 +226,11 @@ The menu provides access to separate views which are used for each main activity
 [Plan](#plan-view)
   ~ &nbsp;
   ~ Planning missions, geofence, and rally points.
-
+  
+Tactical
+  ~ &nbsp;
+  ~ TBD <!-- also need to update sidebar image above -->
+  
 [Vehicle Setup](#vehicle-setup)
   ~ &nbsp;
   ~ Configure vehicle-specific settings (calibration, failsafes, etc.).
@@ -242,10 +245,6 @@ The menu provides access to separate views which are used for each main activity
 
 > **Note:** You can toggle between [Fly](#fly-view) and [Plan](#plan-view) using a dedicated toolbar button in each view
 
-<!--
-![Switch to Fly View](images/app_switch_to_fly.png) ![Switch to Plan View](images/app_switch_to_plan.png) \ 
--->
-
 
 # Fly View
 
@@ -256,7 +255,7 @@ You can fly with either map or video feed in the foreground, and monitor the sta
 
 ![Fly View - Video](images/fly_view_main_video.png) \
 
-The main sections of the fly view are:
+The main sections of the _Fly View_ are:
 
 <!-- TBD - finish this list on main sections -->
 
@@ -289,7 +288,7 @@ The main sections of the fly view are:
 
 ![Fly View: Top Bar](images/fly_view_top_bar.png) \
 
-The Fly View app bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
+The _Fly View_ app bar is used to monitor high level vehicle state and modes, and to set the current vehicle, mode, and armed state.
 The status icons can be selected for additional information.
 
 <!-- TODO: Cross link this to sections --> 
@@ -311,10 +310,10 @@ Vehicle
 Arm state
   ~ &nbsp;
   ~ Display _arm state_: Armed (motors spinning), Disarmed (motors stopped).
-  ~ Select to arm/disarm on ground, or emergency stop in air.
+  ~ Select to arm/disarm on ground.
   ~ Select to _emergency stop_ in air.
   
-[Pairing](#pairing)
+[Connection management](#connection-management)
   ~ &nbsp;
   ~ Pair and connect vehicle and ground station.
 
@@ -432,18 +431,18 @@ QGC-Gov supports: _street view_, _satellite view_, or _hybrid satellite/street v
 
 ### Map Actions (Fly View)
 
-Actions that require a position are initiated by touching the location on the map (when flying).
+Actions that require a position are initiated by selecting the location on the map (when flying).
 A popup menu will be displayed allowing the desired operation to be selected.
 
 ![Map actions (Fly View)](images/fly_view_map_actions.png) \
 
-Map actions must be acknowledged using a confirmation slider prompt.
+Map actions must be acknowledged using a [confirmation prompt](#confirmation-prompts).
 You may also need to set some additional information like the orbit radius.
 After acknowledging the prompt a [map marker](#map-markers) is added to the map and the action will be executed.
 
 For more information see:
 
-- [Goto Location](#goto-task) (Flying using High-Level Commands)
+- [Goto Location](#goto-location) (Flying using High-Level Commands)
 - [Orbit Location](#orbit-location) (Flying using High-Level Commands)
 - [Region of Interest](#region-of-interest) (Flying Manually)
 
@@ -462,13 +461,16 @@ Marker | Description
 **(O)** Orbit here | The center of a [Orbit here](#orbit-location) target.
 **(R)** ROI here | The current [Region of interest (ROI)](#region-of-interest).
 **(L)** | Land/Home marker.
-![](images/fly_view_waypoint.png) \ | Mission waypoint
-![](images/fly_view_waypoint_selected.png) \ | Selected (target) mission waypoint
+![](images/fly_view_waypoint.png) | Mission waypoint
+![](images/fly_view_waypoint_selected.png) | Selected (target) mission waypoint
 
 
 ### Map Grid (MGRS)
 
 The map in **Fly-** and **Plan View** may (optionally) overlay a grid and vehicle position information in MGRS coordinates.
+
+> **Note:** Enable the overlay in the settings by selecting the checkbox:
+> **Application Settings > General > Miscellaneous > Display MGRS coordinates**.
 
 ![MGRS Map overlay](images/map_mgrs.png)  <!-- image112.jpg -->
 
@@ -476,7 +478,8 @@ The grid overlay shows map coordinates with 10m resolution \[4 digits\].
 
 The information strip at the bottom is visible in **Fly View** only.
 It provides the position of the *map center* (caret icon) and the *vehicle* (plane icon) to one meter accuracy \[5 digits\].
- ![](images/image21.png)
+
+![](images/image21.png)
 
 The strip will additionally include the *ground station location* ("person" icon) **if** the ground station has a GPS module.  
 
@@ -487,12 +490,10 @@ The strip will additionally include the *ground station location* ("person" ico
 >
 > For more information see [MGRS coordinates](https://en.wikipedia.org/wiki/Military_Grid_Reference_System) (Wikipedia).
 
-Enable the overlay in the settings by selecting the checkbox:
-**Application Settings > General > Miscellaneous > Display MGRS coordinates**.
 
 ## Fly Toolbar
 
-The fly toolbar is used to execute flight and preflight operations that do not require a specific map position.
+The _Fly View Toolbar_ is used to execute flight and preflight operations that do not require a specific map position.
 
 ![Fly View Toolbar](images/fly_view_toolbar.png) \
 
@@ -527,7 +528,7 @@ All toolbar actions are listed below.
   
 Action
   ~ &nbsp;
-  ~ Display additional (context-sensitive) actions for the current vehicle state.
+  ~ Display additional context-sensitive actions for the current vehicle state.
     May be used to change the altitude, pause, continue or edit a mission, takeoff if landed, etc.
   
 [Edit](#pause-edit-continue-a-mission)
@@ -538,28 +539,8 @@ Action
   ~ &nbsp;
   ~ TBD <!-- TODO: What is this? -->
 
-<!-- 
-Tool | Description
---- | -----------
-[Plan](#plan-view) | Switch to Plan View (in order to plan a mission, geofence or rally point).
-[Checklist](#preflight-checklist) | Start pre-flight safety checks.
-[Takeoff](#takeoff-mode) | Arm vehicle and takeoff (option visible if landed).
-[Land](#land-mode) | Land vehicle and disarm (option visible if flying).
-[Return](#return-mode) | Fly to a safe point. The path/landing behaviour depends on vehicle configuration.
-[Pause](#hold-mode) | Pause current operation.
-Action | Display additional (context-sensitive) actions for the current vehicle state. May be used to continue or edit a mission, or to change the altitude.
-[Edit](#pause-edit-continue-a-mission) | Edit the current mission (only visible when in a paused mission).
-[Overlay] | TBD 
 
-![Plan](images/image227.png) 
-![Checklist](images/image163.png)
-![Takeoff](images/image27.png)
-![Land](images/image14.png)
-![Return](images/image183.png)
-![Pause](images/image88.png)
-![Action](images/image36.png)
-![Edit](images/image45.png) 
--->
+### Confirmation Prompts
 
 All operations must be confirmed using a slider before they will be executed.
 Confirmation prompts are displayed in the bottom center of the map (if an altitude can be set for an operation, a vertical slider will be displayed at the same time).
@@ -622,7 +603,6 @@ Additional controls are displayed in the switcher if it is selected:
 - Change the [map type](#map-types) using the icon on the bottom right.
 
 ![Video Switcher - Overlay options](images/fly_view_video_switcher_overlay.png)  <!-- image118.png -->
-
 
 
 ## Camera View
@@ -695,7 +675,7 @@ The controls, in order are:
 - Free SD card memory
 - Camera mode
 - Capture
-- Open settings for current capture mode
+- Open settings to configure current capture mode
 - Elapsed time for current video (Video mode) / Number of captured pictures (Camera mode)
 
 
@@ -763,17 +743,13 @@ The settings that are *independent of the camera type* are listed below.
 - `Reset Camera Defaults`: Reset camera/gimbal to default settings.
 
 
-
-
 ## Flight Modes
-
-<!-- not sure this should go here yet -->
 
 Flight modes provide different types of autopilot assistance to a pilot, including automation of common operations like *takeoff* and *landing*, execution of fully autonomous missions, and changing how the vehicle responds to pilot input during manual flight (for example by making it easier to regain level flight, hold the vehicle to a fixed path or position, etc.).
 
 The current mode is displayed in the [flight mode selector](#flight-mode-selector) in the [Fly View app bar](#fly-view-app-bar).
-The selector can be opened to select *Position* or *Altitude* mode.
-Other modes are selected from the Fly Toolbar, such as Takeoff mode, Return mode, and land mode, or other controls.
+The selector can be opened to select [Position](#position-mode) or [Altitude](#altitude-mode) mode.
+Other modes are selected from the [Fly Toolbar](#fly-toolbar), such as [Takeoff mode](#takeoff-mode), [Return mode](#return-mode), and [Land mode](#land-mode), or other controls.
 
 The most important flight modes and tasks are covered at high level below.
 
@@ -849,10 +825,9 @@ In some cases Hold mode can be used for high level vehicle control, including go
 This mode is automatically activated when you start a mission in QGC.
 
 
-
 # Fly using High-Level Commands
 
-Fly View enables simple directed flight and image capture using high level commands: takeoff, fly to location, fly to location and orbit,
+_Fly View_ enables simple directed flight and image capture using high level commands: takeoff, fly to location, fly to location and orbit,
 point camera, take picture, land where you are, return home and land, etc.
 
 The command mechanisms are very simple:
@@ -868,7 +843,9 @@ In each case the action must be acknowledged using a confirmation dialog slider.
 
 ## Takeoff, Land, RTL, Pause
 
-The basic flight operations are all initiated by pressing the appropriate button on the toolbar and then using the slider on a confirmation prompt:
+<!-- all of this might be better structured into "fly actions" subsection - extended to show the options -->
+
+The basic flight operations are all initiated by pressing the appropriate button on the toolbar and then using the slider on a [confirmation prompt](#confirmation-prompts):
 
 - **Takeoff** - Arm and takeoff to specified altitude (altitude specified using vertical slider).
 - **Land** - Land immediately at current location
@@ -877,39 +854,28 @@ The basic flight operations are all initiated by pressing the appropriate button
 
 ## Goto Location
 
-<!-- 
-
-The *GoTo Task* takes you to a specific location.
-This task is run from within *Hold Mode* when you select a [Go to Location](#goto-location) on the map.
-
--->
-
 To send the vehicle to a particular location:
 
 1. First takeoff
 2. Choose the map location where you want the drone to go and select the **Go to location** option:
 
-   ![](images/image228.png)
+   ![](images/fly_view_map_action_gotolocation.png)
 3. Confirm using the slider (note the target location is shown on the map):
 
-   ![](images/image171.png)
+   ![](images/fly_view_action_gotolocation_confirm.png)
 
 ## Orbit Location
-
-<!-- *Orbit Mode* (multicopter only) starts an orbit at a specific location.
-This mode is started when you select [Orbit at Location](#orbit-location) on the map.
--->
 
 To orbit a particular location:
 
 1. First takeoff
 2. Choose the map location where you want the drone to orbit and select the **Orbit at location** option:
 
-   ![](images/image108.png)
+   ![](images/fly_view_action_menu_orbit.png)
 3. Drag and drop the center of the orbit and its radius on the map using the white markers provided.
    You can also set the altitude using the vertical slider on the right.
 
-   ![](images/image99.png)
+   ![](images/fly_view_action_orbit.png)
 4. When you're satisfied, confirm using the slider.
 5. The vehicle will then fly to the location and orbit.
 
@@ -943,10 +909,10 @@ Other manual modes may be accessible outside of *QGroundControl* (i.e. though R
 
 > **Caution:** Ensure that sticks are centered before enabling manual modes!
 
-The manual modes can be enabled using the mode selector as shown.
+To enable manual modes select the current mode in the [Fly View app bar](#fly-view-app-bar), and then choose the desired mode from the popup dialog.
+[Position mode](#position-mode) is recommended for GPS-enabled vehicles.
 
-![](images/image141.png)
-
+![](images/fly_view_mode_selector.jpg)
 
 ## Region of Interest
 
@@ -959,19 +925,19 @@ To set the ROI:
 2. Select the target location for the ROI on the map.
    This will popup the map action menu.
    
-   ![](images/image102.png)
+   ![](images/fly_view_map_action_menu_roi.png)
 3. Acknowledge the confirmation prompt:
 
-   ![](images/image111.png)
+   ![](images/fly_view_action_confirm_roi.png)
 4. QGC-Gov will then add an ROI marker at the selected position, and mark the ROI status icon (application top bar) green ("enabled").
 
-   ![](images/image68.png)
+   ![](images/fly_view_map_icon_roi_active.png)
 
    > **Note:** the ROI isn't *actually* enabled until the vehicle is in position mode!
 
 To remove an ROI, select the ROI status icon in the toolbar and select the popup option: **Disable ROI**.
 
-![](images/image153.png)
+![](images/fly_view_prompt_disable_roi.png)
 
 
 # Fly a Mission
@@ -987,23 +953,25 @@ The UI is very simple.
   - Restart a mission if you’ve paused it.
 
 - Pause the running mission by selecting the toolbar **Pause** button (and acknowledge the confirmation prompt).
+
+  ![](images/fly_view_toolbar_button_pause_mission.png)
+
   Restart using **Continue** prompt (if not visible, display it using the Action button).
-  
-  ![](images/image88.png)
+
 - [Pause, Edit and Continue a mission](#pause-edit-continue-a-mission) using the **Pause** and **Edit** buttons (see below)
 - Pause and go to a location specified on the map.
 
   - Simply select a position on the map to add a **Go here** marker and display a *Goto Location* prompt.
     Use the slider to confirm the action.
 
-    ![](images/image42.png)
+    ![](images/fly_view_action_confirm_goto_location.png)
   - The mission can be continued by acknowledging the *Continue Mission* prompt that appears after setting the Goto target (use the **Action** button to display the prompt if it is not visible).
 
 - Use the **Action** button to display valid mission options for the current vehicle state: *start*, *continue*, *pause*, *restart*.
 
-  ![](images/image36.png)
+  ![](images/fly_view_toolbar_button_action.png)
 
-  It can be used to bring back a prompt that has been dismissed.
+  It can also be used to bring back a prompt that has been dismissed.
 
 ## Pause-Edit-Continue a Mission
 
@@ -1011,15 +979,18 @@ QGroundControl makes it an almost-seamless operation to pause, edit and then con
 
 > **Note:** QGroundControl switches to [Plan View](#plan-view) for editing, and then returns you to *Fly View* to continue the mission towards the same waypoint (if available). 
 
-To pause and edit an ongoing mission:  
+To pause and edit an ongoing mission:
 
-1. Pause the current mission (select the **Pause** button and confirm using the slider).  
-   ![](images/image217.png)
-2. Press the **Edit** toolbar button to switch to the Plan View (this appears after pausing the mission)  
-   ![](images/image203.png)
+1. Pause the current mission (select the **Pause** button and confirm using the slider).
+
+   ![](images/fly_view_toolbar_pause_and_confirm.png)
+2. Press the **Edit** toolbar button to switch to the [Plan View](#plan-view) (this appears after pausing the mission)
+
+   ![](images/fly_view_toolbar_button_edit_mission.png)
 3. [Plan the mission](#plan-view) (as usual). You can add, remove, delete, move or change any item.
 4. Select **Continue Mission** on the top right to upload the changed mission and switch back to *Fly View* (or **Cancel Changes** to clear the current changes and stay in the same view).
-   ![](images/image193.png)
+
+   ![](images/fly_view_mission_edit_cancel_continue.png)
 5. Check the highlighted/current target waypoint is correct:
 
    - The mission will continue towards the original target waypoint, unless this item was deleted.
@@ -1043,13 +1014,13 @@ There are individual topics with detailed instructions on each type of plan and 
 
 ## Plan UI Overview
 
-![](images/image188.jpg)
+![](images/plan_view_overview.png)
 
 This topic provides an overview of the main UI elements (in particular those that are common to all plan types).
 
 ### Upload Button
 
-![](images/image125.png)
+![](images/plan_view_button_upload_required.png)
 
 The *Upload Button* sends the current mission, geofence and rally point plans to the vehicle.
 
@@ -1057,12 +1028,12 @@ The button has two states.
 
 | Appearance | State | Description |
 | --- | --- | --- |
-| ![](images/image125.png) | Upload Required | Plan has changed since last upload. |
-| ​​![](images/image3.png)​   | Upload          | Plan has not changed on this ground station (but can be uploaded anyway). |
+| ![](images/plan_view_button_upload_required.png) | Upload Required | Plan has changed since last upload. |
+| ​​![](images/plan_view_button_upload.png)​  | Upload | Plan has not changed on this ground station (but can be uploaded anyway). |
 
 ### Plan Type Selector
 
-![](images/image178.png)
+![](images/plan_view_plan_type_selector.png)
 
 The *Plan Type* selector sets the current plan type being edited: mission (including surveys and scans), geofence, rally points.
 
@@ -1077,46 +1048,49 @@ Different editors are displayed for each type of plan:
 
 ### Plan Information
 
-![](images/image31.png)
+![](images/plan_view_plan_information.png)
 
 The *Plan Information* section contains information that is useful for planning *missions*, including details about both the currently selected waypoint and the whole mission (it shows the same information for all plan types).
 
 For more details see [Mission Plan \> Mission Information](#mission-information).
 
-### Plan Tools
 
-The *Plan Tools* provides tools for working with plans, including adding waypoints, inserting survey patterns, saving/loading/uploading/downloading plans etc. Some of the options are only displayed when working on a particular type of plan.
+### Plan Toolbar
+
+The *Plan Toolbar* provides tools for working with plans, including adding waypoints, inserting survey patterns, saving/loading/uploading/downloading plans etc.
+Some of the options are only displayed when working on a particular type of plan.
 
 Icon | Name | Plan Type | Description
 --- | ---- | ---- | -------------
-![](images/image80.png)  | Fly           | All     | Switch to Fly View (e.g. in order to fly a mission)
-![](images/image44.png)  | File/Sync     | All     | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
-![](images/image120.png) | Waypoint      | Mission | Select to enable adding new waypoints to the map.
-![](images/image126.png) | Pattern tools | Mission | Add or load a survey pattern - survey (area), structure, corridor.
-![](images/image184.png) | Rally Point   | Rally   | Add a rally (safe) point.
-![](images/image16.png)  | Centre map    | All     | Center map on mission, home, vehicle, all items, or specified location
+![](images/plan_toolbar_button_fly.png)      | Fly | All | Switch to [Fly View](#fly-view) (e.g. in order to fly a mission)
+![](images/plan_toolbar_button_file.png)     | [File/Sync](#file-sync-tools) | All | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/plan_toolbar_button_waypoint.png) | [Waypoint](#waypoint-tool) | Mission | Select to enable adding new waypoints to the map.
+![](images/plan_toolbar_button_roi.png) | [ROI](#mission-roi-tools) | Mission | Select to enable adding region of interest points on the map. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
+![](images/plan_toolbar_button_cancel_roi.png) | [Cancel ROI](#mission-roi-tools) | Mission | Select to add a _cancel ROI_ item to the plan (cancelling the previous ROI in the the plan).
+![](images/plan_toolbar_button_pattern.png)  | [Pattern](#pattern-tools) | Mission | Add or load a survey pattern: survey (area), structure survey, corridor survey.
+![](images/plan_toolbar_button_rallypoint.png) | [Rally Point](#rally-points-tool) | Rally | Add a rally (safe) point.
+![](images/plan_toolbar_button_centre_map.png) | [Centre map](#center-map-tools) | All | Center map on mission, home, vehicle, all items, or specified location
 
-#### File/Sync Tools
+#### File/Sync Tools {#file-sync-tools}
 
-![File/Sync Tools](images/image17.png)
+![File/Sync Tools](images/plan_view_file_sync_dialog.png) /
 
-The Plan **File/Sync Tool** provides options to create a new plans, load/save plans on the ground station computer, and upload/download/clear the plan on the vehicle.
+The Plan **File/Sync Tool** provides options to create a new plans of various types, store/load plans on the ground station computer, and upload/download/clear the plan on the vehicle.
 
 > **Tip:** Only valid options are enabled (e.g. *Download* is greyed out if there is no mission on the vehicle).
 
-#####  File Options
+##### Storage Options
 
 Option | Description
 --- | ------
-New... | Clear plan on QGC and vehicle.
-Open... | Open plan file from storage, clearing the current mission in the ground station. The plan on the vehicle is not affected. QGC can open **.plan** files (and also a number of legacy formats: **.mission**, **.txt**, **.waypoints**).
-Save | Save previously opened or saved plan under same name. QGC prompts to "**Save as**" if the file is new.
+Open... | Open plan file from storage, clearing the current mission in the ground station. The plan on the vehicle is not affected. QGC-Gov can open **.plan** files (and also a number of legacy formats: **.mission**, **.txt**, **.waypoints**).
+Save | Save previously opened or saved plan under same name. QGC-Gov prompts to "**Save as**" if the file is new.
 Save as... | Save current plan under new name (the save format is _.plan_).
 Save Mission Waypoints as KML ... | Save current mission (only) as a KML file. KML files are used by Google Earth.
 
 ##### Vehicle Options
 
-The vehicle options upload, download and clear plans to/from/on the vehicle.
+The vehicle plan file/sync options are:
 
 Option                | Description
 --- | ------
@@ -1124,14 +1098,59 @@ Upload                | Upload plan to vehicle. Existing plans on the vehicle ar
 Download              | Download current plan from vehicle. The current plan on the ground station is cleared.
 Clear Vehicle Mission | Clear plan on vehicle and QGC. Disabled if no vehicle is connected.
 
-### Map Tools
+#### Waypoint Tool
+
+The plan toolbar waypoint tool enables adding waypoints to the map.
+These define the takeoff position and path for a [Waypoint Mission](#waypoint-mission).
+
+![](images/plan_toolbar_button_waypoint_active.png)
+
+Once this tool is selected, waypoints are added by selecting the desired position on the map.
+QGC-Gov adds a marker for the waypoint on the map and adds a [Mission Waypoint Editor](#mission-waypoint-editor) to the mission item list on the right hand side.
+
+For more information see [Create a Waypoint Mission](#create-a-waypoint-mission).
+
+#### Mission ROI Tools
+
+The ROI tool is selected to enable adding region of interest points to the mission, which the camera will track.
+
+![](images/plan_toolbar_button_roi.png)
+
+Once enabled you can select the map to add an ROI to the mission and an [ROI Editor](#roi_editor) to the mission item list at the current point.
+The ROI will be enabled until canceled or the end of the mission.
+
+An ROI can be disabled by adding another ROI, or by adding a cancel ROI mission item.
+You can add a cancel ROI item at the current point in the mission by selecting the **Cancel ROI** tool on the plan toolbar.\
+
+![](images/plan_toolbar_button_cancel_roi.png)
+
+#### Pattern Tools
+
+The pattern tool opens a dialog from which you can add a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan) to a mission, or **Load KML/SHP...** file containing a pattern definition. 
+
+![](images/image161.jpg) 
+
+Note that you can also create a new mission for each survey pattern type using the [File/Sync](#file-sync-tools) tool.
+
+#### Rally Points Tool
+
+The *Rally points* tool is selected to enable adding rally points to the map.
+These are alternative safe landing/waiting destinations for a vehicle in [Return mode](#return-mode).
+
+![](images/plan_toolbar_button_rallypoint.png)
+
+Once enabled you can select on the map to add a rally point, which can then be edited using the corresponding *Rally Point Editor* panel on the right.
+
+See [Rally Points](#rally-points) for more information.
+
+#### Center Map Tools
 
 The map responds to platform-specific mechanisms for map control.
 For example, on a tablet you can drag the map to pan, and use pinch gestures to zoom.
 
-In addition, the **Plan Tools \> Center** tool can be used to control how the map is centered.
+In addition, the **Plan Tools > Center** tool can be used to control how the map is centered.
 
-![](images/image41.png)
+![](images/plan_tool_button_centre_map_dialog.png)
 
 Option | Description
 --- | -------
@@ -1143,14 +1162,19 @@ Current Location | Center map on ground station location. Disabled if ground sta
 Specified Location | Center map on specified location. Selecting this option opens the _Specify Position_ dialog (right of the screen). Enter geographic, UTM or MGRS position information, then press the associated **Set...** button to make it the new map center. ![](images/image105.png)
 
 
-> **Note:** Additional, for _mission editing_ (only) the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.
-> ![](images/image122.png)
+#### Map Tools
 
+The map responds to platform-specific mechanisms for map control.
+For example, on a tablet you can drag the map to pan, and use pinch gestures to zoom.
+
+Additional, when editing missions the bottom left of the map includes a scale marker, and on-screen buttons for zooming the map in/out.
+
+![](images/plan_view_map_zoom_tools_scale.png)
 
 ### Map Grid
 
 The map can be configured to overlay a map grid in both Plan and Fly Views.
-For more information see: [Fly View\> Map Grid (MGRS)](#map-grid-mgrs).
+For more information see: [Fly View > Map Grid (MGRS)](#map-grid-mgrs).
 
 # Mission Plan
 
@@ -1159,7 +1183,7 @@ They are are created in *Plan View* when the [Plan Type](#plan-type-selector) 
 
 There are a number of different "types" of missions:
 
-- [Manual Missions](#manual-waypoint-mission): The flight path is defined as a series of waypoints and other mission commands.
+- [Waypoint Missions](#waypoint-mission): The flight path is defined as a series of waypoints and other mission commands.
 - ​[Survey Missions](#survey-mission): An area survey defined by an arbitrary polygon.
 - ​[Structure Scans](#structure-scan-mission): A survey over a vertical surface with arbitrary polygonal ground footprint (e.g. a building)
 - ​[Corridor Scans](#corridor-scans): A survey that follows a poly-line (e.g. a road).
@@ -1179,7 +1203,7 @@ General information that is common to all plan types (e.g. related to uploading 
 
 ### Mission Information
 
-![](images/image31.png)
+![](images/plan_view_plan_information.png)
 
 The plan information (application top bar) provides useful statistics for planning both individual waypoints and the whole mission.
 
@@ -1229,14 +1253,15 @@ C | Corridor scan
 
 The [Plan Tools](#plan-tools) that are displayed when working with missions are listed below.
 
-Icon | Name | Description
---- | --- | ---------
-![](images/image80.png) | Fly | Switch to _Fly View_ (in order to fly a mission)
-![](images/image44.png) | File/Sync | File operations (create, save or load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
-![](images/image120.png) | Waypoint | Select to enable adding new waypoints to the map.
-![](images/image126.png) | Pattern tools | Add or load a [survey](#survey-mission) (area), [structure scan](#structure-scan-mission), [corridor scan](#corridor-scan), or **Load KML/SHP...** file containing a pattern defintion. ![](images/image161.jpg) 
-![](images/image16.png) | Centre map | Center map on mission, home, vehicle, all items, or specified location
-
+Icon | Name | Plan Type | Description
+--- | ---- | ---- | -------------
+![](images/plan_toolbar_button_fly.png)      | Fly | All | Switch to [Fly View](#fly-view) (e.g. in order to fly a mission)
+![](images/plan_toolbar_button_file.png)     | [File/Sync](#file-sync-tools) | All | File operations (create new plan, save plan, load plan) and sync operations (upload/download plan from vehicle, clear plan on vehicle).
+![](images/plan_toolbar_button_waypoint.png) | [Waypoint](#waypoint-tool) | Mission | Select to enable adding new waypoints to the map.
+![](images/plan_toolbar_button_roi.png) | [ROI](#mission-roi-tools) | Mission | Select to enable adding region of interest points on the map. The ROI can be moved on the map, and will be active until either a new ROI item is added or a cancel ROI item is added.
+![](images/plan_toolbar_button_cancel_roi.png) | [Cancel ROI](#mission-roi-tools) | Mission | Select to add a _cancel ROI_ item to the plan (cancelling the previous ROI in the the plan).
+![](images/plan_toolbar_button_pattern.png)  | [Pattern](#pattern-tools) | Mission | Add or load a survey pattern: survey (area), structure survey, corridor survey.
+![](images/plan_toolbar_button_centre_map.png) | [Centre map](#center-map-tools) | All | Center map on mission, home, vehicle, all items, or specified location
 
 ### Mission Command List
 
@@ -1248,27 +1273,27 @@ Individual mission items can be selected on the map or in the mission list to ed
 
 ![](images/image64.png)
 
-Detailed information about the command list can be found in: [Manual/Waypoint Mission](manual-waypoint-mission).
+Detailed information about the command list can be found in: [Waypoint Mission](#waypoint-mission).
 
 ## Creating a Mission
 
-To create a completely new mission, you can first clear away any existing mission using the **File \> New** tool.
+To create a completely new mission, you can first clear away any existing mission using the **File > Vehicle > Clear** button (or **File > Create Plan > Blank** button.
 
-![](images/image17.png)
+![](images/plan_view_file_sync_dialog.png)
 
 There are four main "types" of mission - waypoint missions, survey missions, structure scans, and corridor scans.
 The surveys/scan missions are just waypoint missions that happen to include patterns of the different types.
 
 For more information about how to create each type of mission:
 
-- [Manual/Waypoint Mission](manual-waypoint-mission)
+- [Waypoint Mission](#waypoint-mission)
 - [Survey (Mission)](#survey-mission)
 - [Structure Scan (Mission)](#structure-scan-mission)
 - [Corridor Scan (Mission)](#corridor-scan)
 
-# Manual/Waypoint Mission
+# Waypoint Mission
 
-A manual (or "waypoint") mission is an autonomous mission where the flight path is explicitly defined on the map using waypoint mission items.
+A waypoint mission is an autonomous mission where the flight path is defined on the map using waypoint mission items.
 
 ![](images/image131.jpg)
 
@@ -1281,17 +1306,17 @@ Waypoints are added by first selecting the associated tool in the *Plan Toolbar*
 When added to the map, waypoint items editors are also added in the mission list on the right hand side.
 These editors can be used to change mission items to different types and delete them.
 
-This topic shows how to create a basic manual mission.
+This topic shows how to create a basic waypoint mission.
 
-## Create a Manual Mission
+## Create a Waypoint Mission
 
 This example creates a simple end-to-end mission that includes takeoff, setting waypoints, and landing.
 
-To create a manual mission:
+To create a waypoint mission:
 
-1. Open the *Plan View* and select the **Mission** button (top     right).
+1. Open the *Plan View* and select the **Mission** button (top right).
 
-   ![](images/image178.png)​
+   ![](images/plan_view_plan_type_selector.png)​
 2. From the *Plan Tools*, select **File \> New** to clear any existing mission.
 3. Check that the [Mission Start Editor](#mission-start-editor) settings are correct for the planned survey.
    In particular, check that the altitude is high enough to avoid obstacles when travelling to the first waypoint.
@@ -1302,7 +1327,7 @@ To create a manual mission:
 5. Add a takeoff waypoint.
 
    - Select **Plan Tools \> Waypoint** to enable adding waypoints
-     ![](images/image73.png)
+     ![](images/plan_toolbar_button_waypoint_active.png)
    - Select on the map to add a *Takeoff* item.
      The first waypoint added to a mission is automatically turned into a Takeoff item!
      ![](images/image229.jpg)
@@ -1313,11 +1338,11 @@ To create a manual mission:
 
    - Select **Plan Tools \> Waypoint**.to enable adding waypoints
 
-     ![](images/image73.png)
+     ![](images/plan_toolbar_button_waypoint_active.png)
    - Select on the map to add a *Waypoint* item.
 
      ![](images/image134.jpg) 
-   - An (open) *Mission Waypoint Editor* is also added to the mission item list.
+   - An (open) [Mission Waypoint Editor](#mission-waypoint-editor) is also added to the mission item list.
      If needed, use the editor to modify the altitude, heading, or flight speed.
      Camera triggering can also be configured from this panel (and will apply until the next waypoint).
    - Add additional waypoints where needed on the map (along the desired path).
@@ -1446,7 +1471,6 @@ All the mission editors are listed below (other than those for patterns).
 | ​               | Start video capture                         | Start video capture.                                                                   |
 | ​               | Stop video capture                          | Stop video capture.                                                                    |
 
-​
 
 ### Common Operations
 
@@ -1473,7 +1497,7 @@ All other options are accessed from the menu (shown below)
 - **Insert waypoint \| Survey \| Corridor Scan \| Structure Scan:** Insert item of specified time after current waypoint.
 - **Delete:** Delete current waypoint
 - **Change Command:** Change the command type (same as selecting the mission item name in its header).
-- **Edit Position:** Open a dialog to specify the item position based on current vehicle position, or co-ordinates (geographic (GPS), UTM, MGRS).
+- **Edit Position:** Open a dialog to specify the item position based on current vehicle position, or coordinates (geographic (GPS), UTM, MGRS).
 - **Show all values:** Select checkbox to update the editor to display the precise MAVLink message/command values that the editor represents.
 - **Item \#:** Displays the sequence number of the selected item (within the mission).
 
@@ -1527,77 +1551,7 @@ The *Camera Panel* specifies camera action/triggering and gimbal positioning fr
   - `Yaw`: Gimbal yaw
 
 
-<!-- 
-
-+-------------------+---------------------------+
-| Setting           | Description               |
-+===================+===========================+
-| Camera triggering | Options:                  |
-|                   |                           |
-|                   | -  No change              |
-|                   | -  Take photos (time)     |
-|                   | -  Take photos (distance) |
-|                   | -  Stop taking photos     |
-|                   | -  Start recording video  |
-|                   | -  Stop recording video   |
-|                   |                           |
-+-------------------+---------------------------+
-| Time              | - cures scurvy            |
-|                   | - tasty                   |
-+-------------------+---------------------------+
--->
-
-<!-- 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Setting</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="even">
-<td><p>Camera triggering</p></td>
-<td><p>Options:</p>
-<ul>
-<li></li>
-<li>Take photos (time)</li>
-<li>Take photos (distance)</li>
-<li>Stop taking photos</li>
-<li>Start recording video</li>
-<li>Stop recording video</li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>Time</p></td>
-<td><p>Sets trigger interval in seconds.</p>
-<ul>
-<li>Enabled for: <em>Take photos (time)</em>.</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>Distance</p></td>
-<td><p>Sets trigger interval in distance traveled.</p>
-<ul>
-<li>Enabled for: <em>Take photos (distance)</em>.</li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>Mode</p></td>
-<td><p>Camera mode: <em>Photo</em>, <em>Video</em>,
-<em>Survey</em>.</p></td>
-</tr>
-<tr class="even">
-<td><p>Gimbal</p></td>
-<td><p>Enables gimbal fields: Pitch and Yaw.</p></td>
-</tr>
-</tbody>
-</table>
--->
-
-### Mission Region of Interest (ROI) Editor
+### Mission Region of Interest (ROI) Editor {#roi_editor}
 
 ![](images/image76.jpg)
 
@@ -1631,7 +1585,7 @@ This topic shows how to create a survey mission, and the various settings that c
 
 ## Create a Survey Mission
 
-A survey mission is just a [waypoint mission](#manual-waypoint-mission) that includes a survey item.
+A survey mission is just a [waypoint mission](#waypoint-mission) that includes a survey item.
 A simple end-to-end survey might consist of just a *Takeoff* waypoint and *Survey* item.
 
 To create a survey mission:
@@ -1937,7 +1891,7 @@ This topic shows how to create a structure scan mission, and the various setting
 
 ## Create a Structure Scan Mission
 
-A structure scan mission is just a [waypoint mission](manual-waypoint-mission) that includes a structure scan pattern/mission item.
+A structure scan mission is just a [waypoint mission](#waypoint-mission) that includes a structure scan pattern/mission item.
 A simple end-to-end scan might consist of just a *Takeoff* waypoint and *Structure Scan* item.
 
 To create a structure scan mission:
@@ -2193,7 +2147,7 @@ This topic shows how to define a corridor scan mission, and the various settings
 
 ## Create a Corridor Scan Mission
 
-A corridor scan mission is just a [waypoint mission](manual-waypoint-mission) that includes a corridor scan item.
+A corridor scan mission is just a [waypoint mission](#waypoint-mission) that includes a corridor scan item.
 A simple end-to-end survey might consist of just a *Takeoff* waypoint and *Corridor Scan* item.
 
 To create a corridor scan mission:
