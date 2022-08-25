@@ -9,24 +9,63 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">Please wait...</div>
   <script>
     window.$docsify = {
-      name: 'PX4 User Guide',
-      repo: 'https://github.com/PX4/PX4-user_guide',
-
+      name: 'MAVLink Devguide',
+      repo: 'https://github.com/mavlink/mavlink-devguide',
+     
+      
       loadSidebar: 'SUMMARY.md',
       //loadNavbar: true,
-
+      
+      // Relative path enabled
+      relativePath: true,
       alias: {
-          '/main/en/(.*)':
-            'https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/docsify_test/en/$1',
-          'main/zh/(.*)':
-            'https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/docsify_test/zh/$1',
+          //test alias
+
+          '/assets/(.*)':
+            'https://raw.githubusercontent.com/hamishwillee/mavlink-devguide/docsify_test/assets/$1',
+          '/en/(.*)':
+            'https://raw.githubusercontent.com/hamishwillee/mavlink-devguide/docsify_test/en/$1',
+          '/zh/(.*)':
+            'https://raw.githubusercontent.com/hamishwillee/mavlink-devguide/docsify_test/zh/$1',
           '/.*/_navbar.md': '/_navbar.md',
-          '/zh-cn/(.*)':
-            'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
+          
+          '/(.*)':'/en/$1' //Default fallback now fallback to the English version (used with fallbackLanguages so if no translation provided no need to export the specific translated doc)
+		  
         },
+
+      fallbackLanguages: ['zh', 'ko'],
+      
+      plugins: [
+        function(hook) {
+
+          //Fixup images. There's bug that means it can't find them in the tree, but we can get them from github.
+          hook.beforeEach(function(content) {
+            let fixcontent=content;
+            //Fix links to point to static assets on github.
+            //This works because all relative links in lib are relative and so going back one level takes you to base.
+            // So I'm just replacing a the base
+
+            fixcontent = content.replace(/\!\[(.*?)\]\(.*?assets\/(.*?)\)/g, '<img src="/assets/$2" title="$1" />');
+            //fixcontent = fixcontent.replace(/\]\(..\//g, `](${ current_path_back_one }/`);
+            //fixcontent = fixcontent.replace(/\]\(..\/..\//g, `](${ current_path_back_two }/`);
+            return fixcontent
+          });
+
+
+        }
+      ],
+
+
+      //TOC level
+      //subMaxLevel: 3,
+      toc: {
+        scope: '.markdown-section',
+        headings: 'h1, h2, h3, h4, h5, h6',
+        title: 'Table of Contents',
+      },
     }
   </script>
   <!-- Docsify v4 -->
