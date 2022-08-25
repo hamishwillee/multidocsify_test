@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'PX4 User Guide',
+      repo: 'https://github.com/PX4/PX4-user_guide',
+
+      loadSidebar: 'SUMMARY.md',
+      //loadNavbar: true,
+
+      alias: {
+          '/main/en/(.*)':
+            'https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/docsify_test/en/$1',
+          'main/zh/(.*)':
+            'https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/docsify_test/zh/$1',
+          '/.*/_navbar.md': '/_navbar.md',
+          '/zh-cn/(.*)':
+            'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
+        },
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+</body>
+</html>
