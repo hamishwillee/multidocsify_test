@@ -64,24 +64,35 @@
 
 
               // Fix up notes/tips
-              fixcontent = fixcontent.replaceAll('> **Note** ','\n?> ');
-              fixcontent = fixcontent.replaceAll('> **Tip** ','\n?> ');
-              fixcontent = fixcontent.replaceAll('> **Warning** ','!> ');
+              fixcontent = fixcontent.replaceAll('> **Note** ','\n?> **Note:** ');
+              fixcontent = fixcontent.replaceAll('> **Tip** ','\n?> **Tip:** ');
+              fixcontent = fixcontent.replaceAll('> **Warning** ','\n!> **Warning:** ');
+              fixcontent = fixcontent.replaceAll('> **Caution** ','\n!> **Warning:** ');
+			  
+			  
 
-              fixcontent = fixcontent.replaceAll(/\s*{#([\w-]*)}/g, " :id=$1")
+              fixcontent = fixcontent.replaceAll(/\s*{#([\w-]*)}/g, " :id=$1");
+			  
+              // Match asides with ::: syntax
+			  fixcontent = fixcontent.replaceAll(/\:{3}(\S+)$(.*?)\:{3}/gsm, 
+			   (match, type, note_text) => {
+			     if (type.startsWith('note')) {
+				    return `\n?> **Note:** ${note_text}`;
+				 }
+			     else if (type.startsWith('tip')) {
+				    return `\n?> **Tip:** ${note_text}`;
+				 }
+			     else if (type.startsWith('warning')) {
+				    return `\n!> **Warning:** ${note_text}`;
+				 }
+			   return 
+			   }
+			  );
 
               return fixcontent;
             }
 
-            let fixcontent=content;
-            //Fix links to point to static assets on github.
-            //This works because all relative links in lib are relative and so going back one level takes you to base.
-            // So I'm just replacing a the base
-            vm;
-            fixcontent = content.replace(/\!\[(.*?)\]\(.*?assets\/(.*?)\)/g, '<img src="/assets/$2" title="$1" />');
-            //fixcontent = fixcontent.replace(/\]\(..\//g, `](${ current_path_back_one }/`);
-            //fixcontent = fixcontent.replace(/\]\(..\/..\//g, `](${ current_path_back_two }/`);
-            return fixcontent
+            return content
           });
 
 
