@@ -27,6 +27,67 @@
           '/zh-cn/(.*)':
             'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
         },
+		
+		
+      plugins: [
+        function(hook, vm) {
+
+          //Fixup images. There's bug that means it can't find them in the tree, but we can get them from github.
+          hook.beforeEach(function(content) {
+
+            if (vm.isRemoteUrl && !vm.isHTML) {
+
+              let my_dir_path = vm.route.file.split('/');
+              my_dir_path.pop();
+              let fixcontent = content.replace(/\!\[(.*?)\]\((.*?)\)/g, 
+                (match, title, path) => {
+                  let linkrootpath=my_dir_path.slice();
+                  let relpath = path;
+                  if (relpath.startsWith('../')) {
+
+                    while (relpath.startsWith('../')) {
+                      relpath = relpath.slice(3);
+                      linkrootpath.pop();
+                    }
+
+                  linkrootpath = linkrootpath.join('/');
+                  linkrootpath = `${linkrootpath}/${relpath}`;
+                  let imagestring = `<img src="${linkrootpath}" title="${title}" />`;
+                  return imagestring;
+                  }
+                  else {
+                    return match;
+                  }
+
+                }
+              );
+
+
+              // Fix up notes/tips
+              fixcontent = fixcontent.replaceAll('> **Note** ','\n?> ');
+              fixcontent = fixcontent.replaceAll('> **Tip** ','\n?> ');
+              fixcontent = fixcontent.replaceAll('> **Warning** ','!> ');
+
+              fixcontent = fixcontent.replaceAll(/\s*{#([\w-]*)}/g, " :id=$1")
+
+              return fixcontent;
+            }
+
+            let fixcontent=content;
+            //Fix links to point to static assets on github.
+            //This works because all relative links in lib are relative and so going back one level takes you to base.
+            // So I'm just replacing a the base
+            vm;
+            fixcontent = content.replace(/\!\[(.*?)\]\(.*?assets\/(.*?)\)/g, '<img src="/assets/$2" title="$1" />');
+            //fixcontent = fixcontent.replace(/\]\(..\//g, `](${ current_path_back_one }/`);
+            //fixcontent = fixcontent.replace(/\]\(..\/..\//g, `](${ current_path_back_two }/`);
+            return fixcontent
+          });
+
+
+        }
+      ],
+		
     }
   </script>
   <!-- Docsify v4 -->
