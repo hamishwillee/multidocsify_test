@@ -17,15 +17,18 @@
 
       loadSidebar: 'SUMMARY.md',
       //loadNavbar: true,
+      relativePath: true,
+      fallbackLanguages: ['zh', 'ko'],
 
       alias: {
-          '/main/en/(.*)':
-            'https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/docsify_test/en/$1',
-          'main/zh/(.*)':
-            'https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/docsify_test/zh/$1',
+          '/en/main/(.*)':
+            'https://raw.githubusercontent.com/PX4/PX4-user_guide/main/en/$1',
+          'en/zh/(.*)':
+            'https://raw.githubusercontent.com/PX4/PX4-user_guide/main/zh/$1',
           '/.*/_navbar.md': '/_navbar.md',
-          '/zh-cn/(.*)':
-            'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
+          //'/en/(.*)':'/main/en/$1', //Default fallback now fallback to the English version (used with fallbackLanguages)
+          //'/zh/(.*)':'/main/zh/$1', //Default fallback now fallback to the Zh version (used with fallbackLanguages)
+          '/(.*)':'/main/en/$1' //Default fallback now fallback to the English version (used with fallbackLanguages)
         },
 
       plugins: [
