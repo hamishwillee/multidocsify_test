@@ -9,26 +9,82 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
+  <nav>
+    <select id="lang-selector" name="lang" class="nav-select">
+      <option value="en">English</option>
+      <option value="ko">한국어 (Korean)</option>
+      <option value="zh">中文 (Chinese)</option>
+    </select>
+    <select id="ver-selector" name="ver" class="nav-select">
+      <option value="main">main</option>
+      <option value="v1.15">v1.15</option>
+    </select>
+  </nav>
+
   <div id="app"></div>
   <script>
     window.$docsify = {
       name: 'PX4 User Guide',
+	  /*
+      name: '<a id="logo-link" class="app-name-link" data-nosearch href="/"><div class="sidebar-logo">' +
+              '<img src="./assets/logo.png" height="64px">' +
+              '<span class="sidebar-logo-title">PX4 User Guide</span>' +
+            '</div></a>',
+      */
       repo: 'https://github.com/PX4/PX4-user_guide',
 
       loadSidebar: 'SUMMARY.md',
       //loadNavbar: true,
       relativePath: true,
-      fallbackLanguages: ['zh', 'ko'],
+      //fallbackLanguages: ['zh', 'ko'],
+      //search: 'auto', // default
+
+      search: {
+        paths: 'auto',
+        //namespace: 'px4-website',
+        hideOtherSidebarContent: true,
+        depth: 4,
+        pathNamespaces: ['/v1.15/ko'],
+      },
+/*
+      search: {
+        paths: 'auto',
+        namespace: 'px4-website',
+        hideOtherSidebarContent: true,
+        depth: 3,
+        pathNamespaces:/^(\/main){1}(\/(zh|en|ko)){1}/  matches on NOT main but does get the languages
+      },
+*/
+      namespaces: [
+        {
+          id: "version",
+          values: ["main", "v1.15"],
+          optional: false,
+          selector: "#ver-selector",
+          default: "main",
+        },
+        {
+          id: "lang",
+          values: ["en","zh","ko"],
+          optional: false,
+          selector: "#lang-selector",
+          default: "en",
+        },
+      ],
 
       alias: {
-          '/en/main/(.*)':
-            'https://raw.githubusercontent.com/PX4/PX4-user_guide/main/en/$1',
-          'en/zh/(.*)':
-            'https://raw.githubusercontent.com/PX4/PX4-user_guide/main/zh/$1',
-          '/.*/_navbar.md': '/_navbar.md',
-          //'/en/(.*)':'/main/en/$1', //Default fallback now fallback to the English version (used with fallbackLanguages)
-          //'/zh/(.*)':'/main/zh/$1', //Default fallback now fallback to the Zh version (used with fallbackLanguages)
-          '/(.*)':'/main/en/$1' //Default fallback now fallback to the English version (used with fallbackLanguages)
+
+
+            '/v(\\d+)\.(\\d+)/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/v$1.$2/$3/$4",
+            '/main/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/main/$1/$2",
+			//'/.*/_navbar.md': '/_navbar.md',
+
+
+          //'/.*/_navbar.md': '/_navbar.md',
+
+		  //VERSIONS assuming fallback to English.
+            //'/(en|zh|ko)/v(\\d+)\.(\\d+)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/v$2.$3/$1/$4",
+            //'/(en|zh|ko)/main/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/main/$1/$2",
         },
 
       plugins: [
@@ -63,6 +119,30 @@
 
                 }
               );
+			  
+			  //Fixup images in HTML to absolute path
+              fixcontent = fixcontent.replace(/ src\=["'](.*?)["']/g, 
+                (match, path) => {
+                  let linkrootpath=my_dir_path.slice();
+                  let relpath = path;
+                  if (relpath.startsWith('../')) {
+
+                    while (relpath.startsWith('../')) {
+                      relpath = relpath.slice(3);
+                      linkrootpath.pop();
+                    }
+
+                  linkrootpath = linkrootpath.join('/');
+                  linkrootpath = `${linkrootpath}/${relpath}`;
+                  let imagestring = ` src='${linkrootpath}'`;
+                  return imagestring;
+                  }
+                  else {
+                    return match;
+                  }
+
+                }
+              );
 
 
               // Fix up notes/tips
@@ -70,7 +150,6 @@
               fixcontent = fixcontent.replaceAll('> **Tip** ','\n?> **Tip:** ');
               fixcontent = fixcontent.replaceAll('> **Warning** ','\n!> **Warning:** ');
               fixcontent = fixcontent.replaceAll('> **Caution** ','\n!> **Warning:** ');
-			  
 			  
 
               fixcontent = fixcontent.replaceAll(/\s*{#([\w-]*)}/g, " :id=$1");
@@ -105,5 +184,9 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  <!-- Namespaces: https://evilmartians.com/chronicles/easy-multi-language-multi-version-documentation-with-docsify-git-and-github-actions  -->
+  <script src="https://unpkg.com/docsify-namespaced"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 </body>
 </html>
