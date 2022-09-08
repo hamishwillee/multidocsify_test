@@ -37,14 +37,14 @@
       //loadNavbar: true,
       relativePath: true,
       //fallbackLanguages: ['zh', 'ko'],
-      //search: 'auto', // default
 
+      //This is correct, but will fail as site is too big.
       search: {
         paths: 'auto',
         //namespace: 'px4-website',
         hideOtherSidebarContent: true,
         depth: 4,
-        pathNamespaces: ['/v1.15/ko'],
+        pathNamespaces: /^\/(main|v1\.15){1}\/(zh|en|ko){1}/
       },
 /*
       search: {
