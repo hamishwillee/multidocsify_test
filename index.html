@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -37,7 +38,8 @@
       relativePath: true,
       //loadNavbar: true, // Currently need to use coded navbar to get selectors working.
       //fallbackLanguages: ['zh', 'ko'],  //Not using fallback. This only works back to the "root" so would have to make en/master in the root. Messy.
-
+      maxLevel: 3,
+      subMaxLevel: 3,
       //This is correct, but will fail as site is too big for localStorage
       search: {
         paths: 'auto',
@@ -200,6 +202,9 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  <!-- docsify-themeable -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
   
   <!-- Namespaces: https://evilmartians.com/chronicles/easy-multi-language-multi-version-documentation-with-docsify-git-and-github-actions  -->
   <script src="https://unpkg.com/docsify-namespaced"></script>
