@@ -46,15 +46,7 @@
         depth: 4,
         pathNamespaces: /^\/(main|v1\.15){1}\/(zh|en|ko){1}/
       },
-/*
-      search: {
-        paths: 'auto',
-        namespace: 'px4-website',
-        hideOtherSidebarContent: true,
-        depth: 3,
-        pathNamespaces:/^(\/main){1}(\/(zh|en|ko)){1}/  matches on NOT main but does get the languages
-      },
-*/
+
       namespaces: [
         {
           id: "version",
@@ -73,18 +65,10 @@
       ],
 
       alias: {
+        '/v(\\d+)\.(\\d+)/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/v$1.$2/$3/$4",
+        '/main/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/main/$1/$2",
 
-
-            '/v(\\d+)\.(\\d+)/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/v$1.$2/$3/$4",
-            '/main/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/main/$1/$2",
-			//'/.*/_navbar.md': '/_navbar.md',
-
-
-          //'/.*/_navbar.md': '/_navbar.md',
-
-		  //VERSIONS assuming fallback to English.
-            //'/(en|zh|ko)/v(\\d+)\.(\\d+)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/v$2.$3/$1/$4",
-            //'/(en|zh|ko)/main/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/main/$1/$2",
+        //'/.*/_navbar.md': '/_navbar.md',
         },
 
       plugins: [
