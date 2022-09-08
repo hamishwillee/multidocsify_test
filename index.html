@@ -7,8 +7,12 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+<style>
+.material-icons.md-18 { font-size: 18px; }
+</style>
   <nav>
     <select id="lang-selector" name="lang" class="nav-select">
       <option value="en">English</option>
@@ -19,7 +23,7 @@
       <option value="main">main</option>
       <option value="v1.15">v1.15</option>
     </select>
-
+    <a id="edit_link" target="_blank" title="Edit on Github" class="icon-edit" style="display: none; font-size: 18px;"><span class='material-icons md-18'>mode_edit</span></a>
   </nav>
 
   <div id="app"></div>
@@ -79,6 +83,26 @@
           hook.beforeEach(function(content) {
 
             if (vm.isRemoteUrl && !vm.isHTML) {
+			
+			
+			
+              // Set edit link for the english pages only
+              let current_file = vm.route.file;
+              current_file=current_file.split("/main/en/");
+              const navMenuEditLink = document.getElementById("edit_link");
+              if (current_file.length == 2) {
+                let editlink=current_file[1];
+                editlink=`${$docsify.repo}/edit/main/en/${editlink}`;
+                navMenuEditLink.setAttribute("href", editlink);
+                navMenuEditLink.setAttribute('style','display: inline;');
+              } else {
+                navMenuEditLink.setAttribute('style','display: none; font-size: 30px;');
+              }
+			
+			
+			
+			
+			
 
               let my_dir_path = vm.route.file.split('/');
               my_dir_path.pop();
@@ -159,6 +183,14 @@
             //Return the original if there is no other fixes happening.
             return content
           });
+
+
+          hook.doneEach(function() {
+              // Invoked each time after the data is fully loaded, no arguments,
+
+
+          });
+
 
 
         }

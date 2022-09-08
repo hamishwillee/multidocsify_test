@@ -30,6 +30,7 @@ Todo:
 - Nice to have new theme
 - See if can redirect incoming links to new URL pattern. In particular for parameters.
 - Edit current page links
+- Collapsible sidebar
 
 
 
