@@ -24,7 +24,10 @@ Todo:
 - Versions
 - Search
 - Images
-- Conditional pages like the ones for "see master version"
+- Conditional pages like the ones for "see master version" 
+  - Partially done. 
+  - The ones in /contribute/ are all aliased, but not necessarily all of the pages affect - search to find out.
+  - But text on that page is still wrong so need to tidy that source if we migrate.
 - Navbar - other useful links.
 - Uorb dynamic has to work
 - Nice to have new theme
@@ -40,3 +43,4 @@ Todo:
 
 Migration
 - [ ] - SUMMARY paths have to be absolute for infrastructure to work (i.e. start with /)
+- [ ] - Contribute and other pages that have conditional text.
