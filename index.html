@@ -79,7 +79,7 @@
       namespaces: [
         {
           id: "version",
-          values: ["main", "v1.15"],
+          values: ["main", "v1.15", "rem_repo"],
           optional: false,
           selector: "#ver-selector",
           default: "main",
@@ -101,6 +101,9 @@
         //General redirects
         '/v(\\d+)\.(\\d+)/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/v$1.$2/$3/$4",
         '/main/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/main/$1/$2",
+
+        //PR redirects: /rempath/lang/username/reponame/branchname/...
+        '/rem_repo/(.*?)/(.*?)/(.*?)/(.*?)/(.*)': "https://raw.githubusercontent.com/$2/$3/$4/$1/$5",
 
         //'/.*/_navbar.md': '/_navbar.md',
         },
