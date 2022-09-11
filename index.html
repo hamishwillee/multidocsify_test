@@ -79,7 +79,7 @@
       namespaces: [
         {
           id: "version",
-          values: ["main", "v1.15", "rem_repo"],
+          values: ["main", "v1.15", "redir_repo", "local"],
           optional: false,
           selector: "#ver-selector",
           default: "main",
@@ -102,8 +102,10 @@
         '/v(\\d+)\.(\\d+)/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/v$1.$2/$3/$4",
         '/main/(en|zh|ko)/(.*)': "https://raw.githubusercontent.com/hamishwillee/PX4-user_guide/main/$1/$2",
 
-        //PR redirects: /rempath/lang/username/reponame/branchname/...
-        '/rem_repo/(.*?)/(.*?)/(.*?)/(.*?)/(.*)': "https://raw.githubusercontent.com/$2/$3/$4/$1/$5",
+        //PR redirects: /redir_repo/lang/username/reponame/branchname/...
+		//Allows any repo in the right format (i.e. with en from root to be imported).
+        '/redir_repo/(.*?)/(.*?)/(.*?)/(.*?)/(.*)': "https://raw.githubusercontent.com/$2/$3/$4/$1/$5",
+
 
         //'/.*/_navbar.md': '/_navbar.md',
         },
@@ -118,75 +120,11 @@
           // There's bug that means it can't find them in the tree
           // But we can get them from github as they have relative links
           hook.beforeEach(function(content) {
+		  
+		  let fixcontent = content;
 
-            if (vm.isRemoteUrl && !vm.isHTML) {
-
-			
-              // Set edit link for the english pages only
-			  // This might be done nicer. Think about plugin architecture.
-              let current_file = vm.route.file;
-              current_file=current_file.split("/main/en/");
-              const navMenuEditLink = document.getElementById("edit_link");
-              if (current_file.length == 2) {
-                let editlink=current_file[1];
-                editlink=`${$docsify.repo}/edit/main/en/${editlink}`;
-                navMenuEditLink.setAttribute("href", editlink);
-                navMenuEditLink.setAttribute('style','display: inline;');
-              } else {
-                navMenuEditLink.setAttribute('style','display: none; font-size: 30px;');
-              }
-			
-
-			
-
-              let my_dir_path = vm.route.file.split('/');
-              my_dir_path.pop();
-
-              //Fixup images in Markdown style images to absolute path
-              let fixcontent = content.replace(/\!\[(.*?)\]\((.*?)\)/g, 
-                (match, title, path) => {
-                  let linkrootpath=my_dir_path.slice();
-                  let relpath = path;
-                  if (relpath.startsWith('../')) {
-                    while (relpath.startsWith('../')) {
-                      relpath = relpath.slice(3);
-                      linkrootpath.pop();
-                    }
-                  linkrootpath = linkrootpath.join('/');
-                  linkrootpath = `${linkrootpath}/${relpath}`;
-                  let imagestring = `<img src="${linkrootpath}" title="${title}" />`;
-                  return imagestring;
-                  }
-                  else {
-                    return match;
-                  }
-                }
-              );
-
-              //Fixup images in HTML style imates to absolute path
-              fixcontent = fixcontent.replace(/ src\=["'](.*?)["']/g, 
-                (match, path) => {
-                  let linkrootpath=my_dir_path.slice();
-                  let relpath = path;
-                  if (relpath.startsWith('../')) {
-
-                    while (relpath.startsWith('../')) {
-                      relpath = relpath.slice(3);
-                      linkrootpath.pop();
-                    }
-
-                  linkrootpath = linkrootpath.join('/');
-                  linkrootpath = `${linkrootpath}/${relpath}`;
-                  let imagestring = ` src='${linkrootpath}'`;
-                  return imagestring;
-                  }
-                  else {
-                    return match;
-                  }
-
-                }
-              );
-
+          //General markdown fixes
+          if (!vm.isHTML) {
               // Make the github heading anchor format change to docsify format
               fixcontent = fixcontent.replaceAll(/\s*{#([\w-]*)}/g, " :id=$1");
 
@@ -211,17 +149,107 @@
                 return match;
                 }
               );
-
-              return fixcontent;
+			  
             }
 
-            //Return the original if there is no other fixes happening.
-            return content
-          });
+          //Fixs just for remote markdown
+          if (vm.isRemoteUrl && !vm.isHTML) {
+
+              // Set edit link for the english pages only
+			  // This might be done nicer. Think about plugin architecture.
+              let current_file = vm.route.file;
+              current_file=current_file.split("/main/en/");
+              const navMenuEditLink = document.getElementById("edit_link");
+              if (current_file.length == 2) {
+                let editlink=current_file[1];
+                editlink=`${$docsify.repo}/edit/main/en/${editlink}`;
+                navMenuEditLink.setAttribute("href", editlink);
+                navMenuEditLink.setAttribute('style','display: inline;');
+              } else {
+                navMenuEditLink.setAttribute('style','display: none; font-size: 30px;');
+              }
+
+			
+
+              let my_dir_path = vm.route.file.split('/');
+              my_dir_path.pop();
+
+              //Fixup images in Markdown style images to absolute path
+              fixcontent = fixcontent.replace(/\!\[(.*?)\]\((.*?)\)/g, 
+                (match, title, path) => {
+                  let linkrootpath=my_dir_path.slice();
+                  let relpath = path;
+                  if (relpath.startsWith('../')) {
+                    while (relpath.startsWith('../')) {
+                      relpath = relpath.slice(3);
+                      linkrootpath.pop();
+                    }
+                  linkrootpath = linkrootpath.join('/');
+                  linkrootpath = `${linkrootpath}/${relpath}`;
+                  let imagestring = `<img src="${linkrootpath}" title="${title}" />`;
+                  return imagestring;
+                  }
+                  else {
+                    return match;
+                  }
+                }
+              );
+
+              //Fixup images in HTML style images to absolute path
+              fixcontent = fixcontent.replace(/ src\=["'](.*?)["']/g, 
+                (match, path) => {
+                  let linkrootpath=my_dir_path.slice();
+                  let relpath = path;
+                  if (relpath.startsWith('../')) {
+
+                    while (relpath.startsWith('../')) {
+                      relpath = relpath.slice(3);
+                      linkrootpath.pop();
+                    }
+
+                  linkrootpath = linkrootpath.join('/');
+                  linkrootpath = `${linkrootpath}/${relpath}`;
+                  let imagestring = ` src='${linkrootpath}'`;
+                  return imagestring;
+                  }
+                  else {
+                    return match;
+                  }
+                }
+              );
+
+              //Fix up relative links reference: 
+              //[rcircle]: ../../assets/hardware/cables/red.png
+              fixcontent = fixcontent.replace(/^(\[.*?\]\:) (.*?)$/gm,
+                (match, title, path) => {
+                  console.log(match)
+                  let linkrootpath=my_dir_path.slice();
+                  let relpath = path;
+                  if (relpath.startsWith('../')) {
+                    while (relpath.startsWith('../')) {
+                      relpath = relpath.slice(3);
+                      linkrootpath.pop();
+                    }
+                  linkrootpath = linkrootpath.join('/');
+                  linkrootpath = `${linkrootpath}/${relpath}`;
+                  let relativelink = `${title} ${linkrootpath}`;
+                  return relativelink;
+                  }
+                  else {
+                    return match;
+                  }
+                }
+              );
+
+            }
+
+            //Return the modified content
+            return fixcontent
+          }); //End of this hook
 
 
         }
-      ],
+      ], //end of all plugins
 
     }
   </script>
