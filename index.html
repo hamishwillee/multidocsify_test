@@ -149,7 +149,18 @@
                 return match;
                 }
               );
-			  
+
+              // Fix up youtube videos in format expected by vuepress.
+              // Get the ID then simply turns into IMAGE and link using VID. i.e. it does this as below.
+              //[![Alt text](https://img.youtube.com/vi/VID/0.jpg)](https://www.youtube.com/watch?v=VID)
+              fixcontent = fixcontent.replaceAll(/\@\[youtube\]\((.*?)\)/g, 
+                (match, linkstring) => {
+                  let vid = linkstring.split("/").pop();
+                  vid = vid.split("?v=").pop();
+                  vid = vid.split("&")[0];
+                  return `[![Alt text](https://img.youtube.com/vi/${vid}/0.jpg)](https://www.youtube.com/watch?v=${vid})`; 
+                }
+              );
             }
 
           //Fixs just for remote markdown
