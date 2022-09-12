@@ -267,24 +267,7 @@
           }); //End of this hook
 
 
-         hook.ready(function() {
-            // Called after initial completion. Only trigger once, no arguments.
-            // Attempt to move the icon for the dark light switcher. Might need to be removed.
-            //const darkLightLink = document.querySelector("#docsify-darklight-theme");
-            //const fred = document.getElementsByClassName("app-nav")[0].appendChild(darkLightLink); //
-            //darkLightLink.style.display = 'inline-block';
-            //darkLightLink.style.position = 'relative';
-            //darkLightLink.style.top = '15px';
-			//fix_darklight();
-          });
 
-			function fix_darklight() {
-						const darkLightLink = document.querySelector("#docsify-darklight-theme");
-						const fred = document.getElementsByClassName("app-nav")[0].appendChild(darkLightLink); //
-						darkLightLink.style.display = 'inline-block';
-						darkLightLink.style.position = 'relative';
-						darkLightLink.style.top = '15px';
-			}
 
         }
 
@@ -317,10 +300,18 @@
     src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/main.min.js"
     type="text/javascript">
   </script>
+  <!-- Updated script for the theme -->
+  <script
+    src="https://cdn.jsdelivr.net/gh/hamishwillee/multidocsify_test@px4test_docsify/docsify_darklight_navbar.js"
+    type="text/javascript">
+  </script>
+  
+  <!-- During development
   <script
     src="./docsify_darklight_navbar.js"
     type="text/javascript">
   </script>
+  -->
 
   
   <!-- sidebar collapse: https://github.com/iPeng6/docsify-sidebar-collapse 
