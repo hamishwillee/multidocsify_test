@@ -59,6 +59,13 @@ window.$docsify.plugins = [].concat((e,t)=>{
 		dark_light_node.style.top = '15px';
 		appNavBar.appendChild(dark_light_node); //
 		
+        let e = localStorage.getItem("DARK_LIGHT_THEME");
+        "light" == e || "dark" == e ? (o.defaultTheme = e,
+        i(o.defaultTheme)) : i(o.defaultTheme),
+        document.getElementById("docsify-darklight-theme").addEventListener("click", (function() {
+            "light" === o.defaultTheme ? i("dark") : i("light")
+        }
+        ))
       });
 
 						
@@ -71,6 +78,8 @@ window.$docsify.plugins = [].concat((e,t)=>{
     )),
 	*/
     e.doneEach((function() {
+		
+		/*
         let e = localStorage.getItem("DARK_LIGHT_THEME");
         "light" == e || "dark" == e ? (o.defaultTheme = e,
         i(o.defaultTheme)) : i(o.defaultTheme),
@@ -78,6 +87,7 @@ window.$docsify.plugins = [].concat((e,t)=>{
             "light" === o.defaultTheme ? i("dark") : i("light")
         }
         ))
+		*/
     }
     ))
 }
