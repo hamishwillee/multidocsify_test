@@ -60,6 +60,7 @@
     window.$docsify = {
       name: 'PX4 User Guide',
       repo: 'https://github.com/PX4/PX4-user_guide',
+      //logo: '/assets/logo.png',
 
       loadSidebar: 'SUMMARY.md',
       relativePath: true,
@@ -161,6 +162,10 @@
                   return `[![Alt text](https://img.youtube.com/vi/${vid}/0.jpg)](https://www.youtube.com/watch?v=${vid})`; 
                 }
               );
+			  
+			  fixcontent = fixcontent.replace('({{ $themeConfig.px4_version }})','');
+
+			  
             }
 
           //Fixs just for remote markdown
@@ -253,10 +258,24 @@
               );
 
             }
+			
+
+
 
             //Return the modified content
             return fixcontent
           }); //End of this hook
+
+
+         hook.ready(function() {
+            // Called after initial completion. Only trigger once, no arguments.
+            // Attempt to move the icon for the dark light switcher. Might need to be removed.
+            const darkLightLink = document.querySelector("#docsify-darklight-theme");
+            const fred = document.getElementsByClassName("app-nav")[0].appendChild(darkLightLink); //
+            darkLightLink.style.display = 'inline-block';
+            darkLightLink.style.position = 'relative';
+            darkLightLink.style.top = '15px';
+          });
 
 
         }
