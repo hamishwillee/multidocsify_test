@@ -12,10 +12,10 @@
     - Very pretty and clean.
     - Sidebar could use some work - ie sectioning not clear
     - Top scrolls
-
+    -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 
-    -->
+
   
   <!-- vue theme : 
     - OK but top bar doesn't scroll
@@ -30,16 +30,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="light">
   <link rel="stylesheet alternative" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" title="dark">
 
-  -->
+
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/docsify-themeable/style.min.css" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="light">
   <link rel="stylesheet alternative" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" title="dark">
-  
+    -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <style>
 .material-icons.md-18 { font-size: 18px; }
+.algolia-docsearch-suggestion--highlight {
+  color: green;
+}
 </style>
   <nav>
     <select id="lang-selector" name="lang" class="nav-select">
@@ -69,6 +72,7 @@
       maxLevel: 3,
       subMaxLevel: 3,
       //This is correct, but will fail as site is too big for localStorage
+	  /*
       search: {
         paths: 'auto',
         //namespace: 'px4-website',
@@ -76,6 +80,105 @@
         depth: 4,
         pathNamespaces: /^\/(main|v1\.15){1}\/(zh|en|ko){1}/
       },
+	  */
+	  
+      // Algolia search: https://www.npmjs.com/package/docsify-algolia-search-plugin
+        search: {
+            placeholder: 'Type to search',
+ 
+            // Localization
+            placeholder: {
+                '/zh/': '搜索',
+                '/': 'Type to search'
+            },
+ 
+            // Localization
+            noData: {
+                '/zh/': '找不到结果',
+                '/': 'No Results'
+            },
+ 
+            hideOtherSidebarContent: true, // whether or not to hide other sidebar content
+ 
+            // template overrides
+			
+            templates: {
+                //base: options => 'Base',
+                //style: options => 'Style',
+                resultItem: (result, response, options) => {
+                    const jimmy = result;
+                    const { hierarchy } = result;
+                    let title = '';
+                    //if (hierarchy.lvl0) title=`${hierarchy.lvl0}`; // I think this is the text from summary
+                    if (hierarchy.lvl1) title+=` ${hierarchy.lvl1}`;
+                    if (hierarchy.lvl2) title+=` > ${hierarchy.lvl2}`;
+                    if (hierarchy.lvl3) title+=` > ${hierarchy.lvl3}`;
+                    if (hierarchy.lvl4) title+=` > ${hierarchy.lvl4}`;
+                    
+                    //const matchingText = result._snippetResult.content.value;
+					const matchingText = result._highlightResult.hierarchy.lvl1.value;
+					
+                    return `
+                       <div class="matching-post">
+                           <a href="${result.url}">
+                              <h2>${title}</h2>
+                              <p>${matchingText}</p>
+                           </a>
+                       </div>`;
+                },
+                //resultSet: (result, response, options) => 'ResSet',
+            },
+            
+            // algolia options
+			//https://hhww7i44jo-dsn.algolia.net/1/indexes/px4/query?x-algolia-agent=Algolia%20for%20JavaScript%20(3.33.0)%3B%20Browser&x-algolia-application-id=HHWW7I44JO&x-algolia-api-key=48919e1dffc6e0ce4c0d6331343d2c0e
+			//https://hhww7i44jo-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia for vanilla JavaScript (lite) 3.30.0;docsearch.js 2.6.3&x-algolia-application-id=HHWW7I44JO&x-algolia-api-key=48919e1dffc6e0ce4c0d6331343d2c0e
+            algolia: {
+                token: '48919e1dffc6e0ce4c0d6331343d2c0e', // https://www.algolia.com/doc/guides/security/api-keys/
+                appId: 'HHWW7I44JO', // Your app id,
+                defaultIndex: 'px4',
+				hitsPerPage: '10',
+
+                // default multi settings
+				/*
+                multi: true,
+				
+				multi: {
+                    px4: 'Version 3',
+                },
+                */
+
+                // multiple indexes with settings
+				/*
+                indexes: [{
+                    index: 'px4',
+                    settings: {
+						'hitsPerPage': '10',
+                    },
+                }, 
+				],
+				
+                defaultIndex: (indexMap) => {
+                    return `px4`;
+                }
+                */
+				
+                // single index
+                // indexes: 'px4',
+  
+                // single index with settings
+				
+
+                indexes: {
+                    index: 'px4',
+                    settings: {
+                        'facetFilters': "[\"version:main\", \"lang:en-US\"]",
+                        'hitsPerPage': '10'
+                    }
+                },
+
+ 
+            }
+        },  <!-- end algolia options -->
 
       namespaces: [
         {
@@ -185,7 +288,7 @@
                 navMenuEditLink.setAttribute('style','display: none; font-size: 30px;');
               }
 
-			
+
 
               let my_dir_path = vm.route.file.split('/');
               my_dir_path.pop();
@@ -278,10 +381,10 @@
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   
-  <!-- docsify-themeable -->
+  <!-- docsify-themeable 
   
   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-  
+  -->
  
   
   <!-- docsify-themeable darklight -->
@@ -325,14 +428,25 @@
   -->
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   
-  <!-- Namespaces: https://evilmartians.com/chronicles/easy-multi-language-multi-version-documentation-with-docsify-git-and-github-actions  -->
+  <!-- Namespaces: https://evilmartians.com/chronicles/easy-multi-language-multi-version-documentation-with-docsify-git-and-github-actions 
   <script src="https://unpkg.com/docsify-namespaced"></script>
-  
-  <!-- full text search: very cool but does not work on our size of database - though it might with some hints -->
+   -->
+  <!-- full text search: very cool but does not work on our size of database - though it might with some hints 
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  -->
   
   <!-- zoom image -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  
+
+  <!-- algolia search: https://www.npmjs.com/package/docsify-algolia-search-plugin
+  
+    <script src="//unpkg.com/docsify-algolia-search-plugin"></script>
+  -->  
+  <script src="http://localhost:1234/index.js"></script>
+  
+  
+
 
 </body>
 </html>

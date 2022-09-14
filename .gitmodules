@@ -1,0 +1,3 @@
+[submodule "docsify-algolia-search-plugin"]
+	path = docsify-algolia-search-plugin
+	url = https://github.com/hamishwillee/docsify-algolia-search-plugin
