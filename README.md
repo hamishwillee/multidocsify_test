@@ -35,6 +35,8 @@ Todo:
 - Edit current page links
 - Collapsible sidebar
 - DONE PR testing : Format URL like /redir_repo/lang/username/reponame/branchname/...   (aliased)
+  /redir_repo/lang/username/PX4-user_guide/branchname/ 
+
 - Local testing 
   - Kind of just works, but you need a different base URL. So a manual step.
   
@@ -47,7 +49,7 @@ Todo:
  - Test page http://localhost:3000/#/main/en/config/README?id=video-guide
  - Basically replace syntax with image and a link
  
- 
+- What happens if we see `<Redirect to="dev_env_linux_ubuntu" />`
  
 - you tube syntax on gitbook - might need to update.
   
@@ -58,8 +60,9 @@ Todo:
 
 
 
+- Multi-line note - see GPS & Compass page below the table. 
 
-
+- Redirect to /advanced_config/parameter_reference?id=GPS_1_CONFIG : note internal links will go to  https://hamishwillee.github.io/multidocsify_test/#/redir_repo/en/farhangnaderi/PX4-user_guide/pr-locosys-r1/advanced_config/parameter_reference?id=gps_1_config - ie they are linkified lower case. So we may want to look for the id and add a duplicate lower case.
 
 
 Migration

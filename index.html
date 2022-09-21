@@ -35,6 +35,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="light">
   <link rel="stylesheet alternative" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" title="dark">
   
+  <!-- instantsearch CSS 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css" integrity="sha256-QlHlZdbSVxaYkUHxhMFhAj/L3pJiW1LuomSCONXBWms=" crossorigin="anonymous"> -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css" integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+
+  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -53,7 +59,8 @@
     </select>
     <a id="edit_link" target="_blank" title="Edit on Github" class="icon-edit" style="display: none; font-size: 18px;"><span class='material-icons md-18'>mode_edit</span></a>
   </nav>
-
+  <div id="searchbox"></div>
+  <div id="hits"></div>
   <div id="app"></div>
   <script>
 
@@ -74,7 +81,65 @@
         //namespace: 'px4-website',
         hideOtherSidebarContent: true,
         depth: 4,
-        pathNamespaces: /^\/(main|v1\.15){1}\/(zh|en|ko){1}/
+        pathNamespaces: /^\/(main|v1\.15){1}\/(zh|en|ko){1}/,
+
+        templates: {
+            //base: options => 'Base',
+            //style: options => 'Style',
+            resultItem: (result, response, options) => {
+                const jimmy = result;
+                const { hierarchy } = result;
+                let title = '';
+                //if (hierarchy.lvl0) title=`${hierarchy.lvl0}`; // I think this is the text from summary
+                if (hierarchy.lvl1) title+=` ${hierarchy.lvl1}`;
+                if (hierarchy.lvl2) title+=` > ${hierarchy.lvl2}`;
+                if (hierarchy.lvl3) title+=` > ${hierarchy.lvl3}`;
+                if (hierarchy.lvl4) title+=` > ${hierarchy.lvl4}`;
+
+                //const matchingText = result._snippetResult.content.value;
+                const matchingText = result._highlightResult.hierarchy.lvl1.value;
+
+                return `
+                       <div class="matching-post">
+                           <a href="${result.url}">
+                              <h2>${title}</h2>
+                              <p>${matchingText}</p>
+                           </a>
+                       </div>`;
+            },
+        },
+
+
+        algolia: {
+                token: '48919e1dffc6e0ce4c0d6331343d2c0e', // https://www.algolia.com/doc/guides/security/api-keys/
+                appId: 'HHWW7I44JO', // Your app id,
+				
+                defaultIndex: 'px4',
+ 
+                // single index
+                //indexes: 'px4',
+				
+                // single index with settings
+                indexes: {
+                    index: 'px4',
+                    settings: {
+                      hitsPerPage: 10,
+					  facetFilters: ['version:main','lang:en-US']  //en-US, zh-CN, ko-KR, //main, v1.13, v1.12, v1.11, v1.10, v1.9.0, v1.8.2
+                    }
+                },
+				
+				/*
+				// Return an index object that can just plug straight into search - ie index + settings.
+				// This should just build item for  current index
+				
+                searchSettingsItem: (result, response, options) => {
+                    const jimmy = result;
+                    return `The object`;
+                },
+				*/
+
+            },
+
       },
 
       namespaces: [
@@ -329,10 +394,16 @@
   <script src="https://unpkg.com/docsify-namespaced"></script>
   
   <!-- full text search: very cool but does not work on our size of database - though it might with some hints -->
+  <!--
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  -->
   
   <!-- zoom image -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+
+
+  <!-- algolia html --> 
+  <script src="http://localhost:1234/index.js"></script>
 
 </body>
 </html>
