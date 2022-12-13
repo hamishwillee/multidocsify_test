@@ -40,7 +40,7 @@ Todo:
 - Local testing 
   - Kind of just works, but you need a different base URL. So a manual step.
   
-
+- Dynamic update of links to repos, such as github, based on subsitution of /main/, /master/ for a particular release. Needs evaluation.
   
 - Work out how to remove SUMMARY section if it exists from top of MD
 - DONE Fix up reference links to be absolute links: (https://github.com/PX4/PX4-user_guide/edit/main/en/assembly/cable_wiring.md) //   > [rcircle]: ../../assets/hardware/cables/red.png
