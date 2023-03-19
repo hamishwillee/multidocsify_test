@@ -56,6 +56,7 @@
     <select id="ver-selector" name="ver" class="nav-select">
       <option value="main">main</option>
       <option value="v1.15">v1.15</option>
+      <option value="v1.22">v1.22</option>
     </select>
     <a id="edit_link" target="_blank" title="Edit on Github" class="icon-edit" style="display: none; font-size: 18px;"><span class='material-icons md-18'>mode_edit</span></a>
   </nav>
@@ -68,7 +69,7 @@
       name: 'PX4 User Guide',
       repo: 'https://github.com/PX4/PX4-user_guide',
       //logo: '/assets/logo.png',
-
+	  executeScript: true,
       loadSidebar: 'SUMMARY.md',
       relativePath: true,
       //loadNavbar: true, // Currently need to use coded navbar to get selectors working.
@@ -81,31 +82,58 @@
         //namespace: 'px4-website',
         hideOtherSidebarContent: true,
         depth: 4,
-        pathNamespaces: /^\/(main|v1\.15){1}\/(zh|en|ko){1}/,
+        namespaceFacetMap: { 'lang': {'en' : 'en-US', 'zh' : 'zh-CN', 'ko' : 'ko-KR'} },
 
         templates: {
             //base: options => 'Base',
             //style: options => 'Style',
             resultItem: (result, response, options) => {
-                const jimmy = result;
-                const { hierarchy } = result;
+                const { hierarchy} = result;
+				const { _highlightResult } = result;
+				// find best full match of set.
+				// If get full match use the first hierarchy, not the second one.
+				
                 let title = '';
-                //if (hierarchy.lvl0) title=`${hierarchy.lvl0}`; // I think this is the text from summary
+				let matchingText = "";
+                //if (hierarchy.lvl0) title=`${hierarchy.lvl0}`; // I think this is the text from summary/toc
+				
+                for (const prop in _highlightResult.hierarchy) {
+                  console.log(`_highlightResult.hierarchy.${prop}\n matchlevel: ${_highlightResult.hierarchy[prop].matchLevel}\n value: ${_highlightResult.hierarchy[prop].value}`);
+                  if (`${prop}` == "lvl0") {
+				     console.log("skip lvl0");
+				     continue;
+                  } else if (_highlightResult.hierarchy[prop].matchLevel == "none") {
+				     continue;
+                  } else if (_highlightResult.hierarchy[prop].matchLevel == "full") {
+				    matchingText+=`<p>${_highlightResult.hierarchy[prop].value}</p>`
+				  }
+                }
+
                 if (hierarchy.lvl1) title+=` ${hierarchy.lvl1}`;
                 if (hierarchy.lvl2) title+=` > ${hierarchy.lvl2}`;
                 if (hierarchy.lvl3) title+=` > ${hierarchy.lvl3}`;
                 if (hierarchy.lvl4) title+=` > ${hierarchy.lvl4}`;
 
                 //const matchingText = result._snippetResult.content.value;
-                const matchingText = result._highlightResult.hierarchy.lvl1.value;
+                //const matchingText = result._highlightResult.hierarchy.lvl1.value;
 
                 return `
+                       <div class="matching-post">
+                           <a href="${result.url}">
+                              <h2>${title}</h2>
+                              ${matchingText}
+                           </a>
+                       </div>`;
+
+			/*
+			                return `
                        <div class="matching-post">
                            <a href="${result.url}">
                               <h2>${title}</h2>
                               <p>${matchingText}</p>
                            </a>
                        </div>`;
+			*/
             },
         },
 
@@ -113,30 +141,19 @@
         algolia: {
                 token: '48919e1dffc6e0ce4c0d6331343d2c0e', // https://www.algolia.com/doc/guides/security/api-keys/
                 appId: 'HHWW7I44JO', // Your app id,
-				
+
                 defaultIndex: 'px4',
  
                 // single index
                 //indexes: 'px4',
-				
+
                 // single index with settings
                 indexes: {
                     index: 'px4',
                     settings: {
                       hitsPerPage: 10,
-					  facetFilters: ['version:main','lang:en-US']  //en-US, zh-CN, ko-KR, //main, v1.13, v1.12, v1.11, v1.10, v1.9.0, v1.8.2
                     }
                 },
-				
-				/*
-				// Return an index object that can just plug straight into search - ie index + settings.
-				// This should just build item for  current index
-				
-                searchSettingsItem: (result, response, options) => {
-                    const jimmy = result;
-                    return `The object`;
-                },
-				*/
 
             },
 
@@ -145,7 +162,7 @@
       namespaces: [
         {
           id: "version",
-          values: ["main", "v1.15", "redir_repo", "local"],
+          values: ["main", "v1.15", "v1.22","redir_repo", "local"],
           optional: false,
           selector: "#ver-selector",
           default: "main",
@@ -158,6 +175,7 @@
           default: "en",
         },
       ],
+
 
       alias: {
         // Alias for pages where the main version should always be used - put in the contribute folder.
@@ -186,7 +204,7 @@
           // There's bug that means it can't find them in the tree
           // But we can get them from github as they have relative links
           hook.beforeEach(function(content) {
-		  
+
 		  let fixcontent = content;
 
           //General markdown fixes
@@ -228,9 +246,33 @@
                 }
               );
 			  
+			  // Removed vuepress version stuff that isn't used - now we just redirect to latest.
 			  fixcontent = fixcontent.replace('({{ $themeConfig.px4_version }})','');
-
 			  
+			  // Fix up uorb_graph.md
+              // The options for selector are releative to root. This helps it find the actual locations of the files
+			  // Probably need to make this look for the files in the relative root.
+			  const sourceFilePath = vm.route.file;
+              const sourceDirPath = sourceFilePath.substring(0, sourceFilePath.lastIndexOf('/'));
+			  const sourceRootPath = sourceDirPath.split("en/")[0];
+			  var regExGraph = /(option value=')(graph_.*?.json)'/ig;
+			  //fixcontent = fixcontent.replaceAll(regExGraph, `$1${sourceDirPath}/$2'`);
+			  fixcontent = fixcontent.replaceAll(regExGraph, `$1${sourceRootPath}.vuepress/public/en/middleware/$2'`);
+			  
+			  
+			  // Removed d3.v4.min.js - need to find a better way to import this - at moment is loaded into the index.
+			  // Can perhaps combine With the uorb__graph.
+			  // Need to do this because only first script is loaded
+              // Note, using regexp because hard to exscape paths right in JS
+			  const regExUorb = /<script.*?d3js.org*?script>/i;
+			  fixcontent = fixcontent.replace(regExUorb, "");
+			  
+			  const regExRemd3 = /<script.*?d3js.org*?script>/i;
+
+              //Replace uorb graph with a version served from a CDN
+			  fixcontent = fixcontent.replace('uorb_graph.js','https://cdn.jsdelivr.net/gh/hamishwillee/PX4-user_guide@771657b/en/middleware/uorb_graph.js');
+
+
             }
 
           //Fixs just for remote markdown
@@ -346,8 +388,9 @@
   <!-- docsify-themeable -->
   
   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-  
- 
+  <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js" async></script>
+   
   
   <!-- docsify-themeable darklight -->
   <!--
