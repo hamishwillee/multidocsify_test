@@ -245,32 +245,32 @@
                   return `[![Alt text](https://img.youtube.com/vi/${vid}/0.jpg)](https://www.youtube.com/watch?v=${vid})`; 
                 }
               );
-			  
-			  // Removed vuepress version stuff that isn't used - now we just redirect to latest.
-			  fixcontent = fixcontent.replace('({{ $themeConfig.px4_version }})','');
-			  
-			  // Fix up uorb_graph.md
+
+              // Removed vuepress version stuff that isn't used - now we just redirect to latest.
+              fixcontent = fixcontent.replace('({{ $themeConfig.px4_version }})','');
+
+              // Fix up uorb_graph.md
               // The options for selector are releative to root. This helps it find the actual locations of the files
-			  // Probably need to make this look for the files in the relative root.
-			  const sourceFilePath = vm.route.file;
+              // Probably need to make this look for the files in the relative root.
+              const sourceFilePath = vm.route.file;
               const sourceDirPath = sourceFilePath.substring(0, sourceFilePath.lastIndexOf('/'));
-			  const sourceRootPath = sourceDirPath.split("en/")[0];
-			  var regExGraph = /(option value=')(graph_.*?.json)'/ig;
-			  //fixcontent = fixcontent.replaceAll(regExGraph, `$1${sourceDirPath}/$2'`);
-			  fixcontent = fixcontent.replaceAll(regExGraph, `$1${sourceRootPath}.vuepress/public/en/middleware/$2'`);
-			  
-			  
-			  // Removed d3.v4.min.js - need to find a better way to import this - at moment is loaded into the index.
-			  // Can perhaps combine With the uorb__graph.
-			  // Need to do this because only first script is loaded
+              const sourceRootPath = sourceDirPath.split("en/")[0];
+              var regExGraph = /(option value=')(graph_.*?.json)'/ig;
+              //fixcontent = fixcontent.replaceAll(regExGraph, `$1${sourceDirPath}/$2'`);
+              fixcontent = fixcontent.replaceAll(regExGraph, `$1${sourceRootPath}.vuepress/public/en/middleware/$2'`);
+
+
+              // Removed d3.v4.min.js - need to find a better way to import this - at moment is loaded into the index.
+              // Can perhaps combine With the uorb__graph.
+              // Need to do this because only first script is loaded
               // Note, using regexp because hard to exscape paths right in JS
-			  const regExUorb = /<script.*?d3js.org*?script>/i;
-			  fixcontent = fixcontent.replace(regExUorb, "");
-			  
-			  const regExRemd3 = /<script.*?d3js.org*?script>/i;
+              const regExUorb = /<script.*?d3js.org*?script>/i;
+              fixcontent = fixcontent.replace(regExUorb, "");
+
+              const regExRemd3 = /<script.*?d3js.org*?script>/i;
 
               //Replace uorb graph with a version served from a CDN
-			  fixcontent = fixcontent.replace('uorb_graph.js','https://cdn.jsdelivr.net/gh/hamishwillee/PX4-user_guide@771657b/en/middleware/uorb_graph.js');
+              fixcontent = fixcontent.replace('uorb_graph.js','https://cdn.jsdelivr.net/gh/PX4/PX4-user_guide@70a3e39/scripts/middleware/uorb_graph.js');
 
 
             }
