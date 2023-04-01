@@ -34,7 +34,7 @@ Todo:
   - [ ]  Failsafe simulator
 - [ ] Static site indexable by google?
 
-- Nice to have new theme
+- [ ] Nice to have new theme
 - [ ] Redirect incoming links to new URL pattern. In particular for parameters.
 - [ ] Edit current page links
 - [ ] Collapsible sidebar
@@ -43,15 +43,14 @@ Todo:
 
 - [ ] Local testing. Kind of just works, but you need a different base URL. So a manual step.
   
-- Work out how to remove SUMMARY section if it exists from top of MD
+- [ ] Work out how to remove SUMMARY section if it exists from top of MD
 - [ ] DONE Fix up reference links to be absolute links: (https://github.com/PX4/PX4-user_guide/edit/main/en/assembly/cable_wiring.md) //   > [rcircle]: ../../assets/hardware/cables/red.png
 - [ ] What happens if we see `<Redirect to="dev_env_linux_ubuntu" />`? 
 - [ ] Youtube 
   - [ ] Gitbook syntax
-  - [ ] Vuepress syntax - Basically replace syntax with image and a link. Currently @[youtube](https://youtu.be/91VGmdSlbo4) - Test page http://localhost:3000/#/main/en/config/README?id=video-guide
+  - [x] Vuepress syntax - Basically replace syntax with image and a link. Currently @[youtube](https://youtu.be/91VGmdSlbo4) - Test page http://localhost:3000/#/main/en/config/README?id=video-guide
 - [ ] Multi-line note - see GPS & Compass page below the table. 
-
-- Redirect to /advanced_config/parameter_reference?id=GPS_1_CONFIG : note internal links will go to  https://hamishwillee.github.io/multidocsify_test/#/redir_repo/en/farhangnaderi/PX4-user_guide/pr-locosys-r1/advanced_config/parameter_reference?id=gps_1_config - ie they are linkified lower case. So we may want to look for the id and add a duplicate lower case.
+  - Redirect to /advanced_config/parameter_reference?id=GPS_1_CONFIG : note internal links will go to  https://hamishwillee.github.io/multidocsify_test/#/redir_repo/en/farhangnaderi/PX4-user_guide/pr-locosys-r1/advanced_config/parameter_reference?id=gps_1_config - ie they are linkified lower case. So we may want to look for the id and add a duplicate lower case.
 
 
 Migration
