@@ -238,6 +238,12 @@
             // There's bug that means it can't find them in the tree
             // But we can get them from github as they have relative links
             hook.beforeEach(function (content) {
+              // Set up path info useful getting page detail
+              const sourceFileFullPath = vm.route.file;
+              const sourceDirFullPathArray = vm.route.file.split("/");
+              const sourceFileName = sourceDirFullPathArray.pop();
+              const sourceDirPath = sourceDirFullPathArray.join("/");
+
               let fixcontent = content;
 
               //General markdown fixes
@@ -336,8 +342,8 @@
               if (vm.isRemoteUrl && !vm.isHTML) {
                 // Set edit link for the english pages only
                 // This might be done nicer. Think about plugin architecture.
-                let current_file = vm.route.file;
-                current_file = current_file.split("/main/en/");
+                let current_file = sourceFileFullPath;
+                current_file = current_file.split("/main/en/"); // Needs to also work for versions .... perhaps.
                 const navMenuEditLink = document.getElementById("edit_link");
                 if (current_file.length == 2) {
                   let editlink = current_file[1];
@@ -351,14 +357,11 @@
                   );
                 }
 
-                let my_dir_path = vm.route.file.split("/");
-                my_dir_path.pop();
-
                 //Fixup images in Markdown style images to absolute path
                 fixcontent = fixcontent.replace(
                   /\!\[(.*?)\]\((.*?)\)/g,
                   (match, title, path) => {
-                    let linkrootpath = my_dir_path.slice();
+                    let linkrootpath = sourceDirFullPathArray.slice();
                     let relpath = path;
                     if (relpath.startsWith("../")) {
                       while (relpath.startsWith("../")) {
@@ -379,7 +382,7 @@
                 fixcontent = fixcontent.replace(
                   / src\=["'](.*?)["']/g,
                   (match, path) => {
-                    let linkrootpath = my_dir_path.slice();
+                    let linkrootpath = sourceDirFullPathArray.slice();
                     let relpath = path;
                     if (relpath.startsWith("../")) {
                       while (relpath.startsWith("../")) {
@@ -403,7 +406,7 @@
                   /^(\[.*?\]\:) (.*?)$/gm,
                   (match, title, path) => {
                     console.log(match);
-                    let linkrootpath = my_dir_path.slice();
+                    let linkrootpath = sourceDirFullPathArray.slice();
                     let relpath = path;
                     if (relpath.startsWith("../")) {
                       while (relpath.startsWith("../")) {
