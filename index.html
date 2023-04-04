@@ -306,6 +306,21 @@
                   ""
                 );
 
+                // Just for parameter reference markdown with an anchor link
+                // change incoming links to upper case so these all work
+                // Docsify should not force links to lowr case.
+                if (
+                  vm.route.query.id &&
+                  sourceFileName == "parameter_reference.md"
+                ) {
+                  // only do in the parameters.md file
+                  const targetAnchor = vm.route.query.id;
+                  const upperTargetAnchor = targetAnchor.toUpperCase();
+                  if (targetAnchor != upperTargetAnchor) {
+                    vm.route.query.id = upperTargetAnchor;
+                  }
+                }
+
                 // Fix up uorb_graph.md
                 // The options for selector are releative to root. This helps it find the actual locations of the files
                 // Probably need to make this look for the files in the relative root.
